@@ -1,35 +1,22 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 public abstract class Exercise {
+    private String name;
     private int repetitions;
     private int sets;
-    private String name;
+    private double difficulty;
 
-    //Might need a class
 
-    public Exercise(){}
+    //Might need a Guide class later
+    private String description;
+    private String videoguide;
 
-    public int getRepetitions() {
-        return repetitions;
-    }
-
-    public int getSets() {
-        return sets;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setRepetitions(int repetitions) {
-        this.repetitions = repetitions;
-    }
-
-    public void setSets(int sets) {
-        this.sets = sets;
-    }
-
-    public void setName(String name) {
+    public Exercise(String name, int repetitions, int sets, double difficulty, String description, String videoguide){
         this.name = name;
+        this.repetitions = repetitions;
+        this.sets = sets;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.videoguide = videoguide;
     }
 }
