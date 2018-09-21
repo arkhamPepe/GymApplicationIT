@@ -1,5 +1,7 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import lombok.Getter;
+
 import java.util.List;
 
 public class User {
@@ -10,6 +12,7 @@ public class User {
     private int age;
     private int weight;
     private boolean isBeginner;
+    @Getter
     private boolean routineActive;
     // private Schedule schedule;
 

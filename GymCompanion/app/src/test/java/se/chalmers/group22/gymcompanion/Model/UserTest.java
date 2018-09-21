@@ -7,8 +7,9 @@ import static org.junit.Assert.*;
 public class UserTest {
     @Test
     public void startRoutineTest(){
-        /*User user = new User();
-        user.startRoutine();*/
+        User user = new User(null, null, null, 0, 0, true);
+        user.startRoutine();
+        assertTrue(user.isRoutineActive());
     }
 
 }
