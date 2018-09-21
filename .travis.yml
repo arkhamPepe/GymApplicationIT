@@ -1,5 +1,10 @@
 language: android
-before_script: cd GymCompanion 
+
+before_install:
+ - chmod +x gradlew
+ 
+before_script: cd GymCompanion
+
 android:
   components:
     # Uncomment the lines below if you want to
