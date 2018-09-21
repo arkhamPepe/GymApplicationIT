@@ -12,4 +12,14 @@ public class UserTest {
         assertTrue(user.isRoutineActive());
     }
 
+    @Test
+    public void getRoutineTest(){
+        User user = new User(null, null, null, 0, 0, true);
+    }
+
+    @Test
+    public void selectRoutineTest(){
+        User user = new User(null, null, null, 0, 0, true);
+    }
+
 }

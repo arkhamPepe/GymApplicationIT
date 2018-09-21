@@ -14,7 +14,8 @@ public class User {
     private boolean isBeginner;
     @Getter
     private boolean routineActive;
-    // private Schedule schedule;
+
+    private Schedule schedule;
 
 
     User(List<User> friends, String name, String gym, int age, int weight, boolean isBeginner){
