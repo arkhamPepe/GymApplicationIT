@@ -1,9 +1,8 @@
 language: android
-
-before_install:
- - chmod +x gradlew
  
-before_script: cd GymCompanion
+before_script: 
+ - cd GymCompanion
+ - chmod +x gradlew
 
 android:
   components:
