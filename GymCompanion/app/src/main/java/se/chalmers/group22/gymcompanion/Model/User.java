@@ -12,6 +12,7 @@ public class User {
     private int age;
     private int weight;
     private boolean isBeginner;
+
     @Getter
     private boolean routineActive;
 
@@ -19,7 +20,7 @@ public class User {
     private Schedule schedule;
 
 
-    User(List<User> friends, String name, String gym, int age, int weight, boolean isBeginner){
+    public User(List<User> friends, String name, String gym, int age, int weight, boolean isBeginner){
         this.friends = friends;
         this.name = name;
         this.gym = gym;
@@ -27,15 +28,12 @@ public class User {
         this.weight = weight;
         this.isBeginner = isBeginner;
         this.routineActive = false;
+        this.schedule = new Schedule();
     }
 
     public void startRoutine(){
         /*Start the routine for the current day*/
-    }
-
-    public boolean hasRoutine(){
-        /*Checks if there is a routine on the current day*/
-        return true;
+        routineActive = true;
     }
 
     public void addRoutine(){
