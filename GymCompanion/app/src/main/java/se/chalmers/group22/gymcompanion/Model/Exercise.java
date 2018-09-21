@@ -5,6 +5,8 @@ public abstract class Exercise {
     private int sets;
     private String name;
 
+    //Might need a class
+
     public Exercise(){}
 
     public int getRepetitions() {
