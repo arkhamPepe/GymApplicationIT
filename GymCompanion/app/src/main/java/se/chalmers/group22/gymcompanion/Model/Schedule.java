@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class Schedule {
 
     private List<Routine> routines = new ArrayList<>();
@@ -11,5 +12,13 @@ public class Schedule {
 
     public Schedule(){
 
+    }
+
+    public void addRoutine(Routine routine, Date date){
+
+    }
+
+    public Routine getRoutine(Date date){
+        return null;
     }
 }
