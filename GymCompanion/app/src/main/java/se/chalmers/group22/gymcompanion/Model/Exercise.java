@@ -1,5 +1,7 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+
 public abstract class Exercise {
     private String name;
     private double difficulty;
