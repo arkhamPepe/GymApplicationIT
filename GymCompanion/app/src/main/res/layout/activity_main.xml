@@ -24,10 +24,5 @@
             android:background="@color/colorAccent"
             tools:text="wesafdf" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:visibility="visible"/>
-    <Switch
-            android:text="Switch"
-            android:layout_width="120dp"
-            android:layout_height="48dp" tools:layout_editor_absoluteY="360dp"
-            tools:layout_editor_absoluteX="41dp" android:id="@+id/switch1"/>
 
 </android.support.constraint.ConstraintLayout>
