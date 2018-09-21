@@ -10,6 +10,7 @@ public class User {
     private int age;
     private int weight;
     private boolean isBeginner;
+    private boolean routineActive;
     // private Schedule schedule;
 
 
@@ -20,6 +21,13 @@ public class User {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
+        this.routineActive = false;
     }
+
+    public void startRoutine(){}
+
+    public void getRoutine(){}
+
+    public void selectRoutine(){}
 
 }
