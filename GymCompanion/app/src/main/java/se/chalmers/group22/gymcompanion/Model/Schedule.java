@@ -7,6 +7,7 @@ import java.util.List;
 public class Schedule {
 
     private List<Routine> routines = new ArrayList<>();
+    private Reminder reminder;
 
     public Schedule(){
 
