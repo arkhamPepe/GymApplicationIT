@@ -10,4 +10,4 @@ before_install:
   - cd GymCompanion
   - yes | sdkmanager "platforms;android-27"
 script:
-   - ./gradlew build connectedCheck
+   - ./gradlew build
