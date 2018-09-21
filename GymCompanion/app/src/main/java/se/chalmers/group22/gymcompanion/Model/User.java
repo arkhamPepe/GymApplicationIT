@@ -15,6 +15,7 @@ public class User {
     @Getter
     private boolean routineActive;
 
+    @Getter
     private Schedule schedule;
 
 
@@ -28,10 +29,21 @@ public class User {
         this.routineActive = false;
     }
 
-    public void startRoutine(){}
+    public void startRoutine(){
+        /*Start the routine for the current day*/
+    }
 
-    public void getRoutine(){}
+    public boolean hasRoutine(){
+        /*Checks if there is a routine on the current day*/
+        return true;
+    }
 
-    public void selectRoutine(){}
+    public void addRoutine(){
+        /*Press a button to add a routine to the current day*/
+    }
+
+    public void selectRoutine(){
+        /*Select the routine located on the current day and initiate it*/
+    }
 
 }
