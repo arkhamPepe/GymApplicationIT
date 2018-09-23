@@ -16,11 +16,15 @@ public class Schedule {
 
     }
 
-    public void addRoutine(Routine routine, Date date){
+    public void addRoutine(Routine r, Date d){
 
     }
 
-    public Routine getRoutine(Date date){
+    public void removeRoutine(Routine r, Date d){
+
+    }
+
+    public Routine getRoutine(Date d){
         return null;
     }
 }

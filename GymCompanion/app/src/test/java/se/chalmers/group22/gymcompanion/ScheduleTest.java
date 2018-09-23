@@ -20,7 +20,21 @@ public class ScheduleTest {
 
         s.addRoutine(r, d);
 
-        assertTrue(s.getRoutine(d).equals(r));
+        assertEquals(r,s.getRoutine(d));
 
+    }
+
+    @Test
+    public void removeRoutineTest() {
+        Schedule s = new Schedule();
+        Routine r = new Routine();
+        Date d = new Date();
+        d.setTime(8);
+
+        s.addRoutine(r, d);
+        assertEquals(r,s.getRoutine(d));
+
+        s.removeRoutine(r,d);
+        assertNull(s.getRoutine(d));
     }
 }
