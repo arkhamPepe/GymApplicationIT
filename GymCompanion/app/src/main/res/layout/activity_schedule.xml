@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
+                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
+    <ListView
+            android:layout_width="383dp"
+            android:layout_height="492dp" tools:layout_editor_absoluteY="67dp" tools:layout_editor_absoluteX="-1dp"/>
+    <TextView
+            android:text="Schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="16dp"
+            tools:layout_editor_absoluteX="16dp" android:id="@+id/textView" android:textSize="30sp"/>
 </android.support.constraint.ConstraintLayout>
