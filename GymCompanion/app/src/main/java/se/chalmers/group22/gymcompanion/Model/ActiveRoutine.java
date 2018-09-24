@@ -15,12 +15,8 @@ public class ActiveRoutine {
 
 
 
-    public ActiveRoutine(){
+    public ActiveRoutine(Routine routine){
         this.completedExercises = new ArrayList<>();
-    }
-
-
-    public void start(Routine routine){
         this.routineExercises = routine.getExercises();
     }
 
