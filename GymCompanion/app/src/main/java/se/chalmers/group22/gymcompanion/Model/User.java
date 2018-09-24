@@ -32,16 +32,17 @@ public class User {
     }
 
     public void startRoutine(){
-        /*Start the routine for the current day*/
+       /*Start the routine for the current day*/
         routineActive = true;
     }
 
-    public void addRoutine(){
-        /*Press a button to add a routine to the current day*/
-    }
-
-    public void selectRoutine(){
-        /*Select the routine located on the current day and initiate it*/
+    public void selectOrAddRoutine(){
+        if (schedule.hasRoutineCurrentDay()){
+            /* enable a button to start the routine*/
+        }
+        else {
+            /*Direct the user to MR so it can create a new routine*/
+        }
     }
 
 }

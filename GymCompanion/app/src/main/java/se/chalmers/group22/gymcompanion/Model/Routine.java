@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Routine {
+
     List<Exercise> exercises = new ArrayList<>();
     public Routine(){
 
     }
+
 }

@@ -13,14 +13,10 @@ public class UserTest {
     }
 
     @Test
-    public void addRoutineTest(){
+    public void selectOrAddRoutine(){
         User user = new User(null, null, null, 0, 0, true);
-    }
+        user.selectOrAddRoutine();
 
-    @Test
-    public void selectRoutineTest(){
-        User user = new User(null, null, null, 0, 0, true);
-        user.selectRoutine();
     }
 
 }
