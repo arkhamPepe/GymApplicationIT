@@ -19,6 +19,8 @@ public class User {
     @Getter
     private Schedule schedule;
 
+    private RoutineHandler routineHandler;
+
 
     public User(List<User> friends, String name, String gym, int age, int weight, boolean isBeginner){
         this.friends = friends;
@@ -29,11 +31,13 @@ public class User {
         this.isBeginner = isBeginner;
         this.routineActive = false;
         this.schedule = new Schedule();
+        this.routineHandler = RoutineHandler.getInstance();
     }
 
     public void startRoutine(Routine routine){
        /*TODO Start the routine for the current day*/
-        routineActive = true;
+        routineHandler.start(routine);
+        routineActive= true;
         /*TODO redirect to "Workout in progress"-page*/
 
     }
