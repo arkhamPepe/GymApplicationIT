@@ -17,7 +17,7 @@ public class UserTest {
     @Test
     public void checkDayTest(){
         /*TODO add a schedule and test it, should be false*/
-        user.checkDay();
+
     }
 
 }
