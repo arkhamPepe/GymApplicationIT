@@ -1,7 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,5 +14,17 @@ public class Schedule {
 
     public Schedule(){
 
+    }
+
+    public void addRoutine(Routine r, Date d){
+
+    }
+
+    public void removeRoutine(Routine r, Date d){
+
+    }
+
+    public Routine getRoutine(Date d){
+        return null;
     }
 }
