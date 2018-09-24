@@ -14,17 +14,11 @@ public class ActiveRoutine {
     private List<Exercise> routineExercises;
 
 
-    private static ActiveRoutine activeRoutine;
-    private ActiveRoutine(){
+
+    public ActiveRoutine(){
         this.completedExercises = new ArrayList<>();
     }
 
-    public static ActiveRoutine getInstance(){
-        if(activeRoutine == null)
-            activeRoutine = new ActiveRoutine();
-
-        return activeRoutine;
-    }
 
     public void start(Routine routine){
         this.routineExercises = routine.getExercises();
@@ -32,10 +26,11 @@ public class ActiveRoutine {
 
     public void completeExercise(Exercise exercise){
         completedExercises.add(exercise);
+        routineExercises.remove(exercise);
     }
 
     public void finishRoutine(){
-
+        CompletedRoutine completedRoutine = new CompletedRoutine(completedExercises,routineExercises);
     }
 
     public void addComment(String comment){
