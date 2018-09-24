@@ -12,12 +12,14 @@ public class ActiveRoutine {
 
     @Getter
     private List<Exercise> routineExercises;
+    private String comment;
 
 
 
     public ActiveRoutine(Routine routine){
         this.completedExercises = new ArrayList<>();
         this.routineExercises = routine.getExercises();
+        this.comment = "";
     }
 
     public void completeExercise(Exercise exercise){
@@ -26,10 +28,10 @@ public class ActiveRoutine {
     }
 
     public void finishRoutine(){
-        CompletedRoutine completedRoutine = new CompletedRoutine(completedExercises,routineExercises);
+        CompletedRoutine completedRoutine = new CompletedRoutine(completedExercises,routineExercises, comment);
     }
 
     public void addComment(String comment){
-        
+           this.comment = comment;
     }
 }
