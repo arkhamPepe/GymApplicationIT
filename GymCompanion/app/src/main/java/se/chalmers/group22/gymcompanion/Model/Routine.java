@@ -7,11 +7,14 @@ import java.util.List;
 
 public class Routine {
 
+    private String description;
+
     @Getter
     private List<Exercise> exercises;
 
     public Routine(){
         this.exercises = new ArrayList<>();
     }
+
 
 }

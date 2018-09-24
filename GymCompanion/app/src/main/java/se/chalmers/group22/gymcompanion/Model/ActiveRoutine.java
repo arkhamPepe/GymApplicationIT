@@ -27,4 +27,12 @@ public class ActiveRoutine {
     public void completeExercise(Exercise exercise){
         completedExercises.add(exercise);
     }
+
+    public void finishRoutine(){
+
+    }
+
+    public void addComment(String comment){
+        
+    }
 }
