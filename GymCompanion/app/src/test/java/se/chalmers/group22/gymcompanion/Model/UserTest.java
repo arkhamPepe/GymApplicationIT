@@ -8,14 +8,16 @@ public class UserTest {
     @Test
     public void startRoutineTest(){
         User user = new User(null, null, null, 0, 0, true);
-        user.startRoutine();
+        Routine routine = new Routine();
+        user.startRoutine(routine);
         assertTrue(user.isRoutineActive());
     }
 
     @Test
-    public void selectOrAddRoutine(){
+    public void checkDayTest(){
         User user = new User(null, null, null, 0, 0, true);
-        user.selectOrAddRoutine();
+        /*TODO add a shcedule and test it, should be false
+        user.checkDay();
 
     }
 

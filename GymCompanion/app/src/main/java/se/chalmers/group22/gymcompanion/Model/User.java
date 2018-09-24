@@ -31,17 +31,19 @@ public class User {
         this.schedule = new Schedule();
     }
 
-    public void startRoutine(){
-       /*Start the routine for the current day*/
+    public void startRoutine(Routine routine){
+       /*TODO Start the routine for the current day*/
         routineActive = true;
+        /*TODO redirect to "Workout in progress"-page*/
+
     }
 
-    public void selectOrAddRoutine(){
-        if (schedule.hasRoutineCurrentDay()){
-            /* enable a button to start the routine*/
+    public void checkDay(){
+        if (true/*check if routine exists in the current day*/){
+            startRoutine(null/*get routine from schedule*/);
         }
         else {
-            /*Direct the user to MR so it can create a new routine*/
+            /*TODO Direct the user to MR so it can create a new routine*/
         }
     }
 
