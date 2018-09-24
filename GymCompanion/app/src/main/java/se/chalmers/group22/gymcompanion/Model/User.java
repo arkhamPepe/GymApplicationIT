@@ -14,7 +14,7 @@ public class User {
     private boolean isBeginner;
 
     @Getter
-    private boolean routineActive;
+    private boolean routineIsActive;
 
     @Getter
     private Schedule schedule;
@@ -27,13 +27,13 @@ public class User {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.routineActive = false;
+        this.routineIsActive = false;
         this.schedule = new Schedule();
     }
 
     public void startRoutine(Routine routine){
        /*TODO Start the routine for the current day*/
-        routineActive = true;
+        routineIsActive = true;
         /*TODO redirect to "Workout in progress"-page*/
 
     }
