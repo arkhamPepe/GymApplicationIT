@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.util.*;
 
-@Getter
+
 public class Schedule {
 
     private List<Routine> routines = new ArrayList<>();
