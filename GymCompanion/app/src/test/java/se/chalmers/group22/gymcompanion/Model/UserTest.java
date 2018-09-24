@@ -16,7 +16,7 @@ public class UserTest {
     @Test
     public void checkDayTest(){
         User user = new User(null, null, null, 0, 0, true);
-        /*TODO add a shcedule and test it, should be false
+        /*TODO add a shcedule and test it, should be false*/
         user.checkDay();
 
     }
