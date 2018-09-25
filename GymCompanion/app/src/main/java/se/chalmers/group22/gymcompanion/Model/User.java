@@ -13,6 +13,7 @@ public class User {
     private int weight;
     private boolean isBeginner;
 
+    @Getter
     private ActiveRoutine activeRoutine;
 
     @Getter
@@ -40,6 +41,11 @@ public class User {
         routineActive= true;
         /*TODO redirect to "Workout in progress"-page*/
 
+    }
+
+    public void endActiveRoutine(){
+        activeRoutine = null;
+        routineActive = false;
     }
 
     public void checkDay(){
