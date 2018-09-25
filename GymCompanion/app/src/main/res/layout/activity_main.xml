@@ -23,6 +23,7 @@
             android:id="@+id/button"
             android:background="@color/colorAccent"
             tools:text="wesafdf" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:visibility="visible"/>
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:visibility="visible"
+            android:onClick="startActivity"/>
 
 </android.support.constraint.ConstraintLayout>
