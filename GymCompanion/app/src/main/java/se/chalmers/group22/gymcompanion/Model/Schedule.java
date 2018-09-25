@@ -7,13 +7,13 @@ import java.util.*;
 
 public class Schedule {
 
-    private List<Routine> routines = new ArrayList<>();
     private Reminder reminder;
     private Map<Day, Routine> schedule = new HashMap<>();
 
-    public Schedule(){
 
+    public Schedule(){
     }
+
 
     public void addRoutine(Routine r, Day d){
         schedule.put(d,r);
