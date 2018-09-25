@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import java.util.List;
 
+@Getter
 public class User {
 
     private List<User> friends;
@@ -13,13 +14,8 @@ public class User {
     private int weight;
     private boolean isBeginner;
 
-    @Getter
     private ActiveRoutine activeRoutine;
-
-    @Getter
     private boolean routineActive;
-
-    @Getter
     private Schedule schedule;
 
 
