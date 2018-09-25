@@ -1,0 +1,46 @@
+<android.support.constraint.ConstraintLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:app2="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:id="@+id/frameLayout">
+
+    <se.chalmers.group22.gymcompanion.StartComponentView
+            android:background="#00FFFF"
+            android:layout_width="match_parent"
+            android:layout_height="650dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="40dp"
+            app:exampleDimension="24sp"
+            app:exampleColor="#33b5e5"
+            android:id="@+id/startComponentView" app2:layout_constraintTop_toTopOf="parent"
+            app2:layout_constraintStart_toStartOf="parent"/>
+    <Button
+            android:text="START"
+            android:textSize="35dp"
+            android:background="#32CD32"
+            android:textColorHighlight="#7FFF00"
+            android:layout_width="179dp"
+            android:layout_height="82dp"
+            android:id="@+id/button2" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"/>
+    <TextView
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:fontFamily="serif"
+            android:layout_width="273dp"
+            android:layout_height="87dp"
+            android:textSize="25dp"
+            android:text="Welcome to
+  GymCompanion!"
+            android:ems="10"
+            android:id="@+id/editText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toTopOf="@+id/startComponentView" android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/button2"/>
+
+</android.support.constraint.ConstraintLayout>
