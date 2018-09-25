@@ -1,15 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ListView
-            android:layout_width="383dp"
-            android:layout_height="492dp" tools:layout_editor_absoluteY="67dp" tools:layout_editor_absoluteX="-1dp"/>
-    <TextView
-            android:text="Schedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="16dp"
-            tools:layout_editor_absoluteX="16dp" android:id="@+id/ScheduleTitle" android:textSize="30sp"
-    />
+    <com.google.android.flexbox.FlexboxLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="360dp"
+            android:layout_height="618dp"
+            app:flexWrap="wrap"
+            app:alignItems="stretch"
+            app:alignContent="stretch" android:id="@+id/flexboxMain" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+    >
+
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp" app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/btnSearch"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/btnHome"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp" app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/btnHome"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp" app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/btnSchedule"
+            android:onClick="startActivitySchedule" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSearch"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp" app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/btnStatistics" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnMyRoutines"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp" app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/btnMyRoutines" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSchedule"/>
+
+
 </android.support.constraint.ConstraintLayout>

@@ -14,8 +14,5 @@ public class ScheduleActivity extends AppCompatActivity implements IView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
 
-        TextView ScheduleTitle = findViewById(R.id.ScheduleTitle);
-
-        ScheduleTitle.setAllCaps(true);
     }
 }
