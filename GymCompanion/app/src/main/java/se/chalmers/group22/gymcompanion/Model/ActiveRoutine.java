@@ -12,8 +12,9 @@ public class ActiveRoutine {
 
     @Getter
     private List<Exercise> routineExercises;
-    private String comment;
 
+    @Getter
+    private String comment;
 
 
     public ActiveRoutine(Routine routine){
