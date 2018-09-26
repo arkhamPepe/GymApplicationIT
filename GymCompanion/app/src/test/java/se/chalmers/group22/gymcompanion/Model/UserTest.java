@@ -21,7 +21,7 @@ public class UserTest {
     @Test
     public void checkDayTest(){
         user.checkDay();
-
+        assertFalse(user.isRoutineActive());
 
     }
 
