@@ -1,6 +1,10 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Test;
+import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -16,7 +20,6 @@ public class UserTest {
 
     @Test
     public void checkDayTest(){
-        /*TODO add a schedule and test it, should be false*/
 
     }
     @Test

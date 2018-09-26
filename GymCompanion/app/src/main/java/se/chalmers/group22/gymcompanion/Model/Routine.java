@@ -16,5 +16,9 @@ public class Routine {
         this.exercises = new ArrayList<>();
     }
 
+    public void addExercise(Exercise exercise){
+        exercises.add(exercise);
+    }
+
 
 }
