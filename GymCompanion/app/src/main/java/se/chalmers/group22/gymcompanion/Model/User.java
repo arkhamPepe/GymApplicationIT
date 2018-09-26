@@ -9,6 +9,7 @@ import java.util.List;
 public class User {
 
     private List<User> friends;
+    private List<Routine> routines;
     private String name;
     private String gym;
     private int age;
@@ -20,9 +21,9 @@ public class User {
     private Schedule schedule;
 
 
-
-    public User(List<User> friends, String name, String gym, int age, int weight, boolean isBeginner){
+    public User(List<User> friends, List<Routine> routines, String name, String gym, int age, int weight, boolean isBeginner){
         this.friends = friends;
+        this.routines = routines;
         this.name = name;
         this.gym = gym;
         this.age = age;
