@@ -42,6 +42,9 @@ public class User {
     }
 
     public void endActiveRoutine(){
+        if(activeRoutine != null){
+            activeRoutine.finishRoutine();
+        }
         activeRoutine = null;
         routineActive = false;
     }
