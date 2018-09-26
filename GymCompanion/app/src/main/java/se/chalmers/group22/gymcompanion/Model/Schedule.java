@@ -26,4 +26,8 @@ public class Schedule {
     public Routine getRoutine(Day d){
         return schedule.get(d);
     }
+
+    public boolean dayHasRoutine(Day d){
+        return schedule.containsKey(d);
+    }
 }
