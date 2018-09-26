@@ -30,7 +30,9 @@ public class ActiveRoutine {
 
     public void finishRoutine(){
         CompletedRoutine completedRoutine = new CompletedRoutine(completedExercises,routineExercises, comment);
+        //TODO save data
     }
+
 
     public void addComment(String comment){
            this.comment = comment;
