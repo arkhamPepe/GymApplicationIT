@@ -19,5 +19,10 @@ public class UserTest {
         /*TODO add a schedule and test it, should be false*/
 
     }
+    @Test
+    public void endActiveRoutineTest(){
+        user.endActiveRoutine();
+        assertFalse(user.isRoutineActive());
+    }
 
 }
