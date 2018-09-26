@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class UserTest {
-    private User user = new User(null, "Test", "Test Gym", 20, 75, true);
+    private User user = new User(new ArrayList<User>(),new ArrayList<Routine>(), "Test", "Test Gym", 20, 75, true);
 
     @Test
     public void startRoutineTest(){
@@ -20,8 +20,11 @@ public class UserTest {
 
     @Test
     public void checkDayTest(){
+        user.checkDay();
+
 
     }
+
     @Test
     public void endActiveRoutineTest(){
         user.endActiveRoutine();
