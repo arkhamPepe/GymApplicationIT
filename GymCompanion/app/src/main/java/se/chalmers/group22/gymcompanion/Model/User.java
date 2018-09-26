@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
 
+import java.util.Calendar;
 import java.util.List;
 
 @Getter
@@ -45,8 +46,9 @@ public class User {
     }
 
     public void checkDay(){
-        if (true/*check if routine exists in the current day*/){
-            startRoutine(null/*get routine from schedule*/);
+        Day today = new Day(Calendar.WEEK_OF_YEAR, Calendar.DAY_OF_WEEK);
+        if (schedule.dayHasRoutine(today)){
+            startRoutine(schedule.getRoutine(today));
         }
         else {
             /*TODO Direct the user to MR so it can create a new routine*/
