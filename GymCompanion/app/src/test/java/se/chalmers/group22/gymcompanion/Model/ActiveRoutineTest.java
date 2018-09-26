@@ -26,4 +26,9 @@ public class ActiveRoutineTest {
         activeRoutine.addComment(comm);
         assertEquals(comm, activeRoutine.getComment());
     }
+
+    @Test
+    public void finishRoutineTest(){
+
+    }
 }
