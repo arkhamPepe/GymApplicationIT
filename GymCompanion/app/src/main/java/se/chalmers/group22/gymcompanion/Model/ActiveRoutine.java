@@ -28,8 +28,8 @@ public class ActiveRoutine {
         routineExercises.remove(exercise);
     }
 
-    public void finishRoutine(){
-        CompletedRoutine completedRoutine = new CompletedRoutine(completedExercises,routineExercises, comment);
+    public CompletedRoutine finishRoutine(){
+        return new CompletedRoutine(completedExercises,routineExercises, comment);
         //TODO save data
     }
 

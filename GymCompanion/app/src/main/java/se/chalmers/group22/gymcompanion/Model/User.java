@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class User {
 
     private List<User> friends;
     private List<Routine> routines;
+    private List<CompletedRoutine> completedRoutines;
     private String name;
     private String gym;
     private int age;
@@ -31,6 +33,7 @@ public class User {
         this.isBeginner = isBeginner;
         this.routineActive = false;
         this.schedule = new Schedule();
+        completedRoutines = new ArrayList<>();
     }
 
     public void startRoutine(Routine routine){
@@ -43,7 +46,8 @@ public class User {
 
     public void endActiveRoutine(){
         if(activeRoutine != null){
-            activeRoutine.finishRoutine();
+            completedRoutines.add(activeRoutine.finishRoutine());
+
         }
         activeRoutine = null;
         routineActive = false;
