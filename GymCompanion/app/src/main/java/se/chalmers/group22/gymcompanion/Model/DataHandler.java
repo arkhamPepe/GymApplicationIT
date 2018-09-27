@@ -34,7 +34,7 @@ public class DataHandler {
         return null;
     }
 
-    public void sort(List<Routine> list, SORT_MODE mode){
+    public void sortRoutines(List<Routine> list, SORT_MODE mode){
         switch(mode){
             case ALPHABETIC_ASC:
                 list.sort(Comparator.comparing(Routine::getName));
@@ -49,8 +49,30 @@ public class DataHandler {
                 list.sort(Comparator.comparingDouble(Routine::getDifficulty));
                 Collections.reverse(list);
                 break;
-
+            default:
+                break;
         }
     }
 
+    public void sortExercises(List<Exercise> list, SORT_MODE mode) {
+        switch(mode) {
+            case ALPHABETIC_ASC:
+                list.sort(Comparator.comparing(Exercise::getName));
+                break;
+            case ALPHABETIC_DESC:
+                list.sort(Comparator.comparing(Exercise::getName));
+                Collections.reverse(list);
+                break;
+            case DIFFICULTY_ASC:
+                list.sort(Comparator.comparing(Exercise::getName));
+                break;
+            case DIFFICULTY_DESC:
+                list.sort(Comparator.comparing(Exercise::getName));
+                Collections.reverse(list);
+                break;
+            default:
+                break;
+        }
+    }
+    
 }
