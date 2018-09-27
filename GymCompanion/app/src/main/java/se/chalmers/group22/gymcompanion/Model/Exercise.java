@@ -1,10 +1,14 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+
 
 import java.util.List;
 
+@Getter
 public abstract class Exercise implements IHasMuscleGroup {
+
     private String name;
     private double difficulty;
     private List<MUSCLE_GROUP> muscleGroups;

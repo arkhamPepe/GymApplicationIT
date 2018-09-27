@@ -39,6 +39,7 @@ public class DataHandler {
     }
 
     public void sort(List<? extends IHasMuscleGroup> list, SORT_MODE mode){
+
         switch(mode){
             case ALPHABETIC_ASC:
                 list.sort(Comparator.comparing(IHasMuscleGroup::getName));
@@ -53,7 +54,8 @@ public class DataHandler {
                 list.sort(Comparator.comparingDouble(IHasMuscleGroup::getDifficulty));
                 Collections.reverse(list);
                 break;
-
+            default:
+                break;
         }
     }
 
@@ -82,5 +84,4 @@ public class DataHandler {
         }
 
     }
-
 }
