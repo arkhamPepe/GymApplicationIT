@@ -26,7 +26,7 @@ public class Routine {
     public double getAverageDifficulty(){
         double sum = 0;
         for(Exercise exercise : exercises){
-
+            sum += exercise.getDifficulty();
         }
         return sum / exercises.size();
     }
