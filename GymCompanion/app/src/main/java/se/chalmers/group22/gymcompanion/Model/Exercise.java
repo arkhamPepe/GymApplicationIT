@@ -7,7 +7,7 @@ import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import java.util.List;
 
 @Getter
-public abstract class Exercise implements IHasMuscleGroup {
+public abstract class Exercise implements ISortable {
 
     private String name;
     private double difficulty;

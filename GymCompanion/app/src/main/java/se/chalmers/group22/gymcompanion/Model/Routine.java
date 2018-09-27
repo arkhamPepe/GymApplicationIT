@@ -4,11 +4,10 @@ import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @Getter
-public class Routine implements IHasMuscleGroup {
+public class Routine implements ISortable {
 
     private String description;
     private String name;
