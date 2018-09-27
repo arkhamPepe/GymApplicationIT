@@ -8,9 +8,9 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class CompletedRoutineTest{
-    List<Exercise>  completedList = new ArrayList<>();
-    List<Exercise> failedList = new ArrayList<>();
-    String comment = "Yeehaw";
+    private List<Exercise>  completedList = new ArrayList<>();
+    private List<Exercise> failedList = new ArrayList<>();
+    private String comment = "Yeehaw";
 
     @Test
     public void CompletedRoutineConstructorTest(){

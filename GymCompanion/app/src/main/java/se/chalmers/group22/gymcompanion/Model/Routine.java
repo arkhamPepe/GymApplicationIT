@@ -1,12 +1,15 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Routine {
 
+    @Getter
+    @Setter
     private String description;
 
     @Getter
@@ -20,5 +23,11 @@ public class Routine {
         exercises.add(exercise);
     }
 
+    public double getAverageDifficulty(){
+        double sum = 0;
+        for(Exercise exercise : exercises){
 
+        }
+        return sum / exercises.size();
+    }
 }

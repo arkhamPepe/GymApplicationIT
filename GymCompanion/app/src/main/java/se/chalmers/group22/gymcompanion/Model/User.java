@@ -59,4 +59,15 @@ public class User {
         }
     }
 
+    public void createRoutine(){
+        routines.add(new Routine());
+    }
+
+    public void addExerciseToRoutine(Exercise exercise, Routine routine){
+        routine.addExercise(exercise);
+    }
+
+    public void modifyRoutineDescription(Routine routine, String description){
+        routine.setDescription(description);
+    }
 }
