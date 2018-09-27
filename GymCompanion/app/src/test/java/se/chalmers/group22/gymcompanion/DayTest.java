@@ -1,32 +1,35 @@
 package se.chalmers.group22.gymcompanion;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Model.Day;
-import junitx.extensions.EqualsHashCodeTestCase;
 
 import static org.junit.Assert.*;
 
 public class DayTest {
+    Day x = new Day(1,2,3);
+    Day y = new Day(1,2,3);
+    Day z = new Day(1,2,3);
+
     @Test
-    public void equalsTest() {
-        Day day1 = new Day(1, 2, 3);
-        Day day2 = new Day(1, 2, 3);
-        Day day3 = new Day(1,2,3);
-        Day day4 = new Day(2,2,3);
-        Day day5 = new Day(1,3,3);
-        Day day6 = new Day(1,2,4);
+    public void equalsTestAgainstNull() {
+        assertFalse(x.equals(null));
+    }
 
-        //Reflective
-        if(day1.equals(day1)) {
-            //Symmetrical
-            if(day1.equals(day2)) {
-                //Transitive
-                if(day1.equals(day2) && day2.equals(day3) && day1.equals(day3)) {
-                    //Null returns false
-                    assertFalse(day1.equals(null));
-                }
-            }
-        }
+    @Test
+    public void equalsTestIsReflexive() {
+        assertTrue(x.equals(x));
+    }
 
+    @Test
+    public void equalsTestIsSymmetric() {
+        assertTrue(x.equals(y) && y.equals(x));
+    }
+
+    @Test
+    public void equalsTestIsTransitive() {
+        boolean cause1 = x.equals(y) && y.equals(z);
+        assertEquals(cause1, x.equals(z));
     }
 
     @Test
