@@ -1,6 +1,10 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import android.view.animation.RotateAnimation;
+import se.chalmers.group22.gymcompanion.Enums.FILTER_MODE;
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Enums.SORT_MODE;
+import se.chalmers.group22.gymcompanion.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,23 +38,49 @@ public class DataHandler {
         return null;
     }
 
-    public void sort(List<Routine> list, SORT_MODE mode){
+    public void sort(List<? extends IHasMuscleGroup> list, SORT_MODE mode){
         switch(mode){
             case ALPHABETIC_ASC:
-                list.sort(Comparator.comparing(Routine::getName));
+                list.sort(Comparator.comparing(IHasMuscleGroup::getName));
                 break;
             case ALPHABETIC_DESC:
-                list.sort(Comparator.comparing(Routine::getName));
+                list.sort(Comparator.comparing(IHasMuscleGroup::getName));
                 Collections.reverse(list);
                 break;
             case DIFFICULTY_ASC:
-                list.sort(Comparator.comparingDouble(Routine::getDifficulty));
+                list.sort(Comparator.comparingDouble(IHasMuscleGroup::getDifficulty));
             case DIFFICULTY_DESC:
-                list.sort(Comparator.comparingDouble(Routine::getDifficulty));
+                list.sort(Comparator.comparingDouble(IHasMuscleGroup::getDifficulty));
                 Collections.reverse(list);
                 break;
 
         }
+    }
+
+    public List<Routine> filter(List<Routine> toBeFiltered, FILTER_MODE mode){
+        List<Routine> newList = new ArrayList<>(toBeFiltered);
+
+        switch(mode){
+            case BEGINNER:
+                findBeginner(newList, toBeFiltered);
+                break;
+        }
+        return newList;
+    }
+
+
+    private <T extends IHasMuscleGroup> void findBeginner(List<T> newlist, List<T> oldlist ){
+        sort(oldlist, SORT_MODE.DIFFICULTY_ASC);
+
+        for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
+            for (T re: oldlist) {
+                if(re.containsMuscleGroup(mg) && !newlist.contains(re)){
+                    newlist.add(re);
+                    break;
+                }
+            }
+        }
+
     }
 
 }
