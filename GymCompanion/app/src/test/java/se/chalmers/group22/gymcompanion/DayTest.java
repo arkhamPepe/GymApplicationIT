@@ -1,10 +1,7 @@
 package se.chalmers.group22.gymcompanion;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Model.Day;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import junitx.extensions.EqualsHashCodeTestCase;
 
 import static org.junit.Assert.*;
 

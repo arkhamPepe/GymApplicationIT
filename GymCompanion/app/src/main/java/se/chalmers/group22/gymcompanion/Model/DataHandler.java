@@ -5,7 +5,7 @@ import java.util.List;
 
 public class DataHandler {
 
-    private static DataHandler instance;
+    private static DataHandler instance = new DataHandler();
 
     public static DataHandler getInstance(){
         if(instance == null) {
@@ -17,7 +17,7 @@ public class DataHandler {
     private List<Routine> routineList;
     private List<Exercise> exerciseList;
 
-    DataHandler() {
+    private DataHandler() {
         this.routineList = new ArrayList<>();
         this.exerciseList = new ArrayList<>();
     }
