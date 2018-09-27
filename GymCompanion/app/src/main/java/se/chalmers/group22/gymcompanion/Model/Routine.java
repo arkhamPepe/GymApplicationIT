@@ -11,6 +11,7 @@ public class Routine {
 
     private String description;
     private String name;
+    private double difficulty;
 
     private List<Exercise> exercises;
 

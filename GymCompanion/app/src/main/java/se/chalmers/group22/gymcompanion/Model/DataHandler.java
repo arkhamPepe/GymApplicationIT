@@ -3,6 +3,7 @@ package se.chalmers.group22.gymcompanion.Model;
 import se.chalmers.group22.gymcompanion.Enums.SORT_MODE;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -39,9 +40,14 @@ public class DataHandler {
                 list.sort(Comparator.comparing(Routine::getName));
                 break;
             case ALPHABETIC_DESC:
+                list.sort(Comparator.comparing(Routine::getName));
+                Collections.reverse(list);
                 break;
-
-            default:
+            case DIFFICULTY_ASC:
+                list.sort(Comparator.comparingDouble(Routine::getDifficulty));
+            case DIFFICULTY_DESC:
+                list.sort(Comparator.comparingDouble(Routine::getDifficulty));
+                Collections.reverse(list);
                 break;
 
         }
