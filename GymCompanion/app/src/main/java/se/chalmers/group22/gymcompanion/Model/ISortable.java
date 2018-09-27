@@ -2,7 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 
-public interface IHasMuscleGroup {
+public interface ISortable {
 
     boolean containsMuscleGroup(MUSCLE_GROUP mg);
 

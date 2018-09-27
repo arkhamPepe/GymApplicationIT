@@ -1,10 +1,8 @@
 package se.chalmers.group22.gymcompanion.Model;
 
-import android.view.animation.RotateAnimation;
 import se.chalmers.group22.gymcompanion.Enums.FILTER_MODE;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Enums.SORT_MODE;
-import se.chalmers.group22.gymcompanion.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,20 +36,20 @@ public class DataHandler {
         return null;
     }
 
-    public void sort(List<? extends IHasMuscleGroup> list, SORT_MODE mode){
+    public void sort(List<? extends ISortable> list, SORT_MODE mode){
 
         switch(mode){
             case ALPHABETIC_ASC:
-                list.sort(Comparator.comparing(IHasMuscleGroup::getName));
+                list.sort(Comparator.comparing(ISortable::getName));
                 break;
             case ALPHABETIC_DESC:
-                list.sort(Comparator.comparing(IHasMuscleGroup::getName));
+                list.sort(Comparator.comparing(ISortable::getName));
                 Collections.reverse(list);
                 break;
             case DIFFICULTY_ASC:
-                list.sort(Comparator.comparingDouble(IHasMuscleGroup::getDifficulty));
+                list.sort(Comparator.comparingDouble(ISortable::getDifficulty));
             case DIFFICULTY_DESC:
-                list.sort(Comparator.comparingDouble(IHasMuscleGroup::getDifficulty));
+                list.sort(Comparator.comparingDouble(ISortable::getDifficulty));
                 Collections.reverse(list);
                 break;
             default:
@@ -71,7 +69,7 @@ public class DataHandler {
     }
 
 
-    private <T extends IHasMuscleGroup> void findBeginner(List<T> newlist, List<T> oldlist ){
+    private <T extends ISortable> void findBeginner(List<T> newlist, List<T> oldlist ){
         sort(oldlist, SORT_MODE.DIFFICULTY_ASC);
 
         for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
