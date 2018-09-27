@@ -1,14 +1,15 @@
 package se.chalmers.group22.gymcompanion.Model.Exercises;
 
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercise;
 
 public class StrengthExercise extends Exercise {
     private int repetitions;
     private int sets;
 
-    public StrengthExercise(int repetitions, int sets){
-        super();
+    public StrengthExercise(String name, double difficulty, MUSCLE_GROUP muscle_group, String description, String videoguide, int repetitions, int sets) {
+        super(name, difficulty, muscle_group, description, videoguide);
         this.repetitions = repetitions;
-        this.sets = sets;
+
     }
 }

@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Test;
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import static org.junit.Assert.assertEquals;
@@ -12,7 +13,15 @@ public class ActiveRoutineTest {
 
     @Test
     public void completeExerciseTest() {
-        Exercise se = new StrengthExercise(10, 3);
+        Exercise se = new StrengthExercise(
+                "Strength Exercise Deluxe",
+                3.2,
+                MUSCLE_GROUP.CHEST,
+                "A StrengthExercise for the chest",
+                "http://youtube.com",
+                10,
+                3
+        );
         routine.getExercises().add(se);
         activeRoutine = new ActiveRoutine(routine);
         activeRoutine.completeExercise(se);

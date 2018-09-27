@@ -7,6 +7,7 @@ public abstract class Exercise {
     private String name;
     @Getter
     private double difficulty;
+    @Getter
     private MUSCLE_GROUP muscle_group;
 
     //Might need a Guide class later
@@ -21,5 +22,4 @@ public abstract class Exercise {
         this.videoguide = videoguide;
     }
 
-    public Exercise(){}
 }
