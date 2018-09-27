@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Model.Exercises.StatisticsCalculator;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,6 +21,7 @@ public class User {
 
     private ActiveRoutine activeRoutine;
     private boolean routineActive;
+
     private Schedule schedule;
 
 
@@ -36,9 +38,9 @@ public class User {
         completedRoutines = new ArrayList<>();
     }
 
-    public void startRoutine(Routine routine){
+    public void startRoutine(Routine routine, Day day){
        /*TODO Start the routine for the current day*/
-        activeRoutine = new ActiveRoutine(routine);
+        activeRoutine = new ActiveRoutine(routine,day);
         routineActive= true;
         /*TODO redirect to "Workout in progress"-page*/
 
@@ -56,7 +58,7 @@ public class User {
     public void checkDay(){
         Day today = new Day(Calendar.WEEK_OF_YEAR, Calendar.DAY_OF_WEEK);
         if (schedule.dayHasRoutine(today)){
-            startRoutine(schedule.getRoutine(today));
+            startRoutine(schedule.getRoutine(today),today);
         }
         else {
             /*TODO Direct the user to MR so it can create a new routine*/
@@ -74,4 +76,6 @@ public class User {
     public void modifyRoutineDescription(Routine routine, String description){
         routine.setDescription(description);
     }
+
+
 }

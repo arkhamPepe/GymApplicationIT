@@ -4,12 +4,15 @@ import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
+import java.util.Calendar;
+
 import static org.junit.Assert.assertEquals;
 
 public class ActiveRoutineTest {
 
     private ActiveRoutine activeRoutine;
     private Routine routine = new Routine();
+    Day d = new Day(Calendar.WEEK_OF_YEAR,Calendar.DAY_OF_WEEK);
 
     @Test
     public void completeExerciseTest() {
@@ -23,14 +26,14 @@ public class ActiveRoutineTest {
                 3
         );
         routine.getExercises().add(se);
-        activeRoutine = new ActiveRoutine(routine);
+        activeRoutine = new ActiveRoutine(routine,d);
         activeRoutine.completeExercise(se);
         assertEquals(se, activeRoutine.getCompletedExercises().get(0));
     }
 
     @Test
     public void addCommentTest(){
-        activeRoutine = new ActiveRoutine(routine);
+        activeRoutine = new ActiveRoutine(routine,d);
         String comm = "Test comment";
         activeRoutine.addComment(comm);
         assertEquals(comm, activeRoutine.getComment());
