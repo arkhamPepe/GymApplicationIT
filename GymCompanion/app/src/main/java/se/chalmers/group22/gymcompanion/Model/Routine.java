@@ -28,6 +28,7 @@ public class Routine {
         for(Exercise exercise : exercises){
             sum += exercise.getDifficulty();
         }
-        return sum / exercises.size();
+        double average = sum / exercises.size();
+        return (double) Math.round(average * 10) / 10;
     }
 }

@@ -47,7 +47,9 @@ public class RoutineTest {
         );
         routine.addExercise(ex1);
         routine.addExercise(ex2);
-        assertEquals(3.85, routine.getAverageDifficulty(), 0.01);
+        assertEquals(3.9, routine.getAverageDifficulty(), 0.01);
+        routine.addExercise(ex2);
+        assertEquals(4.1, routine.getAverageDifficulty(), 0.01);
     }
 
     @Test
@@ -55,5 +57,7 @@ public class RoutineTest {
         Routine routine = new Routine();
         routine.setDescription("A Routine made for testing");
         assertEquals("A Routine made for testing", routine.getDescription());
+        routine.setDescription("A new description");
+        assertEquals("A new description", routine.getDescription());
     }
 }
