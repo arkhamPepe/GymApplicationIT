@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Test;
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import java.util.ArrayList;
@@ -30,5 +31,29 @@ public class UserTest {
         user.endActiveRoutine();
         assertFalse(user.isRoutineActive());
     }
+
+    @Test
+    public void createRoutineTest(){
+        user.createRoutine();
+        assertFalse(user.getRoutines().isEmpty());
+    }
+
+    @Test
+    public void addExerciseToRoutineTest(){
+        Exercise bicee = new StrengthExercise("heavey", 4.2, MUSCLE_GROUP.BICEPS, "", "Tet", 4, 4);
+        user.createRoutine();
+        user.addExerciseToRoutine(bicee,user.getRoutines().get(0));
+        assertEquals(user.getRoutines().get(0).getExercises().get(0),bicee);
+
+    }
+
+    @Test
+    public void modifyRoutineDescriptionTest(){
+        user.createRoutine();
+        user.modifyRoutineDescription(user.getRoutines().get(0),"Pure yoy");
+        assertEquals(user.getRoutines().get(0).getDescription(),"Pure yoy");
+
+    }
+
 
 }
