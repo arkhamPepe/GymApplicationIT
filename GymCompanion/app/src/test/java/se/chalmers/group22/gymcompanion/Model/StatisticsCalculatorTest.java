@@ -26,7 +26,7 @@ public class StatisticsCalculatorTest {
         exerciseList2 = new ArrayList<>();
         completedRoutine1 = new CompletedRoutine(exercisesList1,null,"",null);
         completedRoutine2 = new CompletedRoutine(exerciseList2,null,"",null);
-        statisticsCalculator = new StatisticsCalculator(user);
+        statisticsCalculator = new StatisticsCalculator(user.getCompletedRoutines());
         user =  new User(
                 new ArrayList<User>(),
                 new ArrayList<Routine>(),
