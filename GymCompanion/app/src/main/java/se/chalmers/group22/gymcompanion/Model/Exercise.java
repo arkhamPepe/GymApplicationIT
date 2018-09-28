@@ -25,6 +25,10 @@ public abstract class Exercise implements ISortable {
         this.videoguide = videoguide;
     }
 
+    public Exercise(String name){
+        this.name = name;
+    }
+
     public Exercise(){}
 
     public boolean containsMuscleGroup(MUSCLE_GROUP mg){

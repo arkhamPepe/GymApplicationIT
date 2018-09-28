@@ -11,4 +11,9 @@ public class StrengthExercise extends Exercise {
         this.repetitions = repetitions;
         this.sets = sets;
     }
+
+    // FOR TESTING
+    public StrengthExercise(String name){
+        super(name);
+    }
 }

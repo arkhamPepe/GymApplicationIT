@@ -16,6 +16,16 @@ public class Routine implements ISortable {
 
     private List<Exercise> exercises;
 
+    public Routine(String name, double difficulty){
+        this(name);
+        this.difficulty = difficulty;
+    }
+
+    public Routine(String name){
+        this();
+        this.name = name;
+    }
+
     public Routine(){
         this.exercises = new ArrayList<>();
     }

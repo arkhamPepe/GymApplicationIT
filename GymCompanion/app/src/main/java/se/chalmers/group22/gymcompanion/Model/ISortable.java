@@ -8,5 +8,5 @@ public interface ISortable {
 
     String getName();
 
-    Double getDifficulty();
+    double getDifficulty();
 }
