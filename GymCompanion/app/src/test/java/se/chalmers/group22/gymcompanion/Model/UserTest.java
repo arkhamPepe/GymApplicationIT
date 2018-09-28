@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Enums.STRENGTH_INTENSITY;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
@@ -42,7 +43,11 @@ public class UserTest {
 
     @Test
     public void addExerciseToRoutineTest(){
-        Exercise bicee = new StrengthExercise("heavey", 4.2, MUSCLE_GROUP.BICEPS, "", "Tet", 4, 4);
+        Exercise bicee = new StrengthExercise(
+                "heavey",
+                4.2,
+                MUSCLE_GROUP.BICEPS,
+                "", "Tet", 4, 4,100, STRENGTH_INTENSITY.LOW);
         user.createRoutine();
         user.addExerciseToRoutine(bicee,user.getRoutines().get(0));
         assertEquals(user.getRoutines().get(0).getExercises().get(0),bicee);

@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Enums.STRENGTH_INTENSITY;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
@@ -20,7 +21,7 @@ public class RoutineTest {
             "A StrengthExercise for the abs",
             null,
             10,
-            3
+            3,50,STRENGTH_INTENSITY.LOW
         );
         routine.addExercise(exercise);
         assertEquals(exercise, routine.getExercises().get(0));
@@ -36,7 +37,7 @@ public class RoutineTest {
             "A StrengthExercise for the abs",
             null,
             10,
-            3
+            3, 100, STRENGTH_INTENSITY.HIGH
         );
         Exercise ex2 =  new CardioExercise(
             "Exercise 2",

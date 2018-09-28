@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Enums.STRENGTH_INTENSITY;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
@@ -25,8 +26,8 @@ public class StatisticsCalculatorTest {
     public StatisticsCalculatorTest(){
         this.schedule = new Schedule();
 
-        exercise1 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",2,2);
-        exercise2 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",3,4);
+        exercise1 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",2,2,4, STRENGTH_INTENSITY.HIGH);
+        exercise2 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",3,4,4,STRENGTH_INTENSITY.MEDIUM);
 
         exercisesList1 = new ArrayList<>();
         exercisesList1.add(exercise1);
@@ -56,6 +57,8 @@ public class StatisticsCalculatorTest {
         Map<Calendar, Exercise> specificExerciseList = statisticsCalculator.getSpecificExercise(exercise1);
         assertEquals(2, specificExerciseList.size());
     }
+
+
 
 
 }

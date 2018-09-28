@@ -1,10 +1,8 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import java.util.*;
 
@@ -28,7 +26,9 @@ public class StatisticsCalculator {
         return specificExerciseMap;
     }
 
-
+    public double calculateStrength(StrengthExercise exercise){
+        return 1;
+    }
 
 
 }
