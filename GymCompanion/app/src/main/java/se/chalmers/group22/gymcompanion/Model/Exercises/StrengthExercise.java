@@ -13,6 +13,6 @@ public class StrengthExercise extends Exercise {
     public StrengthExercise(String name, double difficulty, MUSCLE_GROUP muscle_group, String description, String videoguide, int repetitions, int sets) {
         super(name, difficulty, muscle_group, description, videoguide);
         this.repetitions = repetitions;
-
+        this.sets = sets;
     }
 }

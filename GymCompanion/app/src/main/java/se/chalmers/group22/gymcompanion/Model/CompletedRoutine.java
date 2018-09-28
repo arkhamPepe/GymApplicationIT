@@ -20,7 +20,6 @@ public class CompletedRoutine {
         this.failedExercises = failedExercises;
         this.comment =  comment;
         this.day = day;
-
     }
 
 }
