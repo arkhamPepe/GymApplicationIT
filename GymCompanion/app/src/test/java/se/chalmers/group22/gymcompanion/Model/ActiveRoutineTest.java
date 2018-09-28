@@ -41,6 +41,9 @@ public class ActiveRoutineTest {
 
     @Test
     public void finishRoutineTest(){
+        CompletedRoutine completedRoutine;
+        completedRoutine = activeRoutine.finishRoutine();
+        assertEquals(completedRoutine,activeRoutine.finishRoutine());
         //TODO finish the test
     }
 }

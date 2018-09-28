@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class UserTest {
     private User user = new User(new ArrayList<User>(),new ArrayList<Routine>(), "Test", "Test Gym", 20, 75, true);
-    Day d = new Day(Calendar.WEEK_OF_YEAR,Calendar.DAY_OF_WEEK);
+    private Day d = new Day(Calendar.WEEK_OF_YEAR,Calendar.DAY_OF_WEEK);
 
     @Test
     public void startRoutineTest(){

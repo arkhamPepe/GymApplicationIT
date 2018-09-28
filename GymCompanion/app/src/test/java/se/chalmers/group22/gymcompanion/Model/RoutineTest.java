@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class RoutineTest {
 
     @Test
-    public void addExercise() {
+    public void addExerciseTest() {
         Routine routine = new Routine();
         Exercise exercise = new StrengthExercise(
             "Exercise 1",
@@ -26,7 +26,7 @@ public class RoutineTest {
     }
 
     @Test
-    public void getAverageDifficulty() {
+    public void getAverageDifficultyTest() {
         Routine routine = new Routine();
         Exercise ex1 = new StrengthExercise(
             "Exercise 1",
@@ -53,7 +53,7 @@ public class RoutineTest {
     }
 
     @Test
-    public void getDescription() {
+    public void getDescriptionTest() {
         Routine routine = new Routine();
         routine.setDescription("A Routine made for testing");
         assertEquals("A Routine made for testing", routine.getDescription());

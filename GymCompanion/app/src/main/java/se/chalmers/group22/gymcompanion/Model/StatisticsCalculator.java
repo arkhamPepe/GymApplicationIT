@@ -1,14 +1,11 @@
-package se.chalmers.group22.gymcompanion.Model.Exercises;
+package se.chalmers.group22.gymcompanion.Model;
 
-import se.chalmers.group22.gymcompanion.Model.CompletedRoutine;
-import se.chalmers.group22.gymcompanion.Model.Exercise;
-import se.chalmers.group22.gymcompanion.Model.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticsCalculator {
-    User user;
+    private User user;
 
     public StatisticsCalculator(User user){
        this.user = user;
