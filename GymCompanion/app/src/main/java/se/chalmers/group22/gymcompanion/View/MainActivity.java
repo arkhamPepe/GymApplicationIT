@@ -10,24 +10,30 @@ import com.google.android.flexbox.FlexboxLayout;
 import se.chalmers.group22.gymcompanion.R;
 
 
-public class MainActivity extends AppCompatActivity implements IView {
+public class MainActivity extends AppCompatActivity implements IView, INavigation {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton btnHome = findViewById(R.id.btnHome);
-        ImageButton btnSearch = findViewById(R.id.btnSearch);
+        ImageButton btnHome = findViewById(R.id.btnMain);
+        ImageButton btnSearch = findViewById(R.id.btnBrowse);
         ImageButton btnSchedule = findViewById(R.id.btnSchedule);
         ImageButton btnMyRoutines = findViewById(R.id.btnMyRoutines);
         ImageButton btnStatistics = findViewById(R.id.btnStatistics);
-        FlexboxLayout flexboxMain = findViewById(R.id.flexboxMain);
+
+        startActivity(new Intent(this, ScheduleActivity.class));
+        startActivity(new Intent(this, StatisticsActivity.class));
+        startActivity(new Intent(this, BrowseActivity.class));
+        startActivity(new Intent(this, MyRoutinesAcivity.class));
 
     }
 
     public void startActivitySchedule(View view){
         Intent intent = new Intent(this, ScheduleActivity.class);
+
+        
         startActivity(intent);
     }
 
@@ -47,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements IView {
     }
 
     public void startActivityMain(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        // NOTHING
     }
 }
