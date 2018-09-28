@@ -43,6 +43,6 @@ public class ActiveRoutineTest {
         CompletedRoutine completedRoutine;
         completedRoutine = activeRoutine.finishRoutine();
         assertEquals(completedRoutine.getDay(),activeRoutine.getDay());
-        //TODO finish the test
+
     }
 }
