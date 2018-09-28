@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.util.ArrayList;
 import java.util.Calendar;

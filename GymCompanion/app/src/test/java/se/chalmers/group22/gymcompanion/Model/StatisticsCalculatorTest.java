@@ -2,12 +2,11 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class StatisticsCalculatorTest {
     private User user;
@@ -39,11 +38,13 @@ public class StatisticsCalculatorTest {
 
     @Test
     public void getSpecificExerciseTest(){
+        Exercise specificExercise = new StrengthExercise("C",2,MUSCLE_GROUP.BICEPS,"","",4,1);
         exercisesList1.add(exercise1);
         exerciseList2.add(exercise2);
         user.addCompletedRoutine(completedRoutine1);
         user.addCompletedRoutine(completedRoutine2);
-        //statisticsCalculator.getSpecificExercise();
+        List<Exercise> sameExercise = statisticsCalculator.getSpecificExercise(specificExercise);
+        
 
 
     }
