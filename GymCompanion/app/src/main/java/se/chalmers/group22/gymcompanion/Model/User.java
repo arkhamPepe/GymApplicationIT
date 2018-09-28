@@ -32,8 +32,6 @@ public class User {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.friends = new ArrayList<>();
-        this.routines = new ArrayList<>();
         this.completedRoutines = new ArrayList<>();
         this.routineActive = false;
         this.schedule = new Schedule();
