@@ -25,8 +25,10 @@ public abstract class Exercise implements ISortable {
         this.videoguide = videoguide;
     }
 
-    public Exercise(String name){
+    //For testing
+    public Exercise(String name, double difficulty){
         this.name = name;
+        this.difficulty = difficulty;
     }
 
     public Exercise(){}

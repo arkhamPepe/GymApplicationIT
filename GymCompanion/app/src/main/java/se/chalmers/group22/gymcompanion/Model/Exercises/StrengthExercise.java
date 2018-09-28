@@ -13,7 +13,7 @@ public class StrengthExercise extends Exercise {
     }
 
     // FOR TESTING
-    public StrengthExercise(String name){
-        super(name);
+    public StrengthExercise(String name, double difficulty){
+        super(name, difficulty);
     }
 }
