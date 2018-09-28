@@ -17,10 +17,10 @@ public class User {
     private int age;
     private int weight;
     private boolean isBeginner;
-
-    private ActiveRoutine activeRoutine;
     private boolean routineActive;
 
+    private ActiveRoutine activeRoutine;
+    private StatisticsCalculator statCalc;
     private Schedule schedule;
 
 
@@ -34,6 +34,7 @@ public class User {
         this.isBeginner = isBeginner;
         this.routineActive = false;
         this.schedule = new Schedule();
+        this.statCalc = new StatisticsCalculator(completedRoutines);
         completedRoutines = new ArrayList<>();
     }
 

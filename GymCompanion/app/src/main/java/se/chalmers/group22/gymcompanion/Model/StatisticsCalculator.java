@@ -5,16 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticsCalculator {
-    private User user;
+    private List<CompletedRoutine> completedRoutines;
 
-    public StatisticsCalculator(User user){
-       this.user = user;
+    public StatisticsCalculator(List<CompletedRoutine> completedRoutines){
+       this.completedRoutines = completedRoutines;
     }
 
     public List<Exercise> getSpecificExercise(Exercise specificExercise){
         List<Exercise> specificExerciseList = new ArrayList<>();
-        for (CompletedRoutine completedRoutine: user.getCompletedRoutines()){
-            for (Exercise exercise: completedRoutine.getCompletedExercises() ){
+        for (CompletedRoutine cr: completedRoutines){
+            for (Exercise exercise: cr.getCompletedExercises() ){
                 if (specificExercise.equals(exercise)){
                     specificExerciseList.add(exercise);
                 }
