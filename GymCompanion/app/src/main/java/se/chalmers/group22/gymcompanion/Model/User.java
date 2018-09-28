@@ -2,12 +2,16 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Getter
 public class User {
 
     private List<User> friends;
+    private List<Routine> routines;
+    private List<CompletedRoutine> completedRoutines;
     private String name;
     private String gym;
     private int age;
@@ -16,12 +20,13 @@ public class User {
 
     private ActiveRoutine activeRoutine;
     private boolean routineActive;
+
     private Schedule schedule;
 
 
-
-    public User(List<User> friends, String name, String gym, int age, int weight, boolean isBeginner){
+    public User(List<User> friends, List<Routine> routines, String name, String gym, int age, int weight, boolean isBeginner){
         this.friends = friends;
+        this.routines = routines;
         this.name = name;
         this.gym = gym;
         this.age = age;
@@ -29,28 +34,47 @@ public class User {
         this.isBeginner = isBeginner;
         this.routineActive = false;
         this.schedule = new Schedule();
+        completedRoutines = new ArrayList<>();
     }
 
-    public void startRoutine(Routine routine){
+    public void startRoutine(Routine routine, Day day){
        /*TODO Start the routine for the current day*/
-        activeRoutine = new ActiveRoutine(routine);
+        activeRoutine = new ActiveRoutine(routine,day);
         routineActive= true;
         /*TODO redirect to "Workout in progress"-page*/
 
     }
 
     public void endActiveRoutine(){
+        if(activeRoutine != null){
+            completedRoutines.add(activeRoutine.finishRoutine());
+
+        }
         activeRoutine = null;
         routineActive = false;
     }
 
     public void checkDay(){
-        if (true/*check if routine exists in the current day*/){
-            startRoutine(null/*get routine from schedule*/);
+        Day today = new Day(Calendar.WEEK_OF_YEAR, Calendar.DAY_OF_WEEK);
+        if (schedule.dayHasRoutine(today)){
+            startRoutine(schedule.getRoutine(today),today);
         }
         else {
             /*TODO Direct the user to MR so it can create a new routine*/
         }
     }
+
+    public void createRoutine(){
+        routines.add(new Routine());
+    }
+
+    public void addExerciseToRoutine(Exercise exercise, Routine routine){
+        routine.addExercise(exercise);
+    }
+
+    public void modifyRoutineDescription(Routine routine, String description){
+        routine.setDescription(description);
+    }
+
 
 }

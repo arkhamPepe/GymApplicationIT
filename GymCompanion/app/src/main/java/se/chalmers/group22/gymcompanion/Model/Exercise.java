@@ -1,10 +1,14 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 
 public abstract class Exercise {
+    @Getter
     private String name;
+    @Getter
     private double difficulty;
+    @Getter
     private MUSCLE_GROUP muscle_group;
 
     //Might need a Guide class later
@@ -19,5 +23,4 @@ public abstract class Exercise {
         this.videoguide = videoguide;
     }
 
-    public Exercise(){}
 }

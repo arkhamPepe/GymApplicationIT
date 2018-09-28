@@ -1,12 +1,10 @@
 package se.chalmers.group22.gymcompanion.Model.Exercises;
 
-import se.chalmers.group22.gymcompanion.Model.Exercise;
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 
-public class StretchingExercise extends Exercise {
-    private int timespent;
+public class StretchingExercise extends TimedExercise {
 
-    public StretchingExercise(int timespent) {
-        super();
-        this.timespent = timespent;
+    public StretchingExercise(String name, double difficulty, MUSCLE_GROUP muscle_group, String description, String videoguide, int timespent) {
+        super(name, difficulty, muscle_group, description, videoguide, timespent);
     }
 }

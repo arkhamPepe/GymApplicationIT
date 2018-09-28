@@ -15,12 +15,15 @@ public class ActiveRoutine {
 
     @Getter
     private String comment;
+    @Getter
+    private Day day;
 
 
-    public ActiveRoutine(Routine routine){
+    public ActiveRoutine(Routine routine, Day d){
         this.completedExercises = new ArrayList<>();
         this.routineExercises = routine.getExercises();
         this.comment = "";
+        this.day = d;
     }
 
     public void completeExercise(Exercise exercise){
@@ -28,9 +31,11 @@ public class ActiveRoutine {
         routineExercises.remove(exercise);
     }
 
-    public void finishRoutine(){
-        CompletedRoutine completedRoutine = new CompletedRoutine(completedExercises,routineExercises, comment);
+    public CompletedRoutine finishRoutine(){
+        return new CompletedRoutine(completedExercises,routineExercises, comment, day);
+        //TODO save data
     }
+
 
     public void addComment(String comment){
            this.comment = comment;
