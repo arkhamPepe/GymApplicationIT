@@ -8,6 +8,8 @@ import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import java.util.ArrayList;
 import java.util.List;
 
+import static junit.framework.TestCase.assertEquals;
+
 public class StatisticsCalculatorTest {
     private User user;
     private Exercise exercise1;
@@ -18,11 +20,13 @@ public class StatisticsCalculatorTest {
     private CompletedRoutine completedRoutine2;
     private StatisticsCalculator statisticsCalculator;
 
-    private StatisticsCalculatorTest(){
+    public StatisticsCalculatorTest(){
         exercise1 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",2,2);
         exercise2 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",3,4);
         exercisesList1 = new ArrayList<>();
         exerciseList2 = new ArrayList<>();
+        exercisesList1.add(exercise1);
+        exerciseList2.add(exercise2);
         completedRoutine1 = new CompletedRoutine(exercisesList1,null,"",null);
         completedRoutine2 = new CompletedRoutine(exerciseList2,null,"",null);
         statisticsCalculator = new StatisticsCalculator(user.getCompletedRoutines());
@@ -39,13 +43,9 @@ public class StatisticsCalculatorTest {
     @Test
     public void getSpecificExerciseTest(){
         Exercise specificExercise = new StrengthExercise("C",2,MUSCLE_GROUP.BICEPS,"","",4,1);
-        exercisesList1.add(exercise1);
-        exerciseList2.add(exercise2);
         user.addCompletedRoutine(completedRoutine1);
         user.addCompletedRoutine(completedRoutine2);
-        List<Exercise> sameExercise = statisticsCalculator.getSpecificExercise(specificExercise);
-        
-
+        assertEquals(2, statisticsCalculator.getSpecificExercise(specificExercise).size());
 
     }
 

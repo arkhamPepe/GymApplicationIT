@@ -10,6 +10,9 @@ import java.util.List;
 public class Routine {
 
     @Getter
+    private String name;
+
+    @Getter
     @Setter
     private String description;
 
@@ -18,6 +21,11 @@ public class Routine {
 
     public Routine(){
         this.exercises = new ArrayList<>();
+    }
+
+    public Routine(String name){
+        this();
+        this.name = name;
     }
 
     public void addExercise(Exercise exercise){
