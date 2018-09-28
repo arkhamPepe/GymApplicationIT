@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.Model.Exercises;
 
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 
 import java.util.Objects;
@@ -14,19 +15,23 @@ public abstract class Exercise {
     final private MUSCLE_GROUP muscle_group;
 
     @Getter
+    private INTENSITY intensity;
+
+    @Getter
     private boolean completed;
 
     //Might need a Guide class later
     private String description;
     private String videoguide;
 
-    public Exercise(String name, double difficulty, MUSCLE_GROUP muscle_group, String description, String videoguide){
+    public Exercise(String name, double difficulty, MUSCLE_GROUP muscle_group, String description, String videoguide, INTENSITY intensity){
         this.name = name;
         this.difficulty = difficulty;
         this.muscle_group = muscle_group;
         this.description = description;
         this.videoguide = videoguide;
         this.completed = false;
+        this.intensity = intensity;
     }
 
     public void complete(){

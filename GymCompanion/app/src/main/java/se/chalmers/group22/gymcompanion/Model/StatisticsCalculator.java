@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 
+import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
@@ -27,7 +28,15 @@ public class StatisticsCalculator {
     }
 
     public double calculateStrength(StrengthExercise exercise){
-        return 1;
+        if (exercise.getIntensity()== INTENSITY.LOW){
+            return 1;
+        }
+        else if(exercise.getIntensity()== INTENSITY.MEDIUM){
+            return 1;
+        }
+        else{
+            return 1;
+        }
     }
 
 
