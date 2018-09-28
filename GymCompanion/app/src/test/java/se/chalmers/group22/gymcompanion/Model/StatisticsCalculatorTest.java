@@ -43,7 +43,7 @@ public class StatisticsCalculatorTest {
         exerciseList2.add(exercise2);
         user.addCompletedRoutine(completedRoutine1);
         user.addCompletedRoutine(completedRoutine2);
-        statisticsCalculator.getSpecificExercise()
+        //statisticsCalculator.getSpecificExercise();
 
 
     }
