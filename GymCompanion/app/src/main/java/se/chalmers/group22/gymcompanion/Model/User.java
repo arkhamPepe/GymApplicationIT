@@ -47,7 +47,7 @@ public class User {
 
     public void endActiveRoutine(){
         if(activeRoutine != null){
-            completedRoutines.add(activeRoutine.finishRoutine());
+            addCompletedRoutine(activeRoutine.finishRoutine());
 
         }
         activeRoutine = null;
@@ -74,6 +74,10 @@ public class User {
 
     public void modifyRoutineDescription(Routine routine, String description){
         routine.setDescription(description);
+    }
+
+    public void addCompletedRoutine(CompletedRoutine completedRoutine){
+        completedRoutines.add(completedRoutine);
     }
 
 
