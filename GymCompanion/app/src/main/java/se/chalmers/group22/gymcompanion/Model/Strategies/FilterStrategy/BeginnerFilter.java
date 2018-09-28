@@ -22,7 +22,6 @@ public class BeginnerFilter implements FilterStrategy {
                 }
             }
         }
-
         return newList;
     }
 }

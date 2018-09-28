@@ -31,6 +31,12 @@ public abstract class Exercise implements ISortable {
         this.difficulty = difficulty;
     }
 
+    //FOR TESTING
+    public Exercise(List<MUSCLE_GROUP> muscleGroups, double difficulty){
+        this.muscleGroups = muscleGroups;
+        this.difficulty = difficulty;
+    }
+
     public Exercise(){}
 
     public boolean containsMuscleGroup(MUSCLE_GROUP mg){

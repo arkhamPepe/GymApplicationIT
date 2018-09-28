@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.SortingStrategy;
 
@@ -40,5 +41,18 @@ public class DataHandler {
     public <T extends ISortable> List<T> filter(List<T> toBeFiltered, FilterStrategy filter){
         List<T> newList = new ArrayList<>(toBeFiltered);
         return filter.filter(newList);
+    }
+
+    public <T extends ISortable> List<T> filter(List<T> toBeFiltered, List<MUSCLE_GROUP> muscleGroups) {
+        List<T> newList = new ArrayList<>(toBeFiltered);
+
+        for (MUSCLE_GROUP mg : muscleGroups){
+            for (T re : toBeFiltered) {
+                if (re.containsMuscleGroup(mg) && !newList.contains(re)) {
+                    newList.add(re);
+                }
+            }
+        }
+        return newList;
     }
 }
