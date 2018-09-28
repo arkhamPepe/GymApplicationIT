@@ -10,9 +10,10 @@ import static org.junit.Assert.assertEquals;
 
 public class ActiveRoutineTest {
 
-    private ActiveRoutine activeRoutine;
+
     private Routine routine = new Routine();
-    Day d = new Day(Calendar.WEEK_OF_YEAR,Calendar.DAY_OF_WEEK);
+    private Day d = new Day(Calendar.WEEK_OF_YEAR,Calendar.DAY_OF_WEEK);
+    private ActiveRoutine activeRoutine = new ActiveRoutine(routine,d);
 
     @Test
     public void completeExerciseTest() {
@@ -26,14 +27,12 @@ public class ActiveRoutineTest {
                 3
         );
         routine.getExercises().add(se);
-        activeRoutine = new ActiveRoutine(routine,d);
         activeRoutine.completeExercise(se);
         assertEquals(se, activeRoutine.getCompletedExercises().get(0));
     }
 
     @Test
     public void addCommentTest(){
-        activeRoutine = new ActiveRoutine(routine,d);
         String comm = "Test comment";
         activeRoutine.addComment(comm);
         assertEquals(comm, activeRoutine.getComment());
@@ -43,7 +42,7 @@ public class ActiveRoutineTest {
     public void finishRoutineTest(){
         CompletedRoutine completedRoutine;
         completedRoutine = activeRoutine.finishRoutine();
-        assertEquals(completedRoutine,activeRoutine.finishRoutine());
+        assertEquals(completedRoutine.getDay(),activeRoutine.getDay());
         //TODO finish the test
     }
 }

@@ -15,7 +15,7 @@ public class ActiveRoutine {
 
     @Getter
     private String comment;
-
+    @Getter
     private Day day;
 
 
