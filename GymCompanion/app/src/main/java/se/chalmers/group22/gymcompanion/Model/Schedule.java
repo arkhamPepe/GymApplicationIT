@@ -8,6 +8,7 @@ import java.util.*;
 public class Schedule {
 
     private Reminder reminder;
+    private Calendar calendar = new GregorianCalendar();
     private Map<Day, Routine> schedule = new HashMap<>();
 
 
