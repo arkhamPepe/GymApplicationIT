@@ -19,14 +19,17 @@ public class StatisticsCalculatorTest {
     private CompletedRoutine completedRoutine2;
     private StatisticsCalculator statisticsCalculator;
 
-    private StatisticsCalculatorTest(){
+    public StatisticsCalculatorTest(){
         exercise1 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",2,2);
         exercise2 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",3,4);
         exercisesList1 = new ArrayList<>();
         exerciseList2 = new ArrayList<>();
         completedRoutine1 = new CompletedRoutine(exercisesList1,null,"",null);
         completedRoutine2 = new CompletedRoutine(exerciseList2,null,"",null);
-        statisticsCalculator = new StatisticsCalculator(user.getCompletedRoutines());
+        List<CompletedRoutine> completedRoutineList = new ArrayList<>();
+        completedRoutineList.add(completedRoutine1);
+        completedRoutineList.add(completedRoutine2);
+        statisticsCalculator = new StatisticsCalculator(completedRoutineList);
         user =  new User(
                 new ArrayList<User>(),
                 new ArrayList<Routine>(),
@@ -43,7 +46,8 @@ public class StatisticsCalculatorTest {
         exerciseList2.add(exercise2);
         user.addCompletedRoutine(completedRoutine1);
         user.addCompletedRoutine(completedRoutine2);
-        assertEquals(2, statisticsCalculator.getSpecificExercise(exercise1).size());
+        List<Exercise> specificExerciseList = statisticsCalculator.getSpecificExercise(exercise1);
+        assertEquals(2, specificExerciseList.size());
     }
 
 
