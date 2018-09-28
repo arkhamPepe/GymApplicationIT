@@ -35,7 +35,7 @@ public class User {
         this.routineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(completedRoutines);
-        completedRoutines = new ArrayList<>();
+        this.completedRoutines = new ArrayList<>();
     }
 
     public void startRoutine(Routine routine, Day day){
