@@ -1,28 +1,31 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class StatisticsCalculator {
-    private List<CompletedRoutine> completedRoutines;
+    private Schedule schedule;
 
-    public StatisticsCalculator(List<CompletedRoutine> completedRoutines){
-       this.completedRoutines = completedRoutines;
+    public StatisticsCalculator(Schedule schedule){
+       this.schedule = schedule;
     }
 
-    public List<Exercise> getSpecificExercise(Exercise specificExercise){
-        List<Exercise> specificExerciseList = new ArrayList<>();
-        for (CompletedRoutine cr: completedRoutines){
-            for (Exercise exercise: cr.getCompletedExercises() ){
-                if (specificExercise.equals(exercise)){
-                    specificExerciseList.add(exercise);
+    public Map<Calendar, Exercise> getSpecificExercise(Exercise specificExercise){
+        Map<Calendar, Exercise> specificExerciseMap = new HashMap<>();
+        for(Calendar day : schedule.getRoutineSchedule().keySet()){
+            Routine r = schedule.getRoutineSchedule().get(day);
+            for(Exercise exercise : r.getExercises()){
+                if(exercise.equals(specificExercise)){
+                    specificExerciseMap.put(day, exercise);
                 }
             }
         }
-        return specificExerciseList;
+        return specificExerciseMap;
     }
 
 

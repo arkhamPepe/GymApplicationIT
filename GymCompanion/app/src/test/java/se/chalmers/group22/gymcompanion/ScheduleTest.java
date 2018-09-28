@@ -7,6 +7,7 @@ import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Schedule;
 
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class ScheduleTest {
     public void addRoutineTest() {
         Schedule s = new Schedule();
         Routine r = new Routine();
-        Day d = new Day(32,5);
+        Calendar d = Calendar.getInstance();
 
         s.addRoutine(r, d);
 
@@ -31,7 +32,7 @@ public class ScheduleTest {
     public void removeRoutineTest() {
         Schedule s = new Schedule();
         Routine r = new Routine();
-        Day d = new Day(32,5);
+        Calendar d = Calendar.getInstance();
 
         s.addRoutine(r, d);
 
@@ -48,7 +49,7 @@ public class ScheduleTest {
     public void getRoutineTest() {
         Schedule s = new Schedule();
         Routine r = new Routine();
-        Day d = new Day(32,5);
+        Calendar d = Calendar.getInstance();
 
         Routine temp;
 

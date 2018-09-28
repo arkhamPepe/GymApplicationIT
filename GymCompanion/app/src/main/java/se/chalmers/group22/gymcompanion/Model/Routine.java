@@ -17,15 +17,28 @@ public class Routine {
     private String description;
 
     @Getter
+    @Setter
+    private String comment;
+
+    @Getter
     private List<Exercise> exercises;
 
     public Routine(){
         this.exercises = new ArrayList<>();
+        this.description = "";
+        this.comment = "";
     }
 
     public Routine(String name){
         this();
         this.name = name;
+    }
+
+    public Routine(String name, List<Exercise> exercises){
+        this.exercises = exercises;
+        this.name = name;
+        this.description = "";
+        this.comment = "";
     }
 
     public void addExercise(Exercise exercise){
