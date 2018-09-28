@@ -2,8 +2,10 @@ package se.chalmers.group22.gymcompanion.Model;
 
 
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
+import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.TimedExercise;
 
 import java.util.*;
 
@@ -27,15 +29,19 @@ public class StatisticsCalculator {
         return specificExerciseMap;
     }
 
-    public double calculateStrength(StrengthExercise exercise){
-        if (exercise.getIntensity()== INTENSITY.LOW){
-            return 1;
+    public double calculateStrengthExercise(StrengthExercise exercise){
+        return exercise.getSets()*exercise.getKilograms()*exercise.getRepetitions();
+    }
+
+    public double calculateTimedExercise(TimedExercise exercise){
+        if (exercise.getIntensity() == INTENSITY.LOW){
+            return exercise.getTimespent();
         }
-        else if(exercise.getIntensity()== INTENSITY.MEDIUM){
-            return 1;
+        else if(exercise.getIntensity() == INTENSITY.MEDIUM){
+            return exercise.getTimespent()*1.3;
         }
-        else{
-            return 1;
+        else {
+            return exercise.getTimespent()*1.6;
         }
     }
 

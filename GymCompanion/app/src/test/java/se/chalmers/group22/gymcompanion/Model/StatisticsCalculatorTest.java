@@ -1,10 +1,14 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import android.support.v4.widget.TextViewCompat;
+import org.junit.Assert;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
+import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.TimedExercise;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -56,6 +60,30 @@ public class StatisticsCalculatorTest {
     public void getSpecificExerciseTest(){
         Map<Calendar, Exercise> specificExerciseList = statisticsCalculator.getSpecificExercise(exercise1);
         assertEquals(2, specificExerciseList.size());
+    }
+
+    @Test
+    public void calculateStrengthExercise(){
+        StrengthExercise exercise = new StrengthExercise(
+                "E",
+                2,
+                MUSCLE_GROUP.BICEPS,
+                "","",2,2,40,INTENSITY.LOW);
+        double score = statisticsCalculator.calculateStrengthExercise(exercise);
+        Assert.assertTrue(score == exercise.getKilograms()*exercise.getRepetitions()*exercise.getSets());
+
+    }
+
+    @Test
+    public void calculateTimedExercise(){
+        TimedExercise exercise = new CardioExercise(
+                "e",
+                1,
+                MUSCLE_GROUP.BICEPS,
+                "","",INTENSITY.LOW,40);
+        double score = statisticsCalculator.calculateTimedExercise(exercise);
+        Assert.assertTrue(score == exercise.getTimespent());
+
     }
 
 
