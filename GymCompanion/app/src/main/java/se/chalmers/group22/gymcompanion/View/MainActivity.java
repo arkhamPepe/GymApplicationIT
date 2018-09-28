@@ -30,4 +30,24 @@ public class MainActivity extends AppCompatActivity implements IView {
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
+
+    public void startActivityMyRoutines(View view){
+        Intent intent = new Intent(this, MyRoutinesAcivity.class);
+        startActivity(intent);
+    }
+
+    public void startActivityStatistics(View view){
+        Intent intent = new Intent(this, StatisticsActivity.class);
+        startActivity(intent);
+    }
+
+    public void startActivityBrowse(View view){
+        Intent intent = new Intent(this, BrowseActivity.class);
+        startActivity(intent);
+    }
+
+    public void startActivityMain(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }
