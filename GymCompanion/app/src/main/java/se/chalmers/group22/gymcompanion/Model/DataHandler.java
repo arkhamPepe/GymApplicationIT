@@ -57,8 +57,8 @@ public class DataHandler {
         }
     }
 
-    public List<Routine> filter(List<Routine> toBeFiltered, FILTER_MODE mode){
-        List<Routine> newList = new ArrayList<>(toBeFiltered);
+    public <T extends ISortable> List<T> filter(List<T> toBeFiltered, FILTER_MODE mode){
+        List<T> newList = new ArrayList<>(toBeFiltered);
 
         switch(mode){
             case BEGINNER:
