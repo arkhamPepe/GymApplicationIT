@@ -6,6 +6,7 @@ import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
+import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.RecommendedFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.AscendingAlphabetic;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.AscendingDifficulty;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.DescendingAlphabetic;
@@ -199,5 +200,66 @@ public class DataHandlerSortAndFilterTest {
         // Filters the list down to the easiest routine from every muscle group.
         muscleExercises = DataHandler.getInstance().filter(muscleExercises, new BeginnerFilter());
         assertEquals(new HashSet<>(muscleExercises), new HashSet<>(expected));
+    }
+
+    @Test
+    public void filterRoutinesRecommended(){
+        List<MUSCLE_GROUP> muscles;
+        muscleRoutines = new ArrayList<>();
+
+        // Fills the list with 5 routines from every Muscle Group
+        for(int i = 0; i<5;i++) {
+            for (MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
+                muscles = new ArrayList<>();
+                muscles.add(mg);
+
+                Routine routine = new Routine(muscles, i);
+                muscleRoutines.add(routine);
+            }
+        }
+        //Filters the list
+        muscleRoutines = DataHandler.getInstance().filter(muscleRoutines, new RecommendedFilter());
+        assertTrue(filterRecommendedHelpMethod(muscleRoutines));
+    }
+
+    @Test
+    public void filterExercisesRecommended(){
+        List<MUSCLE_GROUP> muscles;
+        muscleExercises = new ArrayList<>();
+
+        // Fills the list with 5 exercises from every Muscle Group
+        for(int i = 0; i<5;i++) {
+            for (MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
+                muscles = new ArrayList<>();
+                muscles.add(mg);
+
+                Exercise exercise = new StrengthExercise(muscles, i);
+                muscleExercises.add(exercise);
+            }
+        }
+        //Filters the list
+        muscleExercises = DataHandler.getInstance().filter(muscleExercises, new RecommendedFilter());
+        assertTrue(filterRecommendedHelpMethod(muscleExercises));
+    }
+
+    //Checks if the filtered list fulfills its purpose by checking if
+    //the list size is 5 and all the routines/exercises contain the same Muscle Group
+    private <T extends ISortable> boolean filterRecommendedHelpMethod(List<T> list){
+        int count;
+
+        if(5 == list.size()){
+            for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()){
+                count = 0;
+                for (T re: list) {
+                    if (re.containsMuscleGroup(mg)) {
+                        count++;
+                    }
+                    if(count == 5){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
