@@ -4,7 +4,6 @@ import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class UserTest {
