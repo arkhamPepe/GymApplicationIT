@@ -8,14 +8,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScheduleActivity extends AppCompatActivity implements INavigation {
+public class ScheduleActivity extends AppCompatActivity implements INavigation, IScheduleView {
 
     ListView schedule_lv;
+    private SchedulePresenter schedulePresenter = new SchedulePresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,24 +27,16 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation {
         String title = "Schedule";
         this.setTitle(title);
 
+        schedulePresenter.fillList();
+
         setContentView(R.layout.activity_schedule);
         schedule_lv = findViewById(R.id.schedule_list);
-
-        // Weekdays array
-        List<String> weekdays = new ArrayList<String>();
-        weekdays.add("Monday");
-        weekdays.add("Tuesday");
-        weekdays.add("Wednesday");
-        weekdays.add("Thursday");
-        weekdays.add("Friday");
-        weekdays.add("Saturday");
-        weekdays.add("Sunday");
 
         // Adapter takes activity context, type of list view and the array as parameters
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
-                weekdays );
+                schedulePresenter.getWeekdays() );
 
         schedule_lv.setAdapter(arrayAdapter);
 
@@ -51,7 +45,7 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation {
             // argument position gives the index of item which is clicked
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
             {
-                String selectedweekday=weekdays.get(position);
+                String selectedweekday=schedulePresenter.getWeekdays().get(position);
                 Toast.makeText(getApplicationContext(), "Weekday selected : "+ selectedweekday, Toast.LENGTH_LONG).show();
             }
         });
