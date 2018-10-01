@@ -7,12 +7,18 @@ import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class RoutineTest {
+    private List<Integer> repetitions = new ArrayList<>();
+
 
     @Test
     public void addExerciseTest() {
+        repetitions.add(3);
         Routine routine = new Routine();
         Exercise exercise = new StrengthExercise(
             "Exercise 1",
@@ -20,7 +26,7 @@ public class RoutineTest {
             MUSCLE_GROUP.ABS,
             "A StrengthExercise for the abs",
             null,
-            10,
+            repetitions,
             3,50, INTENSITY.LOW
         );
         routine.addExercise(exercise);
@@ -29,6 +35,7 @@ public class RoutineTest {
 
     @Test
     public void getAverageDifficultyTest() {
+        repetitions.add(10);
         Routine routine = new Routine();
         Exercise ex1 = new StrengthExercise(
             "Exercise 1",
@@ -36,7 +43,7 @@ public class RoutineTest {
             MUSCLE_GROUP.ABS,
             "A StrengthExercise for the abs",
             null,
-            10,
+            repetitions,
             3, 100, INTENSITY.HIGH
         );
         Exercise ex2 =  new CardioExercise(

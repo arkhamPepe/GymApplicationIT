@@ -2,7 +2,6 @@ package se.chalmers.group22.gymcompanion.Model;
 
 
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.TimedExercise;
@@ -30,7 +29,12 @@ public class StatisticsCalculator {
     }
 
     public double calculateStrengthExercise(StrengthExercise exercise){
-        return exercise.getSets()*exercise.getKilograms()*exercise.getRepetitions();
+        double sum = 0;
+        for (Integer integer: exercise.getRepetitions()){
+            sum = sum + integer;
+        }
+        sum = sum/exercise.getRepetitions().size();
+        return exercise.getSets()*exercise.getKilograms()*sum;
     }
 
     public double calculateTimedExercise(TimedExercise exercise){

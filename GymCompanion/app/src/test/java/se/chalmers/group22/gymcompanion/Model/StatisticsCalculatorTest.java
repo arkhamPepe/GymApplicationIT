@@ -29,9 +29,14 @@ public class StatisticsCalculatorTest {
 
     public StatisticsCalculatorTest(){
         this.schedule = new Schedule();
+        List<Integer> repetition1 = new ArrayList<>();
+        repetition1.add(4);
 
-        exercise1 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",2,2,4, INTENSITY.HIGH);
-        exercise2 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",3,4,4, INTENSITY.MEDIUM);
+        List<Integer> repetition2 = new ArrayList<>();
+        repetition2.add(5);
+
+        exercise1 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",repetition1,2,4, INTENSITY.HIGH);
+        exercise2 = new StrengthExercise("C",2, MUSCLE_GROUP.BICEPS,"","",repetition2,4,4, INTENSITY.MEDIUM);
 
         exercisesList1 = new ArrayList<>();
         exercisesList1.add(exercise1);
@@ -64,13 +69,23 @@ public class StatisticsCalculatorTest {
 
     @Test
     public void calculateStrengthExerciseTest(){
+        List<Integer> repetitions = new ArrayList<>();
+        repetitions.add(3);
+        repetitions.add(5);
+        repetitions.add(6);
         StrengthExercise exercise = new StrengthExercise(
                 "E",
                 2,
                 MUSCLE_GROUP.BICEPS,
-                "","",2,2,40,INTENSITY.LOW);
+                "","",repetitions,2,40,INTENSITY.LOW);
         double score = statisticsCalculator.calculateStrengthExercise(exercise);
-        Assert.assertTrue(score == exercise.getKilograms()*exercise.getRepetitions()*exercise.getSets());
+        double sum = 0;
+        for (Integer integer: exercise.getRepetitions()){
+            sum = sum + integer;
+        }
+        sum = sum/exercise.getRepetitions().size();
+
+        Assert.assertTrue(score == exercise.getKilograms()*sum*exercise.getSets());
 
     }
 

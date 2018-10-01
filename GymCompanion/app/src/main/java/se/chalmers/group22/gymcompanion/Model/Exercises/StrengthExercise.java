@@ -5,9 +5,11 @@ import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 
+import java.util.List;
+
 public class StrengthExercise extends Exercise {
     @Getter
-    private int repetitions;
+    private List<Integer> repetitions;
     @Getter
     private int sets;
     @Getter
@@ -17,7 +19,7 @@ public class StrengthExercise extends Exercise {
     private INTENSITY intensity;
 
 
-    public StrengthExercise(String name, double difficulty, MUSCLE_GROUP muscle_group, String description, String videoguide, int repetitions, int sets, double kilograms, INTENSITY intensity) {
+    public StrengthExercise(String name, double difficulty, MUSCLE_GROUP muscle_group, String description, String videoguide, List<Integer> repetitions, int sets, double kilograms, INTENSITY intensity) {
         super(name, difficulty, muscle_group, description, videoguide, intensity);
         this.repetitions = repetitions;
         this.sets = sets;
