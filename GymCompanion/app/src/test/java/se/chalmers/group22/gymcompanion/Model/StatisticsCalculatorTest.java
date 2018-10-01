@@ -63,7 +63,7 @@ public class StatisticsCalculatorTest {
     }
 
     @Test
-    public void calculateStrengthExercise(){
+    public void calculateStrengthExerciseTest(){
         StrengthExercise exercise = new StrengthExercise(
                 "E",
                 2,
@@ -75,7 +75,7 @@ public class StatisticsCalculatorTest {
     }
 
     @Test
-    public void calculateTimedExercise(){
+    public void calculateTimedExerciseTest(){
         TimedExercise exercise = new CardioExercise(
                 "e",
                 1,
