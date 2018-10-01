@@ -22,7 +22,7 @@ public class StatisticsCalculator implements Serializable {
         for(Calendar day : schedule.getRoutineSchedule().keySet()){
             Routine r = schedule.getRoutineSchedule().get(day);
             for(Exercise exercise : r.getExercises()){
-                if(exercise.equals(specificExercise)){
+                if(exercise.getName().equals(specificExercise.getName())){
                     specificExerciseMap.put(day, exercise);
                 }
             }
