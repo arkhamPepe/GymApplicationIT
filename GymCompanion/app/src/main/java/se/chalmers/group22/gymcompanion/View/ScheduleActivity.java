@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.*;
+import android.support.v7.widget.Toolbar;
 import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
 
@@ -23,11 +21,8 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Sets page title
-        String title = "Schedule";
-        this.setTitle(title);
-
-        schedulePresenter.fillList();
+        // Sets up the toolbar
+        setUpToolbar();
 
         setContentView(R.layout.activity_schedule);
         schedule_lv = findViewById(R.id.schedule_list);
@@ -78,5 +73,11 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
     @Override
     public void startActivitySchedule(View view) {
         // NOTHING
+    }
+
+    private void setUpToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        schedulePresenter.fillList();
     }
 }

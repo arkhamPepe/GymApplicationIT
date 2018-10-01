@@ -3,8 +3,6 @@ package se.chalmers.group22.gymcompanion.Model.Exercises;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-
-
 import java.io.Serializable;
 import java.util.List;
 
