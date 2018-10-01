@@ -23,6 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+                android:name=".StartRoutineActivity"
+                android:exported="true">
+        </activity>
+        <activity android:name=".View.BrowseActivity">
+        </activity>
+        <activity android:name=".View.StatisticsActivity">
+        </activity>
+        <activity android:name=".View.MyRoutinesAcivity">
+        </activity>
+
     </application>
 
 </manifest>
