@@ -2,11 +2,11 @@ package se.chalmers.group22.gymcompanion.Model.Exercises;
 
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.Exercise;
 
 import java.util.List;
+import java.io.Serializable;
 
-public class StrengthExercise extends Exercise {
+public class StrengthExercise extends Exercise implements Serializable {
     @Getter
     private int repetitions;
     @Getter
@@ -27,4 +27,5 @@ public class StrengthExercise extends Exercise {
     public StrengthExercise(List<MUSCLE_GROUP> muscleGroups, double difficulty){
         super(muscleGroups, difficulty);
     }
+
 }
