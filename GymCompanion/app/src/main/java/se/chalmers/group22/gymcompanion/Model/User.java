@@ -38,7 +38,7 @@ public class User implements Serializable {
         this.statCalc = new StatisticsCalculator(schedule);
     }
 
-    public void startRoutine(Routine routine, Calendar day){
+    public void startRoutine(Routine routine){
        /*TODO Start the routine for the current day*/
         isRoutineActive = true;
         activeRoutine = routine;
@@ -53,7 +53,7 @@ public class User implements Serializable {
     public void checkDay(){
         Calendar today = Calendar.getInstance();
         if (schedule.dayHasRoutine(today)){
-            startRoutine(schedule.getRoutine(today),today);
+            startRoutine(schedule.getRoutine(today));
         }
         else {
             /*TODO Direct the user to MR so it can create a new routine*/
