@@ -6,6 +6,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     compileSdkVersion 28
+    buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "se.chalmers.group22.gymcompanion"
         minSdkVersion 24
