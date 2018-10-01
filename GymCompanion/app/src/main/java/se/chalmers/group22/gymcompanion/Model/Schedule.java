@@ -2,10 +2,11 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.util.*;
 
 
-public class Schedule {
+public class Schedule implements Serializable {
 
     private Reminder reminder;
     private Map<Day, Routine> schedule = new HashMap<>();

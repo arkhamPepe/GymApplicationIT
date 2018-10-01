@@ -3,7 +3,9 @@ package se.chalmers.group22.gymcompanion.Model;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 
-public abstract class Exercise {
+import java.io.Serializable;
+
+public abstract class Exercise implements Serializable {
     @Getter
     private String name;
     @Getter

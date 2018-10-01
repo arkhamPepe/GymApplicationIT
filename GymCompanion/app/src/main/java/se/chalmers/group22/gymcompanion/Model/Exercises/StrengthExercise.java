@@ -4,7 +4,9 @@ import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercise;
 
-public class StrengthExercise extends Exercise {
+import java.io.Serializable;
+
+public class StrengthExercise extends Exercise implements Serializable {
     @Getter
     private int repetitions;
     @Getter
