@@ -171,7 +171,7 @@ public class DataHandlerSortAndFilterTest {
         assertEquals(new HashSet<>(muscleRoutines), new HashSet<>(expected));
     }
 
-    @Test
+    /*@Test
     public void filterExercisesBeginner(){
         List<MUSCLE_GROUP> muscles;
         muscleExercises = new ArrayList<>();
@@ -201,7 +201,7 @@ public class DataHandlerSortAndFilterTest {
         // Filters the list down to the easiest routine from every muscle group.
         muscleExercises = DataHandler.getInstance().filter(muscleExercises, new BeginnerFilter());
         assertEquals(new HashSet<>(muscleExercises), new HashSet<>(expected));
-    }
+    }*/
 
     @Test
     public void filterRoutinesRecommended(){

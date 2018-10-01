@@ -13,16 +13,15 @@ public class User implements Serializable {
 
     private List<User> friends;
     private List<Routine> routines;
-    private List<CompletedRoutine> completedRoutines;
     private String name;
     private String gym;
     private int age;
     private int weight;
     private boolean isBeginner;
+    private boolean isRoutineActive;
 
-    private ActiveRoutine activeRoutine;
-    private boolean routineActive;
-
+    private Routine activeRoutine;
+    private StatisticsCalculator statCalc;
     private Schedule schedule;
 
 
@@ -34,30 +33,25 @@ public class User implements Serializable {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.routineActive = false;
+        this.isRoutineActive = false;
         this.schedule = new Schedule();
-        completedRoutines = new ArrayList<>();
+        this.statCalc = new StatisticsCalculator(schedule);
     }
 
-    public void startRoutine(Routine routine, Day day){
+    public void startRoutine(Routine routine, Calendar day){
        /*TODO Start the routine for the current day*/
-        activeRoutine = new ActiveRoutine(routine,day);
-        routineActive= true;
+        isRoutineActive = true;
+        activeRoutine = routine;
         /*TODO redirect to "Workout in progress"-page*/
-
     }
 
     public void endActiveRoutine(){
-        if(activeRoutine != null){
-            completedRoutines.add(activeRoutine.finishRoutine());
-
-        }
         activeRoutine = null;
-        routineActive = false;
+        isRoutineActive = false;
     }
 
     public void checkDay(){
-        Day today = new Day(Calendar.WEEK_OF_YEAR, Calendar.DAY_OF_WEEK);
+        Calendar today = Calendar.getInstance();
         if (schedule.dayHasRoutine(today)){
             startRoutine(schedule.getRoutine(today),today);
         }

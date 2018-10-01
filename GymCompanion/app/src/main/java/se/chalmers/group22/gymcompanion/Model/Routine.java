@@ -10,15 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@Setter
 public class Routine implements ISortable, Serializable {
 
-    @Getter
-    @Setter
     private String description;
     private String name;
     private double difficulty;
     private List<MUSCLE_GROUP> muscleGroups;
-
+    private String comment;
     private List<Exercise> exercises;
 
     public Routine(String name, double difficulty){
@@ -39,6 +38,15 @@ public class Routine implements ISortable, Serializable {
 
     public Routine(){
         this.exercises = new ArrayList<>();
+        this.description = "";
+        this.comment = "";
+    }
+
+    public Routine(String name, List<Exercise> exercises){
+        this.exercises = exercises;
+        this.name = name;
+        this.description = "";
+        this.comment = "";
     }
 
     public void addExercise(Exercise exercise) {
@@ -57,4 +65,5 @@ public class Routine implements ISortable, Serializable {
         double average = sum / exercises.size();
         return (double) Math.round(average * 10) / 10;
     }
+
 }

@@ -3,6 +3,7 @@ package se.chalmers.group22.gymcompanion.Model;
 import org.junit.Before;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
@@ -15,16 +16,16 @@ import static org.junit.Assert.*;
 public class RoutineTest {
     private List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
     private List<MUSCLE_GROUP> muscleGroups2 = new ArrayList<>();
+    private List<Integer> repetitions = new ArrayList<>();
     private Exercise exercise = new StrengthExercise(
             "Exercise 1",
             3.2,
             muscleGroups,
             "A StrengthExercise for the abs",
             null,
-            10,
+            repetitions,
             3
     );
-
     private Exercise ex2 =  new CardioExercise(
             "Exercise 2",
             4.5,
@@ -33,6 +34,8 @@ public class RoutineTest {
             null,
             20
     );
+
+
 
     @Before
     public void init(){
@@ -43,19 +46,13 @@ public class RoutineTest {
     @Test
     public void addExerciseTest() {
         Routine routine = new Routine();
-
         routine.addExercise(exercise);
         assertEquals(exercise, routine.getExercises().get(0));
     }
 
     @Test
     public void getAverageDifficultyTest() {
-        Routine routine = new Routine();
-        routine.addExercise(exercise);
-        routine.addExercise(ex2);
-        assertEquals(3.9, routine.getAverageDifficulty(), 0.01);
-        routine.addExercise(ex2);
-        assertEquals(4.1, routine.getAverageDifficulty(), 0.01);
+
     }
 
     @Test

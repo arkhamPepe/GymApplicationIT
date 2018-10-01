@@ -5,31 +5,32 @@ import lombok.Getter;
 import java.io.Serializable;
 import java.util.*;
 
-
+@Getter
 public class Schedule implements Serializable {
 
     private Reminder reminder;
     private Calendar calendar = new GregorianCalendar();
-    private Map<Day, Routine> schedule = new HashMap<>();
-
+    private Map<Calendar, Routine> routineSchedule;
 
     public Schedule(){
+        reminder = new Reminder();
+        routineSchedule = new HashMap<>();
     }
 
 
-    public void addRoutine(Routine r, Day d){
-        schedule.put(d,r);
+    public void addRoutine(Routine r, Calendar day){
+        routineSchedule.put(day,r);
     }
 
-    public void removeRoutine(Day d){
-        schedule.remove(d);
+    public void removeRoutine(Calendar day){
+        routineSchedule.remove(day);
     }
 
-    public Routine getRoutine(Day d){
-        return schedule.get(d);
+    public Routine getRoutine(Calendar day){
+        return routineSchedule.get(day);
     }
 
-    public boolean dayHasRoutine(Day d){
-        return schedule.containsKey(d);
+    public boolean dayHasRoutine(Calendar day){
+        return routineSchedule.containsKey(day);
     }
 }
