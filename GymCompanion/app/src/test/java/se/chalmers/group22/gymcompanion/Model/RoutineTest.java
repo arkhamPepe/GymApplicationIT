@@ -73,4 +73,13 @@ public class RoutineTest {
         routine.setDescription("A new description");
         assertEquals("A new description", routine.getDescription());
     }
+
+    @Test
+    public void containsMuscleGroupTest() {
+        routine = new Routine(muscleGroups, 2.1);
+        assertTrue(routine.containsMuscleGroup(MUSCLE_GROUP.ABS));
+
+        routine = new Routine(muscleGroups2, 3.2);
+        assertTrue(routine.containsMuscleGroup(MUSCLE_GROUP.QUADS));
+    }
 }
