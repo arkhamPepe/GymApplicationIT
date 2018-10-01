@@ -51,6 +51,9 @@ public class RoutineTest {
     public void addExerciseTest() {
         routine.addExercise(ex1);
         assertEquals(ex1, routine.getExercises().get(0));
+
+        routine.addExercise(ex2);
+        assertEquals(ex2, routine.getExercises().get(1));
     }
 
     @Test
