@@ -1,8 +1,8 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
-import java.util.Date;
 import java.util.List;
 
 @Getter

@@ -3,12 +3,14 @@ package se.chalmers.group22.gymcompanion.Model;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-public class Routine implements ISortable {
+public class Routine implements ISortable, Serializable {
 
     @Getter
     @Setter
