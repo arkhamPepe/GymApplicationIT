@@ -4,15 +4,27 @@ import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercise;
 
+import java.util.List;
+
 public class StrengthExercise extends Exercise {
     @Getter
     private int repetitions;
     @Getter
     private int sets;
 
-    public StrengthExercise(String name, double difficulty, MUSCLE_GROUP muscle_group, String description, String videoguide, int repetitions, int sets) {
-        super(name, difficulty, muscle_group, description, videoguide);
+    public StrengthExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, int repetitions, int sets) {
+        super(name, difficulty, muscleGroups, description, videoguide);
         this.repetitions = repetitions;
 
+    }
+
+    // FOR TESTING
+    public StrengthExercise(String name, double difficulty){
+        super(name, difficulty);
+    }
+
+    // FOR TESTING
+    public StrengthExercise(List<MUSCLE_GROUP> muscleGroups, double difficulty){
+        super(muscleGroups, difficulty);
     }
 }
