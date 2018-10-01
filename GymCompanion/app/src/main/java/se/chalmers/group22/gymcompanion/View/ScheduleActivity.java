@@ -4,15 +4,57 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScheduleActivity extends AppCompatActivity implements INavigation {
 
+    ListView schedule_lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Sets page title
+        String title = "Schedule";
+        this.setTitle(title);
+
         setContentView(R.layout.activity_schedule);
+        schedule_lv = findViewById(R.id.schedule_list);
+
+        // Weekdays array
+        List<String> weekdays = new ArrayList<String>();
+        weekdays.add("Monday");
+        weekdays.add("Tuesday");
+        weekdays.add("Wednesday");
+        weekdays.add("Thursday");
+        weekdays.add("Friday");
+        weekdays.add("Saturday");
+        weekdays.add("Sunday");
+
+        // Adapter takes activity context, type of list view and the array as parameters
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                weekdays );
+
+        schedule_lv.setAdapter(arrayAdapter);
+
+        schedule_lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            // argument position gives the index of item which is clicked
+            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
+            {
+                String selectedweekday=weekdays.get(position);
+                Toast.makeText(getApplicationContext(), "Weekday selected : "+ selectedweekday, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override

@@ -23,11 +23,6 @@ public class MainActivity extends AppCompatActivity implements IView, INavigatio
         ImageButton btnMyRoutines = findViewById(R.id.btnMyRoutines);
         ImageButton btnStatistics = findViewById(R.id.btnStatistics);
 
-        startActivity(new Intent(this, ScheduleActivity.class));
-        startActivity(new Intent(this, StatisticsActivity.class));
-        startActivity(new Intent(this, BrowseActivity.class));
-        startActivity(new Intent(this, MyRoutinesAcivity.class));
-
     }
 
     public void startActivitySchedule(View view){
