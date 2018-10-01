@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import android.provider.ContactsContract;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
@@ -52,6 +53,31 @@ public class DataHandler {
                 if (re.containsMuscleGroup(mg) && !newList.contains(re)) {
                     newList.add(re);
                 }
+            }
+        }
+        return newList;
+    }
+
+    public List<ISortable> getRoutinesAndExercises(){
+        List<ISortable> newList = new ArrayList<>();
+        for (Routine r: DataHandler.getInstance().getRoutines()) {
+            newList.add(r);
+        }
+        for (Exercise e: DataHandler.getInstance().getExercises()) {
+            newList.add(e);
+        }
+        return newList;
+    }
+
+    public List<ISortable> search(String search, String sort){
+        if (search.equals("")) {
+            return DataHandler.getInstance().getRoutinesAndExercises();
+        }
+
+        List<ISortable> newList = new ArrayList<>();
+        for (ISortable re: DataHandler.getInstance().getRoutinesAndExercises()) {
+            if(search.equals(re.getName())){
+                newList.add(re);
             }
         }
         return newList;
