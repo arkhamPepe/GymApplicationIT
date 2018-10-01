@@ -1,10 +1,8 @@
 package se.chalmers.group22.gymcompanion.Model;
 
-import android.telecom.Call;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class User {
     private int age;
     private int weight;
     private boolean isBeginner;
-    private boolean routineActive;
+    private boolean isRoutineActive;
 
     private Routine activeRoutine;
     private StatisticsCalculator statCalc;
@@ -33,21 +31,21 @@ public class User {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.routineActive = false;
+        this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
     }
 
     public void startRoutine(Routine routine, Calendar day){
        /*TODO Start the routine for the current day*/
-        routineActive = true;
+        isRoutineActive = true;
         activeRoutine = routine;
         /*TODO redirect to "Workout in progress"-page*/
     }
 
     public void endActiveRoutine(){
         activeRoutine = null;
-        routineActive = false;
+        isRoutineActive = false;
     }
 
     public void checkDay(){
