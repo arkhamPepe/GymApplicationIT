@@ -56,5 +56,4 @@ public class DataHandler {
         return newList;
     }
 
-
 }

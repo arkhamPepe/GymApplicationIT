@@ -5,6 +5,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.View.IView;
 import se.chalmers.group22.gymcompanion.View.ScheduleActivity;
 
@@ -15,6 +16,7 @@ public class SchedulePresenter implements IPresenter {
 
     private IView IView;
     private ScheduleActivity scheduleActivity;
+    private DataHandler dataHandler = DataHandler.getInstance();
 
     public List<String> getWeekdays() {
         return weekdays;
@@ -29,6 +31,7 @@ public class SchedulePresenter implements IPresenter {
 
     public void fillList(){
         // Weekdays array
+
         weekdays.add("Monday");
         weekdays.add("Tuesday");
         weekdays.add("Wednesday");

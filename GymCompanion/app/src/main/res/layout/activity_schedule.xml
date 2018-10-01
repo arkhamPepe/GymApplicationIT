@@ -38,8 +38,17 @@
             app:layout_constraintStart_toEndOf="@+id/btnSchedule"/>
     <ListView
             android:layout_width="360dp"
-            android:layout_height="567dp" tools:layout_editor_absoluteY="42dp"
+            android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/schedule_list"/>
+            android:id="@+id/schedule_list" tools:layout_editor_absoluteY="42dp"/>
+
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 </android.support.constraint.ConstraintLayout>
