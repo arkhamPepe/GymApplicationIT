@@ -1,7 +1,9 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import org.junit.Before;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import java.util.ArrayList;
@@ -13,6 +15,12 @@ import static org.junit.Assert.*;
 public class UserTest {
     private User user = new User(new ArrayList<User>(),new ArrayList<Routine>(), "Test", "Test Gym", 20, 75, true);
     private Day d = new Day(Calendar.WEEK_OF_YEAR,Calendar.DAY_OF_WEEK);
+    private List<MUSCLE_GROUP> muscleGroupList = new ArrayList<>();
+
+    @Before
+    public void init(){
+        muscleGroupList.add(MUSCLE_GROUP.BICEPS);
+    }
 
     @Test
     public void startRoutineTest(){
@@ -42,7 +50,7 @@ public class UserTest {
 
     @Test
     public void addExerciseToRoutineTest(){
-        Exercise bicee = new StrengthExercise("heavey", 4.2, MUSCLE_GROUP.BICEPS, "", "Tet", 4, 4);
+        Exercise bicee = new StrengthExercise("heavey", 4.2, muscleGroupList, "", "Tet", 4, 4);
         user.createRoutine();
         user.addExerciseToRoutine(bicee,user.getRoutines().get(0));
         assertEquals(user.getRoutines().get(0).getExercises().get(0),bicee);

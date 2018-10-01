@@ -1,13 +1,15 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 @Getter
-public class User {
+public class User implements Serializable {
 
     private List<User> friends;
     private List<Routine> routines;

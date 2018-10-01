@@ -2,9 +2,12 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,10 +20,12 @@ public class ActiveRoutineTest {
 
     @Test
     public void completeExerciseTest() {
+        List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
+        muscleGroups.add(MUSCLE_GROUP.CHEST);
         Exercise se = new StrengthExercise(
                 "Strength Exercise Deluxe",
                 3.2,
-                MUSCLE_GROUP.CHEST,
+                muscleGroups,
                 "A StrengthExercise for the chest",
                 "http://youtube.com",
                 10,

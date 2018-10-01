@@ -1,26 +1,49 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import org.junit.Before;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class RoutineTest {
-
-    @Test
-    public void addExerciseTest() {
-        Routine routine = new Routine();
-        Exercise exercise = new StrengthExercise(
+    private List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
+    private List<MUSCLE_GROUP> muscleGroups2 = new ArrayList<>();
+    private Exercise exercise = new StrengthExercise(
             "Exercise 1",
             3.2,
-            MUSCLE_GROUP.ABS,
+            muscleGroups,
             "A StrengthExercise for the abs",
             null,
             10,
             3
-        );
+    );
+
+    private Exercise ex2 =  new CardioExercise(
+            "Exercise 2",
+            4.5,
+            muscleGroups2,
+            "A CardioExercise",
+            null,
+            20
+    );
+
+    @Before
+    public void init(){
+        muscleGroups.add(MUSCLE_GROUP.ABS);
+        muscleGroups2.add(MUSCLE_GROUP.QUADS);
+    }
+
+    @Test
+    public void addExerciseTest() {
+        Routine routine = new Routine();
+
         routine.addExercise(exercise);
         assertEquals(exercise, routine.getExercises().get(0));
     }
@@ -28,24 +51,7 @@ public class RoutineTest {
     @Test
     public void getAverageDifficultyTest() {
         Routine routine = new Routine();
-        Exercise ex1 = new StrengthExercise(
-            "Exercise 1",
-            3.2,
-            MUSCLE_GROUP.ABS,
-            "A StrengthExercise for the abs",
-            null,
-            10,
-            3
-        );
-        Exercise ex2 =  new CardioExercise(
-            "Exercise 2",
-                4.5,
-                MUSCLE_GROUP.QUADS,
-                "A CardioExercise",
-                null,
-                20
-        );
-        routine.addExercise(ex1);
+        routine.addExercise(exercise);
         routine.addExercise(ex2);
         assertEquals(3.9, routine.getAverageDifficulty(), 0.01);
         routine.addExercise(ex2);

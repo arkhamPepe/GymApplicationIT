@@ -36,10 +36,15 @@
             android:id="@+id/btnMyRoutines"
             android:onClick="startActivityMyRoutines" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btnSchedule"/>
+
     <ListView
             android:layout_width="360dp"
-            android:layout_height="567dp" tools:layout_editor_absoluteY="42dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/schedule_list"/>
+            android:layout_height="567dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/schedule_list"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="42dp"
+            />
 
 </android.support.constraint.ConstraintLayout>
