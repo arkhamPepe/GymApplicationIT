@@ -1,16 +1,17 @@
 package se.chalmers.group22.gymcompanion.View;
 
+import android.app.ActionBar;
+import android.app.LauncherActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.*;
-import android.support.v7.widget.Toolbar;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ScheduleActivity extends AppCompatActivity implements INavigation, IScheduleView {
 
@@ -21,17 +22,16 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Sets up the toolbar
-        setUpToolbar();
-
         setContentView(R.layout.activity_schedule);
         schedule_lv = findViewById(R.id.schedule_list);
+
+        schedulePresenter.fillList();
 
         // Adapter takes activity context, type of list view and the array as parameters
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
-                schedulePresenter.getWeekdays() );
+                schedulePresenter.getWeekdays());
 
         schedule_lv.setAdapter(arrayAdapter);
 
@@ -73,11 +73,5 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
     @Override
     public void startActivitySchedule(View view) {
         // NOTHING
-    }
-
-    private void setUpToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        schedulePresenter.fillList();
     }
 }

@@ -33,4 +33,8 @@ public class Schedule implements Serializable {
     public boolean dayHasRoutine(Calendar day){
         return routineSchedule.containsKey(day);
     }
+
+    public Map<Calendar, Routine> getSchedule() {
+        return new HashMap<>(routineSchedule);
+    }
 }

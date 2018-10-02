@@ -5,8 +5,7 @@ import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.SortingStrategy;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class DataHandler {
 
@@ -21,10 +20,12 @@ public class DataHandler {
 
     private List<Routine> routineList;
     private List<Exercise> exerciseList;
+    private Map<Calendar, Routine> routineSchedule;
 
     private DataHandler() {
         this.routineList = new ArrayList<>();
         this.exerciseList = new ArrayList<>();
+        this.routineSchedule = new HashMap<>();
     }
 
     public List<Routine> getRoutines() {
@@ -33,6 +34,10 @@ public class DataHandler {
 
     public List<Exercise> getExercises() {
         return null;
+    }
+
+    public Map<Calendar, Routine> getSchedule() {
+        return new HashMap<>(routineSchedule);
     }
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
