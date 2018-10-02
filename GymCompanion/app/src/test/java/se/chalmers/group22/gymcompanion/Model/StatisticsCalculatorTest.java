@@ -60,7 +60,7 @@ public class StatisticsCalculatorTest {
         repetitions.add(2);
         repetitions.add(4);
         sets = 2;
-        timespent = 30;
+        timespent = 100;
         muscleGroup = new ArrayList<>();
 
         exercise = new StrengthExercise("Lift",3.5,muscleGroup,"","",repetitions,sets);
@@ -82,13 +82,13 @@ public class StatisticsCalculatorTest {
     }
 
     @Test
-    public void calculateScoreStrengthTest(){
-        assertEquals(user.getStatCalc().CalculateScore(strengthExercise),40,0.5);
+    public void calculateStrengthScoreTest(){
+        assertEquals(user.getStatCalc().calculateScore(strengthExercise),40,0.5);
     }
 
     @Test
-    public void calculateScoreTimedTest(){
-        assertEquals(user.getStatCalc().CalculateScore(cardioExercise),30.0,0.1);
+    public void calculateTimedScoreTest(){
+        assertEquals(user.getStatCalc().calculateScore(cardioExercise),25.0,0.1);
     }
 
 }

@@ -30,7 +30,7 @@ public class StatisticsCalculator implements Serializable {
         return specificExerciseMap;
     }
 
-    public double CalculateScore(StrengthExercise exercise){
+    public double calculateScore(StrengthExercise exercise){
         double sum = 0;
         int kgIndex = 0;
         for (Integer repetition: exercise.getRepetitions()){
@@ -40,8 +40,14 @@ public class StatisticsCalculator implements Serializable {
         return sum;
     }
 
-    public double CalculateScore(TimedExercise exercise){
-        return exercise.getTimespent();
+    public double calculateScore(TimedExercise exercise) {
+        if (exercise.getIntensity() == INTENSITY.LOW) {
+            return exercise.getTimespent() * 0.25;
+        } else if (exercise.getIntensity() == INTENSITY.MEDIUM) {
+            return exercise.getTimespent() * 0.5;
+        } else {
+            return exercise.getTimespent() * 0.75;
+        }
     }
 
 }
