@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent" android:maxHeight="75dp">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp" android:layout_alignParentTop="true" android:layout_marginTop="20dp"
+                android:id="@+id/dayOfWeek"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/routineName" android:layout_below="@+id/dayOfWeek"
+                android:layout_alignStart="@+id/dayOfWeek" android:textSize="24sp"/>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

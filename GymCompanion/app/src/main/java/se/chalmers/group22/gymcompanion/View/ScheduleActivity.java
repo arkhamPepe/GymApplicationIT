@@ -1,37 +1,37 @@
 package se.chalmers.group22.gymcompanion.View;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.*;
-import android.support.v7.widget.Toolbar;
 import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ScheduleActivity extends AppCompatActivity implements INavigation, IScheduleView {
 
-    ListView schedule_lv;
+    private ListView schedule_lv;
     private SchedulePresenter schedulePresenter = new SchedulePresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Sets up the toolbar
-        setUpToolbar();
-
         setContentView(R.layout.activity_schedule);
         schedule_lv = findViewById(R.id.schedule_list);
+
+        //fillSchedule();
+
+        schedulePresenter.fillList();
 
         // Adapter takes activity context, type of list view and the array as parameters
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
-                schedulePresenter.getWeekdays() );
+                schedulePresenter.getWeekdays());
 
         schedule_lv.setAdapter(arrayAdapter);
 
@@ -44,6 +44,21 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
                 Toast.makeText(getApplicationContext(), "Weekday selected : "+ selectedweekday, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void fillSchedule() {
+        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.listitem_schedule, null);
+        ViewGroup insertPoint = findViewById(R.id.schedule_list);
+
+        for(int i = 0; i < 7; i++) {
+            TextView dayOfWeek = view.findViewById(R.id.dayOfWeek);
+            dayOfWeek.setText("");
+            TextView routineName = view.findViewById(R.id.routineName);
+            routineName.setText("");
+            insertPoint.addView(view, i);
+        }
+
     }
 
     @Override
@@ -73,11 +88,5 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
     @Override
     public void startActivitySchedule(View view) {
         // NOTHING
-    }
-
-    private void setUpToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        schedulePresenter.fillList();
     }
 }

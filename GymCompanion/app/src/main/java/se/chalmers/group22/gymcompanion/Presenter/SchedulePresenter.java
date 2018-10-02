@@ -1,16 +1,13 @@
 package se.chalmers.group22.gymcompanion.Presenter;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.support.constraint.ConstraintLayout;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
+import se.chalmers.group22.gymcompanion.Model.Routine;
+import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.IView;
 import se.chalmers.group22.gymcompanion.View.ScheduleActivity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class SchedulePresenter implements IPresenter {
 
@@ -31,6 +28,14 @@ public class SchedulePresenter implements IPresenter {
 
     public void fillList(){
         // Weekdays array
+        /*Map<Calendar, Routine> schedule = dataHandler.getSchedule();
+
+        Iterator<Map.Entry<Calendar, Routine>> it = schedule.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<Calendar, Routine> pair = it.next();
+            weekdays.add(getDayOfWeek(pair.getKey().get(Calendar.DAY_OF_WEEK)) + ", " +
+                    pair.getValue().getName());
+        }*/
 
         weekdays.add("Monday");
         weekdays.add("Tuesday");
@@ -41,6 +46,33 @@ public class SchedulePresenter implements IPresenter {
         weekdays.add("Sunday");
     }
 
+    private String getDayOfWeek(int value) {
+        String d = "";
+        switch (value) {
+            case 1:
+                d = "Sunday";
+                break;
+            case 2:
+                d = "Monday";
+                break;
+            case 3:
+                d = "Tuesday";
+                break;
+            case 4:
+                d = "Wednesday";
+                break;
+            case 5:
+                d = "Thursday";
+                break;
+            case 6:
+                d = "Friday";
+                break;
+            case 7:
+                d = "Saturday";
+                break;
+        }
+        return d;
+    }
     @Override
     public void onCreate() {
 
