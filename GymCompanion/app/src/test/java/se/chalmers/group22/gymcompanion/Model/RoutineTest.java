@@ -62,7 +62,10 @@ public class RoutineTest {
         assertEquals(3.2, routine.getAverageDifficulty(), 0.01);
 
         routine.addExercise(ex2);
-        assertEquals(3.9, routine.getAverageDifficulty(), 0.01);
+        assertEquals(3.85, routine.getAverageDifficulty(), 0.05);
+
+        routine.addExercise(ex1);
+        assertEquals(3.63, routine.getAverageDifficulty(), 0.05);
     }
 
     @Test
