@@ -41,6 +41,7 @@
             android:layout_width="360dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/schedule_list" tools:layout_editor_absoluteY="42dp" android:hapticFeedbackEnabled="true"/>
+            android:id="@+id/schedule_list" android:hapticFeedbackEnabled="true"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="50dp"/>
 
 </android.support.constraint.ConstraintLayout>
