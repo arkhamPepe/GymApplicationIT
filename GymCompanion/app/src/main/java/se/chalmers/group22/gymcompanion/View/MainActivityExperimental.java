@@ -14,8 +14,8 @@ public class MainActivityExperimental extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
-                findViewById(R.id.navigation);
+        /*BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.navigation);*/
         
         /** TODO: FIX THIS */
         /*bottomNavigationView.setOnNavigationItemSelectedListener

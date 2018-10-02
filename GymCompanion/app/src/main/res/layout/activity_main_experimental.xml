@@ -6,18 +6,18 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context="com.truiton.bottomnavigation.MainActivity">
+tools:context=".View.MainActivityExperimental">
 
-<FrameLayout
+<!--<FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/navigation"
         android:animateLayoutChanges="true">
 
-</FrameLayout>
+</FrameLayout>-->
 
-<android.support.design.widget.BottomNavigationView
+<!--<android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,5 +25,5 @@ tools:context="com.truiton.bottomnavigation.MainActivity">
         android:background="@color/colorPrimary"
         app:itemIconTint="@color/nav_item_state_list"
         app:itemTextColor="@color/nav_item_state_list"
-        app:menu="@menu/bottom_navigation_items"/>
+        app:menu="@menu/bottom_navigation_items"/> -->
 </RelativeLayout>

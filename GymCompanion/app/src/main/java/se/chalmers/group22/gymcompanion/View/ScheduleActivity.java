@@ -23,10 +23,12 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
         setContentView(R.layout.activity_schedule);
         schedule_lv = findViewById(R.id.schedule_list);
 
-        fillSchedule();
+        //fillSchedule();
+
+        schedulePresenter.fillList();
 
         // Adapter takes activity context, type of list view and the array as parameters
-        /*ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
                 schedulePresenter.getWeekdays());
@@ -41,7 +43,7 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
                 String selectedweekday=schedulePresenter.getWeekdays().get(position);
                 Toast.makeText(getApplicationContext(), "Weekday selected : "+ selectedweekday, Toast.LENGTH_LONG).show();
             }
-        });*/
+        });
     }
 
     private void fillSchedule() {

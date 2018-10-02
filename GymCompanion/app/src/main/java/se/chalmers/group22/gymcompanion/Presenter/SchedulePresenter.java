@@ -28,14 +28,22 @@ public class SchedulePresenter implements IPresenter {
 
     public void fillList(){
         // Weekdays array
-        Map<Calendar, Routine> schedule = dataHandler.getSchedule();
+        /*Map<Calendar, Routine> schedule = dataHandler.getSchedule();
 
         Iterator<Map.Entry<Calendar, Routine>> it = schedule.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<Calendar, Routine> pair = it.next();
             weekdays.add(getDayOfWeek(pair.getKey().get(Calendar.DAY_OF_WEEK)) + ", " +
                     pair.getValue().getName());
-        }
+        }*/
+
+        weekdays.add("Monday");
+        weekdays.add("Tuesday");
+        weekdays.add("Wednesday");
+        weekdays.add("Thursday");
+        weekdays.add("Friday");
+        weekdays.add("Saturday");
+        weekdays.add("Sunday");
     }
 
     private String getDayOfWeek(int value) {

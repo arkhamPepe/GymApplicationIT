@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       android:layout_height="40dp"
       android:layout_width="match_parent">
-    <item
+    <!--<item
             android:id="@+id/action_item1"
             android:icon="@drawable/ic_account_box_black_24dp"
             android:title="@string/item_1"/>
@@ -13,7 +13,7 @@
     <item
             android:id="@+id/action_item3"
             android:icon="@drawable/ic_assignment_ind_black_24dp"
-            android:title="@string/item_3"/>
+            android:title="@string/item_3"/>-->
 </menu>
 
 
