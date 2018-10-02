@@ -1,19 +1,23 @@
 package se.chalmers.group22.gymcompanion.Model.Exercises;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
 
 @Getter
 public class StrengthExercise extends Exercise implements Serializable {
 
+    @Getter(AccessLevel.NONE)
     private List<Integer> repetitions;
 
     private int sets;
 
+    @Getter(AccessLevel.NONE)
     private List<Double> kilograms;
 
     private INTENSITY intensity;
@@ -40,4 +44,14 @@ public class StrengthExercise extends Exercise implements Serializable {
         super(muscleGroups, difficulty);
     }
 
+
+    // Defensive copy
+    public List<Integer> getRepetitions() {
+        return new ArrayList<>(repetitions);
+    }
+
+    // Defensive copy
+    public List<Double> getKilograms() {
+        return new ArrayList<>(kilograms);
+    }
 }

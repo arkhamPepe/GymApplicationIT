@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model.Exercises;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
@@ -7,6 +8,7 @@ import se.chalmers.group22.gymcompanion.Model.ISortable;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,6 +17,8 @@ public abstract class Exercise implements ISortable, Serializable {
 
     private String name;
     private double difficulty;
+
+    @Getter(AccessLevel.NONE)
     private List<MUSCLE_GROUP> muscleGroups;
 
     private INTENSITY intensity;
@@ -66,5 +70,7 @@ public abstract class Exercise implements ISortable, Serializable {
         this.completed = true;
     }
 
-
+    public List<MUSCLE_GROUP> getMuscleGroups(){
+        return new ArrayList<>(muscleGroups);
+    }
 }
