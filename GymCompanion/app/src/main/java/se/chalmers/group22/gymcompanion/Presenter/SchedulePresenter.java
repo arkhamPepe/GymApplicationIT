@@ -1,7 +1,9 @@
 package se.chalmers.group22.gymcompanion.Presenter;
 
+import android.support.constraint.ConstraintLayout;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.Model.Routine;
+import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.IView;
 import se.chalmers.group22.gymcompanion.View.ScheduleActivity;
 

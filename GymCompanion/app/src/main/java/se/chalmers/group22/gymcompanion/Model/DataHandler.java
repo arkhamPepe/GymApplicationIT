@@ -29,11 +29,11 @@ public class DataHandler {
     }
 
     public List<Routine> getRoutines() {
-        return null;
+        return new ArrayList<>(routineList);
     }
 
     public List<Exercise> getExercises() {
-        return null;
+        return new ArrayList<>(exerciseList);
     }
 
     public Map<Calendar, Routine> getSchedule() {

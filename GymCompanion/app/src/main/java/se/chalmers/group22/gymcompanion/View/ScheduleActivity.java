@@ -1,21 +1,19 @@
 package se.chalmers.group22.gymcompanion.View;
 
-import android.app.ActionBar;
-import android.app.LauncherActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.view.ViewGroup;
+import android.widget.*;
 import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
 
 public class ScheduleActivity extends AppCompatActivity implements INavigation, IScheduleView {
 
-    ListView schedule_lv;
+    private ListView schedule_lv;
     private SchedulePresenter schedulePresenter = new SchedulePresenter(this);
 
     @Override
@@ -25,10 +23,10 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
         setContentView(R.layout.activity_schedule);
         schedule_lv = findViewById(R.id.schedule_list);
 
-        schedulePresenter.fillList();
+        fillSchedule();
 
         // Adapter takes activity context, type of list view and the array as parameters
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
+        /*ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
                 schedulePresenter.getWeekdays());
@@ -43,7 +41,22 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
                 String selectedweekday=schedulePresenter.getWeekdays().get(position);
                 Toast.makeText(getApplicationContext(), "Weekday selected : "+ selectedweekday, Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
+    }
+
+    private void fillSchedule() {
+        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.listitem_schedule, null);
+        ViewGroup insertPoint = findViewById(R.id.schedule_list);
+
+        for(int i = 0; i < 7; i++) {
+            TextView dayOfWeek = view.findViewById(R.id.dayOfWeek);
+            dayOfWeek.setText("");
+            TextView routineName = view.findViewById(R.id.routineName);
+            routineName.setText("");
+            insertPoint.addView(view, i);
+        }
+
     }
 
     @Override
