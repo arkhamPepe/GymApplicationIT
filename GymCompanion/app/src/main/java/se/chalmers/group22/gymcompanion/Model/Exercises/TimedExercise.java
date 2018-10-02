@@ -11,10 +11,10 @@ public abstract class TimedExercise extends Exercise implements Serializable{
     private int timespent;
 
 
-    public TimedExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, int timespent) {
+    /*public TimedExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, int timespent) {
         super(name, difficulty, muscleGroups, description, videoguide);
         this.timespent = timespent;
-    }
+    }*/
 
     public TimedExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, INTENSITY intensity, int timespent) {
         super(name, difficulty, muscleGroups, description, videoguide,intensity);

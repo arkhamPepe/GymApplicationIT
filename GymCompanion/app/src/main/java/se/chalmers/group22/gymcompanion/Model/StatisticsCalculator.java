@@ -30,5 +30,24 @@ public class StatisticsCalculator implements Serializable {
         return specificExerciseMap;
     }
 
+    public double calculateScore(StrengthExercise exercise){
+        double sum = 0;
+        int kgIndex = 0;
+        for (Integer repetition: exercise.getRepetitions()){
+            sum += repetition * exercise.getKilograms().get(kgIndex);
+            kgIndex++;
+        }
+        return sum;
+    }
+
+    public double calculateScore(TimedExercise exercise) {
+        if (exercise.getIntensity() == INTENSITY.LOW) {
+            return exercise.getTimespent() * 0.25;
+        } else if (exercise.getIntensity() == INTENSITY.MEDIUM) {
+            return exercise.getTimespent() * 0.5;
+        } else {
+            return exercise.getTimespent() * 0.75;
+        }
+    }
 
 }

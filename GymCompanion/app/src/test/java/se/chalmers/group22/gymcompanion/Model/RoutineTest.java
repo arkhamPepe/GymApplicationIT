@@ -14,6 +14,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class RoutineTest {
+    private INTENSITY intensity;
     private List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
     private List<MUSCLE_GROUP> muscleGroups2 = new ArrayList<>();
     private List<Integer> repetitions = new ArrayList<>();
@@ -42,6 +43,7 @@ public class RoutineTest {
                 muscleGroups2,
                 "A CardioExercise",
                 null,
+                intensity,
                 20
         );
         routine = new Routine();
