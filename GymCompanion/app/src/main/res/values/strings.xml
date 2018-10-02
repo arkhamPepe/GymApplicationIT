@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">GymCompanion</string>
 
+    <string name="home_text">Home Page</string>
+    <string name="my_routines_text">My Routines</string>
+    <string name="schedule_text">Schedule</string>
+    <string name="browse_text">Browse</string>
+    <string name="statistics_text">Statistics</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
