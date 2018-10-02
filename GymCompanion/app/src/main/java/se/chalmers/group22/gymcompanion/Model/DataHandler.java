@@ -7,6 +7,8 @@ import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterSt
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.SortingStrategy;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class DataHandler {
@@ -28,12 +30,10 @@ public class DataHandler {
         this.exerciseList = new ArrayList<>();
     }
 
-    public List<Routine> getRoutines() {
-        return null;
-    }
+    public List<Routine> getRoutines() { return new ArrayList<>(routineList); }
 
     public List<Exercise> getExercises() {
-        return null;
+        return new ArrayList<>(exerciseList);
     }
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
@@ -60,23 +60,34 @@ public class DataHandler {
 
     public List<ISortable> getRoutinesAndExercises(){
         List<ISortable> newList = new ArrayList<>();
-        for (Routine r: DataHandler.getInstance().getRoutines()) {
-            newList.add(r);
-        }
-        for (Exercise e: DataHandler.getInstance().getExercises()) {
-            newList.add(e);
-        }
+
+        newList.addAll(getRoutines());
+        newList.addAll(getExercises());
+
         return newList;
     }
 
-    public List<ISortable> search(String search, String sort){
+    public List<ISortable> search(String search){
         if (search.equals("")) {
-            return DataHandler.getInstance().getRoutinesAndExercises();
+            return getRoutinesAndExercises();
         }
 
         List<ISortable> newList = new ArrayList<>();
-        for (ISortable re: DataHandler.getInstance().getRoutinesAndExercises()) {
-            if(search.equals(re.getName())){
+
+        for (ISortable re: getRoutinesAndExercises()) {
+            if(search.toLowerCase().equals(re.getName().toLowerCase())){
+                newList.add(re);
+            }
+        }
+
+        for (ISortable re: getRoutinesAndExercises()) {
+            if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
+                newList.add(re);
+            }
+        }
+
+        for (ISortable re: getRoutinesAndExercises()) {
+            if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
                 newList.add(re);
             }
         }
