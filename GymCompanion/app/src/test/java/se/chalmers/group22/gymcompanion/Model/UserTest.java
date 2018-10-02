@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.*;
+
 public class UserTest {
     private List<User> friends;
     private List<Routine> routines;
@@ -47,13 +50,13 @@ public class UserTest {
     @Test
     public void startRoutineTest(){
         user.startRoutine(user.getRoutines().get(0));
-        Assert.assertTrue(user.isRoutineActive());
+        assertTrue(user.isRoutineActive());
     }
 
     @Test
     public void checkDayTest(){
         user.checkDay();
-        Assert.assertFalse(user.isRoutineActive());
+        assertFalse(user.isRoutineActive());
 
 
     }
@@ -61,19 +64,19 @@ public class UserTest {
     @Test
     public void endActiveRoutineTest(){
         user.endActiveRoutine();
-        Assert.assertEquals(null,user.getActiveRoutine());
+        assertNull(user.getActiveRoutine());
     }
 
     @Test
     public void createRoutineTest(){
         user.createRoutine();
-        Assert.assertFalse(routines.isEmpty());
+        assertFalse(routines.isEmpty());
     }
 
     @Test
     public void addExerciseToRoutineTest(){
         user.addExerciseToRoutine(exercise,user.getRoutines().get(0));
-        Assert.assertFalse(user.getRoutines().get(0).getExercises().isEmpty());
+        assertFalse(user.getRoutines().get(0).getExercises().isEmpty());
 
     }
 
@@ -81,7 +84,7 @@ public class UserTest {
     public void modifyRoutineDescriptionTest(){
 
         user.modifyRoutineDescription(user.getRoutines().get(0),"Wahoo!");
-        Assert.assertTrue(user.getRoutines().get(0).getDescription().equals("Wahoo!"));
+        assertTrue(user.getRoutines().get(0).getDescription().equals("Wahoo!"));
     }
 
 
