@@ -5,14 +5,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SearchView;
+import se.chalmers.group22.gymcompanion.Presenter.BrowsePresenter;
 import se.chalmers.group22.gymcompanion.R;
 
-public class BrowseActivity extends AppCompatActivity implements INavigation, SearchView.OnQueryTextListener {
+public class BrowseActivity extends AppCompatActivity implements INavigation{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
+
+        BrowsePresenter browsePresenter = new BrowsePresenter(this);
+
+        SearchView searchView = findViewById(R.id.searchBar);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                browsePresenter.search(newText);
+                return false;
+            }
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                browsePresenter.search(query);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -44,15 +62,4 @@ public class BrowseActivity extends AppCompatActivity implements INavigation, Se
         startActivity(intent);
     }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        // User pressed the search button
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        // User changed the text
-        return false;
-    }
 }

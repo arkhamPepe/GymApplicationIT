@@ -37,19 +37,29 @@
             android:id="@+id/btnMyRoutines"
             android:onClick="startActivityMyRoutines" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btnSchedule"/>
-    <TextView
-            android:text="Browse"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:id="@+id/textView" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="151dp" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="193dp" android:layout_marginEnd="151dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
     <SearchView
-            android:layout_width="344dp"
-            android:layout_height="43dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/searchBar"
+    />
+    <Button
+            android:text="ROUTINE"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:id="@+id/btnRoutine" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnExercise"
+    />
+
+    <Button
+            android:text="EXERCISE"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:id="@+id/btnExercise" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnBrowse"
+    />
 
 </android.support.constraint.ConstraintLayout>
