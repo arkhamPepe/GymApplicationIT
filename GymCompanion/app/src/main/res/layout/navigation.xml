@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:orientation="horizontals">
+
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnBrowse"
+            android:onClick="startActivityBrowse"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnMain"
+            android:onClick="startActivityMain"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnSchedule"
+            android:onClick="startActivitySchedule"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnStatistics"
+            android:onClick="startActivityStatistics"/>
+
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnMyRoutines"
+            android:onClick="startActivityMyRoutines"/>
+
+
+</LinearLayout>
