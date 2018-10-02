@@ -17,13 +17,13 @@ tools:context=".View.MainActivityExperimental">
 
 </FrameLayout>-->
 
-<android.support.design.widget.BottomNavigationView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<!--<android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_gravity="start"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
-        app:menu="@menu/navigation"/>
+        app:itemIconTint="@color/nav_item_state_list"
+        app:itemTextColor="@color/nav_item_state_list"
+        app:menu="@menu/bottom_navigation_items"/> -->
 </RelativeLayout>

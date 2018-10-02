@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_height="40dp"
+      android:layout_width="match_parent">
+    <!--<item
             android:id="@+id/action_item1"
-            android:title="@string/home_text"/>
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="@string/item_1"/>
     <item
             android:id="@+id/action_item2"
-            android:title="@string/browse_text"/>
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="@string/item_2"/>
     <item
             android:id="@+id/action_item3"
-            android:title="@string/schedule_text"/>
-    <item
-            android:id="@+id/action_item4"
-            android:title="@string/my_routines_text"/>
-    <item
-            android:id="@+id/action_item5"
-            android:title="@string/statistics_text"/>
+            android:icon="@drawable/ic_assignment_ind_black_24dp"
+            android:title="@string/item_3"/>-->
 </menu>
 
 
