@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
@@ -11,8 +12,13 @@ import java.util.List;
 @Getter
 public class User implements Serializable {
 
+    @Getter(AccessLevel.NONE)
     private List<User> friends;
+
+    @Getter(AccessLevel.NONE)
     private List<Routine> routines;
+
+
     private String name;
     private String gym;
     private int age;
@@ -47,6 +53,32 @@ public class User implements Serializable {
         this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
+    }
+
+    // Defensive copy
+    public List<User> getFriends() {
+        return new ArrayList<>(friends);
+    }
+
+    // Defensive copy
+    public List<Routine> getRoutines() {
+        return new ArrayList<>(routines);
+    }
+
+    public void addFriend(User friend){
+        friends.add(friend);
+    }
+
+    public void removeFriend(User friend){
+        friends.remove(friend);
+    }
+
+    public void addRoutine(Routine routine){
+        routines.add(routine);
+    }
+
+    public void removeRoutine(Routine routine){
+        routines.remove(routine);
     }
 
     public void startRoutine(Routine routine){

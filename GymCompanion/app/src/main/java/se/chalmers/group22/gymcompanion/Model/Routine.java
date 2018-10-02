@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
@@ -16,8 +17,14 @@ public class Routine implements ISortable, Serializable {
     private String description;
     private String name;
     private double difficulty;
-    private List<MUSCLE_GROUP> muscleGroups;
     private String comment;
+
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    private List<MUSCLE_GROUP> muscleGroups;
+
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private List<Exercise> exercises;
 
     public Routine(String name, double difficulty){
@@ -51,6 +58,20 @@ public class Routine implements ISortable, Serializable {
 
     public void addExercise(Exercise exercise) {
         exercises.add(exercise);
+    }
+
+    public void removeExercise(Exercise exercise){
+        exercises.remove(exercise);
+    }
+
+    // Defensive copy
+    public List<MUSCLE_GROUP> getMuscleGroups() {
+        return new ArrayList<>(muscleGroups);
+    }
+
+    // Defensive copy
+    public List<Exercise> getExercises() {
+        return new ArrayList<>(exercises);
     }
 
     public boolean containsMuscleGroup(MUSCLE_GROUP mg){
