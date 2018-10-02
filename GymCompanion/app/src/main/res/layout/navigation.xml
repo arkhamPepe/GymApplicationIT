@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_height="40dp"
+      android:layout_width="match_parent">
+    <item
+            android:id="@+id/action_item1"
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="@string/item_1"/>
+    <item
+            android:id="@+id/action_item2"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="@string/item_2"/>
+    <item
+            android:id="@+id/action_item3"
+            android:icon="@drawable/ic_assignment_ind_black_24dp"
+            android:title="@string/item_3"/>
+</menu>
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnBrowse"
+            android:onClick="startActivityBrowse"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnMain"
+            android:onClick="startActivityMain"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnSchedule"
+            android:onClick="startActivitySchedule"/>
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnStatistics"
+            android:onClick="startActivityStatistics"/>
+
+    <ImageButton
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnMyRoutines"
+            android:onClick="startActivityMyRoutines"/>
+
+
+</LinearLayout>-->
