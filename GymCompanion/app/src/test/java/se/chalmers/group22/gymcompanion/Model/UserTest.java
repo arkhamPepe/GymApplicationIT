@@ -3,6 +3,7 @@ package se.chalmers.group22.gymcompanion.Model;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
@@ -15,6 +16,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.*;
 
 public class UserTest {
+    private INTENSITY intensity = INTENSITY.MEDIUM;
     private List<User> friends;
     private List<Routine> routines;
     private Exercise exercise;
@@ -43,7 +45,7 @@ public class UserTest {
         isBeginner = false;
 
         calendar = Calendar.getInstance();
-        exercise = new CardioExercise("MasterPull",3.4,muscle_groups,"","",40);
+        exercise = new CardioExercise("MasterPull",3.4,muscle_groups,"","",intensity,40);
         user = new User(friends,routines,userName,gym,age,weight,isBeginner);
     }
 
