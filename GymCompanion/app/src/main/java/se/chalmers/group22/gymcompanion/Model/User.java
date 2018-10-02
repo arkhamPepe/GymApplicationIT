@@ -38,6 +38,17 @@ public class User implements Serializable {
         this.statCalc = new StatisticsCalculator(schedule);
     }
 
+    public User(String name, String gym, int age, int weight, boolean isBeginner){
+        this.friends = new ArrayList<>();
+        this.routines = new ArrayList<>();
+        this.age = age;
+        this.weight = weight;
+        this.isBeginner = isBeginner;
+        this.isRoutineActive = false;
+        this.schedule = new Schedule();
+        this.statCalc = new StatisticsCalculator(schedule);
+    }
+
     public void startRoutine(Routine routine){
        /*TODO Start the routine for the current day*/
         isRoutineActive = true;
