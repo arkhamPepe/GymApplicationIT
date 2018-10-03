@@ -12,6 +12,7 @@ import se.chalmers.group22.gymcompanion.R;
 
 public class MainActivity extends AppCompatActivity implements IView, INavigation {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,4 +48,9 @@ public class MainActivity extends AppCompatActivity implements IView, INavigatio
     public void startActivityMain(View view){
         // NOTHING
     }
+
+    public void startWorkout(View view){
+        
+    }
+
 }
