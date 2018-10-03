@@ -1,16 +1,11 @@
 package se.chalmers.group22.gymcompanion;
 
-import org.junit.Before;
 import org.junit.Test;
-import se.chalmers.group22.gymcompanion.Model.Day;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Schedule;
 
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.junit.Assert.*;
 
