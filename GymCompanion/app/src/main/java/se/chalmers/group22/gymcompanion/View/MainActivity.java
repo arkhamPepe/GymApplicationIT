@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import com.google.android.flexbox.FlexboxLayout;
 import se.chalmers.group22.gymcompanion.R;
 
 
 public class MainActivity extends AppCompatActivity implements IView, INavigation {
 
+    private TextView workoutName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements IView, INavigatio
         ImageButton btnSchedule = findViewById(R.id.btnSchedule);
         ImageButton btnMyRoutines = findViewById(R.id.btnMyRoutines);
         ImageButton btnStatistics = findViewById(R.id.btnStatistics);
+        workoutName = findViewById(R.id.workoutName);
     }
 
     public void startActivitySchedule(View view){
@@ -51,6 +54,10 @@ public class MainActivity extends AppCompatActivity implements IView, INavigatio
 
     public void startWorkout(View view){
         
+    }
+
+    public void setWorkoutName(String name){
+        workoutName.setText(name);
     }
 
 }
