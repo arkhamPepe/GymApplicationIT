@@ -1,50 +1,100 @@
 package se.chalmers.group22.gymcompanion.View;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import com.google.android.flexbox.FlexboxLayout;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import se.chalmers.group22.gymcompanion.R;
 
 
-public class MainActivity extends AppCompatActivity implements IView, INavigation {
+public class MainActivity extends AppCompatActivity implements IView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton btnHome = findViewById(R.id.btnMain);
-        ImageButton btnSearch = findViewById(R.id.btnBrowse);
-        ImageButton btnSchedule = findViewById(R.id.btnSchedule);
-        ImageButton btnMyRoutines = findViewById(R.id.btnMyRoutines);
-        ImageButton btnStatistics = findViewById(R.id.btnStatistics);
-    }
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.navigation);
 
-    public void startActivitySchedule(View view){
-        Intent intent = new Intent(this, ScheduleActivity.class);
-        startActivity(intent);
-    }
+        /*bottomNavigationView.setOnNavigationItemSelectedListener
+                (new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        Fragment selectedFragment;
+                        switch (item.getItemId()) {
+                            case R.id.action_item1:
+                                selectedFragment = HomeFragment.newInstance();
+                                break;
+                            case R.id.action_item2:
+                                selectedFragment = BrowseFragment.newInstance();
+                                break;
+                            case R.id.action_item3:
+                                selectedFragment = ScheduleFragment.newInstance();
+                                break;
+                            case R.id.action_item4:
+                                selectedFragment = MyRoutinesFragment.newInstance();
+                                break;
+                            case R.id.action_item5:
+                                selectedFragment = StatisticsFragment.newInstance();
+                                break;
+                            default:
+                                selectedFragment = HomeFragment.newInstance();
+                                break;
+                        }
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frame_layout, selectedFragment);
+                        transaction.commit();
+                        return true;
+                    }
+                });
 
-    public void startActivityMyRoutines(View view){
-        Intent intent = new Intent(this, MyRoutinesAcivity.class);
-        startActivity(intent);
-    }
+        //Manually displaying the first fragment - one time only
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, HomeFragment.newInstance());
+        transaction.commit();*/
 
-    public void startActivityStatistics(View view){
-        Intent intent = new Intent(this, StatisticsActivity.class);
-        startActivity(intent);
-    }
+        Intent intent1 = new Intent(this, MainActivity.class);
+        Intent intent2 = new Intent(this, BrowseActivity.class);
+        Intent intent3 = new Intent(this, ScheduleActivity.class);
+        Intent intent4 = new Intent(this, MyRoutinesAcivity.class);
+        Intent intent5 = new Intent(this, StatisticsActivity.class);
 
-    public void startActivityBrowse(View view){
-        Intent intent = new Intent(this, BrowseActivity.class);
-        startActivity(intent);
-    }
+        bottomNavigationView.setOnNavigationItemSelectedListener
+                (new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        Intent intent;
+                        switch (item.getItemId()) {
+                            case R.id.action_item1:
+                                intent = intent1;
+                                break;
+                            case R.id.action_item2:
+                                intent = intent2;
+                                break;
+                            case R.id.action_item3:
+                                intent = intent3;
+                                break;
+                            case R.id.action_item4:
+                                intent = intent4;
+                                break;
+                            case R.id.action_item5:
+                                intent = intent5;
+                                break;
+                            default:
+                                intent = intent1;
+                                break;
+                        }
+                        startActivity(intent);
+                        return true;
+                    }
+                });
 
-    public void startActivityMain(View view){
-        // NOTHING
+        //Manually displaying the first fragment - one time only
+        //startActivity(intent1);
     }
 }

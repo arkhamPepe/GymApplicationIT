@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
       android:layout_height="40dp"
-      android:layout_width="match_parent">
-    <!--<item
+      android:layout_width="match_parent"
+      tools:showIn="@layout/activity_main">
+    <item
             android:id="@+id/action_item1"
-            android:icon="@drawable/ic_account_box_black_24dp"
-            android:title="@string/item_1"/>
+            android:icon="@drawable/icons8_home_page_48"
+            android:title="Home"/>
     <item
             android:id="@+id/action_item2"
-            android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="@string/item_2"/>
+            android:icon="@drawable/icons8_search_48"
+            android:title="Search"/>
     <item
             android:id="@+id/action_item3"
-            android:icon="@drawable/ic_assignment_ind_black_24dp"
-            android:title="@string/item_3"/>-->
+            android:icon="@drawable/icons8_calendar_48"
+            android:title="Schedule"/>
+    <item
+            android:id="@+id/action_item4"
+            android:icon="@drawable/icons8_list_48"
+            android:title="My Routines"/>
+    <item
+            android:id="@+id/action_item5"
+            android:icon="@drawable/icons8_combo_chart_48"
+            android:title="Statistics"/>
 </menu>
 
 
