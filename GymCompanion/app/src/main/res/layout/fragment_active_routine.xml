@@ -26,7 +26,6 @@
                     android:textColor="@color/blackColour"
                     android:textSize="22sp"
                     android:textAlignment="center"
-                    android:bor
                     android:layout_width="match_parent"
                     android:layout_height="50sp" android:id="@+id/textView6"/>
         </LinearLayout>
