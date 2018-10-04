@@ -9,12 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
 
-public class StatisticsActivity extends AppCompatActivity implements INavigation {
+public class MyRoutinesActivity extends AppCompatActivity implements INavigation {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_statistics);
+        setContentView(R.layout.activity_my_routines);
 
         Intent intent1 = new Intent(this, MainActivity.class);
         Intent intent2 = new Intent(this, BrowseActivity.class);
@@ -72,13 +72,13 @@ public class StatisticsActivity extends AppCompatActivity implements INavigation
 
     @Override
     public void startActivityStatistics(View view) {
-        // NOTHING
+        Intent intent = new Intent(this, StatisticsActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void startActivityMyRoutines(View view) {
-        Intent intent = new Intent(this, MyRoutinesActivity.class);
-        startActivity(intent);
+        // NOTHING
     }
 
     @Override

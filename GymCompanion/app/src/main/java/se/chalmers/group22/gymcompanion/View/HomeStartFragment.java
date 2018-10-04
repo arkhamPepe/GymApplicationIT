@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import se.chalmers.group22.gymcompanion.R;
 
-public class HomeFragment extends Fragment {
-    public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
+public class HomeStartFragment extends Fragment {
+    public static HomeStartFragment newInstance() {
+        HomeStartFragment fragment = new HomeStartFragment();
         return fragment;
     }
 
