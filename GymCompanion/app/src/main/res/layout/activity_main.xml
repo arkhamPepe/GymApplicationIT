@@ -40,7 +40,7 @@
             app:layout_constraintStart_toEndOf="@+id/btnSchedule"/>
     <Button
             android:text="Start Workout"
-            android:background="@color/StartButtonGreenColour"
+            android:background="@color/startButtonGreenColour"
             android:layout_width="350dp"
             android:textSize="35dp"
             android:padding="10dp"

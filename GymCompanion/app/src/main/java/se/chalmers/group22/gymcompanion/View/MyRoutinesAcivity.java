@@ -42,4 +42,8 @@ public class MyRoutinesAcivity extends AppCompatActivity implements INavigation 
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
+
+    public void createRoutine(View view){
+
+    }
 }
