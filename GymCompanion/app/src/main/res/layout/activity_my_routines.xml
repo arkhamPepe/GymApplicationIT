@@ -46,7 +46,6 @@ tools:context=".View.MyRoutinesActivity">
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:onClick="createRoutine"
                 android:layout_height="match_parent">
             <ImageButton
                     android:layout_width="82dp"
