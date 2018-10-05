@@ -4,19 +4,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.Main.MainHomeFragment;
+import se.chalmers.group22.gymcompanion.View.Main.MainProgressFragment;
 
 public class MainActivity extends AppCompatActivity implements IView {
 
     public static final int index = 0;
 
+    final Fragment fragmentHome = new MainHomeFragment();
+    final Fragment fragmentProgress = new MainProgressFragment();
+    final FragmentManager fm = getSupportFragmentManager();
+    Fragment active = fragmentHome;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.add(R.id.main_container, fragmentProgress, "2").hide(fragmentProgress);
+        transaction.add(R.id.main_container, fragmentHome, "1");
+        transaction.commit();
 
         Intent intent1 = new Intent(this, MainActivity.class);
         Intent intent2 = new Intent(this, BrowseActivity.class);
@@ -62,6 +78,20 @@ public class MainActivity extends AppCompatActivity implements IView {
                         return true;
                     }
                 });
+    }
+
+    public void showProgress(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentProgress);
+        transaction.hide(fragmentHome);
+        transaction.commit();
+    }
+
+    public void showHome(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.hide(fragmentProgress);
+        transaction.show(fragmentHome);
+        transaction.commit();
     }
 }
 
