@@ -30,17 +30,16 @@ public class MainActivity extends AppCompatActivity implements IView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        workoutName = findViewById(R.id.workoutName);
 
         FragmentTransaction transaction = fm.beginTransaction();
 
-        if(!getIntent().getBooleanExtra("Finished Workout", true)) {
-            transaction.add(R.id.main_container, fragmentFinished, "2").hide(fragmentFinished);
-            transaction.add(R.id.main_container, fragmentHome, "1");
-        }
-        else{
+        if(getIntent().getExtras() != null) {
             transaction.add(R.id.main_container, fragmentFinished, "2");
             transaction.add(R.id.main_container, fragmentHome, "1").hide(fragmentHome);
+        }
+        else{
+            transaction.add(R.id.main_container, fragmentFinished, "2").hide(fragmentFinished);;
+            transaction.add(R.id.main_container, fragmentHome, "1");
         }
 
         transaction.commit();
@@ -92,15 +91,9 @@ public class MainActivity extends AppCompatActivity implements IView {
     }
 
     public void goToProgress(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentFinished);
-        transaction.hide(fragmentHome);
-        transaction.commit();
-
         Intent intent = new Intent(this, ProgressActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                 Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        //intent.putExtra("From Progress",true);   TO BE USED ON THE WAY BACK
         startActivity(intent);
         overridePendingTransition(0, 0);
     }

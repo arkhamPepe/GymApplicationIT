@@ -24,8 +24,8 @@ public class ProgressActivity extends AppCompatActivity {
         setContentView(R.layout.activity_progress);
 
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentStart);
-        transaction.hide(fragmentEditRoutine);
+        transaction.add(R.id.progress_container, fragmentStart, "1");
+        transaction.add(R.id.progress_container, fragmentEditRoutine, "1").hide(fragmentEditRoutine);
         transaction.commit();
 
     }
