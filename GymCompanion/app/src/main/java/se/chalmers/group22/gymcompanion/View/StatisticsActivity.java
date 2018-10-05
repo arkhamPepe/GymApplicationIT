@@ -1,23 +1,37 @@
 package se.chalmers.group22.gymcompanion.View;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsStartFragment;
 
 public class StatisticsActivity extends AppCompatActivity implements INavigation {
 
     public static final int index = 4;
 
+    final Fragment fragmentStart = new StatisticsStartFragment();
+    //final Fragment fragmentProgress = new MainProgressFragment();
+    final FragmentManager fm = getSupportFragmentManager();
+    Fragment active = fragmentStart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
+
+        FragmentTransaction transaction = fm.beginTransaction();
+        //transaction.add(R.id.main_container, fragmentProgress, "2").hide(fragmentProgress);
+        transaction.add(R.id.statistics_container, fragmentStart, "1");
+        transaction.commit();
 
         Intent intent1 = new Intent(this, MainActivity.class);
         Intent intent2 = new Intent(this, BrowseActivity.class);

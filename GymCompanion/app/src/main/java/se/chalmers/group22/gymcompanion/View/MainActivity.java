@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements IView {
                                 selectedFragment = MyRoutinesFragment.newInstance();
                                 break;
                             case R.id.action_item5:
-                                selectedFragment = StatisticsFragment.newInstance();
+
                                 break;
                             default:
                                 selectedFragment = HomeStartFragment.newInstance();
