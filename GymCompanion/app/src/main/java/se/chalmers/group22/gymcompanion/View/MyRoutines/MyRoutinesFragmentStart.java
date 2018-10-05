@@ -1,16 +1,14 @@
-package se.chalmers.group22.gymcompanion.View;
-
+package se.chalmers.group22.gymcompanion.View.MyRoutines;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import se.chalmers.group22.gymcompanion.R;
 
-public class MyRoutinesFragment extends Fragment {
-    public static MyRoutinesFragment newInstance() {
-        MyRoutinesFragment fragment = new MyRoutinesFragment();
+public class MyRoutinesFragmentStart extends Fragment {
+    public static MyRoutinesFragmentStart newInstance() {
+        MyRoutinesFragmentStart fragment = new MyRoutinesFragmentStart();
         return fragment;
     }
 
@@ -22,6 +20,6 @@ public class MyRoutinesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_my_routines, container, false);
+        return inflater.inflate(R.layout.fragment_my_routines_start, container, false);
     }
 }

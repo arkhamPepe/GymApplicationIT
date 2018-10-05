@@ -3,21 +3,38 @@ package se.chalmers.group22.gymcompanion.View;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.Main.MainHomeFragment;
+import se.chalmers.group22.gymcompanion.View.Main.MainProgressFragment;
+import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesFragmentStart;
 
-public class MyRoutinesActivity extends AppCompatActivity implements INavigation {
+public class MyRoutinesActivity extends AppCompatActivity {
 
     public static final int index = 3;
+
+    final Fragment fragmentStart = new MyRoutinesFragmentStart();
+    final FragmentManager fm = getSupportFragmentManager();
+    Fragment active = fragmentStart;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_routines);
+
+        FragmentTransaction transaction = fm.beginTransaction();
+        //transaction.add(R.id.my_routines_container, fragmentProgress, "2").hide(fragmentProgress);
+        transaction.add(R.id.my_routines_container, fragmentStart, "1");
+        transaction.commit();
 
         Intent intent1 = new Intent(this, MainActivity.class);
         Intent intent2 = new Intent(this, BrowseActivity.class);
@@ -63,34 +80,5 @@ public class MyRoutinesActivity extends AppCompatActivity implements INavigation
                         return true;
                     }
                 });
-    }
-
-    @Override
-    public void startActivityBrowse(View view) {
-        Intent intent = new Intent(this, BrowseActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivityMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivityStatistics(View view) {
-        Intent intent = new Intent(this, StatisticsActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivityMyRoutines(View view) {
-        // NOTHING
-    }
-
-    @Override
-    public void startActivitySchedule(View view) {
-        Intent intent = new Intent(this, ScheduleActivity.class);
-        startActivity(intent);
     }
 }
