@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Main.MainHomeFragment;
 import se.chalmers.group22.gymcompanion.View.Main.MainProgressFragment;
@@ -24,10 +25,13 @@ public class MainActivity extends AppCompatActivity implements IView {
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentHome;
 
+    private TextView workoutName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        workoutName = findViewById(R.id.workoutName);
 
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.add(R.id.main_container, fragmentProgress, "2").hide(fragmentProgress);
@@ -93,6 +97,15 @@ public class MainActivity extends AppCompatActivity implements IView {
         transaction.show(fragmentHome);
         transaction.commit();
     }
+
+    public void startWorkout(View view){
+        
+    }
+
+    public void setWorkoutName(String name){
+        workoutName.setText(name);
+    }
+
 }
 
 /*bottomNavigationView.setOnNavigationItemSelectedListener
