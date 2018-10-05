@@ -17,9 +17,9 @@ public class BrowsePresenter implements IPresenter {
         this.browseActivity = browseActivity;
     }
 
-    public void search(String text){
+    /*public void search(String text){
         displayList = DataHandler.getInstance().search(text);
-    }
+    }*/
 
     @Override
     public void onCreate() {
