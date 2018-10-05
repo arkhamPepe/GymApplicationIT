@@ -7,5 +7,6 @@
 
     <!-- ON CLICK -->
     <string name="onClickBtnBrowse">startActivityBrowse</string>
+    <string name="statistics"><u>Statistics</u></string>
 
 </resources>
