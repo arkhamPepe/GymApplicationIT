@@ -12,13 +12,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsExercisesFragment;
+import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsHistoryFragment;
+import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsLifetimeFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsStartFragment;
 
-public class StatisticsActivity extends AppCompatActivity implements INavigation {
+public class StatisticsActivity extends AppCompatActivity {
 
     public static final int index = 4;
 
     final Fragment fragmentStart = new StatisticsStartFragment();
+    final Fragment fragmentExercises = new StatisticsExercisesFragment();
+    final Fragment fragmentHistory = new StatisticsHistoryFragment();
+    final Fragment fragmentLifetime = new StatisticsLifetimeFragment();
+
     //final Fragment fragmentProgress = new MainProgressFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentStart;
@@ -29,7 +36,9 @@ public class StatisticsActivity extends AppCompatActivity implements INavigation
         setContentView(R.layout.activity_statistics);
 
         FragmentTransaction transaction = fm.beginTransaction();
-        //transaction.add(R.id.main_container, fragmentProgress, "2").hide(fragmentProgress);
+        transaction.add(R.id.statistics_container, fragmentHistory, "4").hide(fragmentHistory);
+        transaction.add(R.id.statistics_container, fragmentLifetime, "3").hide(fragmentLifetime);
+        transaction.add(R.id.statistics_container, fragmentExercises, "2").hide(fragmentExercises);
         transaction.add(R.id.statistics_container, fragmentStart, "1");
         transaction.commit();
 
@@ -77,34 +86,5 @@ public class StatisticsActivity extends AppCompatActivity implements INavigation
                         return true;
                     }
                 });
-    }
-
-    @Override
-    public void startActivityBrowse(View view) {
-        Intent intent = new Intent(this, BrowseActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivityMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivityStatistics(View view) {
-        // NOTHING
-    }
-
-    @Override
-    public void startActivityMyRoutines(View view) {
-        Intent intent = new Intent(this, MyRoutinesActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivitySchedule(View view) {
-        Intent intent = new Intent(this, ScheduleActivity.class);
-        startActivity(intent);
     }
 }
