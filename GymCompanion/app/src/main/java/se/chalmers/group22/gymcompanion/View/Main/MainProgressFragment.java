@@ -18,22 +18,9 @@ public class MainProgressFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    /*@Override
-    public void onStart(){
-        super.onStart();
-        Button goToProgress = (Button)getView().findViewById(R.id.btnGotoHome);
-
-        goToProgress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openHome();
-            }
-        });
-    }
-*/
-    @Override
+   /* @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_main_progress, container, false);
-    }
+    }*/
 }

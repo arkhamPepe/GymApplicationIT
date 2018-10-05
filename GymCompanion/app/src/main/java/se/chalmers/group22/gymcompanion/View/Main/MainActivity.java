@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements IView {
 
         FragmentTransaction transaction = fm.beginTransaction();
 
-        if(!getIntent().getBooleanExtra("From Progress", true)) {
+        if(!getIntent().getBooleanExtra("Finished Workout", true)) {
             transaction.add(R.id.main_container, fragmentFinished, "2").hide(fragmentFinished);
             transaction.add(R.id.main_container, fragmentHome, "1");
         }
