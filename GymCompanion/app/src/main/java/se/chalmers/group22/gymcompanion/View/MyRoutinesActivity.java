@@ -12,22 +12,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesExerciseInfoFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesRoutineInfoFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStartFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStrengthExerciseFragment;
 
+import java.util.List;
+
 public class MyRoutinesActivity extends AppCompatActivity {
 
-    public static final int index = 3;
+    private static final int index = 3;
 
-    final Fragment fragmentStart = new MyRoutinesStartFragment();
-    final Fragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
-    final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
-    final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
-    final FragmentManager fm = getSupportFragmentManager();
-    Fragment active = fragmentStart;
+    private final Fragment fragmentStart = new MyRoutinesStartFragment();
+    private final Fragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
+    private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
+    private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
+    private final FragmentManager fm = getSupportFragmentManager();
+    private Fragment active = fragmentStart;
+    private DataHandler dataHandler = DataHandler.getInstance();
 
     ListView routineList;
 
