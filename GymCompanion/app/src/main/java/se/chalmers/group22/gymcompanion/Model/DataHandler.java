@@ -22,13 +22,15 @@ public class DataHandler {
         return instance;
     }
 
-    /*private List<Routine> routineList;
+    private List<Routine> routineList;
     private List<Exercise> exerciseList;
-    private Map<Calendar, Routine> routineSchedule;*/
 
     private DataHandler() {
         localDatabase = LocalDatabase.getInstance();
         user = localDatabase.loadUser();
+       /* routineList = new ArrayList<>(localDatabase.getDefaultRoutines);
+        routineList.addAll(user.getMyRoutines());
+        exerciseList = new ArrayList<>(localDatabase.getExercises);*/
     }
 
 
