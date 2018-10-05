@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import se.chalmers.group22.gymcompanion.R;
 
-public class MyRoutinesFragmentStart extends Fragment {
-    public static MyRoutinesFragmentStart newInstance() {
-        MyRoutinesFragmentStart fragment = new MyRoutinesFragmentStart();
+public class MyRoutinesStartFragment extends Fragment {
+    public static MyRoutinesStartFragment newInstance() {
+        MyRoutinesStartFragment fragment = new MyRoutinesStartFragment();
         return fragment;
     }
 
