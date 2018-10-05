@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesExerciseInfoFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesRoutineInfoFragment;
@@ -27,6 +29,8 @@ public class MyRoutinesActivity extends AppCompatActivity {
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentStart;
 
+    ListView routineList;
+
 
 
     @Override
@@ -39,6 +43,8 @@ public class MyRoutinesActivity extends AppCompatActivity {
         transaction.add(R.id.my_routines_container, fragmentRoutineInfo, "2").hide(fragmentRoutineInfo);
         transaction.add(R.id.my_routines_container, fragmentStrengthExercise, "2").hide(fragmentStrengthExercise);
         transaction.add(R.id.my_routines_container, fragmentStart, "1");
+
+        routineList = findViewById(R.id.routineList);
         transaction.commit();
 
         Intent intent1 = new Intent(this, MainActivity.class);
@@ -85,5 +91,7 @@ public class MyRoutinesActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+    }
+    public void createRoutine(View view){
     }
 }
