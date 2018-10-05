@@ -6,15 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.*;
 import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
 
 public class ScheduleActivity extends AppCompatActivity implements INavigation, IScheduleView {
+
+    public static final int index = 2;
 
     private ListView schedule_lv;
     private SchedulePresenter schedulePresenter = new SchedulePresenter(this);
@@ -33,6 +32,10 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
         Intent intent5 = new Intent(this, StatisticsActivity.class);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(index);
+        menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {

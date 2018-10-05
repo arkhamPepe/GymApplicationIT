@@ -5,11 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
 
 public class StatisticsActivity extends AppCompatActivity implements INavigation {
+
+    public static final int index = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,10 @@ public class StatisticsActivity extends AppCompatActivity implements INavigation
         Intent intent5 = new Intent(this, StatisticsActivity.class);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(index);
+        menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
