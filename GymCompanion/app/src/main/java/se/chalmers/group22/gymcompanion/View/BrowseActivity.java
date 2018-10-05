@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
-import se.chalmers.group22.gymcompanion.Presenter.BrowsePresenter;
+import se.chalmers.group22.gymcompanion.ViewModel.BrowsePresenter;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
 

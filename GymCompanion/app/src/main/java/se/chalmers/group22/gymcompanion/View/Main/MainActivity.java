@@ -24,12 +24,14 @@ public class MainActivity extends AppCompatActivity implements IView {
     final Fragment fragmentFinished = new MainFinishedFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private TextView workoutName;
+    private TextView todaysRoutine = findViewById(R.id.textViewTodayRoutine);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //todaysRoutine.setText();
 
         FragmentTransaction transaction = fm.beginTransaction();
 
@@ -104,13 +106,4 @@ public class MainActivity extends AppCompatActivity implements IView {
         transaction.show(fragmentHome);
         transaction.commit();
     }
-
-    public void startWorkout(View view){
-        
-    }
-
-    public void setWorkoutName(String name){
-        workoutName.setText(name);
-    }
-
 }

@@ -1,6 +1,5 @@
-package se.chalmers.group22.gymcompanion.Presenter;
+package se.chalmers.group22.gymcompanion.ViewModel;
 
-import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
 import se.chalmers.group22.gymcompanion.View.BrowseActivity;

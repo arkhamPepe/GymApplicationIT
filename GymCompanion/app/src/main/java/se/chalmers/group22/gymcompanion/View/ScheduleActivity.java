@@ -8,7 +8,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
-import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
+import se.chalmers.group22.gymcompanion.ViewModel.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
 
