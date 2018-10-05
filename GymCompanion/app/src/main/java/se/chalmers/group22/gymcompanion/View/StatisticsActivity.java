@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
 
 public class StatisticsActivity extends AppCompatActivity implements INavigation {
 

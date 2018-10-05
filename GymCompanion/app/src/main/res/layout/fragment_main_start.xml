@@ -13,5 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnGotoProgress" android:layout_centerHorizontal="true"
-            android:layout_below="@+id/textView5" android:onClick="showProgress"/>
+            android:layout_below="@+id/textView5" android:onClick="goToProgress"/>
+
+
 </RelativeLayout>

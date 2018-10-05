@@ -10,6 +10,7 @@ import android.view.*;
 import android.widget.*;
 import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
 
 public class ScheduleActivity extends AppCompatActivity implements INavigation, IScheduleView {
 

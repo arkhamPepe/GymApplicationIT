@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.View;
+package se.chalmers.group22.gymcompanion.View.Main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,17 +13,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.Main.MainHomeFragment;
-import se.chalmers.group22.gymcompanion.View.Main.MainProgressFragment;
+import se.chalmers.group22.gymcompanion.View.*;
+import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
 
 public class MainActivity extends AppCompatActivity implements IView {
 
     public static final int index = 0;
 
-    final Fragment fragmentHome = new MainHomeFragment();
-    final Fragment fragmentProgress = new MainProgressFragment();
+    final Fragment fragmentHome = new MainStartFragment();
+    final Fragment fragmentFinished = new MainFinishedFragment();
     final FragmentManager fm = getSupportFragmentManager();
-    Fragment active = fragmentHome;
 
     private TextView workoutName;
 
@@ -34,8 +33,16 @@ public class MainActivity extends AppCompatActivity implements IView {
         workoutName = findViewById(R.id.workoutName);
 
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.add(R.id.main_container, fragmentProgress, "2").hide(fragmentProgress);
-        transaction.add(R.id.main_container, fragmentHome, "1");
+
+        if(!getIntent().getBooleanExtra("From Progress", true)) {
+            transaction.add(R.id.main_container, fragmentFinished, "2").hide(fragmentFinished);
+            transaction.add(R.id.main_container, fragmentHome, "1");
+        }
+        else{
+            transaction.add(R.id.main_container, fragmentFinished, "2");
+            transaction.add(R.id.main_container, fragmentHome, "1").hide(fragmentHome);
+        }
+
         transaction.commit();
 
         Intent intent1 = new Intent(this, MainActivity.class);
@@ -84,16 +91,23 @@ public class MainActivity extends AppCompatActivity implements IView {
                 });
     }
 
-    public void showProgress(View view){
+    public void goToProgress(View view){
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentProgress);
+        transaction.show(fragmentFinished);
         transaction.hide(fragmentHome);
         transaction.commit();
+
+        Intent intent = new Intent(this, ProgressActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        //intent.putExtra("From Progress",true);   TO BE USED ON THE WAY BACK
+        startActivity(intent);
+        overridePendingTransition(0, 0);
     }
 
-    public void showHome(View view){
+    public void goToHome(View view){
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.hide(fragmentProgress);
+        transaction.hide(fragmentFinished);
         transaction.show(fragmentHome);
         transaction.commit();
     }
@@ -107,40 +121,3 @@ public class MainActivity extends AppCompatActivity implements IView {
     }
 
 }
-
-/*bottomNavigationView.setOnNavigationItemSelectedListener
-                (new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        Fragment selectedFragment;
-                        switch (item.getItemId()) {
-                            case R.id.action_item1:
-                                selectedFragment = HomeStartFragment.newInstance();
-                                break;
-                            case R.id.action_item2:
-                                selectedFragment = BrowseFragment.newInstance();
-                                break;
-                            case R.id.action_item3:
-                                selectedFragment = ScheduleFragment.newInstance();
-                                break;
-                            case R.id.action_item4:
-                                selectedFragment = MyRoutinesFragment.newInstance();
-                                break;
-                            case R.id.action_item5:
-                                selectedFragment = StatisticsFragment.newInstance();
-                                break;
-                            default:
-                                selectedFragment = HomeStartFragment.newInstance();
-                                break;
-                        }
-                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frame_layout, selectedFragment);
-                        transaction.commit();
-                        return true;
-                    }
-                });
-
-        //Manually displaying the first fragment - one time only
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, HomeStartFragment.newInstance());
-        transaction.commit();*/

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.SearchView;
 import se.chalmers.group22.gymcompanion.Presenter.BrowsePresenter;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
 
 public class BrowseActivity extends AppCompatActivity implements INavigation{
 

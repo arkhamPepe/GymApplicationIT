@@ -5,9 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.MainActivity;
 
 public class MainProgressFragment extends Fragment {
     public static MainProgressFragment newInstance() {
@@ -23,9 +21,9 @@ public class MainProgressFragment extends Fragment {
     /*@Override
     public void onStart(){
         super.onStart();
-        Button showProgress = (Button)getView().findViewById(R.id.btnGotoHome);
+        Button goToProgress = (Button)getView().findViewById(R.id.btnGotoHome);
 
-        showProgress.setOnClickListener(new View.OnClickListener() {
+        goToProgress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openHome();
