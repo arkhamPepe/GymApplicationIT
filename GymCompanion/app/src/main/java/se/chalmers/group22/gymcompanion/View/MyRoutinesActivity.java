@@ -35,7 +35,9 @@ public class MyRoutinesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_routines);
 
         FragmentTransaction transaction = fm.beginTransaction();
-        //transaction.add(R.id.my_routines_container, fragmentProgress, "2").hide(fragmentProgress);
+        transaction.add(R.id.my_routines_container, fragmentExerciseInfo, "2").hide(fragmentExerciseInfo);
+        transaction.add(R.id.my_routines_container, fragmentRoutineInfo, "2").hide(fragmentRoutineInfo);
+        transaction.add(R.id.my_routines_container, fragmentStrengthExercise, "2").hide(fragmentStrengthExercise);
         transaction.add(R.id.my_routines_container, fragmentStart, "1");
         transaction.commit();
 
