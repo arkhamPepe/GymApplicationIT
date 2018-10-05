@@ -1,29 +1,23 @@
 package se.chalmers.group22.gymcompanion.View;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.*;
-import android.widget.*;
-import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
 
-public class ScheduleActivity extends AppCompatActivity implements INavigation, IScheduleView {
+public class MyRoutinesActivity extends AppCompatActivity implements INavigation {
 
-    public static final int index = 2;
-
-    private ListView schedule_lv;
-    private SchedulePresenter schedulePresenter = new SchedulePresenter(this);
+    public static final int index = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_schedule);
-
+        setContentView(R.layout.activity_my_routines);
 
         Intent intent1 = new Intent(this, MainActivity.class);
         Intent intent2 = new Intent(this, BrowseActivity.class);
@@ -69,46 +63,6 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
                         return true;
                     }
                 });
-
-
-        schedule_lv = findViewById(R.id.schedule_list);
-
-        //fillSchedule();
-
-        schedulePresenter.fillList();
-
-        // Adapter takes activity context, type of list view and the array as parameters
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                schedulePresenter.getWeekdays());
-
-        schedule_lv.setAdapter(arrayAdapter);
-
-        schedule_lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            // argument position gives the index of item which is clicked
-            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
-            {
-                String selectedweekday=schedulePresenter.getWeekdays().get(position);
-                Toast.makeText(getApplicationContext(), "Weekday selected : "+ selectedweekday, Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    private void fillSchedule() {
-        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.listitem_schedule, null);
-        ViewGroup insertPoint = findViewById(R.id.schedule_list);
-
-        for(int i = 0; i < 7; i++) {
-            TextView dayOfWeek = view.findViewById(R.id.dayOfWeek);
-            dayOfWeek.setText("");
-            TextView routineName = view.findViewById(R.id.routineName);
-            routineName.setText("");
-            insertPoint.addView(view, i);
-        }
-
     }
 
     @Override
@@ -131,12 +85,12 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
 
     @Override
     public void startActivityMyRoutines(View view) {
-        Intent intent = new Intent(this, MyRoutinesActivity.class);
-        startActivity(intent);
+        // NOTHING
     }
 
     @Override
     public void startActivitySchedule(View view) {
-        // NOTHING
+        Intent intent = new Intent(this, ScheduleActivity.class);
+        startActivity(intent);
     }
 }
