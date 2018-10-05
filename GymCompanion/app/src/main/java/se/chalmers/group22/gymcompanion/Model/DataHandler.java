@@ -10,6 +10,9 @@ import java.util.*;
 
 public class DataHandler {
 
+    private User user;
+    private LocalDatabase localDatabase;
+
     private static DataHandler instance = new DataHandler();
 
     public static DataHandler getInstance(){
@@ -19,18 +22,17 @@ public class DataHandler {
         return instance;
     }
 
-    private List<Routine> routineList;
+    /*private List<Routine> routineList;
     private List<Exercise> exerciseList;
-    private Map<Calendar, Routine> routineSchedule;
+    private Map<Calendar, Routine> routineSchedule;*/
 
     private DataHandler() {
-        this.routineList = new ArrayList<>();
-        this.exerciseList = new ArrayList<>();
-        this.routineSchedule = new HashMap<>();
+        localDatabase = LocalDatabase.getInstance();
+        user = localDatabase.loadUser();
     }
 
 
-    public List<Routine> getRoutines() {
+    /*public List<Routine> getRoutines() {
         return new ArrayList<>(routineList);
     }
 
@@ -40,7 +42,7 @@ public class DataHandler {
 
     public Map<Calendar, Routine> getSchedule() {
         return new HashMap<>(routineSchedule);
-    }
+    }*/
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
         strat.sort(list);
@@ -64,16 +66,16 @@ public class DataHandler {
         return newList;
     }
 
-    public List<ISortable> getRoutinesAndExercises(){
+    /*public List<ISortable> getRoutinesAndExercises(){
         List<ISortable> newList = new ArrayList<>();
 
         newList.addAll(getRoutines());
         newList.addAll(getExercises());
 
         return newList;
-    }
+    }*/
 
-    public List<ISortable> search(String search){
+    /*public List<ISortable> search(String search){
         if (search.equals("")) {
             return getRoutinesAndExercises();
         }
@@ -98,6 +100,6 @@ public class DataHandler {
             }
         }
         return newList;
-    }
+    }*/
 
 }
