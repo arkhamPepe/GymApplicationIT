@@ -7,5 +7,6 @@
 
     <!-- ON CLICK -->
     <string name="onClickBtnBrowse">startActivityBrowse</string>
+    <string name="add_exercise">Add Exercise</string>
 
 </resources>
