@@ -3,4 +3,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <TextView
+            android:text="Exercises"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtExercisesTitle"
+            android:layout_centerInParent="true"/>
+    <Button
+            android:text="Go Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnExercisesBack"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtExercisesTitle"
+            android:onClick="openStatisticsStart"/>
+
 </RelativeLayout>

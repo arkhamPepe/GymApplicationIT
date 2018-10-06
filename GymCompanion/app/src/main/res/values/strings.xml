@@ -13,4 +13,10 @@
     </string>
     <string name="description">Description</string>
 
+
+    <!-- STATISTICS PAGE -->
+    <string name="btnExercises">My exercises</string>
+    <string name="btnHistory">History</string>
+    <string name="btnLifetime">Lifetime stats</string>
+
 </resources>

@@ -14,33 +14,41 @@ import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsExercisesFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsHistoryFragment;
-import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsLifetimeFragment;
+import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsLifetimeStatsFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsStartFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StatisticsActivity extends AppCompatActivity {
 
-    public static final int index = 4;
+    public static final int index = 4; // Defines which item that represents this activity in the bottom navigation
 
+    // Local fragments for the statistics activity
     final Fragment fragmentStart = new StatisticsStartFragment();
     final Fragment fragmentExercises = new StatisticsExercisesFragment();
     final Fragment fragmentHistory = new StatisticsHistoryFragment();
-    final Fragment fragmentLifetime = new StatisticsLifetimeFragment();
+    final Fragment fragmentLifetimeStats = new StatisticsLifetimeStatsFragment();
 
-    //final Fragment fragmentProgress = new MainProgressFragment();
-    final FragmentManager fm = getSupportFragmentManager();
-    Fragment active = fragmentStart;
+    Fragment active = fragmentStart; // The fragment shown when this activity is created
+    private List<Fragment> fragments = new ArrayList<>(); // Collection of all local fragments
 
+    final FragmentManager fm = getSupportFragmentManager(); // Object that handles transitions between local fragments
+
+
+
+    /** onCreate(Bundle)
+     *  Purpose: Initiates this activity;
+     *      configures the bottom navigation
+     *      prepares and arranges fragments
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.add(R.id.statistics_container, fragmentHistory, "4").hide(fragmentHistory);
-        transaction.add(R.id.statistics_container, fragmentLifetime, "3").hide(fragmentLifetime);
-        transaction.add(R.id.statistics_container, fragmentExercises, "2").hide(fragmentExercises);
-        transaction.add(R.id.statistics_container, fragmentStart, "1");
-        transaction.commit();
+        fillFragmentsList();
+        performInitTransaction();
 
         Intent intent1 = new Intent(this, MainActivity.class);
         Intent intent2 = new Intent(this, BrowseActivity.class);
@@ -86,5 +94,83 @@ public class StatisticsActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+    }
+
+    /** fillFragmentsList()
+     *  Purpose: Sets up list containing all local fragments
+     * */
+    private void fillFragmentsList(){
+        fragments.add(fragmentStart);
+        fragments.add(fragmentExercises);
+        fragments.add(fragmentHistory);
+        fragments.add(fragmentLifetimeStats);
+    }
+
+    /** performInitTransaction()
+     *  Purpose: Add all local fragments to the fragment manager.
+     * */
+    private void performInitTransaction(){
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        int index = 2;
+        for (Fragment f : fragments){
+            if (f == active){
+                transaction.add(R.id.statistics_container, f, "1");
+            }
+            else {
+                transaction.add(R.id.statistics_container, f, String.valueOf(index)).hide(f);
+                index++;
+            }
+        }
+        transaction.commit();
+    }
+
+    /** openFragment(Fragment)
+     *  Purpose: Show parameter fragment and hide all other fragments.
+     * */
+    private void openFragment(Fragment fragment){
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        for (Fragment f : fragments){
+            if (f == fragment){
+                transaction.show(f);
+            }
+            else {
+                transaction.hide(f);
+            }
+        }
+        transaction.commit();
+    }
+
+    /** openStatisticsStart(View)
+     *  Purpose: Show the main page of this activity.
+     *  (onClick-method)
+     * */
+    public void openStatisticsStart(View view){
+        openFragment(fragmentStart);
+    }
+
+    /** openExercises(View)
+     *  Purpose: Show the page "Exercises".
+     *  (onClick-method)
+     * */
+    public void openExercises(View view){
+        openFragment(fragmentExercises);
+    }
+
+    /** openHistory(View)
+     *  Purpose: Show the page "History".
+     *  (onClick-method)
+     * */
+    public void openHistory(View view){
+        openFragment(fragmentHistory);
+    }
+
+    /** openLifetimeStats(View)
+     *  Purpose: Show the page "Lifetime Stats".
+     *  (onClick-method)
+     * */
+    public void openLifetimeStats(View view){
+        openFragment(fragmentLifetimeStats);
     }
 }

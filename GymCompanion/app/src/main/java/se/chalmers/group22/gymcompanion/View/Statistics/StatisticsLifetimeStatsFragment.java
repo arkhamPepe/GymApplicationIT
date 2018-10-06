@@ -2,18 +2,14 @@ package se.chalmers.group22.gymcompanion.View.Statistics;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.MainActivity;
 
-public class StatisticsLifetimeFragment extends Fragment {
-    public static StatisticsLifetimeFragment newInstance() {
-        StatisticsLifetimeFragment fragment = new StatisticsLifetimeFragment();
+public class StatisticsLifetimeStatsFragment extends Fragment {
+    public static StatisticsLifetimeStatsFragment newInstance() {
+        StatisticsLifetimeStatsFragment fragment = new StatisticsLifetimeStatsFragment();
         return fragment;
     }
 

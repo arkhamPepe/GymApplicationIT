@@ -3,4 +3,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <TextView
+            android:text="History"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtHistoryTitle"
+            android:layout_centerInParent="true"/>
+    <Button
+            android:text="Go Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnHistoryBack"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtHistoryTitle"
+            android:onClick="openStatisticsStart"/>
+
 </RelativeLayout>
