@@ -20,6 +20,10 @@ import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsStartFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+/** StatisticsActivity
+ *  Purpose: Manage user interaction in the activity Statistics
+ *  Authors: Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+ * */
 public class StatisticsActivity extends AppCompatActivity {
 
     public static final int index = 4; // Defines which item that represents this activity in the bottom navigation
@@ -34,8 +38,6 @@ public class StatisticsActivity extends AppCompatActivity {
     private List<Fragment> fragments = new ArrayList<>(); // Collection of all local fragments
 
     final FragmentManager fm = getSupportFragmentManager(); // Object that handles transitions between local fragments
-
-
 
     /** onCreate(Bundle)
      *  Purpose: Initiates this activity;
@@ -66,7 +68,7 @@ public class StatisticsActivity extends AppCompatActivity {
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        Intent intent;
+                        Intent intent = new Intent();
                         switch (item.getItemId()) {
                             case R.id.action_item1:
                                 intent = intent1;
@@ -81,7 +83,7 @@ public class StatisticsActivity extends AppCompatActivity {
                                 intent = intent4;
                                 break;
                             case R.id.action_item5:
-                                intent = intent5;
+                                //intent = intent5;
                                 break;
                             default:
                                 intent = intent1;
