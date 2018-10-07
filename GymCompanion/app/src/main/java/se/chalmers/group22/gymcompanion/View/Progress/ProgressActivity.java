@@ -30,6 +30,7 @@ public class ProgressActivity extends AppCompatActivity {
 
     }
 
+    //Goes back to MainActivity with an extra boolean so that the Finished Fragment is in focus
     public void goToFinished(View view){
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
@@ -40,6 +41,7 @@ public class ProgressActivity extends AppCompatActivity {
     }
 
     //ESCAPE
+    //Goes back to the
     public void goToHome(View view){
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
