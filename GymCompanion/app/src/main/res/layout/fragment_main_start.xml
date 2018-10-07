@@ -13,6 +13,7 @@
             android:text="Start Daily Workout"
             android:layout_width="242dp"
             android:layout_height="159dp"
+            android:background="@color/startButtonGreenColour"
             android:id="@+id/btnGotoProgress" android:layout_centerHorizontal="true"
             android:onClick="goToProgress" android:layout_alignParentTop="true" android:layout_marginTop="107dp"/>
     <TextView
