@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements IView {
     final Fragment fragmentFinished = new MainFinishedFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private TextView todaysRoutine = findViewById(R.id.textViewTodayRoutine);
+    //private TextView todaysRoutine = findViewById(R.id.textViewTodayRoutine);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
