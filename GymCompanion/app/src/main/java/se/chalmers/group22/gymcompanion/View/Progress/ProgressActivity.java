@@ -30,23 +30,39 @@ public class ProgressActivity extends AppCompatActivity {
 
     }
 
+    public void goToStart(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentStart);
+        transaction.hide(fragmentEditRoutine);
+        transaction.commit();
+    }
+
+    public void goToEditRoutine(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.hide(fragmentStart);
+        transaction.show(fragmentEditRoutine);
+        transaction.commit();
+    }
+
     //Goes back to MainActivity with an extra boolean so that the Finished Fragment is in focus
     public void goToFinished(View view){
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                 Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        //Currently the value of the boolean doesn't matter, it only matters that it exists
         intent.putExtra("Finished Workout",true);
+
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
 
     //ESCAPE
-    //Goes back to the
+    //Goes back to the start page of MainActivity
     public void goToHome(View view){
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                 Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.putExtra("Finished Workout",false);
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
