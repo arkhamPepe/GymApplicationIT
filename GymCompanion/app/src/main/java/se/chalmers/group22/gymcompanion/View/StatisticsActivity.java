@@ -38,12 +38,6 @@ public class StatisticsActivity extends AppCompatActivity {
 
     final FragmentManager fm = getSupportFragmentManager(); // Object that handles transitions between local fragments
 
-    private ListView listView;
-
-    /** TEMPORARY DATA */
-    private String[] routineNames = {"Chest demolisher", "Leg killer", "Back attack"};
-    private String[] dates = {"Monday w.42", "Tuesday w.42", "Thursday w.42"};
-
 
     /** onCreate(Bundle)
      *  Purpose: Initiates this activity;
@@ -63,13 +57,6 @@ public class StatisticsActivity extends AppCompatActivity {
         fillFragmentsList();
         performInitTransaction();
 
-        //populateHistoryList();
-    }
-
-    private void populateHistoryList(){
-        ArrayAdapter adapter = new HistoryListAdapter(this, routineNames, dates);
-        ListView listView = findViewById(R.id.listviewHistory);
-        listView.setAdapter(adapter);
     }
 
     /** fillFragmentsList()
