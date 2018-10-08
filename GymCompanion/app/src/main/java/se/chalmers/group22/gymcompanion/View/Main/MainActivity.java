@@ -22,12 +22,13 @@ public class MainActivity extends AppCompatActivity implements IView {
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private MainViewModel mainViewModel = new MainViewModel();
+    private MainViewModel mainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainViewModel = new MainViewModel();
 
         FragmentTransaction transaction = fm.beginTransaction();
 
@@ -49,11 +50,10 @@ public class MainActivity extends AppCompatActivity implements IView {
 
         transaction.commit();
 
+    }
 
-        TextView todaysRoutine = findViewById(R.id.textViewTodayRoutine);
-
-        //todaysRoutine.setText(mainViewModel.getScheduledRoutineName());
-
+    public String getScheduledRoutineName(){
+        return mainViewModel.getScheduledRoutineName();
     }
 
 
