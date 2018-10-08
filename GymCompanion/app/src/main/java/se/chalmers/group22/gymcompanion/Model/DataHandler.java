@@ -105,4 +105,12 @@ public class DataHandler {
         return newList;
     }*/
 
+    public void createRoutine(){
+        user.createRoutine();
+    }
+
+    public void setRoutineName(){
+
+    }
+
 }
