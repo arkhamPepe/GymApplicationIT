@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.view.*;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.Browse.BrowseActivity;
 import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesActivity;
 import se.chalmers.group22.gymcompanion.View.Schedule.ScheduleActivity;
