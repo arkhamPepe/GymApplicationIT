@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.R;
@@ -28,11 +29,17 @@ public class MyRoutinesActivity extends AppCompatActivity {
     private Fragment active = fragmentStart;
     private DataHandler dataHandler = DataHandler.getInstance();
 
+    //Variables for fragment_my_routines_start.xml
     private ListView routineList;
 
+    //Variables for listitem_my_routines.xml
     private TextView routineName;
     private TextView amountOfExercises;
 
+    //Variables for listitem_my_routines_sets.xml
+    private TextView setNumber;
+    private NumberPicker setReps;
+    private NumberPicker setWeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +53,14 @@ public class MyRoutinesActivity extends AppCompatActivity {
         transaction.add(R.id.my_routines_container, fragmentStart, "1");
 
         routineList = findViewById(R.id.routineList);
+
         routineName = findViewById(R.id.routineName);
         amountOfExercises = findViewById(R.id.amountOfExercises);
+
+        setNumber = findViewById(R.id.setNumber);
+        setReps = findViewById(R.id.setReps);
+        setWeight = findViewById(R.id.setWeight);
+
         transaction.commit();
 
         Intent intent1 = new Intent(this, MainActivity.class);
