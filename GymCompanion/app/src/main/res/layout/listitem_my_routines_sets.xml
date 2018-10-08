@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+    <TextView
+            android:text="Set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" android:layout_marginStart="10dp"
+            android:textColor="@color/blackColour"
+            android:textSize="24sp"/>
+    <TextView
+            android:layout_width="131dp"
+            android:textColor="@color/blackColour"
+            android:layout_height="wrap_content"
+            android:id="@+id/setNumber"
+            android:textSize="24sp"
+            android:layout_alignParentStart="true" android:layout_marginStart="58dp"
+            android:layout_centerVertical="true" android:text="setNumber"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@android:drawable/arrow_up_float"
+            android:layout_alignParentEnd="true" android:layout_alignParentBottom="true" android:id="@+id/SlideButton"
+            android:layout_marginBottom="20dp" android:rotation="90"/>
+</RelativeLayout>
