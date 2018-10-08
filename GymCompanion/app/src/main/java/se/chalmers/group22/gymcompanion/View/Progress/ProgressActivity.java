@@ -46,7 +46,7 @@ public class ProgressActivity extends AppCompatActivity {
                 this,
                 R.layout.progress_start_list_item);
 
-        progStartListView.setAdapter(arrayAdapter);
+/*        progStartListView.setAdapter(arrayAdapter);
 
         progStartListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -57,7 +57,7 @@ public class ProgressActivity extends AppCompatActivity {
             }
         });
 
-
+*/
 
     }
 

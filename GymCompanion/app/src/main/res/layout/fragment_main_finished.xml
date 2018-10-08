@@ -5,15 +5,37 @@
 
 
     <TextView
-            android:text="Finished"
+            android:text="Workout Finished!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_weight="1"
-            android:layout_centerInParent="true"/>
+            android:layout_alignParentTop="true" android:layout_marginTop="40dp" android:textSize="30sp"
+            android:layout_centerHorizontal="true"/>
     <Button
-            android:text="Go to Home"
+            android:text="Back to Home"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGotoHome"
+            android:onClick="goToHome"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="60dp"
+            android:layout_centerHorizontal="true"/>
+    <TextView
+            android:text="Time Spent:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="125dp"
+            android:id="@+id/textViewTimeSpent" android:textSize="18sp"
+            android:layout_alignParentStart="true" android:layout_marginStart="101dp"/>
+    <TextView
+            android:text="Exercises Completed:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnGotoHome" android:layout_centerHorizontal="true" android:layout_below="@+id/textView4"
-            android:onClick="goToHome"/>
+            android:id="@+id/textViewExercisesCompleted" android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="225dp" android:layout_alignEnd="@+id/textViewTimeSpent"/>
+    <TextView
+            android:text="Total Exercises:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true"
+            android:layout_marginTop="175dp" android:id="@+id/textViewTotalExercises"
+            android:textSize="18sp" android:layout_alignEnd="@+id/textViewTimeSpent"/>
 
 </RelativeLayout>
