@@ -6,7 +6,7 @@
         android:id="@+id/activity_statistics"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".View.StatisticsActivity">
+        tools:context=".View.Statistics.StatisticsActivity">
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  xmlns:tools="http://schemas.android.com/tools"

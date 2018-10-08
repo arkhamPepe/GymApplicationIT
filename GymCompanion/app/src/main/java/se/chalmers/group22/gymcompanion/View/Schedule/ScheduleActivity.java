@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.View;
+package se.chalmers.group22.gymcompanion.View.Schedule;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.view.*;
 import android.widget.*;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseStartFragment;
+import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 
 public class ScheduleActivity extends AppCompatActivity {
 

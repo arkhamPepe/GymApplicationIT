@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".View.ScheduleActivity">
+        <activity android:name=".View.Schedule.ScheduleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -29,9 +29,9 @@
         </activity>
         <activity android:name=".View.BrowseActivity">
         </activity>
-        <activity android:name=".View.StatisticsActivity">
+        <activity android:name=".View.Statistics.StatisticsActivity">
         </activity>
-        <activity android:name=".View.MyRoutinesActivity">
+        <activity android:name=".View.MyRoutines.MyRoutinesActivity">
         </activity>
         <activity android:name=".View.Progress.ProgressActivity">
         </activity>
