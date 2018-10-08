@@ -165,10 +165,5 @@ public class StatisticsActivity extends AppCompatActivity {
      * */
     public void openLifetimeStats(View view){
         openFragment(fragmentLifetimeStats);
-
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.add(R.id.statistics_container, fragmentStart, "1");
-        transaction.add(R.id.navigation, navigationFragment);
-        transaction.commit();
     }
 }
