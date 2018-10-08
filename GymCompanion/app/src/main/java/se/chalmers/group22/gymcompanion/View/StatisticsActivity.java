@@ -115,9 +115,9 @@ public class StatisticsActivity extends AppCompatActivity {
         }
         final StableArrayAdapter adapter = new StableArrayAdapter(this,
                 android.R.layout.simple_list_item_1, list);
-        listview.setAdapter(adapter);
+//        listview.setAdapter(adapter);
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+/*        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
@@ -133,7 +133,7 @@ public class StatisticsActivity extends AppCompatActivity {
                     });
             }
 
-        });
+        });*/
     }
 
     /** fillFragmentsList()
