@@ -73,7 +73,7 @@ public class BrowseActivity extends AppCompatActivity implements INavigation{
 
         SearchView searchView = findViewById(R.id.searchBar);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        /*earchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
                 browsePresenter.search(newText);
@@ -84,7 +84,7 @@ public class BrowseActivity extends AppCompatActivity implements INavigation{
                 browsePresenter.search(query);
                 return false;
             }
-        });
+        });*/
     }
 
     @Override
