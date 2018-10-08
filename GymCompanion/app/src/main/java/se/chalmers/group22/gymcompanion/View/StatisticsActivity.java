@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsExercisesFragment;
@@ -68,7 +69,7 @@ public class StatisticsActivity extends AppCompatActivity {
         }
         final StableArrayAdapter adapter = new StableArrayAdapter(this,
                 android.R.layout.simple_list_item_1, list);
-//        listview.setAdapter(adapter);
+        //listview.setAdapter((ListAdapter)adapter);
 
 /*        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -115,6 +116,8 @@ public class StatisticsActivity extends AppCompatActivity {
                 index++;
             }
         }
+        transaction.add(R.id.navigation, navigationFragment);
+
         transaction.commit();
     }
 
