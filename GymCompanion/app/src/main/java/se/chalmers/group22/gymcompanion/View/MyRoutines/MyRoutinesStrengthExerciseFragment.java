@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import se.chalmers.group22.gymcompanion.R;
 
-public class MyRoutinesStartFragment extends Fragment {
-    public static MyRoutinesStartFragment newInstance() {
-        MyRoutinesStartFragment fragment = new MyRoutinesStartFragment();
+public class MyRoutinesStrengthExerciseFragment extends Fragment {
+    public static MyRoutinesStrengthExerciseFragment newInstance() {
+        MyRoutinesStrengthExerciseFragment fragment = new MyRoutinesStrengthExerciseFragment();
         return fragment;
     }
 
@@ -20,6 +20,6 @@ public class MyRoutinesStartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_my_routines_start, container, false);
+        return inflater.inflate(R.layout.fragment_routine_setstrengthexercise, container, false);
     }
 }
