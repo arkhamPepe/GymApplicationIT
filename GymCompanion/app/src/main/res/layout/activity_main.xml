@@ -16,7 +16,6 @@
                  tools:showIn="@layout/activity_main"
                  android:id="@+id/main_container">
 
-
     </FrameLayout>
 
     <include
