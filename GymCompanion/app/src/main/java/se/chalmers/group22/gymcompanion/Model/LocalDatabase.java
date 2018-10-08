@@ -8,7 +8,6 @@ import java.io.*;
 public class LocalDatabase {
     private static final String filename = "database.txt";
 
-    @Getter
     private static LocalDatabase localDatabase;
     private static Context context;
 
