@@ -1,15 +1,11 @@
 package se.chalmers.group22.gymcompanion.View;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
@@ -18,8 +14,6 @@ import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesExerciseInfoFr
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesRoutineInfoFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStartFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStrengthExerciseFragment;
-
-import java.util.List;
 
 public class MyRoutinesActivity extends AppCompatActivity {
 
