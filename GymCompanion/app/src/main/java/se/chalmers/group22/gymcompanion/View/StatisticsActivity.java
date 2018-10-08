@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
@@ -41,6 +42,7 @@ public class StatisticsActivity extends AppCompatActivity {
 
     final FragmentManager fm = getSupportFragmentManager(); // Object that handles transitions between local fragments
 
+
     /** onCreate(Bundle)
      *  Purpose: Initiates this activity;
      *      configures the bottom navigation
@@ -59,39 +61,6 @@ public class StatisticsActivity extends AppCompatActivity {
         fillFragmentsList();
         performInitTransaction();
 
-        // Set up History list
-        final ListView listview = (ListView) findViewById(R.id.listHistory);
-        String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
-                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-                "Android", "iPhone", "WindowsMobile" };
-
-        final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < values.length; ++i) {
-            list.add(values[i]);
-        }
-        final StableArrayAdapter adapter = new StableArrayAdapter(this,
-                android.R.layout.simple_list_item_1, list);
-        //listview.setAdapter((ListAdapter)adapter);
-
-/*        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, final View view,
-                                    int position, long id) {
-                final String item = (String) parent.getItemAtPosition(position);
-                view.animate().setDuration(2000).alpha(0)
-                    .withEndAction(new Runnable() {
-                        @Override
-                        public void run() {
-                            list.remove(item);
-                            adapter.notifyDataSetChanged();
-                            view.setAlpha(1);
-                        }
-                    });
-            }
-
-        });*/
     }
 
     /** fillFragmentsList()
