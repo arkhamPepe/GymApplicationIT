@@ -27,7 +27,7 @@
                 android:name=".StartRoutineActivity"
                 android:exported="true">
         </activity>
-        <activity android:name=".View.BrowseActivity">
+        <activity android:name=".View.Browse.BrowseActivity">
         </activity>
         <activity android:name=".View.Statistics.StatisticsActivity">
         </activity>

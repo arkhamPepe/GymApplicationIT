@@ -2,7 +2,7 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
-import se.chalmers.group22.gymcompanion.View.BrowseActivity;
+import se.chalmers.group22.gymcompanion.View.Browse.BrowseActivity;
 
 import java.util.List;
 
