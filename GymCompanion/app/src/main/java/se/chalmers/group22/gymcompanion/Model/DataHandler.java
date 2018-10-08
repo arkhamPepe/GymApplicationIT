@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import android.widget.ListView;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
@@ -106,11 +107,11 @@ public class DataHandler {
     }
 
     public void createRoutine(){
-       // user.createRoutine();
+        user.createRoutine();
     }
 
-    public void getUserRoutine(){
-
+    public List<Routine> getUserRoutines(){
+        return user.getRoutines();
     }
 
 }
