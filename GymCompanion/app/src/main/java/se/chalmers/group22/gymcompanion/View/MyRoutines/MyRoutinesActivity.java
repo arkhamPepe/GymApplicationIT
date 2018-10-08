@@ -1,6 +1,5 @@
 package se.chalmers.group22.gymcompanion.View.MyRoutines;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,19 +10,18 @@ import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
+import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
-import se.chalmers.group22.gymcompanion.View.Browse.BrowseStartFragment;
-import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesExerciseInfoFragment;
-import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesRoutineInfoFragment;
-import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStartFragment;
-import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStrengthExerciseFragment;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
+import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
+
+import java.util.List;
 
 public class MyRoutinesActivity extends AppCompatActivity {
 
     public static final int index = 3;
 
+    private MyRoutinesViewModel viewModel;
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
@@ -57,6 +55,8 @@ public class MyRoutinesActivity extends AppCompatActivity {
         transaction.add(R.id.my_routines_container, fragmentStrengthExercise, "2").hide(fragmentStrengthExercise);
         transaction.add(R.id.my_routines_container, fragmentStart, "1");
 
+        viewModel = new MyRoutinesViewModel();
+
         routineList = findViewById(R.id.routineList);
 
         routineName = findViewById(R.id.routineName);
@@ -75,6 +75,7 @@ public class MyRoutinesActivity extends AppCompatActivity {
 
         transaction.commit();
     }
+
     public void createRoutine(View view){
         dataHandler.createRoutine();
     }
