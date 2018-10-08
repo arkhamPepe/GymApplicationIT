@@ -15,23 +15,26 @@ import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
+import se.chalmers.group22.gymcompanion.ViewModel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity implements IView {
 
-    public static final int index = 0;
+    private static final int index = 0;
 
     final Fragment fragmentHome = new MainStartFragment();
     final Fragment fragmentFinished = new MainFinishedFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    //private TextView todaysRoutine = findViewById(R.id.textViewTodayRoutine);
+    private MainViewModel mainViewModel = new MainViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //todaysRoutine.setText();
+        TextView todaysRoutine = findViewById(R.id.textViewTodayRoutine);
+
+        todaysRoutine.setText(mainViewModel.getScheduledRoutineName());
 
         FragmentTransaction transaction = fm.beginTransaction();
 

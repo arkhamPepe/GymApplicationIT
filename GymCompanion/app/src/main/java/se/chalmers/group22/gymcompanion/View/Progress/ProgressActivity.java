@@ -7,16 +7,23 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
 import se.chalmers.group22.gymcompanion.View.Main.MainFinishedFragment;
 import se.chalmers.group22.gymcompanion.View.Main.MainStartFragment;
+import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
 
 public class ProgressActivity extends AppCompatActivity {
 
-    final FragmentManager fm = getSupportFragmentManager();
-    final Fragment fragmentStart = new ProgressStartFragment();
-    final Fragment fragmentEditRoutine = new ProgressEditRoutineFragment();
+    private final FragmentManager fm = getSupportFragmentManager();
+    private final Fragment fragmentStart = new ProgressStartFragment();
+    private final Fragment fragmentEditRoutine = new ProgressEditRoutineFragment();
+
+    private ProgressViewModel progressViewModel = new ProgressViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +34,29 @@ public class ProgressActivity extends AppCompatActivity {
         transaction.add(R.id.progress_container, fragmentStart, "1");
         transaction.add(R.id.progress_container, fragmentEditRoutine, "1").hide(fragmentEditRoutine);
         transaction.commit();
+
+        ListView progStartListView = findViewById(R.id.progStartListView);
+
+        //fillSchedule();
+
+        //progressViewModel.fillList();
+
+        // Adapter takes activity context, type of list view and the array as parameters
+       /* ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.,
+                progressViewModel.getRoutineForToday);
+
+        progStartListView.setAdapter(arrayAdapter);
+
+        progStartListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            // argument position gives the index of item which is clicked
+            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
+            {
+
+            }
+        });*/
 
     }
 
