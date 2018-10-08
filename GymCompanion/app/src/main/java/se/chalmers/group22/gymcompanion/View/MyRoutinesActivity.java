@@ -33,7 +33,7 @@ public class MyRoutinesActivity extends AppCompatActivity {
     private Fragment active = fragmentStart;
     private DataHandler dataHandler = DataHandler.getInstance();
 
-    ListView routineList;
+    private ListView routineList;
 
 
 
@@ -97,5 +97,7 @@ public class MyRoutinesActivity extends AppCompatActivity {
                 });
     }
     public void createRoutine(View view){
+
+        routineList.addView(view);
     }
 }
