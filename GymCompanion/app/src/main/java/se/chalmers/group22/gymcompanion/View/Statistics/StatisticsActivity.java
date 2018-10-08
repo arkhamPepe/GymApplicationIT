@@ -58,7 +58,6 @@ public class StatisticsActivity extends AppCompatActivity {
 
         fillFragmentsList();
         performInitTransaction();
-
     }
 
     /** fillFragmentsList()

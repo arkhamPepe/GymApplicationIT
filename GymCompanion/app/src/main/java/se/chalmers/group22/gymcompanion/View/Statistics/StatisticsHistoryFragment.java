@@ -34,7 +34,7 @@ public class StatisticsHistoryFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        ArrayAdapter adapter = new HistoryListAdapter(getActivity(), routineNames, dates);
+        HistoryListAdapter adapter = new HistoryListAdapter(getActivity(), routineNames, dates);
         ListView listView = getActivity().findViewById(R.id.listviewHistory);
         listView.setAdapter(adapter);
     }
