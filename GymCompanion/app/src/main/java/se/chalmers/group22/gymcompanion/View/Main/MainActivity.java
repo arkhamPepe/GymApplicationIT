@@ -29,10 +29,6 @@ public class MainActivity extends AppCompatActivity implements IView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView todaysRoutine = findViewById(R.id.textViewTodayRoutine);
-
-        todaysRoutine.setText(mainViewModel.getScheduledRoutineName());
-
         FragmentTransaction transaction = fm.beginTransaction();
 
         if(getIntent().getExtras() != null) {
@@ -49,8 +45,14 @@ public class MainActivity extends AppCompatActivity implements IView {
         bundle.putInt("index", index);
         navigationFragment.setArguments(bundle);
 
+        transaction.add(R.id.navigation,navigationFragment);
+
         transaction.commit();
 
+
+        TextView todaysRoutine = findViewById(R.id.textViewTodayRoutine);
+
+        //todaysRoutine.setText(mainViewModel.getScheduledRoutineName());
 
     }
 
