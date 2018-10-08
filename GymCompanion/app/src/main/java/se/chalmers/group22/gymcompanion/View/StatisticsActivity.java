@@ -13,6 +13,7 @@ import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsExercisesFragm
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsHistoryFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsLifetimeStatsFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsStartFragment;
+import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,9 @@ import java.util.List;
 public class StatisticsActivity extends AppCompatActivity {
 
     public static final int index = 4; // Defines which item that represents this activity in the bottom navigation
+
+    //The ViewModel should be created/die along the View
+    private StatisticsViewModel statisticsViewModel = new StatisticsViewModel();
 
     // Local fragments for the statistics activity
     final Fragment fragmentStart = new StatisticsStartFragment();

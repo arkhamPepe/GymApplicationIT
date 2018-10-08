@@ -11,6 +11,11 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.*;
 import se.chalmers.group22.gymcompanion.R;
 
+/** StatisticsActivityFragment
+ *  Purpose: Initial fragment of StatisticActivity
+ *  Authors: Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+ * */
+
 public class StatisticsStartFragment extends Fragment {
 
     public static StatisticsStartFragment newInstance() {
@@ -18,17 +23,26 @@ public class StatisticsStartFragment extends Fragment {
         return fragment;
     }
 
+    /** onCreate(Bundle)
+     *  Purpose: Initiates this fragment
+     * */
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
     }
 
+    /** onCreateView(LayoutInflater, ViewGroup, Bundle)
+     *  @return View [fragment_statistics_start]
+     * */
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_statistics_start, container, false);
     }
 
+    /** onStart
+     *  Purpose: Initiates the graph with values
+     * */
     public void onStart(){
         super.onStart();
         double x,y;
