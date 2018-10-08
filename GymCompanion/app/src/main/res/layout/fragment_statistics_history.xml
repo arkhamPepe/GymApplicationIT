@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:text="History"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtHistoryTitle"
+            android:layout_centerHorizontal="true" android:layout_alignBaseline="@+id/btnHistoryBack"/>
+    <Button
+            android:text="Go Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnHistoryBack"
+            android:onClick="openStatisticsStart"
+            android:layout_alignParentStart="true" android:layout_alignParentTop="true"/>
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnHistoryBack"
+            android:id="@+id/listviewHistory">
+    </ListView>
+
+</RelativeLayout>

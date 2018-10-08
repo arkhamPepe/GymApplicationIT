@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".View.BrowseActivity">
+
+    <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:id="@+id/start_graph"
+            android:layout_marginTop="1dp"/>
+    <Button
+            android:text="@string/btnExercises"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStatisticsExercises"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/start_graph"
+            android:onClick="openExercises"/>
+    <Button
+            android:text="@string/btnHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStatisticsHistory"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/btnStatisticsExercises"
+            android:onClick="openHistory"/>
+    <Button
+            android:text="@string/btnLifetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStatisticsLifetime"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/btnStatisticsHistory"
+            android:onClick="openLifetimeStats"/>
+
+
+</RelativeLayout>
