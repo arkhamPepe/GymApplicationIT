@@ -1,30 +1,23 @@
 package se.chalmers.group22.gymcompanion.View;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
-import se.chalmers.group22.gymcompanion.Presenter.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseStartFragment;
 
-public class ScheduleActivity extends AppCompatActivity implements INavigation, IScheduleView {
+public class ScheduleActivity extends AppCompatActivity {
 
     public static final int index = 2;
     final Fragment fragmentStart = new BrowseStartFragment();
-    //final Fragment fragmentProgress = new MainProgressFragment();
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
-    //Fragment active = fragmentHome;
     private ListView schedule_lv;
-    //private SchedulePresenter schedulePresenter = new SchedulePresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,34 +73,5 @@ public class ScheduleActivity extends AppCompatActivity implements INavigation, 
             insertPoint.addView(view, i);
         }
 
-    }
-
-    @Override
-    public void startActivityBrowse(View view) {
-        Intent intent = new Intent(this, BrowseActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivityMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivityStatistics(View view) {
-        Intent intent = new Intent(this, StatisticsActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivityMyRoutines(View view) {
-        Intent intent = new Intent(this, MyRoutinesActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void startActivitySchedule(View view) {
-        // NOTHING
     }
 }

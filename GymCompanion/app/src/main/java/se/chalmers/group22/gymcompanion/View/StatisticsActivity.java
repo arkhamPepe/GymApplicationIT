@@ -1,18 +1,11 @@
 package se.chalmers.group22.gymcompanion.View;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.Browse.BrowseStartFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsStartFragment;
 
 public class StatisticsActivity extends AppCompatActivity {

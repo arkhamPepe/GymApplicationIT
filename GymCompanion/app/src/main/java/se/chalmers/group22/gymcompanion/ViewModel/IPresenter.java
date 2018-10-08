@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.Presenter;
+package se.chalmers.group22.gymcompanion.ViewModel;
 
 public interface IPresenter {
 

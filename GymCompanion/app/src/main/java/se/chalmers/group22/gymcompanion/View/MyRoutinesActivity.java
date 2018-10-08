@@ -12,6 +12,8 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
+import se.chalmers.group22.gymcompanion.View.Browse.BrowseStartFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesExerciseInfoFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesRoutineInfoFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStartFragment;
@@ -19,13 +21,15 @@ import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStrengthExerci
 
 public class MyRoutinesActivity extends AppCompatActivity {
 
-    private static final int index = 3;
+    public static final int index = 3;
+
+    final Fragment navigationFragment = new NavigationFragment();
+    final FragmentManager fm = getSupportFragmentManager();
 
     private final Fragment fragmentStart = new MyRoutinesStartFragment();
     private final Fragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
     private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
-    private final FragmentManager fm = getSupportFragmentManager();
     private Fragment active = fragmentStart;
     private DataHandler dataHandler = DataHandler.getInstance();
 
@@ -61,17 +65,14 @@ public class MyRoutinesActivity extends AppCompatActivity {
         setReps = findViewById(R.id.setReps);
         setWeight = findViewById(R.id.setWeight);
 
-        transaction.commit();
-
-        Intent intent1 = new Intent(this, MainActivity.class);
-        Intent intent2 = new Intent(this, BrowseActivity.class);
-        Intent intent3 = new Intent(this, ScheduleActivity.class);
-        Intent intent4 = new Intent(this, MyRoutinesActivity.class);
-        Intent intent5 = new Intent(this, StatisticsActivity.class);
-
         //Sends the activity index to NavigationFragment via Bundle
         Bundle bundle = new Bundle();
         bundle.putInt("index", index);
+        navigationFragment.setArguments(bundle);
+
+        transaction.add(R.id.navigation,navigationFragment);
+
+        transaction.commit();
     }
     public void createRoutine(View view){
         dataHandler.createRoutine();

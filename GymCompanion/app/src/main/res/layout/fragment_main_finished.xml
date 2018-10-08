@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+
+    <TextView
+            android:text="Workout Finished!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_weight="1"
+            android:layout_alignParentTop="true" android:layout_marginTop="40dp" android:textSize="30sp"
+            android:layout_centerHorizontal="true"/>
+    <Button
+            android:text="Back to Home"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGotoHome"
+            android:onClick="goToHome"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="70dp"
+            android:layout_centerHorizontal="true"/>
+    <TextView
+            android:text="Time Spent:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="120dp"
+            android:id="@+id/textViewTimeSpent" android:textSize="18sp"
+            android:layout_alignParentStart="true" android:layout_marginStart="100dp"/>
+    <TextView
+            android:text="Exercises Completed:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewExercisesCompleted" android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="220dp" android:layout_alignEnd="@+id/textViewTimeSpent"/>
+    <TextView
+            android:text="Total Exercises:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true"
+            android:layout_marginTop="170dp" android:id="@+id/textViewTotalExercises"
+            android:textSize="18sp" android:layout_alignEnd="@+id/textViewTimeSpent"/>
+
+</RelativeLayout>

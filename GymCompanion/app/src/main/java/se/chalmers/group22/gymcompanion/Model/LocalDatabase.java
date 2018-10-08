@@ -8,21 +8,19 @@ import java.io.*;
 public class LocalDatabase {
     private static final String filename = "database.txt";
 
-    private static LocalDatabase localDatabase;
-    private Context context;
+    @Getter
+    private LocalDatabase localDatabase;
 
-    private LocalDatabase(){
-        context = GymCompanion.getAppContext();
-    }
+    private LocalDatabase(){}
 
-    public static LocalDatabase getInstance(){
+    public LocalDatabase getInstance(){
         if(localDatabase == null){
             localDatabase = new LocalDatabase();
         }
         return localDatabase;
     }
 
-    public void saveUser(User user){
+    public void saveUser(Context context, User user){
         FileOutputStream fos;
         ObjectOutputStream os;
         try{
@@ -36,7 +34,7 @@ public class LocalDatabase {
         }
     }
 
-    public User loadUser(){
+    public User loadUser(Context context){
         FileInputStream fis;
         ObjectInputStream is;
         User loadedUser = null;
