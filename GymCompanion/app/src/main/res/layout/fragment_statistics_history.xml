@@ -8,14 +8,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtHistoryTitle"
-            android:layout_centerInParent="true"/>
+            android:layout_centerHorizontal="true" android:layout_alignBaseline="@+id/btnHistoryBack"/>
     <Button
             android:text="Go Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnHistoryBack"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/txtHistoryTitle"
-            android:onClick="openStatisticsStart"/>
+            android:onClick="openStatisticsStart"
+            android:layout_alignParentStart="true" android:layout_alignParentTop="true"/>
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnHistoryBack"
+            android:id="@+id/listHistory">
+
+
+    </ListView>
 
 </RelativeLayout>
