@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.View;
+package se.chalmers.group22.gymcompanion.View.MyRoutines;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesExerciseInfoFr
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesRoutineInfoFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStartFragment;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStrengthExerciseFragment;
+import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 
 public class MyRoutinesActivity extends AppCompatActivity {
 

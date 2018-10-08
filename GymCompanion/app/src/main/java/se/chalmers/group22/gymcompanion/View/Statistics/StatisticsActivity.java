@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.View;
+package se.chalmers.group22.gymcompanion.View.Statistics;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsExercisesFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsHistoryFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsLifetimeStatsFragment;
