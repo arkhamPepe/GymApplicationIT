@@ -19,11 +19,6 @@
             android:textSize="24sp"
             android:layout_alignParentStart="true" android:layout_marginStart="58dp"
             android:layout_centerVertical="true" android:text="setNumber"/>
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@android:drawable/arrow_up_float"
-            android:layout_alignParentEnd="true" android:layout_alignParentBottom="true" android:id="@+id/SlideButton"
-            android:layout_marginBottom="20dp" android:rotation="90"/>
     <NumberPicker
             android:layout_width="47dp"
             android:layout_height="64dp"
@@ -31,7 +26,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/setWeight" android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/SlideButton"/>
+            android:layout_alignParentEnd="true" android:layout_marginEnd="17dp"/>
     <NumberPicker
             android:layout_width="47dp"
             android:layout_height="64dp"
