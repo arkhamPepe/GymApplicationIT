@@ -7,7 +7,9 @@
 
     <color name="startButtonGreenColour">#32CD32</color>
     <color name="transparentColour">@android:color/transparent</color>
-    <color name="blackColour">#000</color>
-    <color name="white">#FFFFFF</color>
+    <color name="blackColour">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="Gold">#d4af37</color>
+    <color name="Blue">#283afc</color>
 
 </resources>
