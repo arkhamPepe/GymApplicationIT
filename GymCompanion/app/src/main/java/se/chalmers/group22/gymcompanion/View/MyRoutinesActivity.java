@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesExerciseInfoFragment;
@@ -29,6 +30,9 @@ public class MyRoutinesActivity extends AppCompatActivity {
 
     private ListView routineList;
 
+    private TextView routineName;
+    private TextView amountOfExercises;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,8 @@ public class MyRoutinesActivity extends AppCompatActivity {
         transaction.add(R.id.my_routines_container, fragmentStart, "1");
 
         routineList = findViewById(R.id.routineList);
+        routineName = findViewById(R.id.routineName);
+        amountOfExercises = findViewById(R.id.amountOfExercises);
         transaction.commit();
 
         Intent intent1 = new Intent(this, MainActivity.class);
@@ -55,7 +61,14 @@ public class MyRoutinesActivity extends AppCompatActivity {
         bundle.putInt("index", index);
     }
     public void createRoutine(View view){
-        dataHandler.getUser().createRoutine();
-        routineList.addView(view);
+        dataHandler.createRoutine();
+    }
+
+    public void addExercise(View view){
+
+    }
+
+    public void setRoutineName(){
+
     }
 }
