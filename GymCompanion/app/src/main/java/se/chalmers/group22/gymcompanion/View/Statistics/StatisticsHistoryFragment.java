@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.HistoryListAdapter;
-import se.chalmers.group22.gymcompanion.View.MainActivity;
+//import se.chalmers.group22.gymcompanion.View.MainActivity;
 
 public class StatisticsHistoryFragment extends Fragment {
     /** TEMPORARY DATA */

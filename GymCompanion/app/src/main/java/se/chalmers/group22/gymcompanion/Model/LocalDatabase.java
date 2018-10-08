@@ -9,18 +9,21 @@ public class LocalDatabase {
     private static final String filename = "database.txt";
 
     @Getter
-    private LocalDatabase localDatabase;
+    private static LocalDatabase localDatabase;
+    private static Context context;
 
-    private LocalDatabase(){}
+    private LocalDatabase(){
+    }
 
-    public LocalDatabase getInstance(){
+    public static LocalDatabase getInstance(){
         if(localDatabase == null){
             localDatabase = new LocalDatabase();
         }
+        context = GymCompanion.getContext();
         return localDatabase;
     }
 
-    public void saveUser(Context context, User user){
+    public void saveUser(User user){
         FileOutputStream fos;
         ObjectOutputStream os;
         try{
@@ -34,7 +37,7 @@ public class LocalDatabase {
         }
     }
 
-    public User loadUser(Context context){
+    public User loadUser(){
         FileInputStream fis;
         ObjectInputStream is;
         User loadedUser = null;
