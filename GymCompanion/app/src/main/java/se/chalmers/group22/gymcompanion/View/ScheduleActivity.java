@@ -1,22 +1,17 @@
 package se.chalmers.group22.gymcompanion.View;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
-import se.chalmers.group22.gymcompanion.ViewModel.SchedulePresenter;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseStartFragment;
 
-public class ScheduleActivity extends AppCompatActivity implements IScheduleView {
+public class ScheduleActivity extends AppCompatActivity {
 
     public static final int index = 2;
     final Fragment fragmentStart = new BrowseStartFragment();

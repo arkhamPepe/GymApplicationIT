@@ -42,10 +42,9 @@ public class ProgressActivity extends AppCompatActivity {
         //progressViewModel.fillList();
 
         // Adapter takes activity context, type of list view and the array as parameters
-       /* ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
-                android.R.layout.,
-                progressViewModel.getRoutineForToday);
+                R.layout.progress_start_list_item);
 
         progStartListView.setAdapter(arrayAdapter);
 
@@ -56,7 +55,13 @@ public class ProgressActivity extends AppCompatActivity {
             {
 
             }
-        });*/
+        });
+
+
+
+    }
+
+    private void startProgressFillList(){
 
     }
 
