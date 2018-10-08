@@ -2,15 +2,13 @@ package se.chalmers.group22.gymcompanion.View.Statistics;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.HistoryListAdapter;
-import se.chalmers.group22.gymcompanion.View.MainActivity;
 
 public class StatisticsHistoryFragment extends Fragment {
     /** TEMPORARY DATA */
