@@ -97,7 +97,7 @@ public class MyRoutinesActivity extends AppCompatActivity {
                 });
     }
     public void createRoutine(View view){
-
+        dataHandler.getUser().createRoutine();
         routineList.addView(view);
     }
 }
