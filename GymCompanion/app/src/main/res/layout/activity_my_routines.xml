@@ -13,7 +13,8 @@ tools:context=".View.MyRoutinesActivity">
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"
                  tools:context="MainActivity"
-                 tools:showIn="@layout/activity_main"/>
+                 tools:showIn="@layout/activity_main"
+                    android:id="@+id/my_routines_container"/>
 
     <include
             android:layout_width="match_parent"
