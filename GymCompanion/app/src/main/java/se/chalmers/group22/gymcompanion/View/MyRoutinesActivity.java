@@ -36,7 +36,6 @@ public class MyRoutinesActivity extends AppCompatActivity {
     private ListView routineList;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,44 +56,9 @@ public class MyRoutinesActivity extends AppCompatActivity {
         Intent intent4 = new Intent(this, MyRoutinesActivity.class);
         Intent intent5 = new Intent(this, StatisticsActivity.class);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
-
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(index);
-        menuItem.setChecked(true);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener
-                (new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        Intent intent;
-                        switch (item.getItemId()) {
-                            case R.id.action_item1:
-                                intent = intent1;
-                                break;
-                            case R.id.action_item2:
-                                intent = intent2;
-                                break;
-                            case R.id.action_item3:
-                                intent = intent3;
-                                break;
-                            case R.id.action_item4:
-                                intent = intent4;
-                                break;
-                            case R.id.action_item5:
-                                intent = intent5;
-                                break;
-                            default:
-                                intent = intent1;
-                                break;
-                        }
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                                Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                        overridePendingTransition(0, 0);
-                        return true;
-                    }
-                });
+        //Sends the activity index to NavigationFragment via Bundle
+        Bundle bundle = new Bundle();
+        bundle.putInt("index", index);
     }
     public void createRoutine(View view){
         dataHandler.getUser().createRoutine();

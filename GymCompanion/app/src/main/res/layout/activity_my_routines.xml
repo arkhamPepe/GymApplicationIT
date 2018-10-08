@@ -8,13 +8,15 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".View.MyRoutinesActivity">
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  xmlns:tools="http://schemas.android.com/tools"
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"
                  tools:context="MainActivity"
                  tools:showIn="@layout/activity_main"
-                    android:id="@+id/my_routines_container"/>
+                 android:id="@+id/my_routines_container">
+
+    </FrameLayout>
 
     <include
             android:layout_width="match_parent"

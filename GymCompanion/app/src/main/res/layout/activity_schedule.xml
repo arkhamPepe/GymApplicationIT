@@ -12,16 +12,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/schedule_list"
             android:layout_marginTop="50dp"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+            />
 
-    <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:tools="http://schemas.android.com/tools"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 tools:context="MainActivity"
+                 tools:showIn="@layout/activity_main"
+                 android:id="@+id/schedule_container">
+
+    </FrameLayout>
 
     <include
             android:layout_width="match_parent"
