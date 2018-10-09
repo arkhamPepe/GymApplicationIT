@@ -29,4 +29,12 @@ public class MyRoutinesExerciseInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_routine_exercise_info, container, false);
     }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        textViewExerciseDescription = getActivity().findViewById(R.id.exerciseDescription);
+        textViewExerciseName = getActivity().findViewById(R.id.exerciseName);
+        textViewGuideDescription = getActivity().findViewById(R.id.guideDescription);
+    }
 }

@@ -32,5 +32,14 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_routine_routine_info, container, false);
     }
-    
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        textViewRoutineName = getActivity().findViewById(R.id.routineName);
+        textViewAmountOfExercises = getActivity().findViewById(R.id.amountOfExercises);
+        exerciseList = getActivity().findViewById(R.id.exerciseList);
+        addExercise = getActivity().findViewById(R.id.addExercise);
+    }
+
 }
