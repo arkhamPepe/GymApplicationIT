@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.io.*;
 
 public class LocalDatabase {
-    private static final String filename = "database.txt";
+    private static final String FILENAME = "database.txt";
 
     private static LocalDatabase localDatabase;
     private static Context context;
@@ -26,7 +26,7 @@ public class LocalDatabase {
         FileOutputStream fos;
         ObjectOutputStream os;
         try{
-            fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             os = new ObjectOutputStream(fos);
             os.writeObject(user);
             os.close();
@@ -41,7 +41,7 @@ public class LocalDatabase {
         ObjectInputStream is;
         User loadedUser = null;
         try{
-            fis = context.openFileInput(filename);
+            fis = context.openFileInput(FILENAME);
             is = new ObjectInputStream(fis);
             loadedUser = (User) is.readObject();
             is.close();
