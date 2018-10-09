@@ -34,8 +34,7 @@ public class MyRoutinesActivity extends AppCompatActivity {
     private Fragment active = fragmentStart;
     private DataHandler dataHandler = DataHandler.getInstance();
 
-    //Variables for fragment_my_routines_start.xml
-    private ListView routineList;
+    //Variables for fragment_routine_start.xml private ListView routineList;
 
     //Variables for listitem_my_routines.xml
     private TextView routineName;
