@@ -10,7 +10,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:id="@+id/btnBackToHome" android:onClick="goToRoutineInfoFromExercise"/>
+            android:id="@+id/btnBackToHome"/>
 
     <TextView
             android:text="Exercise Name"
@@ -41,7 +41,7 @@
             android:text="..."
             android:layout_width="333dp"
             android:layout_height="127dp"
-            android:id="@+id/textViewDescription2"
+            android:id="@+id/textViewGuide"
             android:textColor="@color/blackColour" android:textSize="18sp" android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true" android:layout_marginBottom="58dp"/>
 </RelativeLayout>

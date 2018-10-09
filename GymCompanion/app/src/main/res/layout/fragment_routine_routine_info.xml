@@ -23,11 +23,11 @@
     <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" android:layout_marginTop="177dp"/>
+            android:layout_alignParentTop="true" android:layout_marginTop="177dp" android:id="@+id/listViewExercise"/>
     <Button
             android:text="Add Exercise"
             android:layout_width="match_parent"
             android:layout_height="69dp" android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" android:layout_marginTop="107dp" android:id="@+id/button7"
+            android:layout_alignParentTop="true" android:layout_marginTop="107dp" android:id="@+id/addExercise"
             android:textSize="24sp" android:textColor="@color/white" android:background="@color/Blue"/>
 </RelativeLayout>

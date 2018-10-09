@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.HistoryListAdapter;
+//import se.chalmers.group22.gymcompanion.View.MainActivity;
+
 
 public class StatisticsHistoryFragment extends Fragment {
     /** TEMPORARY DATA */

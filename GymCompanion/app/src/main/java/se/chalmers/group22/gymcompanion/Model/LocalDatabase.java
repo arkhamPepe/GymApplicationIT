@@ -6,25 +6,27 @@ import lombok.Getter;
 import java.io.*;
 
 public class LocalDatabase {
-    private static final String filename = "database.txt";
+    private static final String FILENAME = "database.txt";
 
-    @Getter
-    private LocalDatabase localDatabase;
+    private static LocalDatabase localDatabase;
+    private static Context context;
 
-    private LocalDatabase(){}
+    private LocalDatabase(){
+    }
 
-    public LocalDatabase getInstance(){
+    public static LocalDatabase getInstance(){
         if(localDatabase == null){
             localDatabase = new LocalDatabase();
         }
+        context = GymCompanion.getContext();
         return localDatabase;
     }
 
-    public void saveUser(Context context, User user){
+    public void saveUser(User user){
         FileOutputStream fos;
         ObjectOutputStream os;
         try{
-            fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            fos = new FileOutputStream(FILENAME);
             os = new ObjectOutputStream(fos);
             os.writeObject(user);
             os.close();
@@ -34,20 +36,24 @@ public class LocalDatabase {
         }
     }
 
-    public User loadUser(Context context){
-        FileInputStream fis;
-        ObjectInputStream is;
+    public User loadUser(){
         User loadedUser = null;
-        try{
-            fis = context.openFileInput(filename);
-            is = new ObjectInputStream(fis);
-            loadedUser = (User) is.readObject();
-            is.close();
-            fis.close();
-        }catch (Exception e){
-            e.printStackTrace();
+        File file = new File(FILENAME);
+        if(file.exists()){
+            FileInputStream fis;
+            ObjectInputStream is;
+            try{
+                fis = new FileInputStream(file);
+                is = new ObjectInputStream(fis);
+                loadedUser = (User) is.readObject();
+                is.close();
+                fis.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
-        
+
+
         return loadedUser;
     }
 }

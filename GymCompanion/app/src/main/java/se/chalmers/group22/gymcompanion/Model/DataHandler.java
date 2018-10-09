@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import android.widget.ListView;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
@@ -20,14 +21,18 @@ public class DataHandler {
         return instance;
     }
 
+    private User user;
+    private LocalDatabase localDatabase;
     private List<Routine> routineList;
     private List<Exercise> exerciseList;
     private Map<Calendar, Routine> routineSchedule;
 
     private DataHandler() {
+        this.localDatabase = LocalDatabase.getInstance();
         this.routineList = new ArrayList<>();
         this.exerciseList = new ArrayList<>();
         this.routineSchedule = new HashMap<>();
+        user = localDatabase.loadUser();
     }
 
 
@@ -102,11 +107,11 @@ public class DataHandler {
     }
 
     public void createRoutine(){
-       // user.createRoutine();
+        user.createRoutine();
     }
 
-    public void setRoutineName(){
-
+    public List<Routine> getUserRoutines(){
+        return user.getRoutines();
     }
 
 }

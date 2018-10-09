@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import se.chalmers.group22.gymcompanion.R;
 
 public class MyRoutinesStrengthExerciseFragment extends Fragment {
+
     public static MyRoutinesStrengthExerciseFragment newInstance() {
         MyRoutinesStrengthExerciseFragment fragment = new MyRoutinesStrengthExerciseFragment();
         return fragment;
