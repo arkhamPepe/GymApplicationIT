@@ -11,12 +11,9 @@
             android:id="@+id/routineName" android:layout_centerVertical="true" android:layout_marginStart="10dp"
             android:textColor="@color/blackColour"
             android:textSize="24sp" tools:text="RoutineName"/>
+
     <TextView
-            android:text="Amount"
-            android:layout_width="80dp"
-            android:textColor="@color/blackColour"
-            android:layout_height="wrap_content"
-            android:id="@+id/amountOfSetsList"
+            android:id="@+id/amountOfExercises"
             android:textSize="12sp"
             android:layout_alignParentStart="true" android:layout_marginStart="19dp"
             android:layout_alignParentBottom="true"/>
