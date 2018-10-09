@@ -8,22 +8,20 @@
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_alignParentStart="true"
-            android:id="@+id/routineName" android:layout_centerVertical="true" android:layout_marginStart="10dp"
+            android:id="@+id/exerciseNameList" android:layout_centerVertical="true" android:layout_marginStart="10dp"
             android:textColor="@color/blackColour"
-            android:textSize="24sp" tools:text="RoutineName"/>
-
+            android:textSize="24sp" tools:text="ExerciseName"/>
     <TextView
-            android:id="@+id/amountOfExercises"
+            android:text="Amount"
+            android:layout_width="80dp"
+            android:textColor="@color/blackColour"
+            android:layout_height="wrap_content"
+            android:id="@+id/amountOfSetsList"
             android:textSize="12sp"
             android:layout_alignParentStart="true" android:layout_marginStart="19dp"
             android:layout_alignParentBottom="true"/>
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@android:drawable/arrow_up_float"
-            android:layout_alignParentEnd="true" android:layout_alignParentBottom="true" android:id="@+id/SlideButton"
-            android:layout_marginBottom="20dp" android:rotation="90"/>
     <TextView
-            android:text="exercises"
+            android:text="Sets"
             android:textColor="@color/blackColour"
             android:textSize="12sp"
             android:layout_width="wrap_content"

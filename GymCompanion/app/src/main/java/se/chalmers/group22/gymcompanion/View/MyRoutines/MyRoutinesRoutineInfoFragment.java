@@ -36,10 +36,11 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-        textViewRoutineName = getActivity().findViewById(R.id.routineName);
-        textViewAmountOfExercises = getActivity().findViewById(R.id.amountOfExercises);
-        exerciseList = getActivity().findViewById(R.id.exerciseList);
-        addExercise = getActivity().findViewById(R.id.addExercise);
+        textViewRoutineName = getView().findViewById(R.id.routineName);
+        textViewAmountOfExercises = getView().findViewById(R.id.textViewAmountOfExercises);
+        exerciseList = getView().findViewById(R.id.listViewExercise);
+        addExercise = getView().findViewById(R.id.addExercise);
+
     }
 
 }
