@@ -4,9 +4,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
 public class MyRoutinesExerciseInfoFragment extends Fragment {
+
+    //variables for fragment_routine_exercise_info.xml
+    private TextView textViewExerciseDescription;
+    private TextView textViewGuideDescription;
+    private TextView textViewExerciseName;
+
     public static MyRoutinesExerciseInfoFragment newInstance() {
         MyRoutinesExerciseInfoFragment fragment = new MyRoutinesExerciseInfoFragment();
         return fragment;
