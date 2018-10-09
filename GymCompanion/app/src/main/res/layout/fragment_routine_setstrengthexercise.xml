@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="150dp"/>
+            android:layout_marginTop="150dp" android:id="@+id/setsList"/>
     <TextView
             android:text="Number of Sets:"
             android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
 
     <NumberPicker android:layout_width="50dp" android:layout_height="70dp"
                   android:layout_alignParentTop="true" android:layout_marginTop="70dp"
-                  android:layout_alignEnd="@+id/textViewExerciseName">
+                  android:layout_alignEnd="@+id/textViewExerciseName" android:id="@+id/amountofSets">
 
     </NumberPicker>
 </RelativeLayout>
