@@ -4,9 +4,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.R;
 
 public class MyRoutinesRoutineInfoFragment extends Fragment {
@@ -40,7 +43,6 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
         textViewAmountOfExercises = getView().findViewById(R.id.textViewAmountOfExercises);
         exerciseList = getView().findViewById(R.id.listViewExercise);
         addExercise = getView().findViewById(R.id.addExercise);
-
     }
 
 }
