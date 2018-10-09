@@ -14,6 +14,8 @@ public class ExerciseListAdapter extends ArrayAdapter {
     private Exercise[] exercises;
 
     public ExerciseListAdapter(Activity context, Exercise[] exercises){
-        super(context, R.layout.listitem);
+        super(context, R.layout.listitem_my_routines_exercise,exercises);
+        this.context = context;
+        this.exercises = exercises;
     }
 }
