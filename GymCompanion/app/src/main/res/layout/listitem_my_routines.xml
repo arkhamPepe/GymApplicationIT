@@ -8,7 +8,7 @@
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_alignParentStart="true"
-            android:id="@+id/RoutineName" android:layout_centerVertical="true" android:layout_marginStart="10dp"
+            android:id="@+id/routineName" android:layout_centerVertical="true" android:layout_marginStart="10dp"
             android:textColor="@color/blackColour"
             android:textSize="24sp" tools:text="RoutineName"/>
     <TextView
@@ -32,5 +32,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
+            android:layout_toRightOf="@id/amountofExercises"
             android:layout_marginStart="71dp"/>
 </RelativeLayout>
