@@ -71,8 +71,6 @@ public class MyRoutinesActivity extends AppCompatActivity {
 
     public void createRoutine(View view){
         dataHandler.createRoutine();
-        LocalDatabase db = LocalDatabase.getInstance();
-        db.saveUser(dataHandler.getUser());
     }
 
     public void addExercise(View view){
