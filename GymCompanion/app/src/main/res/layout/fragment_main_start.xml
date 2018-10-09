@@ -8,20 +8,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true" android:layout_marginBottom="233dp"
-            android:textSize="24sp" android:layout_centerHorizontal="true"/>
+            android:textSize="24sp" android:layout_centerHorizontal="true" android:textColor="@color/blackColour"/>
     <Button
             android:text="Start Daily Workout"
             android:layout_width="242dp"
             android:layout_height="159dp"
-            android:background="@color/startButtonGreenColour"
+            android:background="@color/Blue"
             android:id="@+id/btnGotoProgress" android:layout_centerHorizontal="true"
-            android:onClick="goToProgress" android:layout_alignParentTop="true" android:layout_marginTop="107dp"/>
+            android:onClick="goToProgress" android:layout_alignParentTop="true" android:layout_marginTop="107dp"
+            android:textColor="@color/white" android:textSize="24sp"
+    />
     <TextView
             android:text="TextView"
             android:layout_width="221dp"
             android:layout_height="wrap_content" android:layout_alignParentBottom="true"
             android:layout_marginBottom="164dp" android:layout_centerHorizontal="true"
-            android:textSize="24sp" android:id="@+id/textViewRoutineOfToday"/>
+            android:textSize="24sp" android:id="@+id/textViewRoutineOfToday" android:textColor="@color/blackColour"/>
 
 
 </RelativeLayout>

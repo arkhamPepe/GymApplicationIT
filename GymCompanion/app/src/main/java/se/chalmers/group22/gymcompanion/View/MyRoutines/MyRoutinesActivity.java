@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -32,8 +33,6 @@ public class MyRoutinesActivity extends AppCompatActivity {
     private Fragment active = fragmentStart;
     private DataHandler dataHandler = DataHandler.getInstance();
 
-    //Variables for fragment_my_routines_start.xml
-    private ListView routineList;
 
     //Variables for listitem_my_routines.xml
     private TextView routineName;
@@ -43,6 +42,7 @@ public class MyRoutinesActivity extends AppCompatActivity {
     private TextView setNumber;
     private NumberPicker setReps;
     private NumberPicker setWeight;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +56,6 @@ public class MyRoutinesActivity extends AppCompatActivity {
         transaction.add(R.id.my_routines_container, fragmentStart, "1");
 
         viewModel = new MyRoutinesViewModel();
-
-        routineList = findViewById(R.id.routineList);
 
         routineName = findViewById(R.id.routineName);
         amountOfExercises = findViewById(R.id.amountOfExercises);

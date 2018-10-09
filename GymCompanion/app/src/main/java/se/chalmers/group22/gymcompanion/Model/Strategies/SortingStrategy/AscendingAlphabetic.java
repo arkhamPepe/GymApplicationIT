@@ -7,6 +7,7 @@ import java.util.List;
 
 public class AscendingAlphabetic implements SortingStrategy {
 
+    @Override
     public <T extends ISortable> void sort(List<T> list){
         list.sort(Comparator.comparing(ISortable::getName));
     }

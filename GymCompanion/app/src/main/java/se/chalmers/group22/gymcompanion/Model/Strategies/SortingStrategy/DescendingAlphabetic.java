@@ -8,6 +8,7 @@ import java.util.List;
 
 public class DescendingAlphabetic implements SortingStrategy {
 
+    @Override
     public <T extends ISortable> void sort(List<T> list){
         list.sort(Comparator.comparing(ISortable::getName));
         Collections.reverse(list);
