@@ -26,7 +26,7 @@ public class LocalDatabase {
         FileOutputStream fos;
         ObjectOutputStream os;
         try{
-            fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            fos = new FileOutputStream(FILENAME);
             os = new ObjectOutputStream(fos);
             os.writeObject(user);
             os.close();
@@ -37,19 +37,23 @@ public class LocalDatabase {
     }
 
     public User loadUser(){
-        FileInputStream fis;
-        ObjectInputStream is;
         User loadedUser = null;
-        try{
-            fis = context.openFileInput(FILENAME);
-            is = new ObjectInputStream(fis);
-            loadedUser = (User) is.readObject();
-            is.close();
-            fis.close();
-        }catch (Exception e){
-            e.printStackTrace();
+        File file = new File(FILENAME);
+        if(file.exists()){
+            FileInputStream fis;
+            ObjectInputStream is;
+            try{
+                fis = new FileInputStream(file);
+                is = new ObjectInputStream(fis);
+                loadedUser = (User) is.readObject();
+                is.close();
+                fis.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
-        
+
+
         return loadedUser;
     }
 }
