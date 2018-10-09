@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.RoutineListAdapter;
 
 public class MyRoutinesStartFragment extends Fragment {
 
