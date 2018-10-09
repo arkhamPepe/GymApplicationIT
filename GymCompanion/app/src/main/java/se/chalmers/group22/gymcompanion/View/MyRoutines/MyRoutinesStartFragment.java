@@ -28,7 +28,7 @@ public class MyRoutinesStartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_my_routines_start, container, false);
+        return inflater.inflate(R.layout.fragment_routine_start, container, false);
     }
 
     public void onStart(){
@@ -42,7 +42,7 @@ public class MyRoutinesStartFragment extends Fragment {
         r3.addExercise(new StrengthExercise("Zorank Destroyer", 1337));
         Routine[] routines = {r1, r2, r3};
         ArrayAdapter adapter = new RoutineListAdapter(getActivity(),routines);
-        ListView listView = (ListView) getActivity().findViewById(R.id.routineList);
-        listView.setAdapter(adapter);
+        /*ListView listView = getView().findViewById(R.id.listViewMyRoutines);
+        listView.setAdapter(adapter);*/
     }
 }

@@ -29,7 +29,7 @@ public class RoutineListAdapter extends ArrayAdapter {
 
         //this code gets references to objects in the listview_row.xml file
         TextView routineName = (TextView) rowView.findViewById(R.id.routineName);
-        TextView amountOfExercises = (TextView) rowView.findViewById(R.id.amountOfExercises);
+        TextView amountOfExercises = (TextView) rowView.findViewById(R.id.textViewAmountOfExercises);
 
         //this code sets the values of the objects to values from the arrays
         routineName.setText(routines[position].getName());

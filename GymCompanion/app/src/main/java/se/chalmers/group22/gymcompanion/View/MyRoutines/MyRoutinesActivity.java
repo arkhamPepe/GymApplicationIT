@@ -33,7 +33,6 @@ public class MyRoutinesActivity extends AppCompatActivity {
     private Fragment active = fragmentStart;
     private DataHandler dataHandler = DataHandler.getInstance();
 
-
     //Variables for listitem_my_routines.xml
     private TextView routineName;
     private TextView amountOfExercises;
@@ -56,13 +55,6 @@ public class MyRoutinesActivity extends AppCompatActivity {
         transaction.add(R.id.my_routines_container, fragmentStart, "1");
 
         viewModel = new MyRoutinesViewModel();
-
-        routineName = findViewById(R.id.routineName);
-        amountOfExercises = findViewById(R.id.amountOfExercises);
-
-        setNumber = findViewById(R.id.setNumber);
-        setReps = findViewById(R.id.setReps);
-        setWeight = findViewById(R.id.setWeight);
 
         //Sends the activity index to NavigationFragment via Bundle
         Bundle bundle = new Bundle();
