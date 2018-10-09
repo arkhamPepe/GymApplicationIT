@@ -33,7 +33,7 @@ public class MyRoutinesStartFragment extends Fragment {
 
     public void onStart(){
         super.onStart();
-        routineList = getActivity().findViewById(R.id.listViewMyRoutines);
+        routineList = getView().findViewById(R.id.listViewMyRoutines);
         Routine r1 = new Routine("August",10);
         Routine r2 = new Routine("Daniel",100);
         Routine r3 = new Routine("Simodla",5);
