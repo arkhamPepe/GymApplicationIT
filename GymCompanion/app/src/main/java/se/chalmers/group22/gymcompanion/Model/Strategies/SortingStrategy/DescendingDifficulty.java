@@ -8,6 +8,7 @@ import java.util.List;
 
 public class DescendingDifficulty implements SortingStrategy {
 
+    @Override
     public <T extends ISortable> void sort(List<T> list){
         list.sort(Comparator.comparingDouble(ISortable::getDifficulty));
         Collections.reverse(list);
