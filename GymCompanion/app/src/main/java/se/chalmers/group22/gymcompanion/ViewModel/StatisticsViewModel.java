@@ -72,7 +72,7 @@ public class StatisticsViewModel {
     }
 
     public List<String> getSelectedRoutineExerciseNames(){
-        
+
         return null;
     }
 

@@ -16,6 +16,6 @@
             android:id="@+id/btnExercisesBack"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/txtExercisesTitle"
-            android:onClick="openStatisticsStart"/>
+            android:onClick="goToStatisticsStart"/>
 
 </RelativeLayout>
