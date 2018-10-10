@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import se.chalmers.group22.gymcompanion.R;
 
 public class StatisticsLifetimeStatsFragment extends Fragment {
+
     public static StatisticsLifetimeStatsFragment newInstance() {
         StatisticsLifetimeStatsFragment fragment = new StatisticsLifetimeStatsFragment();
         return fragment;

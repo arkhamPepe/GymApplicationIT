@@ -39,10 +39,6 @@ public class DataHandler {
         return new ArrayList<>(exerciseList);
     }
 
-    public Map<Calendar, Routine> getSchedule() {
-        return new HashMap<>(routineSchedule);
-    }
-
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
         strat.sort(list);
     }
