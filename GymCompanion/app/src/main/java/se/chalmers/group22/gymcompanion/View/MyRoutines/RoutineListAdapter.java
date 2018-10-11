@@ -33,7 +33,7 @@ public class RoutineListAdapter extends ArrayAdapter {
 
         //this code sets the values of the objects to values from the arrays
         routineName.setText(routines[position].getName());
-        amountOfExercises.setText(routines[position].getExercises().size());
+        amountOfExercises.setText(String.valueOf(routines[position].getExercises().size()));
 
         return rowView;
 

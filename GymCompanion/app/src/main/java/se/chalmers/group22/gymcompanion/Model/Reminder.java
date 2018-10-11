@@ -1,6 +1,8 @@
 package se.chalmers.group22.gymcompanion.Model;
 
-public class Reminder {
+import java.io.Serializable;
+
+public class Reminder implements Serializable {
     Reminder(){
 
     }
