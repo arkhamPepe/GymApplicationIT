@@ -19,7 +19,7 @@ public class ScheduleTest {
 
         s.addRoutine(r, d);
 
-        assertEquals(r,s.getRoutine(d));
+        assertEquals(r,s.getRoutineFromDay(d));
 
     }
 
@@ -31,9 +31,9 @@ public class ScheduleTest {
 
         s.addRoutine(r, d);
 
-        if (s.getRoutine(d).equals(r)){
+        if (s.getRoutineFromDay(d).equals(r)){
             s.removeRoutine(d);
-            assertNull(s.getRoutine(d));
+            assertNull(s.getRoutineFromDay(d));
         }else{
             fail();
         }
@@ -50,7 +50,7 @@ public class ScheduleTest {
 
         s.addRoutine(r, d);
 
-        temp = s.getRoutine(d);
+        temp = s.getRoutineFromDay(d);
 
         assertEquals(r, temp);
     }
