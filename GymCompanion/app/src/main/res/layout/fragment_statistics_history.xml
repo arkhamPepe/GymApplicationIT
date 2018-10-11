@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnHistoryBack"
-            android:onClick="openStatisticsStart"
+            android:onClick="goToStatisticsStart"
             android:layout_alignParentStart="true" android:layout_alignParentTop="true"/>
     <ListView
             android:layout_width="match_parent"

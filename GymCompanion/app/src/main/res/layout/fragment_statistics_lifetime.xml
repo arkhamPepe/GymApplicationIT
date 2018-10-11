@@ -16,5 +16,5 @@
             android:id="@+id/btnLifetimeStatsBack"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/txtLifetimeStatsTitle"
-            android:onClick="openStatisticsStart"/>
+            android:onClick="goToStatisticsStart"/>
 </RelativeLayout>

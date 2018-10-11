@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsExercisesFragment;
@@ -33,6 +35,8 @@ public class StatisticsActivity extends AppCompatActivity {
     final Fragment fragmentExercises = new StatisticsExercisesFragment();
     final Fragment fragmentHistory = new StatisticsHistoryFragment();
     final Fragment fragmentLifetimeStats = new StatisticsLifetimeStatsFragment();
+    final Fragment fragmentHistoryDetails = new StatisticsHistoryDetailsFragment();
+
     final Fragment navigationFragment = new NavigationFragment();
 
     Fragment active = fragmentStart; // The fragment shown when this activity is created
@@ -58,7 +62,6 @@ public class StatisticsActivity extends AppCompatActivity {
 
         fillFragmentsList();
         performInitTransaction();
-
     }
 
     /** fillFragmentsList()
@@ -69,6 +72,7 @@ public class StatisticsActivity extends AppCompatActivity {
         fragments.add(fragmentExercises);
         fragments.add(fragmentHistory);
         fragments.add(fragmentLifetimeStats);
+        fragments.add(fragmentHistoryDetails);
     }
 
     /** performInitTransaction()
@@ -109,35 +113,45 @@ public class StatisticsActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    /** openStatisticsStart(View)
+    /** goToStatisticsStart(View)
      *  Purpose: Show the main page of this activity.
      *  (onClick-method)
      * */
-    public void openStatisticsStart(View view){
+    public void goToStatisticsStart(View view){
         openFragment(fragmentStart);
     }
 
-    /** openExercises(View)
+    /** goToExercises(View)
      *  Purpose: Show the page "Exercises".
      *  (onClick-method)
      * */
-    public void openExercises(View view){
+    public void goToExercises(View view){
         openFragment(fragmentExercises);
     }
 
-    /** openHistory(View)
+    /** goToHistory(View)
      *  Purpose: Show the page "History".
      *  (onClick-method)
      * */
-    public void openHistory(View view){
+    public void goToHistory(View view){
         openFragment(fragmentHistory);
     }
 
-    /** openLifetimeStats(View)
+    /** goToLifetimeStats(View)
      *  Purpose: Show the page "Lifetime Stats".
      *  (onClick-method)
      * */
-    public void openLifetimeStats(View view){
+    public void goToLifetimeStats(View view){
         openFragment(fragmentLifetimeStats);
     }
+
+    /** goToHistoryDetails(View)
+     *  Purpose: Show detailed view about completed routine.
+     *  (onClick-method)
+     * */
+    public void goToHistoryDetails(){
+        openFragment(fragmentHistoryDetails);
+    }
+
+
 }

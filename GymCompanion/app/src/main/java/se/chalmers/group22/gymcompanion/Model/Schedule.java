@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 
 import java.io.Serializable;
@@ -10,6 +11,8 @@ public class Schedule implements Serializable {
 
     private Reminder reminder;
     private Calendar calendar = new GregorianCalendar();
+
+    @Getter(AccessLevel.NONE)
     private Map<Calendar, Routine> routineSchedule;
 
     public Schedule(){
