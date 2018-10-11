@@ -1,6 +1,5 @@
 package se.chalmers.group22.gymcompanion.Model;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
@@ -8,12 +7,10 @@ import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.TimedExercise;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

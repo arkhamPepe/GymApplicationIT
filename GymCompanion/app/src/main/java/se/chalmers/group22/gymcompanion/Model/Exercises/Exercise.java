@@ -49,7 +49,6 @@ public abstract class Exercise implements ISortable, Serializable {
         this.difficulty = difficulty;
     }
 
-    public Exercise(){}
 
     public boolean containsMuscleGroup(MUSCLE_GROUP mg) {
         return muscleGroups.contains(mg);
