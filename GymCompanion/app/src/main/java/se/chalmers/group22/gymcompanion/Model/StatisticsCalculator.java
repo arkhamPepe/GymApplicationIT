@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
+import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
@@ -39,7 +40,7 @@ public class StatisticsCalculator implements Serializable {
         return sum;
     }
 
-    public double calculateScore(TimedExercise exercise) {
+    public double calculateScore(CardioExercise exercise) {
         if (exercise.getIntensity() == INTENSITY.LOW) {
             return exercise.getTimespent() * 0.25;
         } else if (exercise.getIntensity() == INTENSITY.MEDIUM) {

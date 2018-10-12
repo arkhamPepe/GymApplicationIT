@@ -34,7 +34,7 @@ public class StatisticsCalculatorTest {
 
     private Exercise exercise;
     private StrengthExercise strengthExercise;
-    private TimedExercise cardioExercise;
+    private CardioExercise cardioExercise;
     private List<Routine> routines;
     private Routine routine;
     private Calendar calendar;
