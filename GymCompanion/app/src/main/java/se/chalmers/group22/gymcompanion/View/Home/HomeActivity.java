@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.View.Main;
+package se.chalmers.group22.gymcompanion.View.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,28 +7,27 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
-import se.chalmers.group22.gymcompanion.ViewModel.MainViewModel;
+import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 
-public class MainActivity extends AppCompatActivity implements IView {
+public class HomeActivity extends AppCompatActivity implements IView {
 
     private static final int index = 0;
 
-    final Fragment fragmentHome = new MainStartFragment();
-    final Fragment fragmentFinished = new MainFinishedFragment();
+    final Fragment fragmentHome = new HomeStartFragment();
+    final Fragment fragmentFinished = new HomeFinishedFragment();
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private MainViewModel mainViewModel;
+    private HomeViewModel mainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mainViewModel = new MainViewModel();
+        mainViewModel = new HomeViewModel();
 
         FragmentTransaction transaction = fm.beginTransaction();
 

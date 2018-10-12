@@ -18,7 +18,7 @@ public class LocalDatabase {
         if(localDatabase == null){
             localDatabase = new LocalDatabase();
         }
-        context = GymCompanion.getContext();
+        context = GymCompanionContext.getContext();
         return localDatabase;
     }
 
