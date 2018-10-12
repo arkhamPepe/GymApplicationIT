@@ -96,7 +96,7 @@ public class User implements Serializable {
     public void checkDay(){
         Calendar today = Calendar.getInstance();
         if (schedule.dayHasRoutine(today)){
-            startRoutine(schedule.getRoutine(today));
+            startRoutine(schedule.getRoutineFromDay(today));
         }
         else {
             /*TODO Direct the user to MR so it can create a new routine*/

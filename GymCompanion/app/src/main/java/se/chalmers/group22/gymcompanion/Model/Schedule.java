@@ -29,7 +29,7 @@ public class Schedule implements Serializable {
         routineSchedule.remove(day);
     }
 
-    public Routine getRoutine(Calendar day){
+    public Routine getRoutineFromDay(Calendar day){
         return routineSchedule.get(day);
     }
 
@@ -40,4 +40,9 @@ public class Schedule implements Serializable {
     public Map<Calendar, Routine> getSchedule() {
         return new HashMap<>(routineSchedule);
     }
+
+    public Set<Calendar> getScheduleKeySet(){
+        return routineSchedule.keySet();
+    }
+
 }
