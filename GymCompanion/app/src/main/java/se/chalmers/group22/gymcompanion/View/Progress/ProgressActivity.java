@@ -10,10 +10,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.Home.HomeActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
 
-public class ProgressActivity extends AppCompatActivity {
+public class ProgressActivity extends BaseActivity {
 
     private final FragmentManager fm = getSupportFragmentManager();
     private final Fragment fragmentStart = new ProgressStartFragment();
@@ -98,5 +99,8 @@ public class ProgressActivity extends AppCompatActivity {
         overridePendingTransition(0, 0);
     }
 
+    public ProgressViewModel getViewModel(){
+        return progressViewModel;
+    }
 
 }

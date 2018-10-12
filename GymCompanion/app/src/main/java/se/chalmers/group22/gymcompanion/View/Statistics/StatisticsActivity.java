@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsExercisesFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsHistoryFragment;
@@ -23,7 +24,7 @@ import java.util.List;
  *  Purpose: Manage user interaction in the activity Statistics
  *  Authors: Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
  * */
-public class StatisticsActivity extends AppCompatActivity {
+public class StatisticsActivity extends BaseActivity {
 
     public static final int index = 4; // Defines which item that represents this activity in the bottom navigation
 
@@ -151,6 +152,10 @@ public class StatisticsActivity extends AppCompatActivity {
      * */
     public void goToHistoryDetails(){
         openFragment(fragmentHistoryDetails);
+    }
+
+    public StatisticsViewModel getViewModel(){
+        return statisticsViewModel;
     }
 
 

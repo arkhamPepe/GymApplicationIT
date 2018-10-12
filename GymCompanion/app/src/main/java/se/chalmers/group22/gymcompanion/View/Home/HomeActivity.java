@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 
-public class HomeActivity extends AppCompatActivity implements IView {
+public class HomeActivity extends BaseActivity {
 
     private static final int index = 0;
 
@@ -21,13 +20,13 @@ public class HomeActivity extends AppCompatActivity implements IView {
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private HomeViewModel mainViewModel;
+    private HomeViewModel homeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mainViewModel = new HomeViewModel();
+        homeViewModel = new HomeViewModel();
 
         FragmentTransaction transaction = fm.beginTransaction();
 
@@ -52,7 +51,7 @@ public class HomeActivity extends AppCompatActivity implements IView {
     }
 
     public String getScheduledRoutineName(){
-        return mainViewModel.getScheduledRoutineName();
+        return homeViewModel.getScheduledRoutineName();
     }
 
 
@@ -70,6 +69,10 @@ public class HomeActivity extends AppCompatActivity implements IView {
         transaction.hide(fragmentFinished);
         transaction.show(fragmentHome);
         transaction.commit();
+    }
+
+    public HomeViewModel getViewModel(){
+        return homeViewModel;
     }
 }
 

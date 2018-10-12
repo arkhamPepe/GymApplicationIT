@@ -9,16 +9,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseStartFragment;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
+import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
 
-public class ScheduleActivity extends AppCompatActivity {
+public class ScheduleActivity extends BaseActivity {
 
     public static final int index = 2;
     final Fragment fragmentStart = new BrowseStartFragment();
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
     private ListView schedule_lv;
+
+    private ScheduleViewModel scheduleViewModel = new ScheduleViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,5 +78,9 @@ public class ScheduleActivity extends AppCompatActivity {
             insertPoint.addView(view, i);
         }
 
+    }
+
+    public ScheduleViewModel getViewModel(){
+        return scheduleViewModel;
     }
 }
