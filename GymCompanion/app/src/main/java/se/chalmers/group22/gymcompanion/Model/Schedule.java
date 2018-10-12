@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.*;
 
 @Getter
-public class Schedule implements Serializable {
+public class Schedule implements Serializable, ISchedule {
 
     private Reminder reminder;
     private Calendar calendar = new GregorianCalendar();
@@ -44,8 +44,6 @@ public class Schedule implements Serializable {
     public Set<Calendar> getScheduleKeySet(){
         return routineSchedule.keySet();
     }
-
-
 
     public String getRoutineNameFromDay(Calendar day){
         return getRoutineFromDay(day).getName();

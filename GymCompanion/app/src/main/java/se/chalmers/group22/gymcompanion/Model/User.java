@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 public class User implements Serializable {
@@ -128,5 +129,11 @@ public class User implements Serializable {
         return schedule.getRoutineFromDay(getTodaysDate());
     }
 
+    public ISchedule getSchedule(){
+        return schedule;
+    }
 
+    public Map<Calendar, Routine> getRoutineSchedule(){
+        return schedule.getSchedule();
+    }
 }

@@ -14,10 +14,10 @@ import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
 public class ScheduleActivity extends BaseActivity {
 
     public static final int index = 2;
-    final Fragment fragmentStart = new ScheduleStartFragment();
-    final Fragment fragmentPickRoutine = new SchedulePickRoutineFragment();
-    final Fragment navigationFragment = new NavigationFragment();
-    final FragmentManager fm = getSupportFragmentManager();
+    private final Fragment fragmentStart = new ScheduleStartFragment();
+    private final Fragment fragmentPickRoutine = new SchedulePickRoutineFragment();
+    private final Fragment navigationFragment = new NavigationFragment();
+    private final FragmentManager fm = getSupportFragmentManager();
     private ListView schedule_lv;
 
     private ScheduleViewModel scheduleViewModel = new ScheduleViewModel();

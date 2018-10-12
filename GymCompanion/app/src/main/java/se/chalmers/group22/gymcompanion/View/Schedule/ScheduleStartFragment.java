@@ -8,14 +8,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.HistoryListAdapter;
 import se.chalmers.group22.gymcompanion.View.ScheduleListAdapter;
-import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsActivity;
+import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ScheduleStartFragment extends Fragment {
+
+    private ScheduleViewModel viewModel;
 
     public static ScheduleStartFragment getInstance() {
         return new ScheduleStartFragment();
@@ -34,6 +35,8 @@ public class ScheduleStartFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
+        viewModel = ((ScheduleActivity)getActivity()).getViewModel();
+
         /** TEMPORARY LOCAL LIST OF ROUTINE NAMES */
         List<String> routineNames = new ArrayList<>();
         routineNames.add("Chest");
@@ -45,17 +48,22 @@ public class ScheduleStartFragment extends Fragment {
         routineNames.add("Legs");
 
         // Create and show the list in GUI
-        ScheduleListAdapter adapter = new ScheduleListAdapter(getActivity(), routineNames);
-        ListView listView = getListView();
-        listView.setAdapter(adapter);
+        updateList(routineNames);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 ((ScheduleActivity)getActivity()).goToPickRoutine(view);
             }
         });
+    }
+
+    private void updateList(List<String> data){
+        // Create and show the list in GUI
+        ScheduleListAdapter adapter = new ScheduleListAdapter(getActivity(), data);
+        ListView listView = getListView();
+        listView.setAdapter(adapter);
     }
 
     public ListView getListView(){
