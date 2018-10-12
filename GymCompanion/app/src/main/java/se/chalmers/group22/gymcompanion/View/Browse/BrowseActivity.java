@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.View.Browse;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.SearchView;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.R;
@@ -17,16 +18,15 @@ public class BrowseActivity extends AppCompatActivity {
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
 
         //Sends the activity index to NavigationFragment via Bundle
-        Bundle bundle = new Bundle();
-        bundle.putInt("index", index);
-        navigationFragment.setArguments(bundle);
+        Bundle navBundle = new Bundle();
+        navBundle.putInt("index", index);
+        navigationFragment.setArguments(navBundle);
 
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.add(R.id.browse_container, fragmentSelection, "2");
@@ -37,5 +37,13 @@ public class BrowseActivity extends AppCompatActivity {
 
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
+    }
+
+    public void goToBrowseStart(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        transaction.hide(fragmentStart);
+        transaction.show(fragmentSelection);
+        transaction.commit();
     }
 }
