@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 public class BrowseActivity extends BaseActivity {
 
@@ -17,6 +18,7 @@ public class BrowseActivity extends BaseActivity {
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
+    private BrowseViewModel browseViewModel = new BrowseViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +50,9 @@ public class BrowseActivity extends BaseActivity {
         transaction.add(R.id.browse_container, fragmentStart, "1");
         transaction.add(R.id.navigation, navigationFragment);
         transaction.commit();
+    }
+
+    public BrowseViewModel getViewModel(){
+        return browseViewModel;
     }
 }
