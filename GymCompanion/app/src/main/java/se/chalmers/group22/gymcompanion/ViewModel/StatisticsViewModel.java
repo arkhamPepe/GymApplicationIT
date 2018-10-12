@@ -8,7 +8,7 @@ import se.chalmers.group22.gymcompanion.Model.Schedule;
 import java.time.LocalDate;
 import java.util.*;
 
-public class StatisticsViewModel {
+public class StatisticsViewModel extends BaseViewModel {
 
     private DataHandler dataHandler;
 
