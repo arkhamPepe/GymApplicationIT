@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.View.Main;
+package se.chalmers.group22.gymcompanion.View.Home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
-public class MainStartFragment extends Fragment {
-    public static MainStartFragment newInstance() {
-        MainStartFragment fragment = new MainStartFragment();
+public class HomeStartFragment extends Fragment {
+    public static HomeStartFragment newInstance() {
+        HomeStartFragment fragment = new HomeStartFragment();
         return fragment;
     }
 
@@ -30,6 +30,6 @@ public class MainStartFragment extends Fragment {
         super.onStart();
 
         TextView routineOfToday = getView().findViewById(R.id.textViewRoutineOfToday);
-        routineOfToday.setText(((MainActivity)getActivity()).getScheduledRoutineName());
+        routineOfToday.setText(((HomeActivity)getActivity()).getScheduledRoutineName());
     }
 }

@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.View.Main;
+package se.chalmers.group22.gymcompanion.View.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,12 +12,12 @@ import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 
-public class MainActivity extends AppCompatActivity implements IView {
+public class HomeActivity extends AppCompatActivity implements IView {
 
     private static final int index = 0;
 
-    final Fragment fragmentHome = new MainStartFragment();
-    final Fragment fragmentFinished = new MainFinishedFragment();
+    final Fragment fragmentHome = new HomeStartFragment();
+    final Fragment fragmentFinished = new HomeFinishedFragment();
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 

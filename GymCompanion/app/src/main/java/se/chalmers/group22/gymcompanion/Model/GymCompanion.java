@@ -1,16 +1,8 @@
 package se.chalmers.group22.gymcompanion.Model;
 
-import android.app.Application;
-import android.content.Context;
-
-public class GymCompanion extends Application {
-    private static Context context;
-
-    public void onCreate(){
-        super.onCreate();
-        context = getApplicationContext();
-    }
-    public static Context getContext(){
-        return context;
+public class GymCompanion {
+    private User user;
+    public GymCompanion(){
+        user = LocalDatabase.getInstance().loadUser();
     }
 }
