@@ -12,7 +12,7 @@ import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 
-public class HomeActivity extends AppCompatActivity implements IView {
+public class HomeActivity extends AppCompatActivity {
 
     private static final int index = 0;
 
