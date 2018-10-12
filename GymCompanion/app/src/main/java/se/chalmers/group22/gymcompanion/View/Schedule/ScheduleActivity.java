@@ -1,21 +1,21 @@
 package se.chalmers.group22.gymcompanion.View.Schedule;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.*;
-import android.widget.*;
+import android.view.View;
+import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.Browse.BrowseStartFragment;
+import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStartFragment;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 
 public class ScheduleActivity extends AppCompatActivity {
 
     public static final int index = 2;
-    final Fragment fragmentStart = new BrowseStartFragment();
+    final Fragment fragmentStart = new ScheduleStartFragment();
+    final Fragment fragmentPickRoutine = new SchedulePickRoutineFragment();
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
     private ListView schedule_lv;
@@ -35,44 +35,22 @@ public class ScheduleActivity extends AppCompatActivity {
 
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.add(R.id.schedule_container, fragmentStart, "1");
+        transaction.add(R.id.schedule_container, fragmentPickRoutine, "2").hide(fragmentPickRoutine);
         transaction.add(R.id.navigation, navigationFragment);
         transaction.commit();
-
-        //fillSchedule();
-
-        /*schedulePresenter.fillList();
-
-        // Adapter takes activity context, type of list view and the array as parameters
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                schedulePresenter.getWeekdays());
-
-        schedule_lv.setAdapter(arrayAdapter);
-
-        schedule_lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            // argument position gives the index of item which is clicked
-            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
-            {
-                String selectedweekday=schedulePresenter.getWeekdays().get(position);
-                Toast.makeText(getApplicationContext(), "Weekday selected : "+ selectedweekday, Toast.LENGTH_LONG).show();
-            }
-        });*/
     }
 
-    private void fillSchedule() {
-        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.listitem_schedule, null);
-        ViewGroup insertPoint = findViewById(R.id.schedule_list);
+    public void goToPickRoutine(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentPickRoutine);
+        transaction.hide(fragmentStart);
+        transaction.commit();
+    }
 
-        for(int i = 0; i < 7; i++) {
-            TextView dayOfWeek = view.findViewById(R.id.dayOfWeek);
-            dayOfWeek.setText("");
-            TextView routineName = view.findViewById(R.id.routineName);
-            routineName.setText("");
-            insertPoint.addView(view, i);
-        }
-
+    public void goToStart(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.hide(fragmentPickRoutine);
+        transaction.show(fragmentStart);
+        transaction.commit();
     }
 }
