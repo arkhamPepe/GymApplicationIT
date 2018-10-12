@@ -29,6 +29,9 @@ public class BrowseStartFragment extends Fragment {
         super.onStart();
         SearchView searchView = getView().findViewById(R.id.searchBar);
 
+        //Sets the ActionBar title for this particular fragment
+        ((BrowseActivity) getActivity()).setActionBarTitle("Search and Browse");
+
         /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {

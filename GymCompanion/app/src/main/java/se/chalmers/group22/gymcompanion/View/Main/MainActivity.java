@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements IView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mainViewModel = new MainViewModel();
 
         FragmentTransaction transaction = fm.beginTransaction();

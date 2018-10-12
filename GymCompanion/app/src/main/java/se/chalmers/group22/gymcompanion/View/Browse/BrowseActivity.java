@@ -13,6 +13,7 @@ public class BrowseActivity extends AppCompatActivity {
 
     public static final int index = 1;
     final Fragment fragmentStart = new BrowseStartFragment();
+    final Fragment fragmentSelection = new BrowseSelectionFragment();
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
@@ -22,30 +23,19 @@ public class BrowseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
 
-
-        SearchView searchView = findViewById(R.id.searchBar);
-/*
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                browsePresenter.search(newText);
-                return false;
-            }
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                browsePresenter.search(query);
-                return false;
-            }
-        });*/
-
         //Sends the activity index to NavigationFragment via Bundle
         Bundle bundle = new Bundle();
         bundle.putInt("index", index);
         navigationFragment.setArguments(bundle);
 
         FragmentTransaction transaction = fm.beginTransaction();
+        transaction.add(R.id.browse_container, fragmentSelection, "2");
         transaction.add(R.id.browse_container, fragmentStart, "1");
         transaction.add(R.id.navigation, navigationFragment);
         transaction.commit();
+    }
+
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 }

@@ -19,4 +19,9 @@
     <string name="btnHistory">History</string>
     <string name="btnLifetime">Lifetime stats</string>
 
+    <!-- BROWSE/SEARCH PAGE -->
+    <string name="btnRoutine">ROUTINE</string>
+    <string name="btnExercise">EXERCISE</string>
+    <string name="btnRecommended">RECOMMENDED</string>
+
 </resources>
