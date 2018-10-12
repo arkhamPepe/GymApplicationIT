@@ -24,4 +24,6 @@
     <string name="btnExercise">EXERCISE</string>
     <string name="btnRecommended">RECOMMENDED</string>
 
+    <string name="lowerBack">Lower Back</string>
+
 </resources>

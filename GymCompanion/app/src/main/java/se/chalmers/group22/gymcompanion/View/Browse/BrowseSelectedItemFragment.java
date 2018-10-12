@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import se.chalmers.group22.gymcompanion.R;
 
-public class BrowseSelectionFragment extends Fragment {
+public class BrowseSelectedItemFragment extends Fragment {
     public static BrowseSelectionFragment getInstance() {
         return new BrowseSelectionFragment();
     }
@@ -19,12 +19,12 @@ public class BrowseSelectionFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_browse_selection, container, false);
+        return inflater.inflate(R.layout.fragment_browse_selected_item, container, false);
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        ((BrowseActivity) getActivity()).setActionBarTitle("Choose a muscle group");
+        ((BrowseActivity) getActivity()).setActionBarTitle("Selected Item List");
     }
 }
