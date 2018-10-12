@@ -1,6 +1,6 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
-import se.chalmers.group22.gymcompanion.Model.GymCompanion;
+import java.util.List;
 
 public class HomeViewModel extends BaseViewModel {
 
@@ -18,11 +18,5 @@ public class HomeViewModel extends BaseViewModel {
     public void startRoutine(){
         getModel().startRoutine();
     }
-
-
-
-
-
-
 
 }

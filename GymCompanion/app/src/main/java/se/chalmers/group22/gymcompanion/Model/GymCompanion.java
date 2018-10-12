@@ -1,14 +1,16 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Calendar;
 
 @Getter
 public class GymCompanion {
+    @Setter
     private User user;
     public GymCompanion(){
-        user = LocalDatabase.getInstance().loadUser();
+
     }
 
     public String getTodaysRoutineName(){
