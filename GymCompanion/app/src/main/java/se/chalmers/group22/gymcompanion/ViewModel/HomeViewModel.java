@@ -11,6 +11,18 @@ public class HomeViewModel extends BaseViewModel {
         return "Hej";
     }
 
+    public String getTodaysRoutineName(){
+        return getModel().getTodaysRoutineName();
+    }
+
+    public void startRoutine(){
+        getModel().startRoutine();
+    }
+
+
+
+
+
 
 
 }

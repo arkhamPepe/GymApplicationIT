@@ -45,4 +45,10 @@ public class Schedule implements Serializable {
         return routineSchedule.keySet();
     }
 
+
+
+    public String getRoutineNameFromDay(Calendar day){
+        return getRoutineFromDay(day).getName();
+    }
+
 }
