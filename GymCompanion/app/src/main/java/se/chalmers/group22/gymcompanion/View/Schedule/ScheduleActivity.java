@@ -4,14 +4,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesStartFragment;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
+import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
 
-public class ScheduleActivity extends AppCompatActivity {
+public class ScheduleActivity extends BaseActivity {
 
     public static final int index = 2;
     final Fragment fragmentStart = new ScheduleStartFragment();
@@ -19,6 +19,8 @@ public class ScheduleActivity extends AppCompatActivity {
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
     private ListView schedule_lv;
+
+    private ScheduleViewModel scheduleViewModel = new ScheduleViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +54,9 @@ public class ScheduleActivity extends AppCompatActivity {
         transaction.hide(fragmentPickRoutine);
         transaction.show(fragmentStart);
         transaction.commit();
+    }
+
+    public ScheduleViewModel getViewModel(){
+        return scheduleViewModel;
     }
 }

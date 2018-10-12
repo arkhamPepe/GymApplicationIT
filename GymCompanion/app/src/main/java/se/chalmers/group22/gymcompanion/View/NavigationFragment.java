@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.*;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseActivity;
-import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
+import se.chalmers.group22.gymcompanion.View.Home.HomeActivity;
 import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesActivity;
 import se.chalmers.group22.gymcompanion.View.Schedule.ScheduleActivity;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsActivity;
@@ -37,7 +37,7 @@ public class NavigationFragment extends Fragment {
 
     public void onStart(){
         super.onStart();
-        Intent intent1 = new Intent(getActivity(), MainActivity.class);
+        Intent intent1 = new Intent(getActivity(), HomeActivity.class);
         Intent intent2 = new Intent(getActivity(), BrowseActivity.class);
         Intent intent3 = new Intent(getActivity(), ScheduleActivity.class);
         Intent intent4 = new Intent(getActivity(), MyRoutinesActivity.class);

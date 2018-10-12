@@ -1,16 +1,23 @@
 package se.chalmers.group22.gymcompanion.Model;
 
-import android.app.Application;
-import android.content.Context;
+import lombok.Getter;
 
-public class GymCompanion extends Application {
-    private static Context context;
+import java.util.Calendar;
 
-    public void onCreate(){
-        super.onCreate();
-        context = getApplicationContext();
+@Getter
+public class GymCompanion {
+    private User user;
+    public GymCompanion(){
+        user = LocalDatabase.getInstance().loadUser();
     }
-    public static Context getContext(){
-        return context;
+
+    public String getTodaysRoutineName(){
+        return user.getTodaysRoutineName();
     }
+
+    public void startRoutine(){
+        user.startRoutine(user.getTodaysRoutine());
+    }
+
+
 }

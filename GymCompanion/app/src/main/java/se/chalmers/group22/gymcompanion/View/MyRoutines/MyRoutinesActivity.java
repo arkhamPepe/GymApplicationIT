@@ -16,12 +16,14 @@ import se.chalmers.group22.gymcompanion.Model.LocalDatabase;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.User;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
+import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 import java.util.List;
 
-public class MyRoutinesActivity extends AppCompatActivity {
+public class MyRoutinesActivity extends BaseActivity {
 
     public static final int index = 3;
 
@@ -79,5 +81,9 @@ public class MyRoutinesActivity extends AppCompatActivity {
 
     public void setRoutineName(){
 
+    }
+
+    public MyRoutinesViewModel getViewModel(){
+        return viewModel;
     }
 }

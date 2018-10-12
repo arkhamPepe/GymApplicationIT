@@ -6,7 +6,7 @@ import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.List;
 
-public class MyRoutinesViewModel extends ViewModel {
+public class MyRoutinesViewModel extends BaseViewModel {
     private DataHandler dataHandler;
 
     public MyRoutinesViewModel(){

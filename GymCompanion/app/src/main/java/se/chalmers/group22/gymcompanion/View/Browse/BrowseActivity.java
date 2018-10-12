@@ -2,20 +2,23 @@ package se.chalmers.group22.gymcompanion.View.Browse;
 
 import android.os.Bundle;
 import android.widget.SearchView;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.R;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
-public class BrowseActivity extends AppCompatActivity {
+public class BrowseActivity extends BaseActivity {
 
     public static final int index = 1;
     final Fragment fragmentStart = new BrowseStartFragment();
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
+    private BrowseViewModel browseViewModel = new BrowseViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,5 +50,9 @@ public class BrowseActivity extends AppCompatActivity {
         transaction.add(R.id.browse_container, fragmentStart, "1");
         transaction.add(R.id.navigation, navigationFragment);
         transaction.commit();
+    }
+
+    public BrowseViewModel getViewModel(){
+        return browseViewModel;
     }
 }
