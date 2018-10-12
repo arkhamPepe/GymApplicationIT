@@ -116,4 +116,17 @@ public class User implements Serializable {
     }
 
 
+    private Calendar getTodaysDate(){
+        return Calendar.getInstance();
+    }
+
+    public String getTodaysRoutineName(){
+        return schedule.getRoutineNameFromDay(getTodaysDate());
+    }
+
+    public Routine getTodaysRoutine(){
+        return schedule.getRoutineFromDay(getTodaysDate());
+    }
+
+
 }

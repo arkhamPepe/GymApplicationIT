@@ -13,4 +13,5 @@ public abstract class BaseViewModel extends ViewModel {
     public static GymCompanion getModel() {
         return model;
     }
+
 }

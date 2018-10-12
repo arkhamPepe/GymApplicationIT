@@ -5,10 +5,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
 public class HomeStartFragment extends Fragment {
+
+    private TextView textViewRoutineOfToday;
+    private Button btnGotoProgress;
+
     public static HomeStartFragment newInstance() {
         HomeStartFragment fragment = new HomeStartFragment();
         return fragment;
@@ -28,8 +33,8 @@ public class HomeStartFragment extends Fragment {
 
     public void onStart(){
         super.onStart();
-
-        TextView routineOfToday = getView().findViewById(R.id.textViewRoutineOfToday);
-        routineOfToday.setText(((HomeActivity)getActivity()).getScheduledRoutineName());
+        btnGotoProgress = getView().findViewById(R.id.btnGotoProgress);
+        textViewRoutineOfToday = getView().findViewById(R.id.textViewRoutineOfToday);
+        textViewRoutineOfToday.setText(((HomeActivity)getActivity()).getScheduledRoutineName());
     }
 }
