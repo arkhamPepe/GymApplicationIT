@@ -8,7 +8,28 @@
             android:id="@+id/listviewSchedule">
     </ListView>-->
 
-    <CalendarView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:layout_centerVertical="true" android:layout_centerHorizontal="true"></CalendarView>
+    <CalendarView
+            android:id="@+id/calendarSchedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"></CalendarView>
 
+    <TextView
+            android:text="(no session)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtScheduleBookedRoutine"
+            android:layout_below="@+id/calendarSchedule"
+            android:layout_centerHorizontal="true"
+            android:textSize="24sp" />
+
+    <Button
+            android:text="Book session"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnScheduleBook"
+            android:layout_below="@+id/txtScheduleBookedRoutine"
+            android:layout_centerHorizontal="true"
+
+    />
 </RelativeLayout>
