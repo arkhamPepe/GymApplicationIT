@@ -20,7 +20,7 @@ public class ScheduleActivity extends BaseActivity {
     private final FragmentManager fm = getSupportFragmentManager();
     private ListView schedule_lv;
 
-    private ScheduleViewModel scheduleViewModel = new ScheduleViewModel();
+    private ScheduleViewModel viewModel = new ScheduleViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,10 @@ public class ScheduleActivity extends BaseActivity {
         transaction.commit();
     }
 
+    public void scheduleRoutine(){
+        viewModel.scheduleSelectedRoutine();
+    }
+
     public void goToPickRoutine(View view){
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentPickRoutine);
@@ -57,6 +61,6 @@ public class ScheduleActivity extends BaseActivity {
     }
 
     public ScheduleViewModel getViewModel(){
-        return scheduleViewModel;
+        return viewModel;
     }
 }

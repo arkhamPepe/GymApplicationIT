@@ -3,15 +3,16 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 import se.chalmers.group22.gymcompanion.Model.ISchedule;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ScheduleViewModel extends BaseViewModel {
     private int relativeWeek; // is zero if current week is displayed
     private Map<Calendar, Routine> calendarRoutineMap;
     private ISchedule schedule;
+    private int selectedYear;
+    private int selectedMonth;
+    private int selectedDay;
+    private String selectedRoutineName;
 
     public ScheduleViewModel(){
         relativeWeek = 0;
@@ -23,31 +24,51 @@ public class ScheduleViewModel extends BaseViewModel {
         return getModel().getTodaysDate();
     }
 
-    /** getDateString
-     * Helper method for formatting date to String.
-     * @param year
-     * @param month
-     * @param day
+    /** getSelectedDate
+     * Returns the selected date formatted as String
      * @return date formatted as String
      */
-    public String getDateString(int year, int month, int day){
+    public String getSelectedDate(){
         StringBuilder sb = new StringBuilder();
 
-        sb.append(year);
+        sb.append(selectedYear);
         sb.append("-");
 
-        if (month + 1 < 10) {
+        if (selectedMonth < 10) {
             sb.append("0");
         }
 
-        sb.append(month + 1);
+        sb.append(selectedMonth);
         sb.append("-");
 
-        if (day < 10) {
+        if (selectedDay < 10) {
             sb.append("0");
         }
 
-        sb.append(day);
+        sb.append(selectedDay);
         return sb.toString();
+    }
+
+    public void selectDate(int year, int month, int day){
+        selectedYear = year;
+        selectedMonth = month;
+        selectedDay = day;
+    }
+
+    public void scheduleSelectedRoutine(){
+        Calendar day = new GregorianCalendar();
+        day.set(selectedYear, selectedMonth, selectedDay);
+
+        if (getModel().isScheduled(day)){
+            getModel().scheduleRoutine(day, selectedRoutineName);
+        }
+    }
+
+    public void selectRoutine(String routineName){
+        selectedRoutineName = routineName;
+    }
+
+    public String getSelectedDateRoutineName(){
+        return selectedRoutineName;
     }
 }

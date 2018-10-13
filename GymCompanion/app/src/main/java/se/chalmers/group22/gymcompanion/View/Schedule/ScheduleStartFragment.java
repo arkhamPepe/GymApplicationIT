@@ -6,16 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.CalendarView;
-import android.widget.ListView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.ScheduleListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ScheduleStartFragment extends Fragment {
 
@@ -42,15 +36,21 @@ public class ScheduleStartFragment extends Fragment {
         viewModel = ((ScheduleActivity)getActivity()).getViewModel();
 
         CalendarView calendarView = getActivity().findViewById(R.id.calendarSchedule);
-        TextView txtBookedRoutineName = getActivity().findViewById(R.id.txtScheduleBookedRoutine);
+        TextView txtDate = getActivity().findViewById(R.id.txtScheduleDate);
+        TextView txtRoutineName = getActivity().findViewById(R.id.txtScheduleRoutineName);
 
-        txtBookedRoutineName.setText(viewModel.getToday());
+        txtDate.setText(viewModel.getToday());
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                String date = viewModel.getDateString(year, month, dayOfMonth);
-                txtBookedRoutineName.setText(date);
+                viewModel.selectDate(year, month + 1, dayOfMonth); // month +1 since month is between 0 and 11
+                String date = viewModel.getSelectedDate();
+                String routineName = viewModel.getSelectedDateRoutineName();
+
+                viewModel.selectRoutine(routineName);
+                txtDate.setText(date);
+                txtRoutineName.setText(routineName);
             }
         });
     }
