@@ -36,37 +36,5 @@ public class ScheduleStartFragment extends Fragment {
         super.onStart();
 
         viewModel = ((ScheduleActivity)getActivity()).getViewModel();
-
-        /** TEMPORARY LOCAL LIST OF ROUTINE NAMES */
-        List<String> routineNames = new ArrayList<>();
-        routineNames.add("Chest");
-        routineNames.add("Legs");
-        routineNames.add("Back");
-        routineNames.add("Arms");
-        routineNames.add("Cardio");
-        routineNames.add("Chest");
-        routineNames.add("Legs");
-
-        // Create and show the list in GUI
-        updateList(routineNames);
-
-        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                ((ScheduleActivity)getActivity()).goToPickRoutine(view);
-            }
-        });
-    }
-
-    private void updateList(List<String> data){
-        // Create and show the list in GUI
-        ScheduleListAdapter adapter = new ScheduleListAdapter(getActivity(), data);
-        ListView listView = getListView();
-        listView.setAdapter(adapter);
-    }
-
-    public ListView getListView(){
-        return getActivity().findViewById(R.id.listviewSchedule);
     }
 }
