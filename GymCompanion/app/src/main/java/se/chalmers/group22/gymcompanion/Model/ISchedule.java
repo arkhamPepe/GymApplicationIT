@@ -6,4 +6,8 @@ public interface ISchedule {
     String getRoutineNameFromDay(Calendar day);
 
     boolean dayHasRoutine(Calendar day);
+
+    void addRoutine(Routine r, Calendar day);
+
+    void removeRoutine(Calendar day);
 }
