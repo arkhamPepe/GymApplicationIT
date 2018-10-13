@@ -133,6 +133,10 @@ public class User implements Serializable {
         return schedule;
     }
 
+    public String getToday(){
+        return schedule.getToday();
+    }
+
     public Map<Calendar, Routine> getRoutineSchedule(){
         return schedule.getSchedule();
     }

@@ -4,6 +4,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.*;
 
 @Getter
@@ -20,6 +22,10 @@ public class Schedule implements Serializable, ISchedule {
         routineSchedule = new HashMap<>();
     }
 
+    public String getToday(){
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        return date.format(calendar.getTime());
+    }
 
     public void addRoutine(Routine r, Calendar day){
         routineSchedule.put(day,r);

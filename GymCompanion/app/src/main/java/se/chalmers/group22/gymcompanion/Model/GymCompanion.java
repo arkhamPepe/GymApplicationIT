@@ -29,4 +29,8 @@ public class GymCompanion {
     public ISchedule getUserSchedule(){
         return user.getSchedule();
     }
+
+    public String getTodaysDate(){
+        return user.getToday();
+    }
 }

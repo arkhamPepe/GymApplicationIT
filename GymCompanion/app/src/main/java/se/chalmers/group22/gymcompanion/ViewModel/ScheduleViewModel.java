@@ -11,7 +11,6 @@ import java.util.Map;
 public class ScheduleViewModel extends BaseViewModel {
     private int relativeWeek; // is zero if current week is displayed
     private Map<Calendar, Routine> calendarRoutineMap;
-    private List<Routine> routinesWeek;
     private ISchedule schedule;
 
     public ScheduleViewModel(){
@@ -20,41 +19,35 @@ public class ScheduleViewModel extends BaseViewModel {
         schedule = getModel().getUserSchedule();
     }
 
+    public String getToday(){
+        return getModel().getTodaysDate();
+    }
 
-    private void getRoutinesWeek(){
-        List<Routine> list = new ArrayList<>();
-        int displayedWeek = getDisplayedWeek();
-        String[] routineNamesOnDay = new String[7];
+    /** getDateString
+     * Helper method for formatting date to String.
+     * @param year
+     * @param month
+     * @param day
+     * @return date formatted as String
+     */
+    public String getDateString(int year, int month, int day){
+        StringBuilder sb = new StringBuilder();
 
-        // For every day in selected week add scheduled routine if existing
-        for (int i = 0; i < routineNamesOnDay.length; i++){
-            /* TODO Get all scheduled routines */
+        sb.append(year);
+        sb.append("-");
+
+        if (month + 1 < 10) {
+            sb.append("0");
         }
 
-        routinesWeek = list;
-    }
+        sb.append(month + 1);
+        sb.append("-");
 
+        if (day < 10) {
+            sb.append("0");
+        }
 
-    public List<String> getRoutineNamesWeek(){
-        /* TODO Make list with names of scheduled routines */
-        return null;
-    }
-
-    private int getDisplayedWeek(){
-        return (Calendar.WEEK_OF_YEAR + relativeWeek) % 52;
-    }
-
-    /** getRoutineNamesNextWeek
-     * Purpose: Selects displayed week of schedule to be the next in the calendar
-     */
-    public void selectNextWeek(){
-        relativeWeek++;
-    }
-
-    /** getRoutineNamesNextWeek
-     * Purpose: Selects displayed week of schedule to be the next in the calendar
-     */
-    public void selectPreviousWeek(){
-        relativeWeek--;
+        sb.append(day);
+        return sb.toString();
     }
 }
