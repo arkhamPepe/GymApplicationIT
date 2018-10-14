@@ -3,9 +3,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <Button
+            android:text="go back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/btnSchedulePickBack" android:onClick="goToStart"/>
     <TextView
-            android:text="Pick a routine!"
+            android:text="Select routine:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView" android:layout_centerInParent="true"/>
+            android:id="@+id/txtSchedulePickTitle" android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/btnSchedulePickBack" android:textSize="24sp"/>
+
+    <ListView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/listviewSchedulePick"
+            android:layout_below="@+id/btnSchedulePickBack"/>
 </RelativeLayout>

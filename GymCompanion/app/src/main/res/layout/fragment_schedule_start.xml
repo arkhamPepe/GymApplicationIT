@@ -30,7 +30,7 @@
             android:id="@+id/btnScheduleBook"
             android:layout_below="@+id/txtScheduleDate"
             android:layout_centerHorizontal="true"
-    />
+            android:onClick="goToPickRoutine"/>
 
     <TextView
             android:text="Routine:"

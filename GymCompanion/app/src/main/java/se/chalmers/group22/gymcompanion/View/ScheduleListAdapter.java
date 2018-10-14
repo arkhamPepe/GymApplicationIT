@@ -31,12 +31,10 @@ public class ScheduleListAdapter extends ArrayAdapter {
         View rowView = inflater.inflate(R.layout.listitem_schedule, null,true);
 
         //this code gets references to objects in the listview_row.xml file
-        TextView routineNameTextField = rowView.findViewById(R.id.txtScheduleRoutineName);
-        TextView dateTextField = rowView.findViewById(R.id.txtScheduleDay);
+
 
         //this code sets the values of the objects to values from the arrays
-        routineNameTextField.setText(routineList.get(position));
-        dateTextField.setText(days[position]);
+
 
         return rowView;
 
