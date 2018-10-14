@@ -55,4 +55,37 @@ public class Schedule implements Serializable, ISchedule {
         return getRoutineFromDay(day).getName();
     }
 
+    /* TODO: Improve or remove this */
+    public String getRoutineNameFromDay(int year, int month, int day){
+        Calendar c = null;
+        boolean correctYear;
+        boolean correctMonth;
+        boolean correctDay;
+
+        for (Calendar calendar : routineSchedule.keySet()){
+            correctYear = year == calendar.getTime().getYear();
+            correctMonth = month == calendar.getTime().getMonth();
+            correctDay = day == calendar.getTime().getDay();
+
+            if (correctDay && correctMonth && correctYear){
+                c = calendar;
+                break;
+            }
+        }
+
+        return getRoutineNameFromDay(c);
+    }
+
+    public int getYearToday() {
+        return calendar.getTime().getYear();
+    }
+
+    public int getMonthToday() {
+        return calendar.getTime().getMonth();
+    }
+
+    public int getDayToday() {
+        return calendar.getTime().getDay();
+    }
 }
+

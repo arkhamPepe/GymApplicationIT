@@ -140,4 +140,20 @@ public class User implements Serializable {
     public Map<Calendar, Routine> getRoutineSchedule(){
         return schedule.getSchedule();
     }
+
+    public String getRoutineNameOnDate(int year, int month, int day){
+        return schedule.getRoutineNameFromDay(year, month, day);
+    }
+
+    public int getYearToday() {
+        return schedule.getYearToday();
+    }
+
+    public int getMonthToday() {
+        return schedule.getMonthToday();
+    }
+
+    public int getDayToday() {
+        return schedule.getDayToday();
+    }
 }

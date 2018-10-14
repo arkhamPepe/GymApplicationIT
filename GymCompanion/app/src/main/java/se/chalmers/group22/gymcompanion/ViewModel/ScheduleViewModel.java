@@ -27,6 +27,7 @@ public class ScheduleViewModel extends BaseViewModel {
     public ScheduleViewModel(){
         calendarRoutineMap = getModel().getUserRoutineSchedule();
         schedule = getModel().getUserSchedule();
+        initSelectedDate();
 
         // TEMPORARY
         exercises1.add(new StrengthExercise("Bench press", 2));
@@ -41,12 +42,26 @@ public class ScheduleViewModel extends BaseViewModel {
         exercises3.add(new StrengthExercise("Pull-ups", 3));
         exercises3.add(new StrengthExercise("Rows", 2));
 
-
         routines.add(new Routine("Chest ripper", exercises1));
         routines.add(new Routine("Leg breaker", exercises2));
         routines.add(new Routine("Back attack", exercises3));
+        routines.add(new Routine("Chest ripper 2", exercises1));
+        routines.add(new Routine("Leg breaker 2", exercises2));
+        routines.add(new Routine("Back attack 2", exercises3));
+        routines.add(new Routine("Chest ripper 3", exercises1));
+        routines.add(new Routine("Leg breaker 3", exercises2));
+        routines.add(new Routine("Back attack 3", exercises3));
+        routines.add(new Routine("Chest ripper 4", exercises1));
+        routines.add(new Routine("Leg breaker 4", exercises2));
+        routines.add(new Routine("Back attack 4", exercises3));
     }
 
+    /* TODO: Fix this */
+    private void initSelectedDate(){
+        selectedYear = getModel().getYearToday();
+        selectedMonth = getModel().getMonthToday();
+        selectedDay = getModel().getDayToday();
+    }
 
     /** scheduleSelectedRoutine
      * Purpose: Schedule the selected routine on the selected day.
@@ -84,8 +99,11 @@ public class ScheduleViewModel extends BaseViewModel {
     /**--------------------------------------------------------------*/
     /**                         GETTERS                              */
     /**--------------------------------------------------------------*/
+
+    /* TODO: Fix this */
     public String getSelectedDateRoutineName(){
-        return selectedRoutineName;
+        //return getModel().getRoutineNameOnDate(selectedYear, selectedMonth, selectedDay);
+        return "";
     }
 
     public String getToday(){

@@ -35,6 +35,18 @@ public class GymCompanion {
         return user.getToday();
     }
 
+    public int getYearToday() {
+        return user.getYearToday();
+    }
+
+    public int getMonthToday() {
+        return user.getMonthToday();
+    }
+
+    public int getDayToday() {
+        return user.getDayToday();
+    }
+
     public boolean isScheduled(Calendar day){
         return user.getSchedule().dayHasRoutine(day);
     }
@@ -47,6 +59,10 @@ public class GymCompanion {
 
     public double getRoutineDifficulty(Routine routine){
         return routine.getAverageDifficulty();
+    }
+
+    public String getRoutineNameOnDate(int year, int month, int day){
+        return user.getRoutineNameOnDate(year, month, day);
     }
 
     private Routine getRoutine(String routineName){

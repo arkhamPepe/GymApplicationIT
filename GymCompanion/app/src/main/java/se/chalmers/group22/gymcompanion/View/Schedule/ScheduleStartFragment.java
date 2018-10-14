@@ -34,7 +34,7 @@ public class ScheduleStartFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        viewModel = ((ScheduleActivity)getActivity()).getViewModel();
+        viewModel = ((ScheduleActivity)getActivity()).getViewModel(); // Get the ViewModel
 
         CalendarView calendarView = getActivity().findViewById(R.id.calendarSchedule);
         TextView txtDate = getActivity().findViewById(R.id.txtScheduleDate);
