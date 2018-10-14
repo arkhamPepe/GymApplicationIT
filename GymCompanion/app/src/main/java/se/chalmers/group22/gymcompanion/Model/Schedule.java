@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.io.Serializable;
 import java.util.*;
@@ -51,4 +52,36 @@ public class Schedule implements Serializable {
         return getRoutineFromDay(day).getName();
     }
 
+
+    private int getCompletedExercises(Routine routine){
+        int sum = 0;
+        for(Exercise ex : routine.getExercises()){
+            if(ex.isCompleted()){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public Map<String, String> getLatestFinishedRoutineStats(){
+        Calendar latestDate = null;
+        Routine finishedRoutine = null;
+        for(Calendar date : getScheduleKeySet()){
+            if (latestDate == null || date.getTime().after(latestDate.getTime())) {
+                latestDate = date;
+                finishedRoutine = routineSchedule.get(latestDate);
+            }
+        }
+
+        Map<String, String> routineStatsMap = new HashMap<>();
+
+        if(finishedRoutine != null) {
+            // TODO fix timeSpent value
+            routineStatsMap.put("timeSpent", "Unknown");
+            routineStatsMap.put("totalExercises", String.valueOf(finishedRoutine.getExercises().size()));
+            routineStatsMap.put("completedExercises", String.valueOf(getCompletedExercises(finishedRoutine)));
+        }
+
+        return routineStatsMap;
+    }
 }

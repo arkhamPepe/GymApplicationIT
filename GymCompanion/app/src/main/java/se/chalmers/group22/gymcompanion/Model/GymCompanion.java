@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Calendar;
+import java.util.Map;
 
 @Getter
 public class GymCompanion {
@@ -21,5 +22,7 @@ public class GymCompanion {
         user.startRoutine(user.getTodaysRoutine());
     }
 
-
+    public Map<String, String> getFinishedRoutineStats(){
+        return user.getFinishedRoutineStats();
+    }
 }
