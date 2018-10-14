@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 
 public class ProgressStartFragment extends Fragment {
@@ -24,5 +25,11 @@ public class ProgressStartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_progress_start, container, false);
+    }
+
+    public void onStart(){
+        super.onStart();
+
+        ListView lv = getView().findViewById(R.id.ListViewCurrentExercises);
     }
 }
