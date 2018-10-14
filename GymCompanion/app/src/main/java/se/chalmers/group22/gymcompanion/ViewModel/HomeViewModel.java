@@ -22,15 +22,15 @@ public class HomeViewModel extends BaseViewModel {
         getModel().startRoutine();
     }
 
-    public Map<String, String> getFinishedRoutineStats(){
+    public Map<String, Integer> getFinishedRoutineStats(){
         Routine finishedRoutine = getModel().getFinishedRoutine();
-        Map<String, String> routineStatsMap = new HashMap<>();
+        Map<String, Integer> routineStatsMap = new HashMap<>();
 
         if(finishedRoutine != null) {
             // TODO fix timeSpent value
-            routineStatsMap.put("timeSpent", "Unknown");
-            routineStatsMap.put("totalExercises", String.valueOf(finishedRoutine.getExercises().size()));
-            routineStatsMap.put("completedExercises", String.valueOf(finishedRoutine.getCompletedExercises()));
+            routineStatsMap.put("timeSpent", 0);
+            routineStatsMap.put("totalExercises", finishedRoutine.getExercises().size());
+            routineStatsMap.put("completedExercises", finishedRoutine.getCompletedExercises());
         }
 
         return routineStatsMap;
