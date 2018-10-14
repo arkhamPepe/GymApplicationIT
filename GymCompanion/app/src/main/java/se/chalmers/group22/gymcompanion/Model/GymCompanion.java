@@ -45,6 +45,10 @@ public class GymCompanion {
         user.getSchedule().addRoutine(routine, day);
     }
 
+    public double getRoutineDifficulty(Routine routine){
+        return routine.getAverageDifficulty();
+    }
+
     private Routine getRoutine(String routineName){
         for (Routine r : dataHandler.getRoutines()){
             if (r.getName().equals(routineName))

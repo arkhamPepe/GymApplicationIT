@@ -50,14 +50,21 @@ public class ScheduleViewModel extends BaseViewModel {
 
     /** scheduleSelectedRoutine
      * Purpose: Schedule the selected routine on the selected day.
+     * @return true if routine got scheduled.
      */
-    public void scheduleSelectedRoutine(){
+    public boolean scheduleSelectedRoutine(){
         Calendar day = new GregorianCalendar();
         day.set(selectedYear, selectedMonth, selectedDay);
 
         if (getModel().isScheduled(day)){
             getModel().scheduleRoutine(day, selectedRoutineName);
+            return false;
         }
+
+        if (getModel().isScheduled(day))
+            return true;
+
+        return false;
     }
 
     /**--------------------------------------------------------------*/
@@ -129,7 +136,7 @@ public class ScheduleViewModel extends BaseViewModel {
         List<Double> difficulties = new ArrayList<>();
 
         for (Routine r : routines){
-            difficulties.add(r.getDifficulty());
+            difficulties.add(getModel().getRoutineDifficulty(r));
         }
 
         return difficulties;
