@@ -56,6 +56,10 @@ public class GymCompanion {
     }
 
     public int getAmountOfExercisesInAR(){
+        if(activeRoutine == null)
+        {
+            return 0;
+        }
         return activeRoutine.getExercises().size();
     }
 
