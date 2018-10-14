@@ -44,6 +44,7 @@ public class ScheduleStartFragment extends Fragment {
         // set initial texts
         txtDate.setText(viewModel.getToday());
         btnBook.setText(viewModel.getBookingButtonText());
+        txtRoutineName.setText(viewModel.getSelectedDateRoutineName());
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -52,7 +53,7 @@ public class ScheduleStartFragment extends Fragment {
                 String date = viewModel.getSelectedDate();
                 String routineName = viewModel.getSelectedDateRoutineName();
 
-                viewModel.setRoutine(routineName);
+                viewModel.setSelectedDateRoutine(routineName);
                 txtDate.setText(date);
                 txtRoutineName.setText(routineName);
                 btnBook.setText(viewModel.getBookingButtonText());

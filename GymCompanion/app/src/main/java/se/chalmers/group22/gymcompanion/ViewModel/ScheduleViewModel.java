@@ -77,7 +77,7 @@ public class ScheduleViewModel extends BaseViewModel {
         selectedDay = day;
     }
 
-    public void setRoutine(String routineName){
+    public void setSelectedDateRoutine(String routineName){
         selectedRoutineName = routineName;
     }
 

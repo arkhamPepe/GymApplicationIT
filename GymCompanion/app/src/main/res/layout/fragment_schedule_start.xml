@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Schedule"
-            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
             android:layout_marginBottom="150dp"
             android:layout_alignParentBottom="true"
             android:textSize="24sp"/>
