@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,9 +45,8 @@ public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
         return childPosition;
     }
 
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view,
+    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view, ViewGroup parent) {
 
-                             ViewGroup parent) {
         ProgressExpandListChild child = (ProgressExpandListChild) getChild(groupPosition, childPosition);
 
         if (view == null) {
@@ -54,11 +54,15 @@ public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
             view = infalInflater.inflate(R.layout.expand_list_child_progress, null);
         }
 
-        TextView tv = view.findViewById(R.id.expandableListSetInfo);
-        tv.setText(child.getReps());
-        tv.setTag(child.getWeight());
-
+        TextView setNumber = view.findViewById(R.id.expandableListSetNumber);
+        TextView reps = view.findViewById(R.id.expandableListReps);
+        TextView kilograms = view.findViewById(R.id.expandableListKilograms);
+        reps.setText("Repetitions: " + child.getReps());
+        kilograms.setText("Kilograms: " + child.getWeight());
+        setNumber.setText("Set " + childPosition + ":");
         // TODO Auto-generated method stub
+
+        Log.d("Hello","Creating Child Views");
         return view;
     }
 
@@ -84,9 +88,8 @@ public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
         return groupPosition;
     }
 
-    public View getGroupView(int groupPosition, boolean isLastChild, View view,
+    public View getGroupView(int groupPosition, boolean isLastChild, View view, ViewGroup parent) {
 
-                             ViewGroup parent) {
         ProgressExpandListGroup group = (ProgressExpandListGroup) getGroup(groupPosition);
 
         if (view == null) {
@@ -99,6 +102,7 @@ public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
         exerciseName.setText(group.getExerciseName());
         extraInfo.setText(group.getExtraInfo());
         // TODO Auto-generated method stub
+        Log.d("Hello","Creating Group Views");
         return view;
     }
 

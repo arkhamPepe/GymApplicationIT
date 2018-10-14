@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.View.Progress;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,10 +55,10 @@ public class ProgressStartFragment extends Fragment {
     //TODO Optimize this method (The names of the method calls are too long, find a solution)
     public ArrayList<ProgressExpandListGroup> SetStandardGroups() {
         ArrayList<ProgressExpandListGroup> exercises = new ArrayList<>();
-        ArrayList<ProgressExpandListChild> sets = new ArrayList<>();
 
         for (int i = 0; i< viewModel.getAmountOfExercisesInAR();i++) {
 
+            ArrayList<ProgressExpandListChild> sets = new ArrayList<>();
             viewModel.setActiveExercise(i);
 
             ProgressExpandListGroup exercise = new ProgressExpandListGroup();
@@ -77,11 +78,9 @@ public class ProgressStartFragment extends Fragment {
             else{
                 exercise.setExtraInfo("Time: " + viewModel.getTimeInAE());
             }
-
+            exercise.setItems(sets);
             exercises.add(exercise);
-            sets.clear();
         }
-
         return exercises;
     }
 

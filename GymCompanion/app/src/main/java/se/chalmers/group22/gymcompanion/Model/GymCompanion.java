@@ -6,19 +6,43 @@ import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 @Getter
 public class GymCompanion {
     @Setter
     private User user;
 
+    private List<Integer> ints = new ArrayList<>();
+    private List<Double> doubles = new ArrayList<>();
+
+    private Routine test = new Routine("Hello");
+    private Exercise t1;
+    private Exercise t2;
+    private Exercise t3;
+
     private Routine activeRoutine;
     private Exercise activeExercise;
     private boolean isRoutineActive;
 
     public GymCompanion(){
+    ints.add(1);
+    ints.add(2);
+    ints.add(3);
+    doubles.add(1.0);
+    doubles.add(2.4);
+    doubles.add(3.7);
 
+    t1 = new StrengthExercise("t1", 3 ,ints,doubles);
+    t2 = new StrengthExercise("t2", 3 ,ints,doubles);
+    t3 = new StrengthExercise("t3", 3 ,ints,doubles);
+    test.addExercise(t1);
+    test.addExercise(t2);
+    test.addExercise(t3);
+
+    activeRoutine = test;
     }
 
     public String getTodaysRoutineName(){

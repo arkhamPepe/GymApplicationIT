@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProgressExpandListGroup {
 
@@ -30,7 +31,7 @@ public class ProgressExpandListGroup {
     }
 
     public void setItems(ArrayList<ProgressExpandListChild> sets) {
-        this.sets = sets;
+        this.sets = (ArrayList<ProgressExpandListChild>) sets.clone();
     }
 
 }
