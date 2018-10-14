@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
@@ -38,19 +39,23 @@ public class ScheduleStartFragment extends Fragment {
         CalendarView calendarView = getActivity().findViewById(R.id.calendarSchedule);
         TextView txtDate = getActivity().findViewById(R.id.txtScheduleDate);
         TextView txtRoutineName = getActivity().findViewById(R.id.txtScheduleRoutineName);
+        Button btnBook = getActivity().findViewById(R.id.btnScheduleBook);
 
+        // set initial texts
         txtDate.setText(viewModel.getToday());
+        btnBook.setText(viewModel.getBookingButtonText());
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                viewModel.selectDate(year, month + 1, dayOfMonth); // month +1 since month is between 0 and 11
+                viewModel.setDate(year, month + 1, dayOfMonth); // month +1 since month is between 0 and 11
                 String date = viewModel.getSelectedDate();
                 String routineName = viewModel.getSelectedDateRoutineName();
 
-                viewModel.selectRoutine(routineName);
+                viewModel.setRoutine(routineName);
                 txtDate.setText(date);
                 txtRoutineName.setText(routineName);
+                btnBook.setText(viewModel.getBookingButtonText());
             }
         });
     }
