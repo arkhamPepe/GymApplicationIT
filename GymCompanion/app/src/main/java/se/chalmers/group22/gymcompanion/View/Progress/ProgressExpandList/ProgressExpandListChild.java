@@ -2,21 +2,21 @@ package se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList;
 
 public class ProgressExpandListChild {
 
-    private String Name;
-    private String Tag;
+    private int reps;
+    private double weight;
 
-    public String getName() {
-        return Name;
+    public int getReps() {
+        return reps;
     }
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setReps(int reps) {
+        this.reps = reps;
     }
-    public String getTag() {
-        return Tag;
+    public double getWeight() {
+        return weight;
     }
 
-    public void setTag(String Tag) {
-        this.Tag = Tag;
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
 }

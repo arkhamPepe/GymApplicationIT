@@ -25,9 +25,8 @@ public class User implements Serializable {
     private int age;
     private int weight;
     private boolean isBeginner;
-    private boolean isRoutineActive;
 
-    private Routine activeRoutine;
+
     private StatisticsCalculator statCalc;
     private Schedule schedule;
 
@@ -40,7 +39,6 @@ public class User implements Serializable {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
     }
@@ -51,7 +49,6 @@ public class User implements Serializable {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
     }
@@ -82,27 +79,6 @@ public class User implements Serializable {
         routines.remove(routine);
     }
 
-    public void startRoutine(Routine routine){
-       /*TODO Start the routine for the current day*/
-        isRoutineActive = true;
-        activeRoutine = routine;
-        /*TODO redirect to "Workout in progress"-page*/
-    }
-
-    public void endActiveRoutine(){
-        activeRoutine = null;
-        isRoutineActive = false;
-    }
-
-    public void checkDay(){
-        Calendar today = Calendar.getInstance();
-        if (schedule.dayHasRoutine(today)){
-            startRoutine(schedule.getRoutineFromDay(today));
-        }
-        else {
-            /*TODO Direct the user to MR so it can create a new routine*/
-        }
-    }
 
     public void createRoutine(){
         routines.add(new Routine());
@@ -127,6 +103,14 @@ public class User implements Serializable {
 
     public Routine getTodaysRoutine(){
         return schedule.getRoutineFromDay(getTodaysDate());
+    }
+
+    public boolean scheduleDayHasRoutine(Calendar day){
+        return schedule.dayHasRoutine(day);
+    }
+
+    public Routine getSchedulRoutineFromDay(Calendar day){
+        return schedule.getRoutineFromDay(day);
     }
 
 }

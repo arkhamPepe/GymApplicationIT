@@ -23,7 +23,7 @@
             android:onClick="goToEditRoutine"
             android:id="@+id/btnEdit" android:layout_alignParentEnd="true"/>
     <ExpandableListView
-    android:id="@+id/ExpList"
+    android:id="@+id/ProgressExpList"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:groupIndicator="@null" />

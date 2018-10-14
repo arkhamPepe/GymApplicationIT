@@ -54,9 +54,9 @@ public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
             view = infalInflater.inflate(R.layout.expand_list_child_progress, null);
         }
 
-        TextView tv = (TextView) view.findViewById(R.id.expandableListSetInfo);
-        tv.setText(child.getName().toString());
-        tv.setTag(child.getTag());
+        TextView tv = view.findViewById(R.id.expandableListSetInfo);
+        tv.setText(child.getReps());
+        tv.setTag(child.getWeight());
 
         // TODO Auto-generated method stub
         return view;
@@ -94,8 +94,10 @@ public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
             view = inf.inflate(R.layout.expand_list_group_progress, null);
         }
 
-        TextView tv = (TextView) view.findViewById(R.id.expandableListExerciseName);
-        tv.setText(group.getName());
+        TextView exerciseName = view.findViewById(R.id.expandableListExerciseName);
+        TextView extraInfo = view.findViewById(R.id.expandableListExtraInfo);
+        exerciseName.setText(group.getExerciseName());
+        extraInfo.setText(group.getExtraInfo());
         // TODO Auto-generated method stub
         return view;
     }

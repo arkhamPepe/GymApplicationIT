@@ -32,34 +32,6 @@ public class ProgressActivity extends BaseActivity {
         transaction.add(R.id.progress_container, fragmentEditRoutine, "1").hide(fragmentEditRoutine);
         transaction.commit();
 
-        ListView progStartListView = findViewById(R.id.progStartListView);
-
-        //fillSchedule();
-
-        //progressViewModel.fillList();
-
-        // Adapter takes activity context, type of list view and the array as parameters
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
-                this,
-                R.layout.progress_start_list_item);
-
-/*        progStartListView.setAdapter(arrayAdapter);
-
-        progStartListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            // argument position gives the index of item which is clicked
-            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
-            {
-
-            }
-        });
-
-*/
-
-    }
-
-    private void startProgressFillList(){
-
     }
 
     public void goToStart(View view){

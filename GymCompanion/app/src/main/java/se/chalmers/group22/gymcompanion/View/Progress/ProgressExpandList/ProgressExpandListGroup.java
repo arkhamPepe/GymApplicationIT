@@ -1,28 +1,36 @@
 package se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList;
 
-import se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList.ProgressExpandListChild;
-
 import java.util.ArrayList;
 
 public class ProgressExpandListGroup {
 
-    private String Name;
-    private ArrayList<ProgressExpandListChild> Items;
+    private String exerciseName;
 
-    public String getName() {
-        return Name;
+    public String getExtraInfo() {
+        return extraInfo;
     }
 
-    public void setName(String name) {
-        this.Name = name;
+    public void setExtraInfo(String extraInfo) {
+        this.extraInfo = extraInfo;
+    }
+
+    private String extraInfo;
+    private ArrayList<ProgressExpandListChild> sets;
+
+    public String getExerciseName() {
+        return exerciseName;
+    }
+
+    public void setExerciseName(String exerciseName) {
+        this.exerciseName = exerciseName;
     }
 
     public ArrayList<ProgressExpandListChild> getItems() {
-        return Items;
+        return sets;
     }
 
-    public void setItems(ArrayList<ProgressExpandListChild> Items) {
-        this.Items = Items;
+    public void setItems(ArrayList<ProgressExpandListChild> sets) {
+        this.sets = sets;
     }
 
 }
