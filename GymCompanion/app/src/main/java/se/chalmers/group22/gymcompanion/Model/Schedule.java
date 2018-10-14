@@ -53,17 +53,7 @@ public class Schedule implements Serializable {
     }
 
 
-    private int getCompletedExercises(Routine routine){
-        int sum = 0;
-        for(Exercise ex : routine.getExercises()){
-            if(ex.isCompleted()){
-                sum++;
-            }
-        }
-        return sum;
-    }
-
-    public Map<String, String> getLatestFinishedRoutineStats(){
+    public Routine getLatestFinishedRoutine(){
         Calendar latestDate = null;
         Routine finishedRoutine = null;
         for(Calendar date : getScheduleKeySet()){
@@ -73,15 +63,6 @@ public class Schedule implements Serializable {
             }
         }
 
-        Map<String, String> routineStatsMap = new HashMap<>();
-
-        if(finishedRoutine != null) {
-            // TODO fix timeSpent value
-            routineStatsMap.put("timeSpent", "Unknown");
-            routineStatsMap.put("totalExercises", String.valueOf(finishedRoutine.getExercises().size()));
-            routineStatsMap.put("completedExercises", String.valueOf(getCompletedExercises(finishedRoutine)));
-        }
-
-        return routineStatsMap;
+        return finishedRoutine;
     }
 }

@@ -129,7 +129,7 @@ public class User implements Serializable {
         return schedule.getRoutineFromDay(getTodaysDate());
     }
 
-    public Map<String, String> getFinishedRoutineStats(){
-        return schedule.getLatestFinishedRoutineStats();
+    public Routine getFinishedRoutine(){
+        return schedule.getLatestFinishedRoutine();
     }
 }

@@ -22,7 +22,7 @@ public class GymCompanion {
         user.startRoutine(user.getTodaysRoutine());
     }
 
-    public Map<String, String> getFinishedRoutineStats(){
-        return user.getFinishedRoutineStats();
+    public Routine getFinishedRoutine(){
+        return user.getFinishedRoutine();
     }
 }
