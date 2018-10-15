@@ -75,5 +75,7 @@ public class HomeActivity extends BaseActivity {
     public HomeViewModel getViewModel(){
         return homeViewModel;
     }
+
+    
 }
 
