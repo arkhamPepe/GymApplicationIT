@@ -42,5 +42,6 @@ public class ParserTest {
         List<Routine> parseRoutines = parser.parseRoutines();
         Routine r1 = parseRoutines.get(0);
         assertEquals(2, r1.getExercises().size());
+        assertEquals("Big Arms Workout", r1.getName());
     }
 }
