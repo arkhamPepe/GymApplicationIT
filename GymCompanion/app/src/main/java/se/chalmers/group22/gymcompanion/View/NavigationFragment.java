@@ -26,9 +26,6 @@ public class NavigationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        if(savedInstanceState != null) {
-            //pageIndex = savedInstanceState.getInt("index", 4);
-        }
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,7 +37,7 @@ public class NavigationFragment extends Fragment {
 
     /** onStart()
      *  Sets an intent for each activity in the nav bar, uses the index from corresponding activity
-     *  to set change the color on the nav bar item you are on.
+     *  to change the color on the nav bar item you are on.
      *  Starts new activity via onNavigationItemSelected with its intent and overrides the standard android
      *  transition between activities (swipe animation).
      * */
