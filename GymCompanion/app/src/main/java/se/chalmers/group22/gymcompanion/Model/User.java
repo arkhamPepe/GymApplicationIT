@@ -5,10 +5,7 @@ import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 public class User implements Serializable {
@@ -25,9 +22,8 @@ public class User implements Serializable {
     private int age;
     private int weight;
     private boolean isBeginner;
-    private boolean isRoutineActive;
 
-    private Routine activeRoutine;
+
     private StatisticsCalculator statCalc;
     private Schedule schedule;
 
@@ -40,7 +36,6 @@ public class User implements Serializable {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
     }
@@ -51,7 +46,6 @@ public class User implements Serializable {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
     }
@@ -82,27 +76,6 @@ public class User implements Serializable {
         routines.remove(routine);
     }
 
-    public void startRoutine(Routine routine){
-       /*TODO Start the routine for the current day*/
-        isRoutineActive = true;
-        activeRoutine = routine;
-        /*TODO redirect to "Workout in progress"-page*/
-    }
-
-    public void endActiveRoutine(){
-        activeRoutine = null;
-        isRoutineActive = false;
-    }
-
-    public void checkDay(){
-        Calendar today = Calendar.getInstance();
-        if (schedule.dayHasRoutine(today)){
-            startRoutine(schedule.getRoutineFromDay(today));
-        }
-        else {
-            /*TODO Direct the user to MR so it can create a new routine*/
-        }
-    }
 
     public void createRoutine(){
         routines.add(new Routine());
@@ -127,6 +100,14 @@ public class User implements Serializable {
 
     public Routine getTodaysRoutine(){
         return schedule.getRoutineFromDay(getTodaysDate());
+    }
+
+    public boolean scheduleDayHasRoutine(Calendar day){
+        return schedule.dayHasRoutine(day);
+    }
+
+    public Routine getSchedulRoutineFromDay(Calendar day){
+        return schedule.getRoutineFromDay(day);
     }
 
 
@@ -161,4 +142,13 @@ public class User implements Serializable {
     public int getDayToday() {
         return schedule.getDayToday();
     }
+
+    public Set<Calendar> getScheduleKeyset(){
+        return schedule.getScheduleKeySet();
+    }
+
+    public Routine getRoutineFromDay(Calendar day){
+        return schedule.getRoutineFromDay(day);
+    }
+
 }
