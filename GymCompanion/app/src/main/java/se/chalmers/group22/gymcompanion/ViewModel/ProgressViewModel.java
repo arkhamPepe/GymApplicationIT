@@ -35,7 +35,7 @@ public class ProgressViewModel extends BaseViewModel {
         return getModel().getAmountWeightFromActiveExerciseSetWithIndex(index);
     }
 
-    public int getTimeInAE(){
+    public int getTimeInActiveExercise(){
         return getModel().getTimeInActiveExercise();
     }
 

@@ -76,7 +76,7 @@ public class ProgressStartFragment extends Fragment {
                 }
             }
             else{
-                exercise.setExtraInfo("Time: " + viewModel.getTimeInAE());
+                exercise.setExtraInfo("Time: " + viewModel.getTimeInActiveExercise());
             }
             exercise.setItems(sets);
             exercises.add(exercise);
