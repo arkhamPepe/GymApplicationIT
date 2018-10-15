@@ -11,7 +11,9 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class DataHandlerSearchTest {
+public class GymCompanionSearchTest {
+
+    private GymCompanion gymCompanion = new GymCompanion();
 
     @Test
     public void searchTest(){
@@ -20,7 +22,7 @@ public class DataHandlerSearchTest {
         expected.add(new Routine("ChestDay"));
         String search = "Chest day";
 
-        toBeCompared = DataHandler.getInstance().search(search);
+        toBeCompared = gymCompanion.search(search);
 
         //TODO ADD INFORMATION TO DATAHANDLER THAT YOU CAN SEARCH FOR
         assertTrue(true);

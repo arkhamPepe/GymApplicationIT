@@ -5,10 +5,7 @@ import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 public class User implements Serializable {
@@ -144,6 +141,14 @@ public class User implements Serializable {
 
     public int getDayToday() {
         return schedule.getDayToday();
+    }
+
+    public Set<Calendar> getScheduleKeyset(){
+        return schedule.getScheduleKeySet();
+    }
+
+    public Routine getRoutineFromDay(Calendar day){
+        return schedule.getRoutineFromDay(day);
     }
 
 }

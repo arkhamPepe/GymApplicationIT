@@ -2,13 +2,15 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
 import lombok.Setter;
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
+import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.SortingStrategy;
 
 
-import java.util.Calendar;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 public class GymCompanion {
@@ -19,6 +21,8 @@ public class GymCompanion {
     private Routine activeRoutine;
     private Exercise activeExercise;
     private boolean isRoutineActive;
+    private List<Routine> routineList;
+    private List<Exercise> exerciseList;
 
     public GymCompanion(){
 
@@ -118,6 +122,10 @@ public class GymCompanion {
         return user.getDayToday();
     }
 
+    public Set<Calendar> getScheduleKeyset(){
+        return user.getScheduleKeyset();
+    }
+
     public boolean isScheduled(Calendar day){
         return user.getSchedule().dayHasRoutine(day);
     }
@@ -143,5 +151,67 @@ public class GymCompanion {
         }
 
         return null;
+    }
+
+    public void sort(List<? extends ISortable> list, SortingStrategy strat){
+        strat.sort(list);
+    }
+
+    public <T extends ISortable> List<T> filter(List<T> toBeFiltered, FilterStrategy filter){
+        List<T> newList = new ArrayList<>(toBeFiltered);
+        return filter.filter(newList);
+    }
+
+    public <T extends ISortable> List<T> filter(List<T> toBeFiltered, List<MUSCLE_GROUP> muscleGroups) {
+        List<T> newList = new ArrayList<>(toBeFiltered);
+
+        for (MUSCLE_GROUP mg : muscleGroups){
+            for (T re : toBeFiltered) {
+                if (re.containsMuscleGroup(mg) && !newList.contains(re)) {
+                    newList.add(re);
+                }
+            }
+        }
+        return newList;
+    }
+
+    public List<ISortable> getRoutinesAndExercises(){
+        List<ISortable> newList = new ArrayList<>();
+
+        newList.addAll(routineList);
+        newList.addAll(exerciseList);
+
+        return newList;
+    }
+
+    public List<ISortable> search(String search){
+        if (search.equals("")) {
+            return getRoutinesAndExercises();
+        }
+
+        List<ISortable> newList = new ArrayList<>();
+
+        for (ISortable re: getRoutinesAndExercises()) {
+            if(search.toLowerCase().equals(re.getName().toLowerCase())){
+                newList.add(re);
+            }
+        }
+
+        for (ISortable re: getRoutinesAndExercises()) {
+            if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
+                newList.add(re);
+            }
+        }
+
+        for (ISortable re: getRoutinesAndExercises()) {
+            if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
+                newList.add(re);
+            }
+        }
+        return newList;
+    }
+
+    public Routine getRoutineFromDay(Calendar day){
+        return user.getRoutineFromDay(day);
     }
 }
