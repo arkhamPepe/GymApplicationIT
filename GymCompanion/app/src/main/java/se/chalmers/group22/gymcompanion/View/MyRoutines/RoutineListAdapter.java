@@ -9,18 +9,25 @@ import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RoutineListAdapter extends ArrayAdapter {
 
     //to reference the Activity
     private Activity context;
 
     //to store routines
-    private Routine[] routines;
+    private List<String> routineNames;
+    private List<Integer> exerciseNumber;
 
-    public RoutineListAdapter(Activity context, Routine[] routines){
+    public RoutineListAdapter(Activity context, List<Routine> routines){
         super(context, R.layout.listitem_my_routines,routines);
+        routineNames = new ArrayList<>();
         this.context = context;
-        this.routines = routines;
+        for (Routine routine: routines){
+            routineNames.add(routine.getName());
+        }
     }
 
     public View getView(int position, View view, ViewGroup parent) {
@@ -32,8 +39,8 @@ public class RoutineListAdapter extends ArrayAdapter {
         TextView amountOfExercises = (TextView) rowView.findViewById(R.id.textViewAmountOfExercises);
 
         //this code sets the values of the objects to values from the arrays
-        routineName.setText(routines[position].getName());
-        amountOfExercises.setText(String.valueOf(routines[position].getExercises().size()));
+        routineName.setText(routineNames.get(position));
+        //amountOfExercises.setText(String.valueOf(exerciseNumber.get(position)));
 
         return rowView;
 

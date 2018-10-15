@@ -16,7 +16,11 @@ public class MyRoutinesViewModel extends BaseViewModel {
     }*/
 
     public void createRoutine(){
-        getModel().createRooutine();
+        getModel().createRoutine();
+    }
+
+    public void addExercise(){
+        //getModel().addExercise();
     }
 
 

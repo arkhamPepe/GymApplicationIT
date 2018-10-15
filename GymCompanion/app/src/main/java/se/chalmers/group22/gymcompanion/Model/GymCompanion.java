@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.Getter;
 import lombok.Setter;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.util.Calendar;
 import java.util.Map;
@@ -79,7 +80,16 @@ public class GymCompanion {
         return null;
     }
 
-    public void createRooutine(){
+    public void createRoutine(){
         user.createRoutine();
+    }
+
+    public void addExercise(){
+        //user.addExerciseToRoutine(exercise, routine);
+    }
+
+
+    public void getRoutine(){
+
     }
 }

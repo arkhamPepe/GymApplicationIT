@@ -71,24 +71,34 @@ public class MyRoutinesActivity extends BaseActivity {
         transaction.commit();
     }
 
-    public void onClickcreateRoutine(View view){
+    public void onClickCreateRoutine(View view){
         viewModel.createRoutine();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);
-
-
+        transaction.commit();
     }
 
-    public void addExercise(View view){
-
-    }
-
-    public void setRoutineName(){
-
+    public void onClickAddExercise(View view){
+        //viewModel.addExercise();
     }
 
     public MyRoutinesViewModel getViewModel(){
         return viewModel;
+    }
+
+    public void setRoutineName(View view){
+        //routineName.setText();
+    }
+
+    public void setAmountOfExercises(View view){
+
+    }
+
+    public void onClickEnterRoutine(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentRoutineInfo);
+        transaction.hide(fragmentStart);
+        transaction.commit();
     }
 }

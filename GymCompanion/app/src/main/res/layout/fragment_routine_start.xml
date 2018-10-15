@@ -26,7 +26,7 @@
             android:layout_height="69dp" android:layout_alignParentStart="true"
             android:layout_alignParentTop="true" android:layout_marginTop="80dp" android:id="@+id/button7"
             android:textSize="24sp" android:textColor="@color/white" android:background="@color/Blue"
-            android:onClick="onClickcreateRoutine"/>
+            android:onClick="onClickCreateRoutine"/>
 
 
 </RelativeLayout>
