@@ -10,7 +10,7 @@
     "intensity":"LOW"
   },
   {
-    "name":"Triceps Workout",
+    "name":"Triceps Lift",
     "difficulty":5,
     "muscleGroups":["TRICEPS"],
     "description":"Triceps is ez",

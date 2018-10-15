@@ -35,6 +35,45 @@ public class Parser {
         return exercises;
     }
 
+    public List<Routine> parseRoutines(){
+        List<Exercise> totalExercises = new ArrayList<>();
+        totalExercises.addAll(parseCardioExercises());
+        totalExercises.addAll(parseStrengthExercises());
+
+        List<Routine> routines = new ArrayList<>();
+        String stringJSON = readFile("routines.json");
+        Gson gson = new Gson();
+        JsonElement jElement = new JsonParser().parse(stringJSON);
+        JsonArray jArray = jElement.getAsJsonArray();
+
+        for(int i = 0; i < jArray.size(); i++){
+            JsonObject jObject = jArray.get(i).getAsJsonObject();
+            List<Exercise> routineExercises = new ArrayList<>();
+            JsonArray exerciseList = jObject.getAsJsonArray("exercises");
+
+            for(int j = 0; j < exerciseList.size(); j++){
+                String exerciseName = exerciseList.get(j).getAsString();
+                Exercise match = totalExercises.get(indexForTotalExerciseList(exerciseName, totalExercises));
+                routineExercises.add(match);
+            }
+
+            Routine r = new Routine(jObject.get("name").getAsString(), routineExercises);
+            routines.add(r);
+        }
+        return routines;
+    }
+
+    private int indexForTotalExerciseList(String name, List<Exercise> totalExercises){
+        int i = 0;
+        for(Exercise exercise : totalExercises){
+            if(exercise.getName().equals(name)){
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
+
     private static String readFile(String filePath)
     {
         StringBuilder contentBuilder = new StringBuilder();

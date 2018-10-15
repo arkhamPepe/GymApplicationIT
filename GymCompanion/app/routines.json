@@ -1,8 +1,9 @@
-{
-  "name":"Biceps Workout",
-  "description": "Tough Boi Exercises",
-  "difficulty": 3,
-  "exercises":[
-    "Bench Press"
-  ]
-}
+[
+  {
+    "name":"Big Arms Workout",
+    "exercises":[
+      "Bench Press",
+      "Triceps Lift"
+    ]
+  }
+]

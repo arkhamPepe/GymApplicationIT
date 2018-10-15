@@ -36,4 +36,11 @@ public class ParserTest {
         assertEquals("Running Boi", ce1.getName());
         assertEquals(INTENSITY.MEDIUM, ce1.getIntensity());
     }
+
+    @Test
+    public void parseRoutines(){
+        List<Routine> parseRoutines = parser.parseRoutines();
+        Routine r1 = parseRoutines.get(0);
+        assertEquals(2, r1.getExercises().size());
+    }
 }
