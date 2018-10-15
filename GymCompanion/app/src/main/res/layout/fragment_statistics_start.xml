@@ -3,13 +3,13 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".View.Browse.BrowseActivity">
+                tools:context=".View.Browse.BrowseActivity" android:background="@color/colorAccent">
 
     <com.jjoe64.graphview.GraphView
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:id="@+id/start_graph"
-            android:layout_marginTop="1dp"/>
+            android:layout_marginTop="1dp" android:background="@color/white"/>
     <Button
             android:text="@string/btnExercises"
             android:layout_width="match_parent"
@@ -17,7 +17,10 @@
             android:id="@+id/btnStatisticsExercises"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/start_graph"
-            android:onClick="goToExercises"/>
+            android:onClick="goToExercises"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:background="@color/DefaultColour"/>
     <Button
             android:text="@string/btnHistory"
             android:layout_width="match_parent"
@@ -25,7 +28,10 @@
             android:id="@+id/btnStatisticsHistory"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/btnStatisticsExercises"
-            android:onClick="goToHistory"/>
+            android:onClick="goToHistory"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:background="@color/DefaultColour"/>
     <Button
             android:text="@string/btnLifetime"
             android:layout_width="match_parent"
@@ -33,7 +39,10 @@
             android:id="@+id/btnStatisticsLifetime"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/btnStatisticsHistory"
-            android:onClick="goToLifetimeStats"/>
+            android:onClick="goToLifetimeStats"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:background="@color/DefaultColour"/>
 
 
 </RelativeLayout>
