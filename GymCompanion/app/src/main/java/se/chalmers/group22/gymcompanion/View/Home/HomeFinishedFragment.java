@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
@@ -12,6 +13,7 @@ public class HomeFinishedFragment extends Fragment {
     private TextView textViewTimeSpent;
     private TextView textViewTotalExercises;
     private TextView textViewCompletedExercises;
+    private Button btnGotoHome;
 
     public static HomeStartFragment newInstance() {
         HomeStartFragment fragment = new HomeStartFragment();
@@ -36,5 +38,6 @@ public class HomeFinishedFragment extends Fragment {
         this.textViewTimeSpent = getView().findViewById(R.id.textViewTimeSpent);
         this.textViewCompletedExercises = getView().findViewById(R.id.textViewExercisesCompleted);
         this.textViewTotalExercises = getView().findViewById(R.id.textViewTotalExercises);
+        this.btnGotoHome = getView().findViewById(R.id.btnGotoHome);
     }
 }

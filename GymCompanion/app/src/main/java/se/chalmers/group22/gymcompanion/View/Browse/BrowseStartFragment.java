@@ -29,17 +29,20 @@ public class BrowseStartFragment extends Fragment {
         super.onStart();
         SearchView searchView = getView().findViewById(R.id.searchBar);
 
-        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        //Sets the ActionBar title for this particular fragment
+        ((BrowseActivity) getActivity()).setActionBarTitle("Search and Browse");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
-                browsePresenter.search(newText);
+                //browsePresenter.search(newText);
                 return false;
             }
             @Override
             public boolean onQueryTextSubmit(String query) {
-                browsePresenter.search(query);
+                //browsePresenter.search(query);
                 return false;
             }
-        });*/
+        });
     }
 }

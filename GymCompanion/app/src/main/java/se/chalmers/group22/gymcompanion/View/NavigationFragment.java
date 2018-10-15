@@ -14,7 +14,9 @@ import se.chalmers.group22.gymcompanion.View.Schedule.ScheduleActivity;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsActivity;
 
 public class NavigationFragment extends Fragment {
-
+    /** pageIndex
+     * @value get set by the bundle "index" argument
+     * */
     private int pageIndex;
 
     public static NavigationFragment newInstance(){
@@ -35,6 +37,13 @@ public class NavigationFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_navigation, container, false);
     }
 
+
+    /** onStart()
+     *  Sets an intent for each activity in the nav bar, uses the index from corresponding activity
+     *  to set change the color on the nav bar item you are on.
+     *  Starts new activity via onNavigationItemSelected with its intent and overrides the standard android
+     *  transition between activities (swipe animation).
+     * */
     public void onStart(){
         super.onStart();
         Intent intent1 = new Intent(getActivity(), HomeActivity.class);
