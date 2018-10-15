@@ -14,22 +14,25 @@ import java.util.List;
 public class Parser {
 
     public List<StrengthExercise> parseStrengthExercises() {
-        List<StrengthExercise> exercises = new ArrayList<>();
-        String stringJSON = readFile("strength_exercises.json");
+        return parseExerciseHelper("strength_exercises.json", StrengthExercise.class);
+    }
+
+    public List<CardioExercise> parseCardioExercises(){
+        return parseExerciseHelper("cardio_exercises.json", CardioExercise.class);
+    }
+
+    private <T extends Exercise> List<T> parseExerciseHelper(String fileName, Class<T> className){
+        List<T> exercises = new ArrayList<>();
+        String stringJSON = readFile(fileName);
         Gson gson = new Gson();
         JsonElement jElement = new JsonParser().parse(stringJSON);
         JsonArray jArray = jElement.getAsJsonArray();
         for(int i = 0; i < jArray.size(); i++){
             JsonObject jObject = jArray.get(i).getAsJsonObject();
-            StrengthExercise se = gson.fromJson(jObject, StrengthExercise.class);
-            exercises.add(se);
+            T ce = gson.fromJson(jObject, className);
+            exercises.add(ce);
         }
         return exercises;
-    }
-
-    public List<CardioExercise> parseCardioExercises(){
-        List<CardioExercise> exercises = new ArrayList<>();
-        return null;
     }
 
     private static String readFile(String filePath)
