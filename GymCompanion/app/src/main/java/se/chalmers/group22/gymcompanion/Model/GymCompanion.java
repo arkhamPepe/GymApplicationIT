@@ -178,8 +178,10 @@ public class GymCompanion {
     public List<ISortable> getRoutinesAndExercises(){
         List<ISortable> newList = new ArrayList<>();
 
-        newList.addAll(routineList);
-        newList.addAll(exerciseList);
+        if(!(routineList == null || exerciseList == null)) {
+            newList.addAll(routineList);
+            newList.addAll(exerciseList);
+        }
 
         return newList;
     }
