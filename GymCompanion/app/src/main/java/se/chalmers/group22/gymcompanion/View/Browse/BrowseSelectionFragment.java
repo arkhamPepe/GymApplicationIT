@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
-public class BrowseSelectionFragment extends Fragment {
+public class BrowseSelectionFragment extends Fragment /*implements View.OnClickListener*/ {
 
     private BrowseViewModel viewModel;
-    private String type;
-    private Button test;
+    private TextView currentIndex;
     public static BrowseSelectionFragment getInstance() {
         return new BrowseSelectionFragment();
     }
@@ -26,18 +26,24 @@ public class BrowseSelectionFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_browse_selection, container, false);
+        View v = inflater.inflate(R.layout.fragment_browse_selection, container, false);
+        return v;
     }
 
     @Override
     public void onStart() {
         super.onStart();
         viewModel = ((BrowseActivity) getActivity()).getViewModel();
+    }
 
-        this.test = getView().findViewById(R.id.test);
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.currentIndex = getView().findViewById(R.id.currentIndex);
 
-        test.setText(type);
+        String current = "Category: " + viewModel.getCurrentPage();
+        this.currentIndex.setText(current);
 
-        ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Browsing " + type);
+        ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Search and Browse");
     }
 }

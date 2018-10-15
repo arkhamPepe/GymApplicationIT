@@ -12,7 +12,7 @@ import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 public class BrowseResultFragment extends Fragment {
 
     private BrowseViewModel viewModel;
-    private TextView dummy;
+    private TextView currentMuscleGroup;
     public static BrowseSelectionFragment getInstance() {
         return new BrowseSelectionFragment();
     }
@@ -32,11 +32,8 @@ public class BrowseResultFragment extends Fragment {
         super.onStart();
         viewModel = ((BrowseActivity) getActivity()).getViewModel();
 
-        ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Browse Results");
+        //this.dummy = getView().findViewById(R.id.dummy);
 
-        this.dummy = getView().findViewById(R.id.dummy);
-
-        this.dummy.setText("Hejsan");
         /*ScheduleListAdapter adapter = new ScheduleListAdapter(getActivity(),
                 viewModel.getRoutineNames(),
                 viewModel.getRoutineDifficulties(),
@@ -51,5 +48,16 @@ public class BrowseResultFragment extends Fragment {
                 //((BrowseActivity)getActivity()).scheduleRoutine();
             }
         });*/
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Browse Results");
+
+        this.currentMuscleGroup = getView().findViewById(R.id.currentMuscleGroup);
+        String t = "Category: " + viewModel.getMuscleGroupString();
+
+        this.currentMuscleGroup.setText(t);
     }
 }

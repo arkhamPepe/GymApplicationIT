@@ -1,68 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-        <Button
+    <TextView
+            android:text="Currently browsing"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content" android:id="@+id/currentIndex" android:textSize="18sp"
+            android:textAlignment="viewStart" android:layout_alignBaseline="@+id/btnBrowseSelectionBack"
+            android:layout_alignParentEnd="true" android:textAllCaps="false"/>
+    <Button
                 android:text="go back"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnBrowseSelectionBack" android:onClick="goToStart"/>
 
-<TableLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:layout_width="match_parent"
+                 android:layout_height="500dp"
+                 android:layout_marginTop="45dp">
 
-    <TableRow android:layout_width="match_parent" android:layout_height="130dp">
-        <Button
-                android:text="Lower Back"
-                android:layout_width="180dp"
-                android:layout_height="125dp" android:onClick="goToResult" android:id="@+id/test"
-                android:layout_column="1" android:textSize="24sp" android:textColor="@color/blackColour"/>
-        <Button
-                android:text="Upper Back"
-                android:layout_width="180dp"
-                android:layout_height="125dp" android:onClick="goToResult"
-                android:layout_column="2" android:textSize="24sp" android:textColor="@color/blackColour"/>
-    </TableRow>
-    <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-        <Button
-                android:text="Shoulders"
-                android:layout_width="180dp"
-                android:layout_height="125dp" android:onClick="goToResult"
-                android:layout_column="1" android:textSize="24sp" android:textColor="@color/blackColour"/>
-        <Button
-                android:text="Chest"
-                android:layout_width="180dp"
-                android:layout_height="125dp" android:onClick="goToResult"
-                android:layout_column="2" android:textSize="24sp" android:textColor="@color/blackColour"/>
-    </TableRow>
-    <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-        <Button
-                android:text="Abs"
-                android:layout_width="180dp"
-                android:layout_height="125dp" android:onClick="goToResult"
-                android:layout_column="1" android:textSize="24sp" android:textColor="@color/blackColour"/>
-        <Button
-                android:text="Arms"
-                android:layout_width="180dp"
-                android:layout_height="125dp" android:onClick="goToResult"
-                android:layout_column="2" android:textSize="24sp" android:textColor="@color/blackColour"/>
-    </TableRow>
-    <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-        <Button
-                android:text="Legs"
-                android:layout_width="180dp"
-                android:layout_height="125dp" android:onClick="goToResult"
-                android:layout_column="1" android:textSize="24sp" android:textColor="@color/blackColour"
-        />
-        <Button
-                android:text="Calves"
-                android:layout_width="180dp"
-                android:layout_height="125dp" android:onClick="goToResult"
-                android:layout_column="2" android:textSize="24sp" android:textColor="@color/blackColour"
-        />
-    </TableRow>
-</TableLayout>
-</LinearLayout>
+        <TableRow android:layout_width="match_parent" android:layout_height="130dp">
+            <Button
+                    android:text="LOWER BACK"
+                    android:layout_width="180dp"
+                    android:layout_height="125dp" android:onClick="goToResult" android:id="@+id/b1"
+                    android:layout_column="1" android:textSize="24sp" android:textColor="@color/blackColour"/>
+            <Button
+                    android:text="UPPER BACK"
+                    android:layout_width="180dp"
+                    android:layout_height="125dp" android:onClick="goToResult"
+                    android:layout_column="2" android:textSize="24sp" android:textColor="@color/blackColour"/>
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button
+                    android:text="SHOULDERS"
+                    android:layout_width="180dp"
+                    android:layout_height="125dp" android:onClick="goToResult"
+                    android:layout_column="1" android:textSize="24sp" android:textColor="@color/blackColour"/>
+            <Button
+                    android:text="CHEST"
+                    android:layout_width="180dp"
+                    android:layout_height="125dp" android:onClick="goToResult"
+                    android:layout_column="2" android:textSize="24sp" android:textColor="@color/blackColour"/>
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button
+                    android:text="ABS"
+                    android:layout_width="180dp"
+                    android:layout_height="125dp" android:onClick="goToResult"
+                    android:layout_column="1" android:textSize="24sp" android:textColor="@color/blackColour"/>
+            <Button
+                    android:text="ARMS"
+                    android:layout_width="180dp"
+                    android:layout_height="125dp" android:onClick="goToResult"
+                    android:layout_column="2" android:textSize="24sp" android:textColor="@color/blackColour"/>
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button
+                    android:text="LEGS"
+                    android:layout_width="180dp"
+                    android:layout_height="125dp" android:onClick="goToResult"
+                    android:layout_column="1" android:textSize="24sp" android:textColor="@color/blackColour"
+            />
+            <Button
+                    android:text="CALVES"
+                    android:layout_width="180dp"
+                    android:layout_height="125dp" android:onClick="goToResult"
+                    android:layout_column="2" android:textSize="24sp" android:textColor="@color/blackColour"
+            />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

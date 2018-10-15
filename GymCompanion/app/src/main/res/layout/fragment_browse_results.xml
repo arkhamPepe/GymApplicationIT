@@ -3,17 +3,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <TextView
+            android:text="Currently browsing"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content" android:id="@+id/currentMuscleGroup" android:textSize="18sp"
+            android:textAlignment="viewStart" android:layout_alignBaseline="@+id/btnBrowseResultsBack"
+            android:layout_alignParentEnd="true" android:textAllCaps="false"/>
+
     <Button
             android:text="go back"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnBrowseResultsBack"
-            android:onClick="goToBrowseSelection"/>
+            android:onClick="goToBrowseSelection"
+            android:tag="3"/>
 
-    <TextView
-            android:text="LIST HERE"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:id="@+id/dummy"/>
 </RelativeLayout>

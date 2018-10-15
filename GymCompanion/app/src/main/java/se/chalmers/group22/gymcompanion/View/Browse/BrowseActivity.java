@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.widget.Button;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
@@ -23,8 +24,6 @@ public class BrowseActivity extends BaseActivity {
     private final FragmentManager fm = getSupportFragmentManager();
 
     private BrowseViewModel browseViewModel;
-
-    Bundle fragBundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,21 +45,18 @@ public class BrowseActivity extends BaseActivity {
         transaction.commit();
     }
 
-    public void goToBrowseRoutineSelection(View view){
+    public void goToBrowseSelection(View view){
         FragmentTransaction transaction = fm.beginTransaction();
 
         transaction.hide(fragmentStart);
         transaction.show(fragmentSelection);
         transaction.hide(fragmentResult);
-        transaction.commit();
-    }
 
-    public void goToBrowseExerciseSelection(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
+        int i = Integer.valueOf((String)view.getTag());
+        browseViewModel.setIndex(i);
 
-        transaction.hide(fragmentStart);
-        transaction.show(fragmentSelection);
-        transaction.hide(fragmentResult);
+        fragmentSelection.onResume();
+
         transaction.commit();
     }
 
@@ -70,8 +66,11 @@ public class BrowseActivity extends BaseActivity {
         transaction.hide(fragmentStart);
         transaction.hide(fragmentSelection);
         transaction.show(fragmentResult);
-        //fragBundle.putString("", );
-        fragmentResult.setArguments(fragBundle);
+
+        String x = ((Button)view).getText().toString();
+        x = x.replace(" ", "_");
+        browseViewModel.setMuscleGroup(x);
+        fragmentResult.onResume();
 
         transaction.commit();
     }
@@ -82,10 +81,12 @@ public class BrowseActivity extends BaseActivity {
         transaction.show(fragmentStart);
         transaction.hide(fragmentSelection);
         transaction.hide(fragmentResult);
+        fragmentStart.onResume();
         transaction.commit();
     }
 
     public BrowseViewModel getViewModel(){
         return browseViewModel;
     }
+
 }
