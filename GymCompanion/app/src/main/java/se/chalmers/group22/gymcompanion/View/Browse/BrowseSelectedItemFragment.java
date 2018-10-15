@@ -15,6 +15,7 @@ public class BrowseSelectedItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((BrowseActivity) getActivity()).setActionBarTitle("Selected Item List");
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,6 +26,5 @@ public class BrowseSelectedItemFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        ((BrowseActivity) getActivity()).setActionBarTitle("Selected Item List");
     }
 }

@@ -15,6 +15,7 @@ public class BrowseSelectionFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((BrowseActivity) getActivity()).setActionBarTitle("Choose a muscle group");
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,6 +26,5 @@ public class BrowseSelectionFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        ((BrowseActivity) getActivity()).setActionBarTitle("Choose a muscle group");
     }
 }
