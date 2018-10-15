@@ -14,7 +14,7 @@ public class GymCompanion {
     private DataHandler dataHandler = DataHandler.getInstance();
 
     public GymCompanion(){
-
+        user = LocalDatabase.getInstance().loadUser();
     }
 
     public String getTodaysRoutineName(){
