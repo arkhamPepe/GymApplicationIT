@@ -1,0 +1,12 @@
+{
+  "id":1,
+  "name":"Bench Press",
+  "difficulty":5,
+  "muscleGroups":["MUSCLE_GROUP.BICEPS"],
+  "description":"A very stronk exercise",
+  "sets":3,
+  "repetitions":[10, 10, 8],
+  "kilograms":[60, 60, 70],
+  "intensity":"INTENSITY.LOW"
+}
+
