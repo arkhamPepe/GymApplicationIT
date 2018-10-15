@@ -2,6 +2,8 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 
 import android.arch.lifecycle.ViewModel;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.ArrayList;
@@ -13,8 +15,14 @@ public class MyRoutinesViewModel extends BaseViewModel {
     List<Routine> routines = new ArrayList<>();
 
     public MyRoutinesViewModel(){
-        routines.add(new Routine("Routine1"));
-        routines.add(new Routine("YA TEET"));
+        Routine routine1 = new Routine("Routine1");
+        Routine routine2 = new Routine("Routine2");
+        Exercise strengthExercise1 = new StrengthExercise("Benkprench",3.4);
+        Exercise strengthExercise2 = new StrengthExercise("Squats",5.5);
+        routine1.addExercise(strengthExercise1);
+        routine2.addExercise(strengthExercise2);
+        routines.add(routine1);
+        routines.add(routine2);
     }
 
     /*public List<Routine> getUserRoutines(){
@@ -41,7 +49,7 @@ public class MyRoutinesViewModel extends BaseViewModel {
         return routines;
     }
 
-    public void setPosition(int position){
+    public void setSelectedRoutineIndex(int position){
         selectedRoutineIndex = position;
     }
 

@@ -42,11 +42,9 @@ public class MyRoutinesStartFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                ((MyRoutinesActivity)getActivity()).onClickEnterRoutine();
+                ((MyRoutinesActivity)getActivity()).onClickEnterRoutine(position);
             }
         });
-
-        //TextView routineName = getView().findViewById(R.id.textViewMyRoutinesInfoRoutineName);
 
     }
 }

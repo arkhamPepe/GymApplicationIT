@@ -19,13 +19,15 @@ public class RoutineListAdapter extends ArrayAdapter {
 
     //to store routines
     private List<String> routineNames;
-    //private List<Integer> exerciseNumber;
+    private List<Integer> exerciseCount;
 
     public RoutineListAdapter(Activity context, List<Routine> routines){
         super(context, R.layout.listitem_my_routines,routines);
         routineNames = new ArrayList<>();
+        exerciseCount = new ArrayList<>();
         this.context = context;
         fillRoutineNames(routines);
+        fillExerciseCount(routines);
     }
 
     public View getView(int position, View view, ViewGroup parent) {
@@ -34,11 +36,11 @@ public class RoutineListAdapter extends ArrayAdapter {
 
         //this code gets references to objects in the listview_row.xml file
         TextView routineName = rowView.findViewById(R.id.routineName);
-        //TextView amountOfExercises = rowView.findViewById(R.id.textViewAmountOfExercises);
+        TextView routineExerciseAmount = rowView.findViewById(R.id.listItemAmountOfExercises);
 
         //this code sets the values of the objects to values from the arrays
         routineName.setText(routineNames.get(position));
-        //amountOfExercises.setText(String.valueOf(exerciseNumber.get(position)));
+        routineExerciseAmount.setText(String.valueOf(exerciseCount.get(position)));
 
         return rowView;
 
@@ -47,6 +49,12 @@ public class RoutineListAdapter extends ArrayAdapter {
     private void fillRoutineNames(List<Routine> routines){
         for (Routine routine: routines){
             routineNames.add(routine.getName());
+        }
+    }
+
+    private void fillExerciseCount(List<Routine> routines){
+        for (Routine routine: routines){
+            exerciseCount.add(routine.getExercises().size());
         }
     }
 }

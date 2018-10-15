@@ -43,6 +43,7 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
     public void onStart(){
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
+
         textViewRoutineName = getView().findViewById(R.id.routineName);
         textViewAmountOfExercises = getView().findViewById(R.id.textViewAmountOfExercises);
         exerciseList = getView().findViewById(R.id.listViewExercise);

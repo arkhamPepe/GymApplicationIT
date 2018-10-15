@@ -95,7 +95,8 @@ public class MyRoutinesActivity extends BaseActivity {
         amountOfExercises.setText(viewModel.setAmountOfExercises());
     }
 
-    public void onClickEnterRoutine(){
+    public void onClickEnterRoutine(int position){
+        viewModel.setSelectedRoutineIndex(position);
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);
