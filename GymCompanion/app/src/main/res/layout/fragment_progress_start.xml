@@ -22,9 +22,14 @@
             android:layout_height="wrap_content" android:layout_alignParentTop="true"
             android:onClick="goToEditRoutine"
             android:id="@+id/btnEdit" android:layout_alignParentEnd="true"/>
-    <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_alignParentTop="true" android:layout_marginTop="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_above="@id/btnFinish" android:id="@+id/progStartListView"/>
+    <ExpandableListView
+    android:id="@+id/ProgressExpList"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_above="@id/btnFinish"
+    android:layout_below="@id/btnBackToHome"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:groupIndicator="@null" />
+
 </RelativeLayout>

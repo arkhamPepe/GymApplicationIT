@@ -22,7 +22,9 @@ public class BrowseActivity extends BaseActivity {
     private final Fragment navigationFragment = new NavigationFragment();
     private final FragmentManager fm = getSupportFragmentManager();
 
-    private BrowseViewModel browseViewModel = new BrowseViewModel();
+
+    private BrowseViewModel browseViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -35,7 +35,15 @@ public class StrengthExercise extends Exercise implements Serializable {
     }
 
     // FOR TESTING
-    public StrengthExercise(String name, double difficulty){
+    public StrengthExercise(String name, int sets, List<Integer> reps, List<Double> kilograms){
+        super(name);
+        this.sets = sets;
+        this.repetitions = reps;
+        this.kilograms = kilograms;
+    }
+
+    // FOR TESTING
+    public StrengthExercise(String name, double difficulty) {
         super(name, difficulty);
     }
 
