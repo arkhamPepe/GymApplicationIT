@@ -51,7 +51,7 @@ public class GymCompanion {
     public void checkDay(){
         Calendar today = Calendar.getInstance();
         if (user.scheduleDayHasRoutine(today)){
-            startRoutine(user.getSchedulRoutineFromDay(today));
+            startRoutine(user.getScheduleRoutineFromDay(today));
         }
         else {
             /*TODO Direct the user to MR so it can create a new routine*/
@@ -123,11 +123,11 @@ public class GymCompanion {
     }
 
     public Set<Calendar> getScheduleKeyset(){
-        return user.getScheduleKeyset();
+        return user.getScheduleKeySet();
     }
 
     public boolean isScheduled(Calendar day){
-        return user.getSchedule().dayHasRoutine(day);
+        return user.getSchedule().dateHasRoutine(day);
     }
 
     public void scheduleRoutine(Calendar day, String routineName){
@@ -140,8 +140,8 @@ public class GymCompanion {
         return routine.getAverageDifficulty();
     }
 
-    public String getRoutineNameOnDate(int year, int month, int day){
-        return user.getRoutineNameOnDate(year, month, day);
+    public String getRoutineNameOnDate(int year, int day){
+        return user.getRoutineNameOnDate(year, day);
     }
 
     private Routine getRoutine(String routineName){

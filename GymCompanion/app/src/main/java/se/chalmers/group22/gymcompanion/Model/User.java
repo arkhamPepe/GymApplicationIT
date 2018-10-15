@@ -76,7 +76,6 @@ public class User implements Serializable {
         routines.remove(routine);
     }
 
-
     public void createRoutine(){
         routines.add(new Routine());
     }
@@ -89,27 +88,25 @@ public class User implements Serializable {
         routine.setDescription(description);
     }
 
-
     private Calendar getTodaysDate(){
         return Calendar.getInstance();
     }
 
     public String getTodaysRoutineName(){
-        return schedule.getRoutineNameFromDay(getTodaysDate());
+        return schedule.getRoutineNameFromDate(getTodaysDate());
     }
 
     public Routine getTodaysRoutine(){
         return schedule.getRoutineFromDay(getTodaysDate());
     }
 
-    public boolean scheduleDayHasRoutine(Calendar day){
-        return schedule.dayHasRoutine(day);
+    public boolean scheduleDayHasRoutine(Calendar date){
+        return schedule.dateHasRoutine(date);
     }
 
-    public Routine getSchedulRoutineFromDay(Calendar day){
-        return schedule.getRoutineFromDay(day);
+    public Routine getScheduleRoutineFromDay(Calendar date){
+        return schedule.getRoutineFromDay(date);
     }
-
 
     public Routine getFinishedRoutine() {
         return schedule.getLatestFinishedRoutine();
@@ -127,8 +124,8 @@ public class User implements Serializable {
         return schedule.getSchedule();
     }
 
-    public String getRoutineNameOnDate(int year, int month, int day){
-        return schedule.getRoutineNameFromDay(year, month, day);
+    public String getRoutineNameOnDate(int year, int day){
+        return schedule.getRoutineNameFromDate(year, day);
     }
 
     public int getYearToday() {
@@ -140,10 +137,10 @@ public class User implements Serializable {
     }
 
     public int getDayToday() {
-        return schedule.getDayToday();
+        return schedule.getDayOfMonthToday();
     }
 
-    public Set<Calendar> getScheduleKeyset(){
+    public Set<Calendar> getScheduleKeySet(){
         return schedule.getScheduleKeySet();
     }
 

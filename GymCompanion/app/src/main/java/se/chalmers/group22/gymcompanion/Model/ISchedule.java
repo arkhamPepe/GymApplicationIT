@@ -3,11 +3,15 @@ package se.chalmers.group22.gymcompanion.Model;
 import java.util.Calendar;
 
 public interface ISchedule {
-    String getRoutineNameFromDay(Calendar day);
+    String getRoutineNameFromDate(Calendar date);
 
-    boolean dayHasRoutine(Calendar day);
+    boolean dateHasRoutine(Calendar date);
 
-    void addRoutine(Routine r, Calendar day);
+    void addRoutine(Routine r, Calendar date);
 
-    void removeRoutine(Calendar day);
+    void removeRoutine(Calendar date);
+
+    String getRoutineNameFromDate(int year, int dayOfYear);
+
+    String getRoutineNameFromDate(int year, int month, int dayOfMonth);
 }
