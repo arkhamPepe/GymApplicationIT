@@ -88,14 +88,14 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void setRoutineName(View view){
-        //routineName.setText();
+        routineName.setText(viewModel.setRoutineName());
     }
 
     public void setAmountOfExercises(View view){
-
+        amountOfExercises.setText(viewModel.setAmountOfExercises());
     }
 
-    public void onClickEnterRoutine(View view){
+    public void onClickEnterRoutine(){
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);

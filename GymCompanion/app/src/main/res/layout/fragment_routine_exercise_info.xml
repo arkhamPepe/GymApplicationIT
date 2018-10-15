@@ -17,13 +17,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true" android:layout_marginTop="18dp"
-            android:id="@+id/textViewExerciseName" android:textSize="24sp" android:textColor="@color/blackColour"
+            android:id="@+id/textViewMyRoutinesInfoRoutineName" android:textSize="24sp" android:textColor="@color/blackColour"
             android:layout_centerHorizontal="true"/>
     <TextView
             android:text="Description:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="107dp"
-            android:layout_toStartOf="@+id/textViewExerciseName" android:id="@+id/textView5" android:textSize="18sp"
+            android:layout_toStartOf="@+id/textViewMyRoutinesInfoRoutineName" android:id="@+id/textView5" android:textSize="18sp"
             android:textColor="@color/blackColour"/>
     <TextView
             android:text="..."

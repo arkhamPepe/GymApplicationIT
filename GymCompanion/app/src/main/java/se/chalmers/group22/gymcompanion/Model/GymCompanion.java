@@ -5,6 +5,7 @@ import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -89,7 +90,7 @@ public class GymCompanion {
     }
 
 
-    public void getRoutine(){
-
+    public List<Routine> getRoutines(){
+        return user.getRoutines();
     }
 }
