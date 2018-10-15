@@ -1,3 +1,8 @@
 {
-  "name":"Biceps Workout"
+  "name":"Biceps Workout",
+  "description": "Tough Boi Exercises",
+  "difficulty": 3,
+  "exercises":[
+    "Bench Press"
+  ]
 }

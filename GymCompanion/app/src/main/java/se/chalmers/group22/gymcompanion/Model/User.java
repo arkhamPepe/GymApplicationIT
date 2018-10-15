@@ -44,6 +44,7 @@ public class User implements Serializable {
         this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
+        this.completedRoutines = new HashMap<>();
     }
 
     public User(String name, String gym, int age, int weight, boolean isBeginner){
@@ -55,6 +56,7 @@ public class User implements Serializable {
         this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
+        this.completedRoutines = new HashMap<>();
     }
 
     // Defensive copy
