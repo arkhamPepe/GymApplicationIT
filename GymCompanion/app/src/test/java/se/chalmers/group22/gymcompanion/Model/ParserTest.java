@@ -21,7 +21,7 @@ public class ParserTest {
 
     @Test
     public void parseExercises() {
-        List<StrengthExercise> parsedExercises = parser.parseExercises();
+        List<StrengthExercise> parsedExercises = parser.parseStrengthExercises();
         StrengthExercise ex1 = parsedExercises.get(0);
         StrengthExercise ex2 = parsedExercises.get(1);
         assertEquals(2, parsedExercises.size());
