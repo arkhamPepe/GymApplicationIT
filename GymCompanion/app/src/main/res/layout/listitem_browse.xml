@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtName"
+            android:layout_marginTop="10dp"
+            android:text="Name"
+            android:textSize="24sp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/blackColour"
+    />
+
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSchedulePickAmountPrefix"
+            android:text="Exercises: "
+            android:layout_below="@+id/txtName"
+            android:textSize="12sp"
+            android:layout_alignStart="@+id/txtSchedulePickRoutineName"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSchedulePickAmountNumber"
+            android:textSize="12sp"
+            android:text="8"
+            android:layout_toEndOf="@+id/txtSchedulePickAmountPrefix"
+            android:layout_below="@+id/txtSchedulePickRoutineName"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSchedulePickDifficultyPrefix"
+            android:text="  Difficulty: "
+            android:layout_below="@+id/txtSchedulePickRoutineName"
+            android:textSize="12sp"
+            android:layout_toEndOf="@+id/txtSchedulePickAmountNumber"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSchedulePickDifficultyNumber"
+            android:text="3.5"
+            android:layout_below="@+id/txtSchedulePickRoutineName"
+            android:textSize="12sp"
+            android:layout_toRightOf="@+id/txtSchedulePickDifficultyPrefix"
+    />
+</RelativeLayout>
