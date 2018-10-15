@@ -7,13 +7,17 @@ import se.chalmers.group22.gymcompanion.Model.Routine;
 import java.util.List;
 
 public class MyRoutinesViewModel extends BaseViewModel {
-    private DataHandler dataHandler;
 
     public MyRoutinesViewModel(){
-        dataHandler = DataHandler.getInstance();
     }
 
-    public List<Routine> getUserRoutines(){
-        return dataHandler.getUserRoutines();
+    /*public List<Routine> getUserRoutines(){
+        //return getModel().createRooutine();
+    }*/
+
+    public void createRoutine(){
+        getModel().createRooutine();
     }
+
+
 }

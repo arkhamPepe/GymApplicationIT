@@ -78,4 +78,8 @@ public class GymCompanion {
 
         return null;
     }
+
+    public void createRooutine(){
+        user.createRoutine();
+    }
 }

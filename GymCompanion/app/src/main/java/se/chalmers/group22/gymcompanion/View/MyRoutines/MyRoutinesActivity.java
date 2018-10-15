@@ -71,8 +71,13 @@ public class MyRoutinesActivity extends BaseActivity {
         transaction.commit();
     }
 
-    public void createRoutine(View view){
-        dataHandler.createRoutine();
+    public void onClickcreateRoutine(View view){
+        viewModel.createRoutine();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentRoutineInfo);
+        transaction.hide(fragmentStart);
+
+
     }
 
     public void addExercise(View view){
