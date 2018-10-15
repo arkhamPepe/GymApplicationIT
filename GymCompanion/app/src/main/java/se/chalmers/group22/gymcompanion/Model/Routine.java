@@ -87,4 +87,13 @@ public class Routine implements ISortable, Serializable {
         return (double) Math.round(average * 10) / 10;
     }
 
+    public int getCompletedExercises(){
+        int sum = 0;
+        for(Exercise ex : exercises){
+            if(ex.isCompleted()){
+                sum++;
+            }
+        }
+        return sum;
+    }
 }

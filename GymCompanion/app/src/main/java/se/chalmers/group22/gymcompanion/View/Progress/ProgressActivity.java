@@ -7,17 +7,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.Main.MainActivity;
-import se.chalmers.group22.gymcompanion.View.Main.MainFinishedFragment;
-import se.chalmers.group22.gymcompanion.View.Main.MainStartFragment;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.Home.HomeActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
 
-public class ProgressActivity extends AppCompatActivity {
+public class ProgressActivity extends BaseActivity {
 
     private final FragmentManager fm = getSupportFragmentManager();
     private final Fragment fragmentStart = new ProgressStartFragment();
@@ -79,9 +76,9 @@ public class ProgressActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    //Goes back to MainActivity with an extra boolean so that the Finished Fragment is in focus
+    //Goes back to HomeActivity with an extra boolean so that the Finished Fragment is in focus
     public void goToFinished(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                 Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
@@ -93,14 +90,17 @@ public class ProgressActivity extends AppCompatActivity {
     }
 
     //ESCAPE
-    //Goes back to the start page of MainActivity
+    //Goes back to the start page of HomeActivity
     public void goToHome(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                 Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
 
+    public ProgressViewModel getViewModel(){
+        return progressViewModel;
+    }
 
 }

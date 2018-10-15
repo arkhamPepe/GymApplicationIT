@@ -1,35 +1,38 @@
-package se.chalmers.group22.gymcompanion.View.Main;
+package se.chalmers.group22.gymcompanion.View.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
-import se.chalmers.group22.gymcompanion.ViewModel.MainViewModel;
+import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 
-public class MainActivity extends AppCompatActivity implements IView {
+public class HomeActivity extends BaseActivity {
 
     private static final int index = 0;
 
-    final Fragment fragmentHome = new MainStartFragment();
-    final Fragment fragmentFinished = new MainFinishedFragment();
+    final Fragment fragmentHome = new HomeStartFragment();
+    final Fragment fragmentFinished = new HomeFinishedFragment();
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private MainViewModel mainViewModel;
+    private HomeViewModel homeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD:GymCompanion/app/src/main/java/se/chalmers/group22/gymcompanion/View/Main/MainActivity.java
 
         mainViewModel = new MainViewModel();
+=======
+        homeViewModel = new HomeViewModel();
+>>>>>>> master:GymCompanion/app/src/main/java/se/chalmers/group22/gymcompanion/View/Home/HomeActivity.java
 
         FragmentTransaction transaction = fm.beginTransaction();
 
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements IView {
     }
 
     public String getScheduledRoutineName(){
-        return mainViewModel.getScheduledRoutineName();
+        return homeViewModel.getScheduledRoutineName();
     }
 
     public void goToProgress(View view) {
@@ -72,5 +75,11 @@ public class MainActivity extends AppCompatActivity implements IView {
         transaction.show(fragmentHome);
         transaction.commit();
     }
+
+    public HomeViewModel getViewModel(){
+        return homeViewModel;
+    }
+
+    
 }
 

@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 public class User implements Serializable {
@@ -116,4 +117,48 @@ public class User implements Serializable {
     }
 
 
+    private Calendar getTodaysDate(){
+        return Calendar.getInstance();
+    }
+
+    public String getTodaysRoutineName(){
+        return schedule.getRoutineNameFromDay(getTodaysDate());
+    }
+
+    public Routine getTodaysRoutine(){
+        return schedule.getRoutineFromDay(getTodaysDate());
+    }
+
+
+    public Routine getFinishedRoutine() {
+        return schedule.getLatestFinishedRoutine();
+    }
+
+    public ISchedule getSchedule(){
+        return schedule;
+    }
+
+    public String getToday(){
+        return schedule.getToday();
+    }
+
+    public Map<Calendar, Routine> getRoutineSchedule(){
+        return schedule.getSchedule();
+    }
+
+    public String getRoutineNameOnDate(int year, int month, int day){
+        return schedule.getRoutineNameFromDay(year, month, day);
+    }
+
+    public int getYearToday() {
+        return schedule.getYearToday();
+    }
+
+    public int getMonthToday() {
+        return schedule.getMonthToday();
+    }
+
+    public int getDayToday() {
+        return schedule.getDayToday();
+    }
 }

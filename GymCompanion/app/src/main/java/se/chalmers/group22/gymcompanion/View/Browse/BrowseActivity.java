@@ -1,7 +1,12 @@
 package se.chalmers.group22.gymcompanion.View.Browse;
 
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.view.View;
+=======
+import android.widget.SearchView;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
+>>>>>>> master
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.R;
 import android.support.v4.app.Fragment;
@@ -10,7 +15,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
-public class BrowseActivity extends AppCompatActivity {
+public class BrowseActivity extends BaseActivity {
 
     /** pageIndex
      * @value 1
@@ -22,7 +27,11 @@ public class BrowseActivity extends AppCompatActivity {
     private final Fragment navigationFragment = new NavigationFragment();
     private final FragmentManager fm = getSupportFragmentManager();
 
+<<<<<<< HEAD
     BrowseViewModel browseViewModel;
+=======
+    private BrowseViewModel browseViewModel = new BrowseViewModel();
+>>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +53,7 @@ public class BrowseActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+<<<<<<< HEAD
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
@@ -62,5 +72,9 @@ public class BrowseActivity extends AppCompatActivity {
         transaction.hide(fragmentSelection);
         transaction.show(fragmentSelectedItem);
         transaction.commit();
+=======
+    public BrowseViewModel getViewModel(){
+        return browseViewModel;
+>>>>>>> master
     }
 }
