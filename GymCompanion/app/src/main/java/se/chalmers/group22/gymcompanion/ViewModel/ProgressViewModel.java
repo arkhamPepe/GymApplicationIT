@@ -24,19 +24,19 @@ public class ProgressViewModel extends BaseViewModel {
     }
 
     public int getAmountOfSetsInAE(){
-        return getModel().getAmountOfSetsInAE();
+        return getModel().getAmountOfSetsInActiveExercise();
     }
 
     public int getAmountOfRepsFromARExerciseSetWithIndex(int index){
-        return getModel().getAmountOfRepsFromAESetWithIndex(index);
+        return getModel().getAmountOfRepsFromActiveExerciseSetWithIndex(index);
     }
 
     public double getAmountWeightFromARExerciseSetWithIndex(int index){
-        return getModel().getAmountWeightFromAESetWithIndex(index);
+        return getModel().getAmountWeightFromActiveExerciseSetWithIndex(index);
     }
 
     public int getTimeInAE(){
-        return getModel().getTimeInAE();
+        return getModel().getTimeInActiveExercise();
     }
 
 }

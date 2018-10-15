@@ -61,8 +61,6 @@ public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
         kilograms.setText("Kilograms: " + child.getWeight());
         setNumber.setText("Set " + childPosition + ":");
         // TODO Auto-generated method stub
-
-        Log.d("Hello","Creating Child Views");
         return view;
     }
 
@@ -102,7 +100,6 @@ public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
         exerciseName.setText(group.getExerciseName());
         extraInfo.setText(group.getExtraInfo());
         // TODO Auto-generated method stub
-        Log.d("Hello","Creating Group Views");
         return view;
     }
 
