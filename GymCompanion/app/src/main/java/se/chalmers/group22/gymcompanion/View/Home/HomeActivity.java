@@ -27,12 +27,8 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD:GymCompanion/app/src/main/java/se/chalmers/group22/gymcompanion/View/Main/MainActivity.java
 
-        mainViewModel = new MainViewModel();
-=======
         homeViewModel = new HomeViewModel();
->>>>>>> master:GymCompanion/app/src/main/java/se/chalmers/group22/gymcompanion/View/Home/HomeActivity.java
 
         FragmentTransaction transaction = fm.beginTransaction();
 

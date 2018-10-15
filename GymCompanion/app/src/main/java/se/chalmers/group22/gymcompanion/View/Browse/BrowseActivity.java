@@ -1,18 +1,13 @@
 package se.chalmers.group22.gymcompanion.View.Browse;
 
 import android.os.Bundle;
-<<<<<<< HEAD
-import android.view.View;
-=======
-import android.widget.SearchView;
-import se.chalmers.group22.gymcompanion.View.BaseActivity;
->>>>>>> master
-import se.chalmers.group22.gymcompanion.View.NavigationFragment;
-import se.chalmers.group22.gymcompanion.R;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 public class BrowseActivity extends BaseActivity {
@@ -27,11 +22,7 @@ public class BrowseActivity extends BaseActivity {
     private final Fragment navigationFragment = new NavigationFragment();
     private final FragmentManager fm = getSupportFragmentManager();
 
-<<<<<<< HEAD
-    BrowseViewModel browseViewModel;
-=======
     private BrowseViewModel browseViewModel = new BrowseViewModel();
->>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +44,7 @@ public class BrowseActivity extends BaseActivity {
         transaction.commit();
     }
 
-<<<<<<< HEAD
+
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
@@ -66,15 +57,14 @@ public class BrowseActivity extends BaseActivity {
         transaction.commit();
     }
 
-    public void goToSelectedItem(View view){
+    public void goToSelectedItem(View view) {
         FragmentTransaction transaction = fm.beginTransaction();
 
         transaction.hide(fragmentSelection);
         transaction.show(fragmentSelectedItem);
         transaction.commit();
-=======
+    }
     public BrowseViewModel getViewModel(){
         return browseViewModel;
->>>>>>> master
     }
 }
