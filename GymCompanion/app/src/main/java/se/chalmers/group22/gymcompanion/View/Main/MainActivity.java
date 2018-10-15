@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements IView {
         return mainViewModel.getScheduledRoutineName();
     }
 
-
     public void goToProgress(View view) {
         Intent intent = new Intent(this, ProgressActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |

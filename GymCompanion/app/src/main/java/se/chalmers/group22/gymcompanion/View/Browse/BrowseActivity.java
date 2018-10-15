@@ -8,20 +8,28 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 public class BrowseActivity extends AppCompatActivity {
 
-    public static final int index = 1;
-    final Fragment fragmentStart = new BrowseStartFragment();
-    final Fragment fragmentSelection = new BrowseSelectionFragment();
-    final Fragment fragmentSelectedItem = new BrowseSelectedItemFragment();
-    final Fragment navigationFragment = new NavigationFragment();
-    final FragmentManager fm = getSupportFragmentManager();
+    /** pageIndex
+     * @value 1
+     * */
+    private static final int index = 1;
+    private final Fragment fragmentStart = new BrowseStartFragment();
+    private final Fragment fragmentSelection = new BrowseSelectionFragment();
+    private final Fragment fragmentSelectedItem = new BrowseSelectedItemFragment();
+    private final Fragment navigationFragment = new NavigationFragment();
+    private final FragmentManager fm = getSupportFragmentManager();
+
+    BrowseViewModel browseViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
+
+        browseViewModel = new BrowseViewModel();
 
         //Sends the activity index to NavigationFragment via Bundle
         Bundle navBundle = new Bundle();
