@@ -2,13 +2,11 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 public class User implements Serializable {
@@ -18,6 +16,9 @@ public class User implements Serializable {
 
     @Getter(AccessLevel.NONE)
     private List<Routine> routines;
+
+    @Getter(AccessLevel.NONE)
+    private Map<Calendar, Routine> completedRoutines;
 
 
     private String name;
@@ -66,6 +67,11 @@ public class User implements Serializable {
         return new ArrayList<>(routines);
     }
 
+    // Defensive Copy
+    public Map<Calendar, Routine> getCompletedRoutinesKeySet(){
+        return new HashMap<Calendar, Routine>(completedRoutines);
+    }
+
     public void addFriend(User friend){
         friends.add(friend);
     }
@@ -90,6 +96,7 @@ public class User implements Serializable {
     }
 
     public void endActiveRoutine(){
+        completedRoutines.put(getTodaysDate(), activeRoutine);
         activeRoutine = null;
         isRoutineActive = false;
     }
@@ -130,6 +137,17 @@ public class User implements Serializable {
     }
 
     public Routine getFinishedRoutine(){
-        return schedule.getLatestFinishedRoutine();
+        Calendar today = Calendar.getInstance();
+        for(Calendar date : completedRoutines.keySet()){
+            if( sameDay(date, today) ){
+                return completedRoutines.get(date);
+            }
+        }
+        return null;
+    }
+
+    private boolean sameDay(Calendar date1, Calendar date2){
+        return  date1.get(Calendar.DAY_OF_YEAR) == date2.get(Calendar.DAY_OF_YEAR) &&
+                date1.get(Calendar.YEAR) == date2.get(Calendar.YEAR);
     }
 }
