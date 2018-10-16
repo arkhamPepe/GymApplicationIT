@@ -2,8 +2,10 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import android.content.Context;
 import android.util.Log;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.io.*;
+import java.util.List;
 
 public class LocalDatabase {
     private static final String FILENAME = "database.txt";
@@ -11,7 +13,11 @@ public class LocalDatabase {
     private static LocalDatabase localDatabase;
     private static Context context;
 
+    private Parser parser;
+
     private LocalDatabase(){
+        parser = new Parser();
+        parser.parseJson();
     }
 
     public static LocalDatabase getInstance(){
@@ -59,5 +65,13 @@ public class LocalDatabase {
 
 
         return loadedUser;
+    }
+
+    public List<Exercise> loadTotalExercises(){
+        return parser.getExercises();
+    }
+
+    public List<Routine> loadTotalRoutines(){
+        return parser.getRoutines();
     }
 }

@@ -2,10 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Before;
 import org.junit.Test;
-import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import java.util.List;
 
