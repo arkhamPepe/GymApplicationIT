@@ -30,14 +30,14 @@
             android:layout_centerHorizontal="true"
             android:onClick="goToPickRoutine" android:background="@color/DefaultColour"
             android:textColor="@color/white" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="123dp"/>
+            android:layout_marginBottom="136dp"/>
 
     <TextView
             android:text="Routine:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Schedule"
-            android:layout_marginBottom="71dp"
+            android:layout_marginBottom="97dp"
             android:layout_alignParentBottom="true"
             android:textSize="24sp" android:textColor="@color/colorPrimaryDark"
             android:layout_alignStart="@+id/calendarSchedule"/>
