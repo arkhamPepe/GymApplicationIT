@@ -86,5 +86,13 @@
     "description":"Very similar to the Elliptical",
     "intensity":"MEDIUM",
     "timespent": 20
+  },
+  {
+    "name":"Running",
+    "difficulty": 2.0,
+    "muscleGroups":["CALVES", "HAMSTRING", "QUADS", "GLUTES"],
+    "description":"Old fashioned running",
+    "intensity":"MEDIUM",
+    "timespent": 30
   }
 ]
