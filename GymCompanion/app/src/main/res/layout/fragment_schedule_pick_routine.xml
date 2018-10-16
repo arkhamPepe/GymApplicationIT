@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" android:background="@color/colorAccent">
 
     <Button
-            android:text="go back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:text="Back"
+            android:layout_width="50dp"
+            android:layout_height="30dp" android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:id="@+id/btnSchedulePickBack" android:onClick="goToStart"/>
+            android:id="@+id/btnSchedulePickBack" android:onClick="goToStart"
+            android:background="@color/DefaultColour"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"/>
     <TextView
             android:text="Select routine:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtSchedulePickTitle" android:layout_centerHorizontal="true"
-            android:layout_alignBottom="@+id/btnSchedulePickBack" android:textSize="24sp"/>
+            android:layout_alignBottom="@+id/btnSchedulePickBack" android:textSize="24sp"
+            android:textColor="@color/colorPrimaryDark"/>
 
-    <ListView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:id="@+id/listviewSchedulePick"
-            android:layout_below="@+id/btnSchedulePickBack"/>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnSchedulePickBack" android:background="@color/DefaultColour">
+
+        <ListView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginTop="1dp"
+                android:id="@+id/listviewSchedulePick"
+                android:background="@color/DefaultColour"/>
+
+    </RelativeLayout>
+
 </RelativeLayout>

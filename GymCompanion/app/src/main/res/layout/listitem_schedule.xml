@@ -4,7 +4,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="60dp" android:background="@color/colorAccent">
 
     <TextView
             android:layout_width="wrap_content"
@@ -14,9 +14,8 @@
             android:text="Routine Name"
             android:textSize="24sp"
             android:layout_marginStart="10dp"
-            android:textColor="@color/blackColour"
+            android:textColor="@color/colorPrimaryDark"
     />
-
 
 
     <TextView
@@ -27,7 +26,7 @@
             android:layout_below="@+id/txtSchedulePickRoutineName"
             android:textSize="12sp"
             android:layout_alignStart="@+id/txtSchedulePickRoutineName"
-    />
+            android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -37,7 +36,7 @@
             android:text="8"
             android:layout_toEndOf="@+id/txtSchedulePickAmountPrefix"
             android:layout_below="@+id/txtSchedulePickRoutineName"
-    />
+            android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -47,7 +46,7 @@
             android:layout_below="@+id/txtSchedulePickRoutineName"
             android:textSize="12sp"
             android:layout_toEndOf="@+id/txtSchedulePickAmountNumber"
-    />
+            android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -57,5 +56,5 @@
             android:layout_below="@+id/txtSchedulePickRoutineName"
             android:textSize="12sp"
             android:layout_toRightOf="@+id/txtSchedulePickDifficultyPrefix"
-    />
+            android:textColor="@color/colorPrimaryDark"/>
 </RelativeLayout>
