@@ -6,5 +6,37 @@
     "description":"Running like a bawz",
     "intensity":"MEDIUM",
     "timespent": 30
+  },
+  {
+    "name":"Treadmill Sprint",
+    "difficulty": 2.0,
+    "muscleGroups":["CALVES", "GLUTES", "HAMSTRING", "QUADS"],
+    "description":"Run fast on a treadmill",
+    "intensity":"HIGH",
+    "timespent": 5
+  },
+  {
+    "name":"Treadmill Jog",
+    "difficulty": 1.0,
+    "muscleGroups":["CALVES", "GLUTES", "HAMSTRING", "QUADS"],
+    "description":"Jog on a treadmill",
+    "intensity":"MEDIUM",
+    "timespent": 20
+  },
+  {
+    "name":"Stair Stepper Climb",
+    "difficulty": 3.0,
+    "muscleGroups":["CALVES", "GLUTES", "HAMSTRING", "QUADS"],
+    "description":"Walk on a stair stepper",
+    "intensity":"HIGH",
+    "timespent": 10
+  },
+  {
+    "name":"Bicycle Machine",
+    "difficulty": 2.0,
+    "muscleGroups":["QUADS", "GLUTES", "HAMSTRING"],
+    "description":"Position yourself on a bicycle machine. Keep a steady speed throughout the exercise.",
+    "intensity":"MEDIUM",
+    "timespent": 15
   }
 ]
