@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import com.google.gson.*;
+import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
@@ -11,13 +12,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class Parser {
 
-    public List<StrengthExercise> parseStrengthExercises() {
+    private List<Exercise> exercises;
+    private List<Routine> routines;
+
+    // Must be called before any getters are used
+    public void parseJson(){
+        exercises = parseExercises();
+        routines = parseRoutines();
+    }
+
+    private List<StrengthExercise> parseStrengthExercises() {
         return parseExerciseHelper("strength_exercises.json", StrengthExercise.class);
     }
 
-    public List<CardioExercise> parseCardioExercises(){
+    private List<CardioExercise> parseCardioExercises(){
         return parseExerciseHelper("cardio_exercises.json", CardioExercise.class);
     }
 
@@ -35,10 +46,15 @@ public class Parser {
         return exercises;
     }
 
-    public List<Routine> parseRoutines(){
-        List<Exercise> totalExercises = new ArrayList<>();
-        totalExercises.addAll(parseCardioExercises());
-        totalExercises.addAll(parseStrengthExercises());
+    private List<Exercise> parseExercises(){
+        List<Exercise> exerciseList = new ArrayList<>();
+        exerciseList.addAll(parseStrengthExercises());
+        exerciseList.addAll(parseCardioExercises());
+        return exerciseList;
+    }
+
+    private List<Routine> parseRoutines(){
+        List<Exercise> totalExercises = exercises;
 
         List<Routine> routines = new ArrayList<>();
         String stringJSON = readFile("routines.json");
