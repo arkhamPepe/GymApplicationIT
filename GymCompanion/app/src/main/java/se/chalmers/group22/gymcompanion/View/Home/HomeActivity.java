@@ -52,7 +52,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     public String getScheduledRoutineName(){
-        return homeViewModel.getScheduledRoutineName();
+        return homeViewModel.getTodaysRoutineName();
     }
 
 
