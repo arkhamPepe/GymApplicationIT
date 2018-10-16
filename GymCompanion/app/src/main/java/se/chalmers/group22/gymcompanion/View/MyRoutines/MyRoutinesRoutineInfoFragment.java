@@ -17,10 +17,6 @@ import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 public class MyRoutinesRoutineInfoFragment extends Fragment {
 
     //variables for fragment_routine_routine_info.xml
-    private TextView textViewRoutineName;
-    private TextView textViewAmountOfExercises;
-    private ListView exerciseList;
-    private Button addExercise;
     private MyRoutinesViewModel viewModel;
 
     public static MyRoutinesRoutineInfoFragment newInstance() {
@@ -48,12 +44,14 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
         ListView listView = getView().findViewById(R.id.listViewExercise);
         listView.setAdapter(adapter);
 
-        textViewRoutineName = getView().findViewById(R.id.textViewMyRoutinesInfoRoutineName);
-        textViewAmountOfExercises = getView().findViewById(R.id.textViewAmountOfExercises);
-        //exerciseList = getView().findViewById(R.id.listViewExercise);
-        addExercise = getView().findViewById(R.id.addExercise);
-        textViewRoutineName.setText(viewModel.getSelectedRoutineName());
-        //textViewAmountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
+        update();
     }
 
+    public void update(){
+        TextView textViewRoutineName = getView().findViewById(R.id.textViewMyRoutinesInfoRoutineName);
+        TextView textViewAmountOfExercises = getView().findViewById(R.id.textViewRoutineInfoAmountOfExercises);
+        Button addExercise = getView().findViewById(R.id.addExercise);
+        textViewRoutineName.setText(viewModel.getSelectedRoutineName());
+        textViewAmountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
+    }
 }

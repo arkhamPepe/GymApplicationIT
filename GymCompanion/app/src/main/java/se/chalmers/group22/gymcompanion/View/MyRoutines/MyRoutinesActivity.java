@@ -32,7 +32,7 @@ public class MyRoutinesActivity extends BaseActivity {
     final FragmentManager fm = getSupportFragmentManager();
 
     private final Fragment fragmentStart = new MyRoutinesStartFragment();
-    private final Fragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
+    private final MyRoutinesRoutineInfoFragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
     private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
     private Fragment active = fragmentStart;
@@ -91,15 +91,13 @@ public class MyRoutinesActivity extends BaseActivity {
         routineName.setText(viewModel.getSelectedRoutineName());
     }
 
-    public void setAmountOfExercises(View view){
-        amountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
-    }
-
     public void onClickEnterRoutine(int position){
         viewModel.setSelectedRoutineIndex(position);
+        fragmentRoutineInfo.update();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);
         transaction.commit();
+
     }
 }

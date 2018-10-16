@@ -25,10 +25,6 @@ public class MyRoutinesViewModel extends BaseViewModel {
         routines.add(routine2);
     }
 
-    /*public List<Routine> getUserRoutines(){
-
-    }*/
-
     public void createRoutine(){
         getModel().createRoutine();
     }
@@ -37,8 +33,8 @@ public class MyRoutinesViewModel extends BaseViewModel {
         //getModel().addExercise();
     }
 
-    public int getSelectedRoutineExerciseAmount(){
-        return routines.get(selectedRoutineIndex).getExercises().size();
+    public String getSelectedRoutineExerciseAmount(){
+        return Integer.toString(routines.get(selectedRoutineIndex).getExercises().size());
     }
 
     public List<Routine> getRoutines(){
