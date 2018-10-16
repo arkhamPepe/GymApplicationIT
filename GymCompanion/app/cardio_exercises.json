@@ -1,9 +1,9 @@
 [
   {
-    "name":"Running Boi",
+    "name":"Spinning Machine",
     "difficulty": 4.3,
     "muscleGroups":["CALVES"],
-    "description":"Running like a bawz",
+    "description":"Cycling on a spinning machine",
     "intensity":"MEDIUM",
     "timespent": 30
   },
@@ -35,8 +35,24 @@
     "name":"Bicycle Machine",
     "difficulty": 2.0,
     "muscleGroups":["QUADS", "GLUTES", "HAMSTRING"],
-    "description":"Position yourself on a bicycle machine. Keep a steady speed throughout the exercise.",
+    "description":"Bike on a bicycle machine",
     "intensity":"MEDIUM",
     "timespent": 15
+  },
+  {
+    "name":"Rowing",
+    "difficulty": 3.0,
+    "muscleGroups":["QUADS", "GLUTES", "LOWER_BACK", "BICEPS"],
+    "description":"Position yourself on a bicycle machine",
+    "intensity":"HIGH",
+    "timespent": 10
+  },
+  {
+    "name":"Treadmill Walk",
+    "difficulty": 1.0,
+    "muscleGroups":["CALVES", "QUADS", "GLUTES", "HAMSTRING"],
+    "description":"Walk on a treadmill",
+    "intensity":"LOW",
+    "timespent": 10
   }
 ]
