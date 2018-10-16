@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#7a8f9c</color>
+    <color name="colorPrimary">#7a8fbc</color>
     <color name="colorPrimaryDark">#152b42</color>
-    <color name="colorAccent">#b1b1b1</color>
+    <color name="colorAccent">#d1d1d1</color>
     <color name="DefaultColour">#004477</color>
 
     <color name="startButtonGreenColour">#32CD32</color>
