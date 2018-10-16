@@ -1,0 +1,22 @@
+[
+  {
+    "name":"Bench Press",
+    "difficulty":5,
+    "muscleGroups":["BICEPS"],
+    "description":"A very stronk exercise",
+    "sets":3,
+    "repetitions":[10, 10, 8],
+    "kilograms":[60, 60, 70],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Triceps Lift",
+    "difficulty":5,
+    "muscleGroups":["TRICEPS"],
+    "description":"Triceps is ez",
+    "sets":3,
+    "repetitions":[10, 12, 8],
+    "kilograms":[43, 40, 60],
+    "intensity":"MEDIUM"
+  }
+]

@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.io.Serializable;
@@ -15,6 +16,9 @@ public class User implements Serializable {
 
     @Getter(AccessLevel.NONE)
     private List<Routine> routines;
+
+    @Getter(AccessLevel.NONE)
+    private Map<Calendar, Routine> completedRoutines;
 
 
     private String name;
@@ -38,6 +42,7 @@ public class User implements Serializable {
         this.isBeginner = isBeginner;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
+        this.completedRoutines = new HashMap<>();
     }
 
     public User(String name, String gym, int age, int weight, boolean isBeginner){
@@ -48,6 +53,7 @@ public class User implements Serializable {
         this.isBeginner = isBeginner;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
+        this.completedRoutines = new HashMap<>();
     }
 
     // Defensive copy
@@ -58,6 +64,11 @@ public class User implements Serializable {
     // Defensive copy
     public List<Routine> getRoutines() {
         return new ArrayList<>(routines);
+    }
+
+    // Defensive Copy
+    public Map<Calendar, Routine> getCompletedRoutinesKeySet(){
+        return new HashMap<Calendar, Routine>(completedRoutines);
     }
 
     public void addFriend(User friend){
