@@ -110,16 +110,6 @@
     "intensity":"LOW"
   },
   {
-    "name":"Triceps Lift",
-    "difficulty":5,
-    "muscleGroups":["TRICEPS"],
-    "description":"Triceps is ez",
-    "sets":3,
-    "repetitions":[8, 10, 12],
-    "kilograms":[10, 20, 30],
-    "intensity":"MEDIUM"
-  },
-  {
     "name":"Squats",
     "difficulty":3,
     "muscleGroups":["GLUTES"],
