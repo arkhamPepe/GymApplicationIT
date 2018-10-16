@@ -88,11 +88,11 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void setRoutineName(View view){
-        routineName.setText(viewModel.setRoutineName());
+        routineName.setText(viewModel.getSelectedRoutineName());
     }
 
     public void setAmountOfExercises(View view){
-        amountOfExercises.setText(viewModel.setAmountOfExercises());
+        amountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
     }
 
     public void onClickEnterRoutine(int position){

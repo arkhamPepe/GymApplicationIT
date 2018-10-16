@@ -8,25 +8,26 @@
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_alignParentStart="true"
-            android:id="@+id/exerciseNameList" android:layout_centerVertical="true" android:layout_marginStart="10dp"
+            android:id="@+id/textViewExerciseName" android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
             android:textColor="@color/blackColour"
-            android:textSize="24sp" tools:text="RoutineName"/>
+            android:textSize="20sp" tools:text="ExerciseName" android:layout_marginBottom="20dp"/>
     <TextView
             android:text="Amount"
-            android:layout_width="80dp"
+            android:layout_width="80sp"
             android:textColor="@color/blackColour"
             android:layout_height="wrap_content"
-            android:id="@+id/amountOfSetsList"
-            android:textSize="12sp"
-            android:layout_alignParentStart="true" android:layout_marginStart="19dp"
-            android:layout_alignParentBottom="true"/>
+            android:id="@+id/textViewAmountOfSets"
+            android:textSize="20sp"
+            android:layout_centerVertical="true" android:layout_alignParentEnd="true" android:layout_marginEnd="80dp"
+            android:layout_marginBottom="20dp"/>
     <TextView
-            android:text="exercises"
+            android:text="Sets"
             android:textColor="@color/blackColour"
-            android:textSize="12sp"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
-            android:layout_toRightOf="@id/amountOfSetsList"
-            android:layout_marginStart="71dp"/>
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/textViewAmountOfSets" android:layout_marginStart="-80dp"
+            android:layout_marginBottom="20dp"/>
 </RelativeLayout>

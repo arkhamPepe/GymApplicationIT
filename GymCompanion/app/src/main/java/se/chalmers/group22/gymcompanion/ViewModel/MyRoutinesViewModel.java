@@ -52,4 +52,8 @@ public class MyRoutinesViewModel extends BaseViewModel {
     public String getSelectedRoutineName(){
         return  routines.get(selectedRoutineIndex).getName();
     }
+
+    public List<Exercise> getExercises(){
+        return routines.get(selectedRoutineIndex).getExercises();
+    }
 }
