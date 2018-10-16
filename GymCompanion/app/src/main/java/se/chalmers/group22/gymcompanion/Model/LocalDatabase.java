@@ -32,7 +32,8 @@ public class LocalDatabase {
         FileOutputStream fos;
         ObjectOutputStream os;
         try{
-            fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            fos = new FileOutputStream("user.ser");
+            //fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             os = new ObjectOutputStream(fos);
             os.writeObject(user);
             Log.i("LocalDataBase", user.toString());
@@ -54,7 +55,8 @@ public class LocalDatabase {
         FileInputStream fis;
         ObjectInputStream is;
         try{
-            fis = context.openFileInput(FILENAME);
+            //fis = context.openFileInput(FILENAME);
+            fis = new FileInputStream("user.ser");
             is = new ObjectInputStream(fis);
             loadedUser = (User) is.readObject();
             is.close();
