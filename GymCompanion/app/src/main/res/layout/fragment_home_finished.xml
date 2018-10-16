@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent" android:background="@color/colorAccent">
 
 
     <TextView
@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewExercisesCompleted"
             android:layout_alignTop="@+id/textView9"
-            android:layout_alignStart="@+id/textViewTimeSpent"/>
+            android:layout_alignStart="@+id/textViewTimeSpent" android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:text="8"
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewTotalExercises"
             android:layout_alignTop="@+id/textView3"
-            android:layout_alignStart="@+id/textViewTimeSpent"/>
+            android:layout_alignStart="@+id/textViewTimeSpent" android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:text="Workout Finished!"
@@ -31,7 +31,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="40dp"
             android:textSize="30sp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true" android:textColor="@color/colorPrimaryDark"/>
 
     <Button
             android:text="Back to Home"
@@ -39,9 +39,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnGotoHome"
             android:onClick="goToHome"
+            android:textColor="@color/white"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="70dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true" android:background="@color/DefaultColour"/>
 
     <TextView
             android:text="Time Spent:"
@@ -52,7 +53,7 @@
             android:id="@+id/textView1"
             android:textSize="18sp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="100dp"/>
+            android:layout_marginStart="100dp" android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:text="Exercises Completed:"
@@ -62,7 +63,7 @@
             android:textSize="18sp"
             android:layout_alignParentTop="true"
             android:layout_marginTop="220dp"
-            android:layout_alignEnd="@+id/textView1"/>
+            android:layout_alignEnd="@+id/textView1" android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:text="Total Exercises:"
@@ -72,7 +73,7 @@
             android:layout_marginTop="170dp"
             android:id="@+id/textView3"
             android:textSize="18sp"
-            android:layout_alignEnd="@+id/textView1"/>
+            android:layout_alignEnd="@+id/textView1" android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:text="50"
@@ -82,6 +83,6 @@
             android:id="@+id/textViewTimeSpent"
             android:layout_alignTop="@+id/textView1"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="109dp"/>
+            android:layout_marginEnd="109dp" android:textColor="@color/colorPrimaryDark"/>
 
 </RelativeLayout>

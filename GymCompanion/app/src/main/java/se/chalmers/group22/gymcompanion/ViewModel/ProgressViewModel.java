@@ -1,11 +1,42 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
-import android.arch.lifecycle.ViewModel;
-
 public class ProgressViewModel extends BaseViewModel {
 
     public String getScheduledRoutineName(){
         return null;
+    }
+
+    public void setActiveExercise(int i){
+        getModel().setActiveExerciseInActiveRoutine(i);
+    }
+
+
+    public int getAmountOfExercisesInAR(){
+        return getModel().getAmountOfExercisesInAR();
+    }
+
+    public String getAEName(){
+        return getModel().getActiveExerciseName();
+    }
+
+    public boolean isExerciseInARStrengthExercise(){
+        return getModel().isActiveExerciseStrengthExercise();
+    }
+
+    public int getAmountOfSetsInAE(){
+        return getModel().getAmountOfSetsInActiveExercise();
+    }
+
+    public int getAmountOfRepsFromARExerciseSetWithIndex(int index){
+        return getModel().getAmountOfRepsFromActiveExerciseSetWithIndex(index);
+    }
+
+    public double getAmountWeightFromARExerciseSetWithIndex(int index){
+        return getModel().getAmountWeightFromActiveExerciseSetWithIndex(index);
+    }
+
+    public int getTimeInActiveExercise(){
+        return getModel().getTimeInActiveExercise();
     }
 
 }

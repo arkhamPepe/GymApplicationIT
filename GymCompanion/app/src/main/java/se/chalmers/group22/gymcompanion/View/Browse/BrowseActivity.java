@@ -1,58 +1,92 @@
 package se.chalmers.group22.gymcompanion.View.Browse;
 
 import android.os.Bundle;
-import android.widget.SearchView;
-import se.chalmers.group22.gymcompanion.View.BaseActivity;
-import se.chalmers.group22.gymcompanion.View.NavigationFragment;
-import se.chalmers.group22.gymcompanion.R;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 public class BrowseActivity extends BaseActivity {
 
-    public static final int index = 1;
-    final Fragment fragmentStart = new BrowseStartFragment();
-    final Fragment navigationFragment = new NavigationFragment();
-    final FragmentManager fm = getSupportFragmentManager();
+    /** pageIndex
+     * @value 1
+     * */
+    private static final int index = 1;
+    private final Fragment fragmentStart = new BrowseStartFragment();
+    private final Fragment fragmentSelection = new BrowseSelectionFragment();
+    private final Fragment fragmentResult = new BrowseResultFragment();
+    private final Fragment navigationFragment = new NavigationFragment();
+    private final FragmentManager fm = getSupportFragmentManager();
 
-    private BrowseViewModel browseViewModel = new BrowseViewModel();
+    private BrowseViewModel browseViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
 
-
-        SearchView searchView = findViewById(R.id.searchBar);
-/*
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                browsePresenter.search(newText);
-                return false;
-            }
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                browsePresenter.search(query);
-                return false;
-            }
-        });*/
+        browseViewModel = new BrowseViewModel();
 
         //Sends the activity index to NavigationFragment via Bundle
-        Bundle bundle = new Bundle();
-        bundle.putInt("index", index);
-        navigationFragment.setArguments(bundle);
+        Bundle navBundle = new Bundle();
+        navBundle.putInt("index", index);
+        navigationFragment.setArguments(navBundle);
 
         FragmentTransaction transaction = fm.beginTransaction();
+        transaction.add(R.id.browse_container, fragmentResult, "3").hide(fragmentResult);
+        transaction.add(R.id.browse_container, fragmentSelection, "2").hide(fragmentSelection);
         transaction.add(R.id.browse_container, fragmentStart, "1");
         transaction.add(R.id.navigation, navigationFragment);
+        transaction.commit();
+    }
+
+    public void goToBrowseSelection(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        transaction.hide(fragmentStart);
+        transaction.show(fragmentSelection);
+        transaction.hide(fragmentResult);
+
+        int i = Integer.valueOf((String)view.getTag());
+        browseViewModel.setIndex(i);
+
+        fragmentSelection.onResume();
+
+        transaction.commit();
+    }
+
+    public void goToResult(View view) {
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        transaction.hide(fragmentStart);
+        transaction.hide(fragmentSelection);
+        transaction.show(fragmentResult);
+
+        String x = ((Button)view).getText().toString();
+        x = x.replace(" ", "_");
+        browseViewModel.setMuscleGroup(x);
+        fragmentResult.onResume();
+
+        transaction.commit();
+    }
+
+    public void goToStart(View view) {
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        transaction.show(fragmentStart);
+        transaction.hide(fragmentSelection);
+        transaction.hide(fragmentResult);
+        fragmentStart.onResume();
         transaction.commit();
     }
 
     public BrowseViewModel getViewModel(){
         return browseViewModel;
     }
+
 }

@@ -26,9 +26,8 @@ public class User implements Serializable {
     private int age;
     private int weight;
     private boolean isBeginner;
-    private boolean isRoutineActive;
 
-    private Routine activeRoutine;
+
     private StatisticsCalculator statCalc;
     private Schedule schedule;
 
@@ -41,7 +40,6 @@ public class User implements Serializable {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
         this.completedRoutines = new HashMap<>();
@@ -53,7 +51,6 @@ public class User implements Serializable {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
         this.completedRoutines = new HashMap<>();
@@ -90,29 +87,6 @@ public class User implements Serializable {
         routines.remove(routine);
     }
 
-    public void startRoutine(Routine routine){
-       /*TODO Start the routine for the current day*/
-        isRoutineActive = true;
-        activeRoutine = routine;
-        /*TODO redirect to "Workout in progress"-page*/
-    }
-
-    public void endActiveRoutine(){
-        completedRoutines.put(getTodaysDate(), activeRoutine);
-        activeRoutine = null;
-        isRoutineActive = false;
-    }
-
-    public void checkDay(){
-        Calendar today = Calendar.getInstance();
-        if (schedule.dayHasRoutine(today)){
-            startRoutine(schedule.getRoutineFromDay(today));
-        }
-        else {
-            /*TODO Direct the user to MR so it can create a new routine*/
-        }
-    }
-
     public void createRoutine(){
         routines.add(new Routine());
     }
@@ -125,31 +99,64 @@ public class User implements Serializable {
         routine.setDescription(description);
     }
 
-
     private Calendar getTodaysDate(){
         return Calendar.getInstance();
     }
 
     public String getTodaysRoutineName(){
-        return schedule.getRoutineNameFromDay(getTodaysDate());
+        return schedule.getRoutineNameFromDate(getTodaysDate());
     }
 
     public Routine getTodaysRoutine(){
         return schedule.getRoutineFromDay(getTodaysDate());
     }
 
-    public Routine getFinishedRoutine(){
-        Calendar today = Calendar.getInstance();
-        for(Calendar date : completedRoutines.keySet()){
-            if( sameDay(date, today) ){
-                return completedRoutines.get(date);
-            }
-        }
-        return null;
+    public boolean scheduleDayHasRoutine(Calendar date){
+        return schedule.dateHasRoutine(date);
     }
 
-    private boolean sameDay(Calendar date1, Calendar date2){
-        return  date1.get(Calendar.DAY_OF_YEAR) == date2.get(Calendar.DAY_OF_YEAR) &&
-                date1.get(Calendar.YEAR) == date2.get(Calendar.YEAR);
+    public Routine getScheduleRoutineFromDay(Calendar date){
+        return schedule.getRoutineFromDay(date);
     }
+
+    public Routine getFinishedRoutine() {
+        return schedule.getLatestFinishedRoutine();
+    }
+
+    public ISchedule getSchedule(){
+        return schedule;
+    }
+
+    public String getToday(){
+        return schedule.getToday();
+    }
+
+    public Map<Calendar, Routine> getRoutineSchedule(){
+        return schedule.getSchedule();
+    }
+
+    public String getRoutineNameOnDate(int year, int day){
+        return schedule.getRoutineNameFromDate(year, day);
+    }
+
+    public int getYearToday() {
+        return schedule.getYearToday();
+    }
+
+    public int getMonthToday() {
+        return schedule.getMonthToday();
+    }
+
+    public int getDayToday() {
+        return schedule.getDayOfMonthToday();
+    }
+
+    public Set<Calendar> getScheduleKeySet(){
+        return schedule.getScheduleKeySet();
+    }
+
+    public Routine getRoutineFromDay(Calendar day){
+        return schedule.getRoutineFromDay(day);
+    }
+
 }

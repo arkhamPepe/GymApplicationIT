@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<RelativeLayout android:layout_height="match_parent"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent">
+    <!--<ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listviewSchedule">
+    </ListView>-->
 
-</android.support.constraint.ConstraintLayout>
+    <CalendarView
+            android:id="@+id/calendarSchedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:text="date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtScheduleDate"
+            android:layout_below="@+id/calendarSchedule"
+            android:layout_centerHorizontal="true"
+            android:textSize="24sp"/>
+
+    <Button
+            android:text="Book session"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnScheduleBook"
+            android:layout_below="@+id/txtScheduleDate"
+            android:layout_centerHorizontal="true"
+            android:onClick="goToPickRoutine"/>
+
+    <TextView
+            android:text="Routine:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Schedule"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="150dp"
+            android:layout_alignParentBottom="true"
+            android:textSize="24sp"/>
+    <TextView
+            android:text="[selected routine]"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtScheduleRoutineName"
+            android:textSize="20sp"
+            android:layout_alignBottom="@+id/Schedule"
+            android:layout_toEndOf="@+id/Schedule"/>
+</RelativeLayout>

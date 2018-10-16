@@ -49,6 +49,8 @@ public class UserTest {
         user = new User(friends,routines,userName,gym,age,weight,isBeginner);
     }
 
+    //TODO MOVE THESE TESTS TO GYMCOMPANION
+/*
     @Test
     public void startRoutineTest(){
         user.startRoutine(user.getRoutines().get(0));
@@ -68,7 +70,7 @@ public class UserTest {
         user.endActiveRoutine();
         assertNull(user.getActiveRoutine());
     }
-
+*/
     @Test
     public void createRoutineTest(){
         user.createRoutine();

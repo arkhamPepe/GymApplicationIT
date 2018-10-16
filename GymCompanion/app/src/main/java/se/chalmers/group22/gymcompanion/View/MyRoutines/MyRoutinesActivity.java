@@ -4,24 +4,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import se.chalmers.group22.gymcompanion.Model.DataHandler;
-import se.chalmers.group22.gymcompanion.Model.LocalDatabase;
-import se.chalmers.group22.gymcompanion.Model.Routine;
-import se.chalmers.group22.gymcompanion.Model.User;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
-import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
-
-import java.util.List;
 
 public class MyRoutinesActivity extends BaseActivity {
 
@@ -36,7 +25,6 @@ public class MyRoutinesActivity extends BaseActivity {
     private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
     private Fragment active = fragmentStart;
-    private DataHandler dataHandler = DataHandler.getInstance();
 
     //Variables for listitem_my_routines.xml
     private TextView routineName;
@@ -71,9 +59,9 @@ public class MyRoutinesActivity extends BaseActivity {
         transaction.commit();
     }
 
-    public void createRoutine(View view){
+    /*public void createRoutine(View view){
         dataHandler.createRoutine();
-    }
+    }*/
 
     public void addExercise(View view){
 

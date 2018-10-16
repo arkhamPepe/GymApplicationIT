@@ -43,6 +43,11 @@ public abstract class Exercise implements ISortable, Serializable {
         this.difficulty = difficulty;
     }
 
+    //For testing
+    public Exercise(String name){
+        this.name = name;
+    }
+
     //FOR TESTING
     public Exercise(List<MUSCLE_GROUP> muscleGroups, double difficulty){
         this.muscleGroups = muscleGroups;
