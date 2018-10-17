@@ -5,9 +5,9 @@
     "muscleGroups":["BICEPS"],
     "description":"A very stronk exercise",
     "sets":3,
-    "repetitions":[10, 10, 8],
-    "kilograms":[60, 60, 70],
-    "intensity":"LOW"
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
   },
   {
     "name":"Triceps Lift",
@@ -15,8 +15,149 @@
     "muscleGroups":["TRICEPS"],
     "description":"Triceps is ez",
     "sets":3,
-    "repetitions":[10, 12, 8],
-    "kilograms":[43, 40, 60],
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Wide Push-ups",
+    "difficulty":1,
+    "muscleGroups":["CHEST"],
+    "description":"Push-ups performed with your arms far from each other",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Small Push-ups",
+    "difficulty":3,
+    "muscleGroups":["BICEPS"],
+    "description":"Push-ups performed with your arms close together",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Sit-ups",
+    "difficulty":2,
+    "muscleGroups":["ABS"],
+    "description":"Normal sit-ups performed on the ground",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Dips",
+    "difficulty":5,
+    "muscleGroups":["CHEST", "TRICEPS"],
+    "description":"Dips performed with your own body weight or additional weight ",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Pull-ups",
+    "difficulty":4,
+    "muscleGroups":["BACK","SHOULDERS","BICEPS"],
+    "description":"Pull-ups performed with your own body weight",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Leg press",
+    "difficulty":3,
+    "muscleGroups":["QUADS"],
+    "description":"One of the most standard leg exercises",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Leg Curls",
+    "difficulty":3,
+    "muscleGroups":["HAMSTRINGS"],
+    "description":"One of the most standard leg exercises",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Skull Crushers",
+    "difficulty":7,
+    "muscleGroups":["TRICEPS"],
+    "description":"Not as dangerous as the name makes you think",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Bent over Y",
+    "difficulty":4,
+    "muscleGroups":["TRAPS"],
+    "description":"Can be used as a warmup sans weight or as an proper exercise with weights",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Squats",
+    "difficulty":3,
+    "muscleGroups":["GLUTES"],
+    "description":"One of the most standard glutes exercises",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Double-leg Calf Raise",
+    "difficulty":5,
+    "muscleGroups":["CALVES"],
+    "description":"One of the most standard calf exercises",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Single-leg Calf Raise",
+    "difficulty":6,
+    "muscleGroups":["CALVES"],
+    "description":"A twist on one of the more standard calf exercises",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Hyperextentions",
+    "difficulty":3,
+    "muscleGroups":["HAMSTRINGS"],
+    "description":"a fun and easy to perform exercise",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Barbell rollout",
+    "difficulty":8,
+    "muscleGroups":["ABS"],
+    "description":"Caution is advised when performing this exercise",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   }
+
 ]
