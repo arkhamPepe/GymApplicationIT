@@ -7,33 +7,20 @@
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
-<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:id="@+id/routineName"
             android:textColor="@color/blackColour"
             android:textSize="24sp" tools:text="RoutineName" android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true" android:layout_marginStart="30dp"
+
             android:layout_marginBottom="10dp"/>
 
-=======
-            android:layout_height="wrap_content" android:layout_alignParentStart="true"
-            android:id="@+id/routineName" android:layout_centerVertical="true" android:layout_marginStart="10dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="24sp" tools:text="RoutineName"/>
-
-    <TextView
-            android:id="@+id/amountOfExercises"
-            android:textSize="12sp"
-            android:layout_alignParentStart="true" android:layout_marginStart="19dp"
-            android:layout_alignParentBottom="true" android:textColor="@color/colorPrimaryDark"/>
->>>>>>> master
     <ImageView
             android:layout_width="13dp"
             android:layout_height="11dp" app:srcCompat="@android:drawable/arrow_up_float"
             android:layout_alignParentEnd="true" android:layout_alignParentBottom="true" android:id="@+id/SlideButton"
             android:layout_marginBottom="20dp" android:rotation="90" android:background="@color/DefaultColour"/>
     <TextView
-<<<<<<< HEAD
             android:id="@+id/listItemAmountOfExercises"
             android:textSize="20sp"
             android:textColor="@color/blackColour"
@@ -42,15 +29,9 @@
             android:layout_marginBottom="10sp"/>
     <TextView
             android:text="Exercises"
-=======
-            android:text="exercises"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="12sp"
->>>>>>> master
-            android:layout_width="wrap_content"
             android:textColor="@color/blackColour"
             android:textSize="20sp"
-            android:layout_height="wrap_content" android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true" android:id="@+id/textView" android:layout_marginBottom="10dp"
-            android:layout_marginEnd="30dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_marginEnd="39dp"
+            android:layout_centerVertical="true" android:id="@+id/textView"/>
 </RelativeLayout>

@@ -59,7 +59,6 @@ public class MyRoutinesActivity extends BaseActivity {
         transaction.commit();
     }
 
-<<<<<<< HEAD
     public void onClickCreateRoutine(View view){
         viewModel.createRoutine();
         FragmentTransaction transaction = fm.beginTransaction();
@@ -67,11 +66,9 @@ public class MyRoutinesActivity extends BaseActivity {
         transaction.hide(fragmentStart);
         transaction.commit();
     }
-=======
     /*public void createRoutine(View view){
         dataHandler.createRoutine();
     }*/
->>>>>>> master
 
     public void onClickAddExercise(View view){
         //viewModel.addExercise();
