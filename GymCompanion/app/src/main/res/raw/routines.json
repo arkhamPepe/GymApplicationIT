@@ -5,5 +5,43 @@
       "Bench Press",
       "Triceps Lift"
     ]
+  },
+  {
+    "name":"Treadmill Fun",
+    "exercises":[
+      "Treadmill Jog",
+      "Treadmill Sprint",
+      "Treadmill Walk"
+    ]
+  },
+  {
+    "name":"Mountaineer",
+    "exercises":[
+      "Treadmill Walk",
+      "Stair Stepper Climb",
+      "Bicycle Machine",
+      "Jacob's Ladder",
+      "SkiErg"
+    ]
+  },
+  {
+    "name":"Pull Workour",
+    "exercises":[
+      "Pull-Ups",
+      "Bent Over Y",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "name":"Up up and away!",
+    "exercises":[
+      "Treadmill Walk",
+      "Stair Stepper Climb",
+      "Bicycle Machine",
+      "Jacob's Ladder",
+      "SkiErg"
+    ]
   }
 ]

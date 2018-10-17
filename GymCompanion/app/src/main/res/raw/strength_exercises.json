@@ -20,7 +20,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Wide Push-ups",
+    "name":"Wide Push-Ups",
     "difficulty":1,
     "muscleGroups":["CHEST"],
     "description":"Push-ups performed with your arms far from each other",
@@ -30,7 +30,7 @@
     "intensity":"LOW"
   },
   {
-    "name":"Small Push-ups",
+    "name":"Small Push-Ups",
     "difficulty":3,
     "muscleGroups":["BICEPS"],
     "description":"Push-ups performed with your arms close together",
@@ -40,7 +40,7 @@
     "intensity":"LOW"
   },
   {
-    "name":"Sit-ups",
+    "name":"Sit-Ups",
     "difficulty":2,
     "muscleGroups":["ABS"],
     "description":"Normal sit-ups performed on the ground",
@@ -60,7 +60,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Pull-ups",
+    "name":"Pull-Ups",
     "difficulty":4,
     "muscleGroups":["BACK","SHOULDERS","BICEPS"],
     "description":"Pull-ups performed with your own body weight",
@@ -70,7 +70,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Leg press",
+    "name":"Leg Press",
     "difficulty":3,
     "muscleGroups":["QUADS"],
     "description":"One of the most standard leg exercises",
@@ -100,7 +100,7 @@
     "intensity":"HIGH"
   },
   {
-    "name":"Bent over Y",
+    "name":"Bent Over Y",
     "difficulty":4,
     "muscleGroups":["TRAPS"],
     "description":"Can be used as a warmup sans weight or as an proper exercise with weights",
@@ -120,7 +120,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Double-leg Calf Raise",
+    "name":"Double-Leg Calf Raise",
     "difficulty":5,
     "muscleGroups":["CALVES"],
     "description":"One of the most standard calf exercises",
@@ -130,7 +130,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Single-leg Calf Raise",
+    "name":"Single-Leg Calf Raise",
     "difficulty":6,
     "muscleGroups":["CALVES"],
     "description":"A twist on one of the more standard calf exercises",
@@ -150,7 +150,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Barbell rollout",
+    "name":"Barbell Rollout",
     "difficulty":8,
     "muscleGroups":["ABS"],
     "description":"Caution is advised when performing this exercise",
