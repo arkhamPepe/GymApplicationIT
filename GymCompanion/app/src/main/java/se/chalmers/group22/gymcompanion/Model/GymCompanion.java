@@ -21,7 +21,11 @@ public class GymCompanion {
     private Routine activeRoutine;
     private Exercise activeExercise;
     private boolean isRoutineActive;
+
+    @Setter
     private List<Routine> routineList;
+
+    @Setter
     private List<Exercise> exerciseList;
 
     public GymCompanion(){
