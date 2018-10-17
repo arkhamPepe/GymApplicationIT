@@ -5,6 +5,7 @@ android:
     - platform-tools
     - build-tools-27.0.3
     - android-28
+    - android-24
     - sys-img-armeabi-v7a-android-24
 before_install:
   - cd GymCompanion
