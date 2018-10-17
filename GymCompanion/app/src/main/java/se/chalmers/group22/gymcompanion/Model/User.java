@@ -103,7 +103,7 @@ public class User implements Serializable {
         return Calendar.getInstance();
     }
 
-    public String getTodaysRoutineName(){
+    public String getScheduledRoutineName(){
         return schedule.getRoutineNameFromDate(getTodaysDate());
     }
 

@@ -32,8 +32,8 @@ public class GymCompanion {
 
     }
 
-    public String getTodaysRoutineName(){
-        return user.getTodaysRoutineName();
+    public String getScheduledRoutineName(){
+        return user.getScheduledRoutineName();
     }
 
     public void startRoutine(){

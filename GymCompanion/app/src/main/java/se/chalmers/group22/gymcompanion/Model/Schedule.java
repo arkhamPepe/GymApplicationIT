@@ -108,7 +108,13 @@ public class Schedule implements Serializable, ISchedule {
      * @return name of the routine that is scheduled on input date.
      */
     public String getRoutineNameFromDate(Calendar date){
-        return getRoutineFromDay(date).getName();
+
+        Routine r = getRoutineFromDay(date);
+        if(r==null){
+            return "No Scheduled Routine";
+        }
+
+        return r.getName();
     }
 
     /** getRoutineNameFromDate
