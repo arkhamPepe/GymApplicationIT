@@ -20,7 +20,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Wide Push-ups",
+    "name":"Broad Push-Ups",
     "difficulty":1,
     "muscleGroups":["CHEST"],
     "description":"Push-ups performed with your arms far from each other",
@@ -30,7 +30,7 @@
     "intensity":"LOW"
   },
   {
-    "name":"Small Push-ups",
+    "name":"Narrow Push-Ups",
     "difficulty":3,
     "muscleGroups":["BICEPS"],
     "description":"Push-ups performed with your arms close together",
@@ -40,7 +40,7 @@
     "intensity":"LOW"
   },
   {
-    "name":"Sit-ups",
+    "name":"Sit-Ups",
     "difficulty":2,
     "muscleGroups":["ABS"],
     "description":"Normal sit-ups performed on the ground",
@@ -60,7 +60,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Pull-ups",
+    "name":"Pull-Ups",
     "difficulty":4,
     "muscleGroups":["BACK","SHOULDERS","BICEPS"],
     "description":"Pull-ups performed with your own body weight",
@@ -70,7 +70,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Leg press",
+    "name":"Leg Press",
     "difficulty":3,
     "muscleGroups":["QUADS"],
     "description":"One of the most standard leg exercises",
@@ -100,10 +100,10 @@
     "intensity":"HIGH"
   },
   {
-    "name":"Bent over Y",
+    "name":"Bent Over Y",
     "difficulty":4,
     "muscleGroups":["TRAPS"],
-    "description":"Can be used as a warmup sans weight or as an proper exercise with weights",
+    "description":"Can be used as a warmup sans weight or as a proper exercise with weights",
     "sets":3,
     "repetitions":[8, 10, 12],
     "kilograms":[10, 20, 30],
@@ -120,7 +120,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Double-leg Calf Raise",
+    "name":"Double-Leg Calf Raise",
     "difficulty":5,
     "muscleGroups":["CALVES"],
     "description":"One of the most standard calf exercises",
@@ -130,7 +130,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Single-leg Calf Raise",
+    "name":"Single-Leg Calf Raise",
     "difficulty":6,
     "muscleGroups":["CALVES"],
     "description":"A twist on one of the more standard calf exercises",
@@ -140,17 +140,17 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Hyperextentions",
+    "name":"Hyperextensions",
     "difficulty":3,
-    "muscleGroups":["HAMSTRINGS"],
-    "description":"a fun and easy to perform exercise",
+    "muscleGroups":["LOWER_BACK", "HAMSTRINGS"],
+    "description":"A fun and easy to perform exercise",
     "sets":3,
     "repetitions":[8, 10, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
   {
-    "name":"Barbell rollout",
+    "name":"Barbell Rollout",
     "difficulty":8,
     "muscleGroups":["ABS"],
     "description":"Caution is advised when performing this exercise",
@@ -158,6 +158,57 @@
     "repetitions":[8, 10, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
+  },
+  {
+    "name":"Biceps Curls",
+    "difficulty":3,
+    "muscleGroups":["BICEPS"],
+    "description":"Train with both arms at the same time",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Biceps Curl",
+    "difficulty":3,
+    "muscleGroups":["BICEPS"],
+    "description":"Train with alternating arms",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Chin Ups",
+    "difficulty":7,
+    "muscleGroups":["BICEPS"],
+    "description":"Pull up with narrow grip",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Lat Pull-Downs",
+    "difficulty":6,
+    "muscleGroups":["LATS", "BICEPS"],
+    "description":"Pull down the bar!",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Standing T-Bar Rows",
+    "difficulty":6,
+    "muscleGroups":["LATS", "BICEPS", "LOWER_BACK", "UPPER_BACK"],
+    "description":"Bend over and pull the bar",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
   }
+
 
 ]
