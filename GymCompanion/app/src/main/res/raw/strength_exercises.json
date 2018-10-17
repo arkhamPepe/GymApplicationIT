@@ -20,7 +20,7 @@
     "intensity":"MEDIUM"
   },
   {
-    "name":"Wide Push-Ups",
+    "name":"Broad Push-Ups",
     "difficulty":1,
     "muscleGroups":["CHEST"],
     "description":"Push-ups performed with your arms far from each other",
@@ -30,7 +30,7 @@
     "intensity":"LOW"
   },
   {
-    "name":"Small Push-Ups",
+    "name":"Narrow Push-Ups",
     "difficulty":3,
     "muscleGroups":["BICEPS"],
     "description":"Push-ups performed with your arms close together",
@@ -158,6 +158,27 @@
     "repetitions":[8, 10, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
+  },
+  {
+    "name":"Biceps Curls",
+    "difficulty":8,
+    "muscleGroups":["ABS"],
+    "description":"Train with both arms at the same time",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Biceps Curl",
+    "difficulty":8,
+    "muscleGroups":["ABS"],
+    "description":"Train with alternating arms",
+    "sets":3,
+    "repetitions":[8, 10, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
   }
+
 
 ]
