@@ -2,13 +2,11 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 public class User implements Serializable {
@@ -19,15 +17,17 @@ public class User implements Serializable {
     @Getter(AccessLevel.NONE)
     private List<Routine> routines;
 
+    @Getter(AccessLevel.NONE)
+    private Map<Calendar, Routine> completedRoutines;
+
 
     private String name;
     private String gym;
     private int age;
     private int weight;
     private boolean isBeginner;
-    private boolean isRoutineActive;
 
-    private Routine activeRoutine;
+
     private StatisticsCalculator statCalc;
     private Schedule schedule;
 
@@ -40,9 +40,9 @@ public class User implements Serializable {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
+        this.completedRoutines = new HashMap<>();
     }
 
     public User(String name, String gym, int age, int weight, boolean isBeginner){
@@ -51,9 +51,9 @@ public class User implements Serializable {
         this.age = age;
         this.weight = weight;
         this.isBeginner = isBeginner;
-        this.isRoutineActive = false;
         this.schedule = new Schedule();
         this.statCalc = new StatisticsCalculator(schedule);
+        this.completedRoutines = new HashMap<>();
     }
 
     // Defensive copy
@@ -64,6 +64,11 @@ public class User implements Serializable {
     // Defensive copy
     public List<Routine> getRoutines() {
         return new ArrayList<>(routines);
+    }
+
+    // Defensive Copy
+    public Map<Calendar, Routine> getCompletedRoutinesKeySet(){
+        return new HashMap<Calendar, Routine>(completedRoutines);
     }
 
     public void addFriend(User friend){
@@ -82,28 +87,6 @@ public class User implements Serializable {
         routines.remove(routine);
     }
 
-    public void startRoutine(Routine routine){
-       /*TODO Start the routine for the current day*/
-        isRoutineActive = true;
-        activeRoutine = routine;
-        /*TODO redirect to "Workout in progress"-page*/
-    }
-
-    public void endActiveRoutine(){
-        activeRoutine = null;
-        isRoutineActive = false;
-    }
-
-    public void checkDay(){
-        Calendar today = Calendar.getInstance();
-        if (schedule.dayHasRoutine(today)){
-            startRoutine(schedule.getRoutineFromDay(today));
-        }
-        else {
-            /*TODO Direct the user to MR so it can create a new routine*/
-        }
-    }
-
     public void createRoutine(){
         routines.add(new Routine());
     }
@@ -116,19 +99,25 @@ public class User implements Serializable {
         routine.setDescription(description);
     }
 
-
     private Calendar getTodaysDate(){
         return Calendar.getInstance();
     }
 
     public String getTodaysRoutineName(){
-        return schedule.getRoutineNameFromDay(getTodaysDate());
+        return schedule.getRoutineNameFromDate(getTodaysDate());
     }
 
     public Routine getTodaysRoutine(){
         return schedule.getRoutineFromDay(getTodaysDate());
     }
 
+    public boolean scheduleDayHasRoutine(Calendar date){
+        return schedule.dateHasRoutine(date);
+    }
+
+    public Routine getScheduleRoutineFromDay(Calendar date){
+        return schedule.getRoutineFromDay(date);
+    }
 
     public Routine getFinishedRoutine() {
         return schedule.getLatestFinishedRoutine();
@@ -146,8 +135,8 @@ public class User implements Serializable {
         return schedule.getSchedule();
     }
 
-    public String getRoutineNameOnDate(int year, int month, int day){
-        return schedule.getRoutineNameFromDay(year, month, day);
+    public String getRoutineNameOnDate(int year, int day){
+        return schedule.getRoutineNameFromDate(year, day);
     }
 
     public int getYearToday() {
@@ -159,6 +148,15 @@ public class User implements Serializable {
     }
 
     public int getDayToday() {
-        return schedule.getDayToday();
+        return schedule.getDayOfMonthToday();
     }
+
+    public Set<Calendar> getScheduleKeySet(){
+        return schedule.getScheduleKeySet();
+    }
+
+    public Routine getRoutineFromDay(Calendar day){
+        return schedule.getRoutineFromDay(day);
+    }
+
 }

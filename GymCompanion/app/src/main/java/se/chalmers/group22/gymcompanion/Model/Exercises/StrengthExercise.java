@@ -20,8 +20,6 @@ public class StrengthExercise extends Exercise implements Serializable {
     @Getter(AccessLevel.NONE)
     private List<Double> kilograms;
 
-    private INTENSITY intensity;
-
     public StrengthExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, List<Integer> repetitions, int sets) {
         super(name, difficulty, muscleGroups, description, videoguide);
         this.repetitions = repetitions;
@@ -31,11 +29,18 @@ public class StrengthExercise extends Exercise implements Serializable {
         this.repetitions = repetitions;
         this.sets = sets;
         this.kilograms = kilograms;
-        this.intensity = intensity;
     }
 
     // FOR TESTING
-    public StrengthExercise(String name, double difficulty){
+    public StrengthExercise(String name, int sets, List<Integer> reps, List<Double> kilograms){
+        super(name);
+        this.sets = sets;
+        this.repetitions = reps;
+        this.kilograms = kilograms;
+    }
+
+    // FOR TESTING
+    public StrengthExercise(String name, double difficulty) {
         super(name, difficulty);
     }
 

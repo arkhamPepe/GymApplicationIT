@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" android:background="@color/colorAccent">
 
     <TextView
             android:text="Todays Routine:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true" android:layout_marginBottom="233dp"
-            android:textSize="24sp" android:layout_centerHorizontal="true" android:textColor="@color/blackColour"/>
+            android:textSize="24sp" android:layout_centerHorizontal="true" android:textColor="@color/colorPrimaryDark"/>
     <Button
             android:text="Start Daily Workout"
             android:layout_width="242dp"
             android:layout_height="159dp"
-            android:background="@color/Blue"
+            android:background="@color/DefaultColour"
             android:id="@+id/btnGotoProgress" android:layout_centerHorizontal="true"
             android:onClick="goToProgress" android:layout_alignParentTop="true" android:layout_marginTop="107dp"
             android:textColor="@color/white" android:textSize="24sp"
@@ -23,7 +23,8 @@
             android:layout_width="221dp"
             android:layout_height="wrap_content" android:layout_alignParentBottom="true"
             android:layout_marginBottom="164dp" android:layout_centerHorizontal="true"
-            android:textSize="24sp" android:id="@+id/textViewRoutineOfToday" android:textColor="@color/blackColour"/>
+            android:textSize="24sp" android:id="@+id/textViewRoutineOfToday"
+            android:textColor="@color/colorPrimaryDark"/>
 
 
 </RelativeLayout>

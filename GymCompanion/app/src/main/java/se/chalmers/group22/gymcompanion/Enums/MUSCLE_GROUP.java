@@ -14,5 +14,6 @@ public enum MUSCLE_GROUP {
     UPPER_BACK,
     GLUTES, // Butt
     SHOULDERS,
-    ABS // Sixpack
+    ABS, // Sixpack
+    FULL_BODY // Every muscle
 }

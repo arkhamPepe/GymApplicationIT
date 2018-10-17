@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_height="60dp" android:background="@color/colorAccent">
 
 
     <TextView
@@ -11,13 +11,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtHistoryRoutineName"
-            android:textSize="24sp"/>
+            android:textSize="24sp" android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
-        android:text="Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtHistoryDate"
-        android:layout_below="@+id/txtHistoryRoutineName"/>
+            android:text="Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtHistoryDate"
+            android:layout_below="@+id/txtHistoryRoutineName" android:textColor="@color/colorPrimaryDark"/>
 
 </RelativeLayout>

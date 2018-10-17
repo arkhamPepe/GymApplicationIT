@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
+<<<<<<< HEAD
 import android.arch.lifecycle.ViewModel;
 import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
@@ -51,5 +52,13 @@ public class MyRoutinesViewModel extends BaseViewModel {
 
     public List<Exercise> getExercises(){
         return routines.get(selectedRoutineIndex).getExercises();
+=======
+public class MyRoutinesViewModel extends BaseViewModel {
+
+
+    public MyRoutinesViewModel(){
+
+>>>>>>> master
     }
+
 }

@@ -1,23 +1,17 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
-import se.chalmers.group22.gymcompanion.Model.DataHandler;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Routine;
-import se.chalmers.group22.gymcompanion.Model.Schedule;
 
-import java.time.LocalDate;
 import java.util.*;
 
 public class StatisticsViewModel extends BaseViewModel {
-
-    private DataHandler dataHandler;
 
     private List<Routine> routines;
     private List<Exercise> exercises;
     private Map<Calendar, Routine> schedule;
 
     public StatisticsViewModel(){
-        this.dataHandler = DataHandler.getInstance();
         this.routines = new ArrayList<>();
         this.exercises = new ArrayList<>();
         this.schedule = new HashMap<>();
@@ -30,9 +24,9 @@ public class StatisticsViewModel extends BaseViewModel {
     private TreeMap<Calendar, Routine> getRoutineHistory(Calendar c) {
         Date toDate = Calendar.getInstance().getTime();
         Date fromDate = c.getTime();
-        for(Calendar cur : dataHandler.getRoutineSchedule().keySet()) {
-            if (toDate.compareTo(cur.getTime()) >= 0 || fromDate.compareTo(cur.getTime()) < 0) {
-                schedule.put(cur, dataHandler.getRoutineSchedule().get(cur));
+        for(Calendar day : getModel().getScheduleKeyset()) {
+            if (toDate.compareTo(day.getTime()) >= 0 || fromDate.compareTo(day.getTime()) < 0) {
+                schedule.put(day, getModel().getRoutineFromDay(day));
             }
         }
         return new TreeMap<>(schedule);
