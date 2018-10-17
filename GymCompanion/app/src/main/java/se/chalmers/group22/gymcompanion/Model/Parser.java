@@ -5,10 +5,12 @@ import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.R;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,16 +27,16 @@ public class Parser {
     }
 
     private List<StrengthExercise> parseStrengthExercises() {
-        return parseExerciseHelper("strength_exercises.json", StrengthExercise.class);
+        return parseExerciseHelper(R.raw.strength_exercises, StrengthExercise.class);
     }
 
     private List<CardioExercise> parseCardioExercises(){
-        return parseExerciseHelper("cardio_exercises.json", CardioExercise.class);
+        return parseExerciseHelper(R.raw.cardio_exercises, CardioExercise.class);
     }
 
-    private <T extends Exercise> List<T> parseExerciseHelper(String fileName, Class<T> className){
+    private <T extends Exercise> List<T> parseExerciseHelper(int resourceID, Class<T> className){
         List<T> exercises = new ArrayList<>();
-        String stringJSON = readFile(fileName);
+        String stringJSON = readFile(resourceID);
         Gson gson = new Gson();
         JsonElement jElement = new JsonParser().parse(stringJSON);
         JsonArray jArray = jElement.getAsJsonArray();
@@ -57,7 +59,7 @@ public class Parser {
         List<Exercise> totalExercises = exercises;
 
         List<Routine> routines = new ArrayList<>();
-        String stringJSON = readFile("routines.json");
+        String stringJSON = readFile(R.raw.routines);
 
         JsonElement jElement = new JsonParser().parse(stringJSON);
         JsonArray jsonRoutineArray = jElement.getAsJsonArray();
@@ -94,10 +96,13 @@ public class Parser {
         return null;
     }
 
-    private String readFile(String filePath)
+    private String readFile(int resourceID)
     {
+        InputStream resourceReader = GymCompanionContext.getContext().
+                                    getResources().openRawResource(resourceID);
+
         StringBuilder contentBuilder = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath)))
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(resourceReader)))
         {
             String sCurrentLine;
             while ((sCurrentLine = br.readLine()) != null)

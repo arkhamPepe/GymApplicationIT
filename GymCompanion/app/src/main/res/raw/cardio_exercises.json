@@ -1,0 +1,10 @@
+[
+  {
+    "name":"Running Boi",
+    "difficulty": 4.3,
+    "muscleGroups":["CALVES"],
+    "description":"Running like a bawz",
+    "intensity":"MEDIUM",
+    "timespent": 30
+  }
+]
