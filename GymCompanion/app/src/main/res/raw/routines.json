@@ -7,7 +7,7 @@
     ]
   },
   {
-    "name":"Treadmill Fun",
+    "name":"Treadmill Travel",
     "exercises":[
       "Treadmill Jog",
       "Treadmill Sprint",
@@ -25,23 +25,23 @@
     ]
   },
   {
-    "name":"Pull Workour",
+    "name":"Up up and away!",
     "exercises":[
       "Pull-Ups",
-      "Bent Over Y",
-      "",
-      "",
-      ""
+      "Wide Push-Ups",
+      "Chin Ups",
+      "Narrow Push-Ups",
+      "Sit-Ups"
     ]
   },
   {
-    "name":"Up up and away!",
+    "name":"Pull Workout",
     "exercises":[
-      "Treadmill Walk",
-      "Stair Stepper Climb",
-      "Bicycle Machine",
-      "Jacob's Ladder",
-      "SkiErg"
+      "Pull-Ups",
+      "Biceps Curls",
+      "Lat Pull-Downs",
+      "Standing T-Bar Rows",
+      "Hyperextensions"
     ]
   }
 ]
