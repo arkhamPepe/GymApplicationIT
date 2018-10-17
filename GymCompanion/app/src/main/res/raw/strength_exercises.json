@@ -5,7 +5,7 @@
     "muscleGroups":["BICEPS"],
     "description":"A very stronk exercise",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"HIGH"
   },
@@ -15,7 +15,7 @@
     "muscleGroups":["TRICEPS"],
     "description":"Triceps is ez",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -25,7 +25,7 @@
     "muscleGroups":["CHEST"],
     "description":"Push-ups performed with your arms far from each other",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"LOW"
   },
@@ -35,7 +35,7 @@
     "muscleGroups":["BICEPS"],
     "description":"Push-ups performed with your arms close together",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"LOW"
   },
@@ -45,7 +45,7 @@
     "muscleGroups":["ABS"],
     "description":"Normal sit-ups performed on the ground",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"LOW"
   },
@@ -55,7 +55,7 @@
     "muscleGroups":["CHEST", "TRICEPS"],
     "description":"Dips performed with your own body weight or additional weight ",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -65,7 +65,7 @@
     "muscleGroups":["BACK","SHOULDERS","BICEPS"],
     "description":"Pull-ups performed with your own body weight",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -75,7 +75,7 @@
     "muscleGroups":["QUADS"],
     "description":"One of the most standard leg exercises",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -85,7 +85,7 @@
     "muscleGroups":["HAMSTRINGS"],
     "description":"One of the most standard leg exercises",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -95,7 +95,7 @@
     "muscleGroups":["TRICEPS"],
     "description":"Not as dangerous as the name makes you think",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"HIGH"
   },
@@ -105,7 +105,7 @@
     "muscleGroups":["TRAPS"],
     "description":"Can be used as a warmup sans weight or as a proper exercise with weights",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"LOW"
   },
@@ -115,7 +115,7 @@
     "muscleGroups":["GLUTES"],
     "description":"One of the most standard glutes exercises",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -125,7 +125,7 @@
     "muscleGroups":["CALVES"],
     "description":"One of the most standard calf exercises",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -135,7 +135,7 @@
     "muscleGroups":["CALVES"],
     "description":"A twist on one of the more standard calf exercises",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -145,7 +145,7 @@
     "muscleGroups":["LOWER_BACK", "HAMSTRINGS"],
     "description":"A fun and easy to perform exercise",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -155,7 +155,7 @@
     "muscleGroups":["ABS"],
     "description":"Caution is advised when performing this exercise",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -165,7 +165,7 @@
     "muscleGroups":["BICEPS"],
     "description":"Train with both arms at the same time",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -175,7 +175,7 @@
     "muscleGroups":["BICEPS"],
     "description":"Train with alternating arms",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
@@ -185,7 +185,7 @@
     "muscleGroups":["BICEPS"],
     "description":"Pull up with narrow grip",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"HIGH"
   },
@@ -195,20 +195,51 @@
     "muscleGroups":["LATS", "BICEPS"],
     "description":"Pull down the bar!",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
   },
   {
     "name":"Standing T-Bar Rows",
-    "difficulty":6,
+    "difficulty":7,
     "muscleGroups":["LATS", "BICEPS", "LOWER_BACK", "UPPER_BACK"],
     "description":"Bend over and pull the bar",
     "sets":3,
-    "repetitions":[8, 10, 12],
+    "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"HIGH"
+  },
+  {
+    "name":"Deadlifts",
+    "difficulty":10,
+    "muscleGroups":["HAMSTRINGS", "QUADS", "GLUTES", "LOWER_BACK", "UPPER_BACK"],
+    "description":"The king of all exercises",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Bent-Over Barbell Deadlifts",
+    "difficulty":9,
+    "muscleGroups":["HAMSTRINGS", "QUADS", "GLUTES", "LOWER_BACK", "UPPER_BACK"],
+    "description":"Deadlifts while bending over slightly",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Wide-Grip Seated Cable Row",
+    "difficulty":5,
+    "muscleGroups":["UPPER_BACK", "LATS", "BICEPS"],
+    "description":"Rowing",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
   }
+
 
 
 ]
