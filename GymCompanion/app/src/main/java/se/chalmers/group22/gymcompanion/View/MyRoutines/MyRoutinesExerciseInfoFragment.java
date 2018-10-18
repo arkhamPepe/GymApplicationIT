@@ -34,7 +34,8 @@ public class MyRoutinesExerciseInfoFragment extends Fragment {
     public void onStart(){
         super.onStart();
         textViewExerciseDescription = getView().findViewById(R.id.textViewDescription);
-        textViewExerciseName = getView().findViewById(R.id.textViewExerciseName);
+        textViewExerciseName = getView().findViewById(R.id.textViewMyRoutinesInfoRoutineName);
         textViewGuideDescription = getView().findViewById(R.id.textViewGuide);
+
     }
 }

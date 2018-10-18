@@ -10,6 +10,8 @@ import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterSt
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.SortingStrategy;
 
 
+
+
 import java.util.*;
 
 @Getter
@@ -18,6 +20,7 @@ public class GymCompanion {
     private User user;
 
 
+    @Setter
     private Routine activeRoutine;
     private Exercise activeExercise;
     private boolean isRoutineActive;
@@ -155,6 +158,19 @@ public class GymCompanion {
         }
 
         return null;
+    }
+
+    public void createRoutine(){
+        user.createRoutine();
+    }
+
+    public void addExercise(Exercise exercise, Routine routine){
+        user.addExerciseToRoutine(exercise, routine);
+    }
+
+
+    public List<Routine> getRoutines() {
+        return user.getRoutines();
     }
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
