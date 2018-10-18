@@ -21,6 +21,7 @@ public class ScheduleActivity extends BaseActivity {
     private final Fragment startFragment = new ScheduleStartFragment();
     private final Fragment pickRoutineFragment = new SchedulePickRoutineFragment();
     private final Fragment navigationFragment = new NavigationFragment();
+    private List<Fragment> fragments = new ArrayList<>(); // Collection of all local fragments
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;
     private ListView schedule_lv;
@@ -35,11 +36,9 @@ public class ScheduleActivity extends BaseActivity {
 
         schedule_lv = findViewById(R.id.schedule_list);
 
-        List<Fragment> fragmentList = new ArrayList<>();
-        fragmentList.add(startFragment);
-        fragmentList.add(pickRoutineFragment);
+        fillFragmentsList();
 
-        fo = new FragmentOrganizer(fragmentList, fm,
+        fo = new FragmentOrganizer(fragments, fm,
                 navigationFragment, R.id.schedule_container);
 
         fo.setUpFragments(startFragment);
@@ -48,6 +47,14 @@ public class ScheduleActivity extends BaseActivity {
         Bundle bundle = new Bundle();
         bundle.putInt("index", index);
         navigationFragment.setArguments(bundle);
+    }
+
+    /** fillFragmentsList()
+     *  Purpose: Sets up list containing all local fragments
+     * */
+    private void fillFragmentsList(){
+        fragments.add(startFragment);
+        fragments.add(pickRoutineFragment);
     }
 
     public void scheduleRoutine(String routineName){
