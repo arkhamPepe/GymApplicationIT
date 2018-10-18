@@ -3,4 +3,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <TextView
+            android:text="Pick exercise"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content" android:id="@+id/txtMyRoutinesPickExerciseTitle"
+            android:textSize="18sp"
+            android:textAlignment="viewStart" android:layout_alignBaseline="@+id/btnMyRoutinesPickExerciseBack"
+            android:layout_alignParentEnd="true" android:textAllCaps="false"/>
+
+    <Button
+            android:text="go back"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMyRoutinesPickExerciseBack"
+            android:onClick="resultBack"
+            android:tag="3"/>
+
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" android:layout_marginTop="57dp"
+            android:id="@+id/listviewMyRoutinesPickExercise"/>
+
 </RelativeLayout>
