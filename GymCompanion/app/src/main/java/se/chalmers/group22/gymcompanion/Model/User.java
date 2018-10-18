@@ -7,6 +7,8 @@ import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Getter
 public class User implements Serializable {
@@ -74,7 +76,7 @@ public class User implements Serializable {
     }
 
     public void finishRoutine(Routine routine){
-        completedRoutines.put(Calendar.getInstance(), routine);
+        completedRoutines.put(getTodaysDate(), routine);
     }
 
     public void addFriend(User friend){
@@ -171,6 +173,83 @@ public class User implements Serializable {
 
     public Routine getRoutineFromDay(Calendar day){
         return schedule.getRoutineFromDay(day);
+    }
+
+    public int getTotalAmountOfCompletedRoutines(){
+        return completedRoutines.size();
+    }
+
+    public int getTotalAmountOfCompletedExercises(){
+        int amount = 0;
+
+        for (Routine r: completedRoutines.values()){
+            amount += r.getExercises().size();
+        }
+
+        return amount;
+    }
+
+    public String getFavouriteRoutineName(){
+        List<String> strList = new ArrayList<>();
+
+        for (Routine r:completedRoutines.values()) {
+            strList.add(r.getName());
+        }
+
+        return findMostCommonName(strList);
+    }
+
+    public String getFavouriteExerciseName(){
+        List<String> strList = new ArrayList<>();
+
+        for (Routine r:completedRoutines.values()) {
+            for (Exercise e:r.getExercises()) {
+                strList.add(e.getName());
+            }
+        }
+
+        return findMostCommonName(strList);
+    }
+
+    private String findMostCommonName(List<String> strList){
+        Map<String,Long> ocurrences = strList.stream().collect(Collectors.groupingBy(w->w, Collectors.counting()));
+        long biggest = 0;
+
+        if(ocurrences.isEmpty()){
+            return "No Favourite";
+        }
+
+        for (long i:ocurrences.values()) {
+            if(i>biggest){
+                biggest = i;
+            }
+        }
+
+        for (String str:ocurrences.keySet()) {
+            if(ocurrences.get(str)==biggest){
+                return str;
+            }
+        }
+
+        return "Something went wrong";
+    }
+
+    public String getBiggestCompletedRoutineName(){
+        Routine big = new Routine();
+        boolean first = true;
+
+        if(!completedRoutines.isEmpty()){
+            for(Routine r: completedRoutines.values()){
+                if(first){
+                    big = r;
+                    first = false;
+                }else if(r.getExercises().size() > big.getExercises().size()){
+                    big = r;
+                }
+            }
+            return big.getName();
+        }
+        return "No Routines Completed";
     }
 
 }

@@ -1,20 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" android:background="@color/colorAccent">
 
     <TextView
             android:text="Lifetime Stats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtLifetimeStatsTitle"
-            android:layout_centerInParent="true"/>
+            android:id="@+id/txtHistoryTitle"
+            android:layout_centerHorizontal="true" android:layout_alignBaseline="@+id/btnLifetimeBack"
+            android:textColor="@color/colorPrimaryDark" android:textSize="24dp"/>
     <Button
-            android:text="Go Back"
+            android:text="Back"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnLifetimeBack"
+            android:onClick="goToStatisticsStart"
+            android:layout_alignParentStart="true" android:layout_alignParentTop="true"
+            android:textColor="@color/white"
+            android:background="@color/DefaultColour" android:layout_marginLeft="10dp" android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp" android:layout_marginRight="10dp" android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"/>
+    <TextView
+            android:text="Total Routines Completed:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="121dp"
+            android:layout_alignParentStart="true" android:layout_marginStart="29dp" android:id="@+id/totalRoutinesCompleted"
+            android:textSize="16sp" android:textColor="@color/colorPrimaryDark"/>
+    <TextView
+            android:text="Total Exercises Completed:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnLifetimeStatsBack"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/txtLifetimeStatsTitle"
-            android:onClick="goToStatisticsStart"/>
+            android:id="@+id/totalExercisesCompleted"
+            android:textSize="16sp" android:textColor="@color/colorPrimaryDark"
+            android:layout_alignStart="@+id/totalRoutinesCompleted" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="191dp"/>
+    <TextView
+            android:text="Favourite Routine:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="171dp"
+            android:id="@+id/favouriteRoutine"
+            android:textSize="16sp" android:textColor="@color/colorPrimaryDark"
+            android:layout_alignStart="@+id/totalRoutinesCompleted"/>
+    <TextView
+            android:text="Favourite Exercise:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/favouriteExercise"
+            android:textSize="16sp" android:textColor="@color/colorPrimaryDark" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="143dp" android:layout_alignStart="@+id/totalRoutinesCompleted"/>
+    <TextView
+            android:text="Total Routine Stats:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="58dp"
+            android:layout_alignParentStart="true" android:layout_marginStart="73dp" android:id="@+id/textView10"
+            android:textSize="22sp" android:textColor="@color/colorPrimaryDark"/>
+    <TextView
+            android:text="Total Exercise Stats:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView13"
+            android:textSize="22sp" android:textColor="@color/colorPrimaryDark"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="243dp" android:layout_alignStart="@+id/textView10"/>
+    <TextView
+            android:text="Biggest Routine Completed:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="227dp"
+            android:id="@+id/biggestRoutine"
+            android:textSize="16sp" android:textColor="@color/colorPrimaryDark"
+            android:layout_alignStart="@+id/totalRoutinesCompleted"/>
 </RelativeLayout>
