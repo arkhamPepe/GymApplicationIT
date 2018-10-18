@@ -106,6 +106,9 @@ public class BrowseActivity extends BaseActivity {
             case 2:
                 transaction.show(fragmentRecommended);
                 break;
+            case 3:
+                transaction.show(fragmentRecommended);
+                break;
             default:
                 break;
         }

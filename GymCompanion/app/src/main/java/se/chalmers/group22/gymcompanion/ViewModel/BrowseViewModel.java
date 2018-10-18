@@ -3,7 +3,9 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
+import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.RecommendedFilter;
@@ -25,6 +27,9 @@ public class BrowseViewModel extends BaseViewModel {
     //Current page
     private String currentPage;
 
+    private List<Routine> routines = new ArrayList();
+    private List<Exercise> exercises = new ArrayList<>();
+
     private List<ISortable> searchedList = new ArrayList<>();
     private List<ISortable> filteredList = new ArrayList<>();
 
@@ -40,7 +45,7 @@ public class BrowseViewModel extends BaseViewModel {
 
     public void search(String query){
         searchedList.clear();
-        searchedList.clear();
+        filteredList.clear();
 
         searchedList.addAll(getModel().search(query));
         filteredList.addAll(searchedList);
@@ -55,6 +60,8 @@ public class BrowseViewModel extends BaseViewModel {
     }
 
     public void filter(String mg) {
+        searchedList.clear();
+        filteredList.clear();
 
         List<MUSCLE_GROUP> mgList = new ArrayList<>();
 
@@ -63,8 +70,9 @@ public class BrowseViewModel extends BaseViewModel {
                 mgList.add(m);
             }
         }
-        searchedList.clear();
+
         searchedList.addAll(getModel().filter(getModel().getRoutinesAndExercises(), mgList));
+        filteredList.addAll(searchedList);
     }
 
     public void filterRoutines() {
@@ -158,13 +166,13 @@ public class BrowseViewModel extends BaseViewModel {
         return difficulties;
     }
 
-    public List<Integer> getRoutineAmountExercises(){
-        List<Integer> exerciseAmount = new ArrayList<>();
+    public List<String> getType(){
+        List<String> type = new ArrayList<>();
 
-        /*for (Routine r : routines) {
-            exerciseAmount.add(r.getExercises().size());
-        }*/
-        return exerciseAmount;
+        for (ISortable is : filteredList) {
+            type.add("");
+        }
+        return type;
     }
 
     public List<String> getMuscleGroups(){

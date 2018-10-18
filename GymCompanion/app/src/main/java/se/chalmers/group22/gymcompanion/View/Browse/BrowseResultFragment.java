@@ -39,7 +39,7 @@ public class BrowseResultFragment extends Fragment {
         cbxRoutines.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                @Override
                public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                   viewModel.filterRoutines();
+                   //viewModel.filterRoutines();
                    Toast.makeText(getActivity(),"Routines",Toast.LENGTH_SHORT).show();
                }
            }
@@ -47,7 +47,7 @@ public class BrowseResultFragment extends Fragment {
         cbxExercises.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                @Override
                public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                   viewModel.filterExercises();
+                   //viewModel.filterExercises();
                    Toast.makeText(getActivity(),"Exercises",Toast.LENGTH_SHORT).show();
                }
            }
@@ -64,12 +64,14 @@ public class BrowseResultFragment extends Fragment {
 
         this.currentMuscleGroup.setText(t);
 
+
         //ListView
         BrowseResultListAdapter adapter;
         ListView listView = getView().findViewById(R.id.listViewBrowseResult);
         adapter = new BrowseResultListAdapter(getActivity(),
                 viewModel.getRoutineAndExerciseNames(),
-                viewModel.getRoutineAndExerciseDifficulties());
+                viewModel.getRoutineAndExerciseDifficulties(),
+                viewModel.getType());
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
