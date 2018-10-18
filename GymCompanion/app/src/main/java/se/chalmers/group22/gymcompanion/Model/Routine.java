@@ -76,6 +76,7 @@ public class Routine implements ISortable, Serializable {
             sum += e.getDifficulty();
         }
         difficulty = sum / exercises.size();
+        difficulty = (double) Math.round(difficulty * 10) / 10;
     }
 
     public void addExercise(Exercise exercise) {

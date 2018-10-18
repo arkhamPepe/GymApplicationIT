@@ -47,14 +47,18 @@ public class RoutineListAdapter extends ArrayAdapter {
     }
 
     private void fillRoutineNames(List<Routine> routines){
-        for (Routine routine: routines){
-            routineNames.add(routine.getName());
+        if (!routines.isEmpty()) {
+            for (Routine routine : routines) {
+                routineNames.add(routine.getName());
+            }
         }
     }
 
     private void fillExerciseCount(List<Routine> routines){
-        for (Routine routine: routines){
-            exerciseCount.add(routine.getExercises().size());
+        if (!routines.isEmpty()) {
+            for (Routine routine : routines) {
+                exerciseCount.add(routine.getExercises().size());
+            }
         }
     }
 }
