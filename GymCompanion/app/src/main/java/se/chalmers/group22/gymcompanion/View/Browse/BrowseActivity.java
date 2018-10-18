@@ -36,13 +36,22 @@ public class BrowseActivity extends BaseActivity {
         Bundle navBundle = new Bundle();
         navBundle.putInt("index", index);
         navigationFragment.setArguments(navBundle);
-
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.add(R.id.browse_container, fragmentRecommended, "4").hide(fragmentRecommended);
-        transaction.add(R.id.browse_container, fragmentResult, "3").hide(fragmentResult);
-        transaction.add(R.id.browse_container, fragmentSelection, "2").hide(fragmentSelection);
-        transaction.add(R.id.browse_container, fragmentStart, "1");
-        transaction.add(R.id.navigation, navigationFragment);
+
+        if(getIntent().getExtras() != null){
+            transaction.add(R.id.browse_container, fragmentRecommended, "4").hide(fragmentRecommended);
+            transaction.add(R.id.browse_container, fragmentResult, "3").hide(fragmentResult);
+            transaction.add(R.id.browse_container, fragmentSelection, "2");
+            transaction.add(R.id.browse_container, fragmentStart, "1").hide(fragmentStart);
+            transaction.add(R.id.navigation, navigationFragment);
+        }
+        else {
+            transaction.add(R.id.browse_container, fragmentRecommended, "4").hide(fragmentRecommended);
+            transaction.add(R.id.browse_container, fragmentResult, "3").hide(fragmentResult);
+            transaction.add(R.id.browse_container, fragmentSelection, "2").hide(fragmentSelection);
+            transaction.add(R.id.browse_container, fragmentStart, "1");
+            transaction.add(R.id.navigation, navigationFragment);
+        }
         transaction.commit();
     }
 

@@ -44,9 +44,12 @@ public class ExerciseListAdapter extends ArrayAdapter {
 
     }
     public void fillExerciseNames(List<Exercise> exercises){
-        for (Exercise exercise: exercises){
-            exerciseNames.add(exercise.getName());
+        if (!exercises.isEmpty()){
+            for (Exercise exercise: exercises){
+                exerciseNames.add(exercise.getName());
+            }
         }
+
     }
 
 }
