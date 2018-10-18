@@ -99,7 +99,7 @@ public class ScheduleViewModel extends BaseViewModel {
     /** getSelectedDate
      * @return selected date formatted as String
      */
-    public String getSelectedDate(){
+    public String getSelectedDate(){ /* TODO CHANGE THIS */
         StringBuilder sb = new StringBuilder();
 
         sb.append(selectedYear);

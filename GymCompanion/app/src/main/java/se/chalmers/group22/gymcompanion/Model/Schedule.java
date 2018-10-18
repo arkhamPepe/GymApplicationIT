@@ -95,8 +95,21 @@ public class Schedule implements Serializable, ISchedule {
      * @return String representation of the date of today.
      */
     public String getToday(){
-        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-        return date.format(calendar.getTime());
+        return getDateText(calendar); // calendar has today's date
+    }
+
+    public String getDateText(int year, int month, int day){
+        Calendar date = new GregorianCalendar();
+        date.set(Calendar.YEAR, year);
+        date.set(Calendar.MONTH, month);
+        date.set(Calendar.DAY_OF_MONTH, day);
+
+        return getDateText(date);
+    }
+
+    private String getDateText(Calendar date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(date.getTime());
     }
 
     /** getScheduleKeySet()
