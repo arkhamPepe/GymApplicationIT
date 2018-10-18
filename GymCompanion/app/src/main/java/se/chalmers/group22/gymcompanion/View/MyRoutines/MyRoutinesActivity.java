@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.View.MyRoutines;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,6 +10,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.Browse.BrowseActivity;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
@@ -71,7 +73,13 @@ public class MyRoutinesActivity extends BaseActivity {
     }*/
 
     public void onClickAddExercise(View view){
+        Intent intent = new Intent(this, BrowseActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.putExtra("MyRoutines",true);
         //viewModel.addExercise();
+        startActivity(intent);
+
     }
 
     public MyRoutinesViewModel getViewModel(){

@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
+import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Routine;
@@ -9,6 +10,7 @@ import java.util.List;
 
 public class MyRoutinesViewModel extends BaseViewModel {
 
+    @Getter
     private int selectedRoutineIndex;
     List<Routine> routines = new ArrayList<>();
 
@@ -27,9 +29,10 @@ public class MyRoutinesViewModel extends BaseViewModel {
         getModel().createRoutine();
     }
 
-    public void addExercise(){
-        //getModel().addExercise();
-    }
+    /*public void addExercise(){
+        getModel().addExercise(,routines.get(selectedRoutineIndex));
+
+    }*/
 
     public String getSelectedRoutineExerciseAmount(){
         return Integer.toString(routines.get(selectedRoutineIndex).getExercises().size());
@@ -49,6 +52,10 @@ public class MyRoutinesViewModel extends BaseViewModel {
 
     public List<Exercise> getExercises(){
         return routines.get(selectedRoutineIndex).getExercises();
+    }
+
+    public void setActiveRoutine(){
+        getModel().setActiveRoutine(routines.get(selectedRoutineIndex));
     }
 
 }

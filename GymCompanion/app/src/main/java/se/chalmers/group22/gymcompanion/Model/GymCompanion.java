@@ -20,6 +20,7 @@ public class GymCompanion {
     private User user;
 
 
+    @Setter
     private Routine activeRoutine;
     private Exercise activeExercise;
     private boolean isRoutineActive;
@@ -159,8 +160,8 @@ public class GymCompanion {
         user.createRoutine();
     }
 
-    public void addExercise(){
-        //user.addExerciseToRoutine(exercise, routine);
+    public void addExercise(Exercise exercise, Routine routine){
+        user.addExerciseToRoutine(exercise, routine);
     }
 
 

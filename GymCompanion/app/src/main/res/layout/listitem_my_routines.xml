@@ -32,6 +32,8 @@
             android:textColor="@color/blackColour"
             android:textSize="20sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_marginEnd="39dp"
-            android:layout_centerVertical="true" android:id="@+id/textView"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/textView" android:layout_toEndOf="@+id/listItemAmountOfExercises"
+            android:layout_marginStart="-110dp" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"/>
 </RelativeLayout>

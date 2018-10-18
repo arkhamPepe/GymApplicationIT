@@ -39,19 +39,16 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
     public void onStart(){
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
-
-        ExerciseListAdapter adapter = new ExerciseListAdapter(getActivity(), viewModel.getExercises());
-        ListView listView = getView().findViewById(R.id.listViewExercise);
-        listView.setAdapter(adapter);
-
         update();
     }
 
     public void update(){
         TextView textViewRoutineName = getView().findViewById(R.id.textViewMyRoutinesInfoRoutineName);
         TextView textViewAmountOfExercises = getView().findViewById(R.id.textViewRoutineInfoAmountOfExercises);
-        Button addExercise = getView().findViewById(R.id.addExercise);
         textViewRoutineName.setText(viewModel.getSelectedRoutineName());
         textViewAmountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
+        ExerciseListAdapter adapter = new ExerciseListAdapter(getActivity(), viewModel.getExercises());
+        ListView listView = getView().findViewById(R.id.listViewExercise);
+        listView.setAdapter(adapter);
     }
 }
