@@ -3,9 +3,7 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
-import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.RecommendedFilter;
@@ -24,14 +22,10 @@ public class BrowseViewModel extends BaseViewModel {
     @Setter
     private List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
 
-    // TEMPORARY
-    private List<Routine> routines = new ArrayList<>();
-    private List<Exercise> exercises = new ArrayList<>();
-
     //Current page
     private String currentPage;
 
-    private List<ISortable> sortableList = new ArrayList<>();
+    private List<ISortable> searchedList = new ArrayList<>();
     private List<ISortable> filteredList = new ArrayList<>();
 
     public BrowseViewModel(){
@@ -45,13 +39,19 @@ public class BrowseViewModel extends BaseViewModel {
     }
 
     public void search(String query){
-        this.sortableList.clear();
-        this.sortableList.addAll(getModel().search(query));
+        searchedList.clear();
+        searchedList.clear();
+
+        searchedList.addAll(getModel().search(query));
+        filteredList.addAll(searchedList);
     }
 
     public void filter(FilterStrategy strategy){
-        sortableList.clear();
-        sortableList.addAll(getModel().filter(getModel().getRoutinesAndExercises(), strategy));
+        searchedList.clear();
+        filteredList.clear();
+
+        searchedList.addAll(getModel().filter(getModel().getRoutinesAndExercises(), strategy));
+        filteredList.addAll(searchedList);
     }
 
     public void filter(String mg) {
@@ -63,12 +63,20 @@ public class BrowseViewModel extends BaseViewModel {
                 mgList.add(m);
             }
         }
-        sortableList.clear();
-        sortableList.addAll(getModel().filter(getModel().getRoutinesAndExercises(), mgList));
+        searchedList.clear();
+        searchedList.addAll(getModel().filter(getModel().getRoutinesAndExercises(), mgList));
     }
 
-    public void filter() {
+    public void filterRoutines() {
+        //Filters out all of the Exercises
+        this.filteredList.clear();
+        this.filteredList.addAll(getModel().filterRoutines(searchedList));
+    }
 
+    public void filterExercises() {
+        //Filters out all of the Routines
+        this.filteredList.clear();
+        this.filteredList.addAll(getModel().filterExercises(searchedList));
     }
 
     public String getCurrentPage(){
@@ -127,8 +135,14 @@ public class BrowseViewModel extends BaseViewModel {
     public List<String> getRoutineAndExerciseNames(){
         List<String> names = new ArrayList<>();
 
-        for(ISortable iSortable : sortableList) {
-            names.add(iSortable.getName());
+        String s;
+        for(ISortable iSortable : filteredList) {
+            if(iSortable.getName().length() > 19) {
+                s = iSortable.getName().substring(0,19) + "...";
+            } else {
+                s = iSortable.getName();
+            }
+            names.add(s);
         }
 
         return names;
@@ -137,7 +151,7 @@ public class BrowseViewModel extends BaseViewModel {
     public List<Double> getRoutineAndExerciseDifficulties(){
         List<Double> difficulties = new ArrayList<>();
 
-        for (ISortable iSortable : sortableList){
+        for (ISortable iSortable : filteredList){
             difficulties.add(iSortable.getDifficulty());
         }
 
@@ -147,9 +161,9 @@ public class BrowseViewModel extends BaseViewModel {
     public List<Integer> getRoutineAmountExercises(){
         List<Integer> exerciseAmount = new ArrayList<>();
 
-        for (Routine r : routines) {
+        /*for (Routine r : routines) {
             exerciseAmount.add(r.getExercises().size());
-        }
+        }*/
         return exerciseAmount;
     }
 
