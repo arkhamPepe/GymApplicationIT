@@ -17,31 +17,6 @@
 
     </FrameLayout>
 
-    <SearchView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/searchBar"
-    />
-    <Button
-            android:text="ROUTINE"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:id="@+id/btnRoutine" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btnExercise"
-    />
-
-    <Button
-            android:text="EXERCISE"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:id="@+id/btnExercise" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@layout/fragment_navigation"
-    />
-
     <include
             android:layout_width="match_parent"
             android:layout_height="56dp"

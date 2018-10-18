@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent" android:background="@color/colorAccent">
 
-</android.support.constraint.ConstraintLayout>
+    <CalendarView
+            android:id="@+id/calendarSchedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:theme="@style/CalenderViewCustom"
+            android:dateTextAppearance="@style/CalenderViewDateCustomText"
+            android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+    />
+
+    <TextView
+            android:text="date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtScheduleDate"
+            android:layout_below="@+id/calendarSchedule"
+            android:layout_centerHorizontal="true"
+            android:textSize="24sp" android:textColor="@color/colorPrimaryDark"/>
+
+    <Button
+            android:text="Book session"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnScheduleBook"
+            android:layout_centerHorizontal="true"
+            android:onClick="goToPickRoutine" android:background="@color/DefaultColour"
+            android:textColor="@color/white" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="136dp"/>
+
+    <TextView
+            android:text="Routine:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Schedule"
+            android:layout_marginBottom="97dp"
+            android:layout_alignParentBottom="true"
+            android:textSize="24sp" android:textColor="@color/colorPrimaryDark"
+            android:layout_alignStart="@+id/calendarSchedule"/>
+    <TextView
+            android:text="[selected routine]"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtScheduleRoutineName"
+            android:textSize="20sp"
+            android:layout_alignBottom="@+id/Schedule"
+            android:layout_toEndOf="@+id/Schedule" android:textColor="@color/colorPrimaryDark"/>
+</RelativeLayout>

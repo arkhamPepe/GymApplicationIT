@@ -1,27 +1,20 @@
 package se.chalmers.group22.gymcompanion.View.MyRoutines;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import se.chalmers.group22.gymcompanion.Model.DataHandler;
-import se.chalmers.group22.gymcompanion.Model.LocalDatabase;
-import se.chalmers.group22.gymcompanion.Model.Routine;
-import se.chalmers.group22.gymcompanion.Model.User;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.Browse.BrowseActivity;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
-import java.util.List;
-
-public class MyRoutinesActivity extends AppCompatActivity {
+public class MyRoutinesActivity extends BaseActivity {
 
     public static final int index = 3;
 
@@ -29,12 +22,11 @@ public class MyRoutinesActivity extends AppCompatActivity {
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private final Fragment fragmentStart = new MyRoutinesStartFragment();
-    private final Fragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
-    private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
+    private final MyRoutinesStartFragment fragmentStart = new MyRoutinesStartFragment();
+    private final MyRoutinesRoutineInfoFragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
+    private final MyRoutinesExerciseInfoFragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
     private Fragment active = fragmentStart;
-    private DataHandler dataHandler = DataHandler.getInstance();
 
     //Variables for listitem_my_routines.xml
     private TextView routineName;
@@ -69,15 +61,66 @@ public class MyRoutinesActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public void createRoutine(View view){
+    public void onClickCreateRoutine(View view){
+        viewModel.createRoutine();
+        fragmentStart.update();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentRoutineInfo);
+        transaction.hide(fragmentStart);
+        transaction.commit();
+    }
+    /*public void createRoutine(View view){
         dataHandler.createRoutine();
+    }*/
+
+    public void onClickAddExercise(View view){
+        Intent intent = new Intent(this, BrowseActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.putExtra("MyRoutines",true);
+        //viewModel.addExercise();
+        startActivity(intent);
+
     }
 
-    public void addExercise(View view){
-
+    public MyRoutinesViewModel getViewModel(){
+        return viewModel;
     }
 
-    public void setRoutineName(){
+    public void setRoutineName(View view){
+        routineName.setText(viewModel.getSelectedRoutineName());
+    }
 
+    public void onClickEnterRoutine(int position){
+        viewModel.setSelectedRoutineIndex(position);
+        fragmentRoutineInfo.update();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentRoutineInfo);
+        transaction.hide(fragmentStart);
+        transaction.commit();
+    }
+
+    public void onClickEnterExercise(int position){
+        viewModel.setSelectedExerciseIndex(position);
+        fragmentExerciseInfo.update();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentExerciseInfo);
+        transaction.hide(fragmentRoutineInfo);
+        transaction.commit();
+    }
+
+    public void goBackFromExercise(View view){
+        fragmentRoutineInfo.update();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentRoutineInfo);
+        transaction.hide(fragmentExerciseInfo);
+        transaction.commit();
+    }
+
+    public void goBackFromRoutine(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentStart);
+        transaction.hide(fragmentRoutineInfo);
+        transaction.commit();
     }
 }

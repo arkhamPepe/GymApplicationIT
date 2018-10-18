@@ -2,33 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp" android:background="@color/colorAccent">
 
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentStart="true"
-            android:id="@+id/routineName" android:layout_centerVertical="true" android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/routineName"
             android:textColor="@color/blackColour"
-            android:textSize="24sp" tools:text="RoutineName"/>
+            android:textSize="24sp" tools:text="RoutineName" android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" android:layout_marginStart="30dp"
 
-    <TextView
-            android:id="@+id/amountOfExercises"
-            android:textSize="12sp"
-            android:layout_alignParentStart="true" android:layout_marginStart="19dp"
-            android:layout_alignParentBottom="true"/>
+            android:layout_marginBottom="10dp"/>
+
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@android:drawable/arrow_up_float"
+            android:layout_width="13dp"
+            android:layout_height="11dp" app:srcCompat="@android:drawable/arrow_up_float"
             android:layout_alignParentEnd="true" android:layout_alignParentBottom="true" android:id="@+id/SlideButton"
-            android:layout_marginBottom="20dp" android:rotation="90"/>
+            android:layout_marginBottom="20dp" android:rotation="90" android:background="@color/DefaultColour"/>
     <TextView
-            android:text="exercises"
+            android:id="@+id/listItemAmountOfExercises"
+            android:textSize="20sp"
             android:textColor="@color/blackColour"
-            android:textSize="12sp"
+            android:layout_alignParentBottom="true" android:layout_height="wrap_content"
+            android:layout_width="23dp" android:layout_alignParentEnd="true" android:layout_marginEnd="120sp"
+            android:layout_marginBottom="10sp"/>
+    <TextView
+            android:text="Exercises"
+            android:textColor="@color/blackColour"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
-            android:layout_toRightOf="@id/amountOfSetsList"
-            android:layout_marginStart="71dp"/>
+            android:id="@+id/textView" android:layout_toEndOf="@+id/listItemAmountOfExercises"
+            android:layout_marginStart="-110dp" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"/>
 </RelativeLayout>

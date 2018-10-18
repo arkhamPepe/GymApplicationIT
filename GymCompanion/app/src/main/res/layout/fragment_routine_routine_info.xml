@@ -10,16 +10,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true" android:layout_marginTop="18dp"
-            android:id="@+id/textViewExerciseName" android:textSize="24sp" android:textColor="@color/blackColour"
+            android:id="@+id/textViewMyRoutinesInfoRoutineName" android:textSize="24sp" android:textColor="@color/blackColour"
             android:layout_centerHorizontal="true"/>
+    <Button
+            android:text="Go Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/btnBackToMyRoutines" android:onClick="goBackFromRoutine"/>
     <TextView
             android:text="Amount of Exercises:"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="68dp"
-            android:id="@+id/textViewAmountOfExercises"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="70dp"
             android:textSize="18sp"
             android:textColor="@color/blackColour" android:layout_alignParentStart="true"
-            android:layout_marginStart="61dp"/>
+            android:layout_marginStart="50dp" tools:layout_marginStart="30dp"/>
     <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_alignParentStart="true"
@@ -29,5 +34,14 @@
             android:layout_width="match_parent"
             android:layout_height="69dp" android:layout_alignParentStart="true"
             android:layout_alignParentTop="true" android:layout_marginTop="107dp" android:id="@+id/addExercise"
-            android:textSize="24sp" android:textColor="@color/white" android:background="@color/Blue"/>
+            android:textSize="24sp" android:textColor="@color/white" android:background="@color/Blue"
+            android:onClick="onClickAddExercise"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentEnd="true"
+            android:textSize="18sp"
+            android:textColor="@color/blackColour"
+            android:id="@+id/textViewRoutineInfoAmountOfExercises" android:layout_marginTop="70dp"
+            android:layout_marginEnd="40dp"/>
 </RelativeLayout>

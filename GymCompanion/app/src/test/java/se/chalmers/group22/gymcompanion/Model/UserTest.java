@@ -19,8 +19,10 @@ public class UserTest {
     private INTENSITY intensity = INTENSITY.MEDIUM;
     private List<User> friends;
     private List<Routine> routines;
+    private List<Exercise> exercises;
     private Exercise exercise;
     private List<MUSCLE_GROUP> muscle_groups;
+    private Routine r1;
 
     private String userName;
     private String gym;
@@ -36,6 +38,7 @@ public class UserTest {
         friends = new ArrayList<>();
         routines = new ArrayList<>();
         routines.add(new Routine());
+        exercises = new ArrayList<>();
         muscle_groups = new ArrayList<>();
 
         userName = "Bock Ridemakok";
@@ -46,9 +49,13 @@ public class UserTest {
 
         calendar = Calendar.getInstance();
         exercise = new CardioExercise("MasterPull",3.4,muscle_groups,"","",intensity,40);
+        exercises.add(exercise);
+        r1 = new Routine("Master Routine", exercises);
         user = new User(friends,routines,userName,gym,age,weight,isBeginner);
     }
 
+    //TODO MOVE THESE TESTS TO GYMCOMPANION
+/*
     @Test
     public void startRoutineTest(){
         user.startRoutine(user.getRoutines().get(0));
@@ -68,7 +75,7 @@ public class UserTest {
         user.endActiveRoutine();
         assertNull(user.getActiveRoutine());
     }
-
+*/
     @Test
     public void createRoutineTest(){
         user.createRoutine();
@@ -89,5 +96,15 @@ public class UserTest {
         assertTrue(user.getRoutines().get(0).getDescription().equals("Wahoo!"));
     }
 
+    @Test
+    public void finishRoutineTest(){
+        user.finishRoutine(r1);
+        assertEquals(1, user.getCompletedRoutines().size());
+    }
 
+    @Test
+    public void getFinishedRoutineTest(){
+        user.finishRoutine(r1);
+        assertEquals(r1, user.getFinishedRoutine());
+    }
 }

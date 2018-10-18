@@ -12,13 +12,13 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModelTest;
 @Suite.SuiteClasses({
         CardioExerciseTest.class,
         StrengthExerciseTest.class,
-        DataHandlerSearchTest.class,
-        DataHandlerSortAndFilterTest.class,
+        GymCompanionSearchTest.class,
+        GymCompanionSortAndFilterTest.class,
         RoutineTest.class,
         StatisticsCalculatorTest.class,
         UserTest.class,
         ScheduleTest.class,
-        StatisticsViewModelTest.class
+        StatisticsViewModelTest.class,
 })
 
 public class JunitTestSuite {

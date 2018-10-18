@@ -1,0 +1,292 @@
+[
+  {
+    "name":"Bench Press",
+    "difficulty":5,
+    "muscleGroups":["BICEPS"],
+    "description":"A very stronk exercise",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Triceps Lift",
+    "difficulty":5,
+    "muscleGroups":["TRICEPS"],
+    "description":"Triceps is ez",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Broad Push-Ups",
+    "difficulty":1,
+    "muscleGroups":["CHEST"],
+    "description":"Push-ups performed with your arms far from each other",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Narrow Push-Ups",
+    "difficulty":3,
+    "muscleGroups":["BICEPS"],
+    "description":"Push-ups performed with your arms close together",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Sit-Ups",
+    "difficulty":2,
+    "muscleGroups":["ABS"],
+    "description":"Normal sit-ups performed on the ground",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Dips",
+    "difficulty":5,
+    "muscleGroups":["CHEST", "TRICEPS"],
+    "description":"Dips performed with your own body weight or additional weight ",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Pull-Ups",
+    "difficulty":4,
+    "muscleGroups":["BACK","SHOULDERS","BICEPS"],
+    "description":"Pull-ups performed with your own body weight",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Leg Press",
+    "difficulty":3,
+    "muscleGroups":["QUADS"],
+    "description":"One of the most standard leg exercises",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Leg Curls",
+    "difficulty":3,
+    "muscleGroups":["HAMSTRINGS"],
+    "description":"One of the most standard leg exercises",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Skull Crushers",
+    "difficulty":7,
+    "muscleGroups":["TRICEPS"],
+    "description":"Not as dangerous as the name makes you think",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Bent Over Y",
+    "difficulty":4,
+    "muscleGroups":["TRAPS"],
+    "description":"Can be used as a warmup sans weight or as a proper exercise with weights",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Squats",
+    "difficulty":3,
+    "muscleGroups":["GLUTES"],
+    "description":"One of the most standard glutes exercises",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Double-Leg Calf Raise",
+    "difficulty":5,
+    "muscleGroups":["CALVES"],
+    "description":"One of the most standard calf exercises",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Single-Leg Calf Raise",
+    "difficulty":6,
+    "muscleGroups":["CALVES"],
+    "description":"A twist on one of the more standard calf exercises",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Hyperextensions",
+    "difficulty":3,
+    "muscleGroups":["LOWER_BACK", "HAMSTRINGS"],
+    "description":"A fun and easy to perform exercise",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Barbell Rollout",
+    "difficulty":8,
+    "muscleGroups":["ABS"],
+    "description":"Caution is advised when performing this exercise",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Biceps Curls",
+    "difficulty":3,
+    "muscleGroups":["BICEPS"],
+    "description":"Train with both arms at the same time",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Biceps Curl",
+    "difficulty":3,
+    "muscleGroups":["BICEPS"],
+    "description":"Train with alternating arms",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Chin Ups",
+    "difficulty":7,
+    "muscleGroups":["BICEPS"],
+    "description":"Pull up with narrow grip",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Lat Pull-Downs",
+    "difficulty":6,
+    "muscleGroups":["LATS", "BICEPS"],
+    "description":"Pull down the bar!",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Standing T-Bar Rows",
+    "difficulty":7,
+    "muscleGroups":["LATS", "BICEPS", "LOWER_BACK", "UPPER_BACK"],
+    "description":"Bend over and pull the bar",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Deadlifts",
+    "difficulty":10,
+    "muscleGroups":["HAMSTRINGS", "QUADS", "GLUTES", "LOWER_BACK", "UPPER_BACK"],
+    "description":"The king of all exercises",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Bent-Over Barbell Deadlifts",
+    "difficulty":9,
+    "muscleGroups":["HAMSTRINGS", "QUADS", "GLUTES", "LOWER_BACK", "UPPER_BACK"],
+    "description":"Deadlifts while bending over slightly",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Wide-Grip Seated Cable Row",
+    "difficulty":5,
+    "muscleGroups":["UPPER_BACK", "LATS", "BICEPS"],
+    "description":"Rowing",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Reverse-Grip Smith Machine Row",
+    "difficulty":4,
+    "muscleGroups":["LATS", "BICEPS", "LOWER_BACK", "UPPER_BACK"],
+    "description":"Row without the need to balance",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Close-Grip Pull-Down",
+    "difficulty":4,
+    "muscleGroups":["LATS", "BICEPS"],
+    "description":"Pull-downs with narrow grip",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Single-Arm Dumbbell Row",
+    "difficulty":4,
+    "muscleGroups":["LATS", "BICEPS"],
+    "description":"Unilateral rows with a dumbbell",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Front Squads",
+    "difficulty":9,
+    "muscleGroups":["GLUTES", "QUADS", "HAMSTRINGS"],
+    "description":"Squats with bar on front",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Romanian Deadlifts",
+    "difficulty":9,
+    "muscleGroups":["HAMSTRINGS"],
+    "description":"Halfway deadlifts",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  }
+]

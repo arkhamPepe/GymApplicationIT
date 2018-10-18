@@ -10,10 +10,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.Home.HomeActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
 
-public class ProgressActivity extends AppCompatActivity {
+public class ProgressActivity extends BaseActivity {
 
     private final FragmentManager fm = getSupportFragmentManager();
     private final Fragment fragmentStart = new ProgressStartFragment();
@@ -30,34 +31,6 @@ public class ProgressActivity extends AppCompatActivity {
         transaction.add(R.id.progress_container, fragmentStart, "1");
         transaction.add(R.id.progress_container, fragmentEditRoutine, "1").hide(fragmentEditRoutine);
         transaction.commit();
-
-        ListView progStartListView = findViewById(R.id.progStartListView);
-
-        //fillSchedule();
-
-        //progressViewModel.fillList();
-
-        // Adapter takes activity context, type of list view and the array as parameters
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
-                this,
-                R.layout.progress_start_list_item);
-
-/*        progStartListView.setAdapter(arrayAdapter);
-
-        progStartListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            // argument position gives the index of item which is clicked
-            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
-            {
-
-            }
-        });
-
-*/
-
-    }
-
-    private void startProgressFillList(){
 
     }
 
@@ -98,5 +71,8 @@ public class ProgressActivity extends AppCompatActivity {
         overridePendingTransition(0, 0);
     }
 
+    public ProgressViewModel getViewModel(){
+        return progressViewModel;
+    }
 
 }

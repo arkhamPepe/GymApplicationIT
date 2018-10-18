@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 public class BrowseStartFragment extends Fragment {
+
+    private BrowseViewModel viewModel;
 
     public static BrowseStartFragment getInstance() {
         return new BrowseStartFragment();
@@ -28,18 +31,21 @@ public class BrowseStartFragment extends Fragment {
     public void onStart() {
         super.onStart();
         SearchView searchView = getView().findViewById(R.id.searchBar);
+        viewModel = ((BrowseActivity) getActivity()).getViewModel();
 
-        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        //Sets the ActionBar title for this particular fragment
+        ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Search and Browse");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
-                browsePresenter.search(newText);
                 return false;
             }
             @Override
             public boolean onQueryTextSubmit(String query) {
-                browsePresenter.search(query);
+                ((BrowseActivity)getActivity()).goToResultFromSearch(query);
                 return false;
             }
-        });*/
+        });
     }
 }
