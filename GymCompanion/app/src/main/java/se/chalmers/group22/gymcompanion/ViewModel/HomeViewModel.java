@@ -11,11 +11,11 @@ public class HomeViewModel extends BaseViewModel {
     }
 
     public String getScheduledRoutineName(){
-        return "Hej";
+        return getModel().getScheduledRoutineName();
     }
 
     public String getTodaysRoutineName(){
-        return getModel().getTodaysRoutineName();
+        return getModel().getScheduledRoutineName();
     }
 
     public void startRoutine(){

@@ -52,10 +52,6 @@ public class HomeActivity extends BaseActivity {
 
     }
 
-    public String getScheduledRoutineName(){
-        return homeViewModel.getScheduledRoutineName();
-    }
-
     public void goToProgress(View view) {
         Intent intent = new Intent(this, ProgressActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
