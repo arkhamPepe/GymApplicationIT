@@ -18,7 +18,7 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModelTest;
         StatisticsCalculatorTest.class,
         UserTest.class,
         ScheduleTest.class,
-        StatisticsViewModelTest.class
+        StatisticsViewModelTest.class,
 })
 
 public class JunitTestSuite {

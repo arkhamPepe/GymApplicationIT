@@ -55,6 +55,28 @@ public class Routine implements ISortable, Serializable {
         this.name = name;
         this.description = "";
         this.comment = "";
+        this.muscleGroups = new ArrayList<>();
+        initMuscleGroupList();
+        initDifficulty();
+    }
+
+    private void initMuscleGroupList(){
+        for(Exercise e : this.exercises){
+            for(MUSCLE_GROUP mg : e.getMuscleGroups()){
+                if(!muscleGroups.contains(mg)){
+                    muscleGroups.add(mg);
+                }
+            }
+        }
+    }
+
+    private void initDifficulty(){
+        double sum = 0;
+        for(Exercise e : exercises){
+            sum += e.getDifficulty();
+        }
+        difficulty = sum / exercises.size();
+        difficulty = (double) Math.round(difficulty * 10) / 10;
     }
 
     public void addExercise(Exercise exercise) {

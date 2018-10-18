@@ -18,15 +18,13 @@
     />
 
 
-
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtSchedulePickAmountPrefix"
-            android:text="Exercises: "
+            android:id="@+id/txtBrowsePickAmountPrefix"
             android:layout_below="@+id/txtName"
             android:textSize="12sp"
-            android:layout_alignStart="@+id/txtSchedulePickRoutineName"
+            android:layout_alignStart="@+id/txtName"
     />
 
     <TextView
@@ -34,28 +32,24 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtSchedulePickAmountNumber"
             android:textSize="12sp"
-            android:text="8"
-            android:layout_toEndOf="@+id/txtSchedulePickAmountPrefix"
-            android:layout_below="@+id/txtSchedulePickRoutineName"
-    />
+            android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
+            android:layout_toEndOf="@id/txtBrowsePickAmountPrefix"
+            android:layout_marginStart="63dp"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtSchedulePickDifficultyPrefix"
-            android:text="  Difficulty: "
-            android:layout_below="@+id/txtSchedulePickRoutineName"
-            android:textSize="12sp"
-            android:layout_toEndOf="@+id/txtSchedulePickAmountNumber"
-    />
+            android:id="@+id/txtBrowsePickDifficultyPrefix"
+            android:text="Difficulty:"
+            android:textSize="14sp"
+            android:layout_centerVertical="true" android:layout_toStartOf="@+id/txtBrowseDifficulty"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtSchedulePickDifficultyNumber"
+            android:id="@+id/txtBrowseDifficulty"
             android:text="3.5"
-            android:layout_below="@+id/txtSchedulePickRoutineName"
-            android:textSize="12sp"
-            android:layout_toRightOf="@+id/txtSchedulePickDifficultyPrefix"
-    />
+            android:textSize="20sp"
+            android:layout_alignParentEnd="true" android:layout_marginEnd="14dp"
+            android:layout_centerVertical="true"/>
 </RelativeLayout>

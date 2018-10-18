@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy;
 
+import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
 
@@ -8,6 +9,9 @@ import java.util.Comparator;
 import java.util.List;
 
 public class BeginnerFilter implements FilterStrategy {
+
+    @Getter
+    private final String name = "Beginner";
 
     @Override
     public <T extends ISortable> List<T> filter(List<T> oldList){
