@@ -120,7 +120,15 @@ public class User implements Serializable {
     }
 
     public Routine getFinishedRoutine() {
-        return schedule.getLatestFinishedRoutine();
+        Routine latestFinishedRoutine = null;
+        Calendar latestDate = null;
+        for(Calendar day : completedRoutines.keySet()){
+            if(latestDate == null || day.after(latestDate)){
+                latestDate = day;
+                latestFinishedRoutine = completedRoutines.get(day);
+            }
+        }
+        return latestFinishedRoutine;
     }
 
     public ISchedule getSchedule(){

@@ -47,7 +47,7 @@ public class HomeFinishedFragment extends Fragment {
         this.textViewTotalExercises = getView().findViewById(R.id.textViewTotalExercises);
         this.btnGotoHome = getView().findViewById(R.id.btnGotoHome);
 
-        Map<String, Integer> finishedRoutineStats = viewModel.getFinishedRoutineStats();
+        Map<String, String> finishedRoutineStats = viewModel.getFinishedRoutineStats();
         textViewTimeSpent.setText(finishedRoutineStats.get("timeSpent"));
         textViewTotalExercises.setText(finishedRoutineStats.get("totalExercises"));
         textViewCompletedExercises.setText(finishedRoutineStats.get("completedExercises"));
