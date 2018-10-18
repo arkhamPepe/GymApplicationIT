@@ -4,16 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
-import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.RecommendedFilter;
+import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.MixedFilter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Filter;
 
 public class BrowseViewModel extends BaseViewModel {
 
@@ -87,8 +85,8 @@ public class BrowseViewModel extends BaseViewModel {
                 currentPage = ((BeginnerFilter) filterStrategy).getName();
                 break;
             case 3:
-                filterStrategy = new RecommendedFilter();
-                currentPage = ((RecommendedFilter) filterStrategy).getName();
+                filterStrategy = new MixedFilter();
+                currentPage = ((MixedFilter) filterStrategy).getName();
                 break;
             default:
                 currentPage = "NoIndex";

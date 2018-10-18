@@ -7,7 +7,7 @@ import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
-import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.RecommendedFilter;
+import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.MixedFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.AscendingAlphabetic;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.AscendingDifficulty;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.DescendingAlphabetic;
@@ -220,7 +220,7 @@ public class GymCompanionSortAndFilterTest {
             }
         }
         //Filters the list
-        muscleRoutines = gymCompanion.filter(muscleRoutines, new RecommendedFilter());
+        muscleRoutines = gymCompanion.filter(muscleRoutines, new MixedFilter());
         assertTrue(filterRecommendedHelpMethod(muscleRoutines));
     }
 
@@ -240,7 +240,7 @@ public class GymCompanionSortAndFilterTest {
             }
         }
         //Filters the list
-        muscleExercises = gymCompanion.filter(muscleExercises, new RecommendedFilter());
+        muscleExercises = gymCompanion.filter(muscleExercises, new MixedFilter());
         assertTrue(filterRecommendedHelpMethod(muscleExercises));
     }
 
