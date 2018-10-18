@@ -25,6 +25,8 @@ public class MyRoutinesActivity extends BaseActivity {
     private final MyRoutinesStartFragment fragmentStart = new MyRoutinesStartFragment();
     private final MyRoutinesRoutineInfoFragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
     private final MyRoutinesExerciseInfoFragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
+    private final MyRoutinesPickExerciseFragment fragmentPickExercise = new MyRoutinesPickExerciseFragment();
+    private final MyRoutinesPickMGFragment fragmentPickMG = new MyRoutinesPickMGFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
     private Fragment active = fragmentStart;
 
@@ -45,8 +47,10 @@ public class MyRoutinesActivity extends BaseActivity {
 
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.add(R.id.my_routines_container, fragmentExerciseInfo, "2").hide(fragmentExerciseInfo);
-        transaction.add(R.id.my_routines_container, fragmentRoutineInfo, "2").hide(fragmentRoutineInfo);
-        transaction.add(R.id.my_routines_container, fragmentStrengthExercise, "2").hide(fragmentStrengthExercise);
+        transaction.add(R.id.my_routines_container, fragmentRoutineInfo, "3").hide(fragmentRoutineInfo);
+        transaction.add(R.id.my_routines_container, fragmentStrengthExercise, "4").hide(fragmentStrengthExercise);
+        transaction.add(R.id.my_routines_container, fragmentPickExercise, "5").hide(fragmentPickExercise);
+        transaction.add(R.id.my_routines_container, fragmentPickMG, "6").hide(fragmentPickMG);
         transaction.add(R.id.my_routines_container, fragmentStart, "1");
 
         viewModel = new MyRoutinesViewModel();
@@ -72,12 +76,7 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void onClickAddExercise(View view){
-        Intent intent = new Intent(this, BrowseActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.putExtra("MyRoutines",true);
-        //viewModel.addExercise();
-        startActivity(intent);
+
     }
 
     public MyRoutinesViewModel getViewModel(){
