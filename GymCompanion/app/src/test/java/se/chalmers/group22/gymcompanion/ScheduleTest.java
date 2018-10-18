@@ -52,7 +52,6 @@ public class ScheduleTest {
 
         temp = s.getRoutineFromDay(d);
 
-        //assertEquals(r, temp);
-        assert(true);
+        assertEquals(r, temp);
     }
 }
