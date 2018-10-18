@@ -26,4 +26,8 @@ public class LocalDatabaseTest {
         assertNotNull(db.loadTotalRoutines());
     }
 
+    @Test
+    public void loadUser(){
+        assertEquals("Unknown User", db.loadUser().getName());
+    }
 }
