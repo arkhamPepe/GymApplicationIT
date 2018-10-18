@@ -238,6 +238,56 @@
     "repetitions":[12, 12, 12],
     "kilograms":[10, 20, 30],
     "intensity":"MEDIUM"
+  },
+  {
+    "name":"Reverse-Grip Smith Machine Row",
+    "difficulty":4,
+    "muscleGroups":["LATS", "BICEPS", "LOWER_BACK", "UPPER_BACK"],
+    "description":"Row without the need to balance",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"MEDIUM"
+  },
+  {
+    "name":"Close-Grip Pull-Down",
+    "difficulty":4,
+    "muscleGroups":["LATS", "BICEPS"],
+    "description":"Pull-downs with narrow grip",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Single-Arm Dumbbell Row",
+    "difficulty":4,
+    "muscleGroups":["LATS", "BICEPS"],
+    "description":"Unilateral rows with a dumbbell",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"LOW"
+  },
+  {
+    "name":"Front Squads",
+    "difficulty":9,
+    "muscleGroups":["GLUTES", "QUADS", "HAMSTRINGS"],
+    "description":"Squats with bar on front",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
+  },
+  {
+    "name":"Romanian Deadlifts",
+    "difficulty":9,
+    "muscleGroups":["HAMSTRINGS"],
+    "description":"Halfway deadlifts",
+    "sets":3,
+    "repetitions":[12, 12, 12],
+    "kilograms":[10, 20, 30],
+    "intensity":"HIGH"
   }
 
 
