@@ -44,10 +44,6 @@ public class BrowseViewModel extends BaseViewModel {
     }
 
     private void init(){
-        //routines.addAll(getModel().getRoutineList());
-        //exercises.addAll(getModel().getExerciseList());
-        //sortableList.addAll(getModel().getRoutinesAndExercises());
-
         for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
             muscleGroups.add(mg);
         }
