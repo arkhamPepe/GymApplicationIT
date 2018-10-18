@@ -150,6 +150,8 @@ public class GymCompanion {
         user.addExerciseToRoutine(exercise, routine);
     }
 
+
+
     //Routine and Exercise Getters
 
     public List<ISortable> getRoutinesAndExercises(){
@@ -163,12 +165,17 @@ public class GymCompanion {
         return newList;
     }
 
-    public String getRoutineNameOnDate(int year, int month, int day) {
-        return user.getRoutineNameOnDate(year, month, day);
+
+    public List<Routine> getRoutines() {
+        return user.getRoutines();
     }
 
     public Routine getRoutineFromDay(Calendar day){
         return user.getRoutineFromDay(day);
+    }
+
+    public String getRoutineNameOnDate(int year, int month, int day) {
+        return user.getRoutineNameOnDate(year, month, day);
     }
 
     private Routine getRoutine(String routineName){
@@ -187,10 +194,6 @@ public class GymCompanion {
         return user.getTotalAmountOfCompletedRoutines();
     }
 
-    public List<Routine> getRoutines() {
-            return user.getRoutines();
-    }
-    
     public int getTotalAmountOfCompletedExercises(){
         return user.getTotalAmountOfCompletedExercises();
     }
