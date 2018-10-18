@@ -46,7 +46,7 @@ public class BrowseStartFragment extends Fragment {
             }
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(getActivity(),viewModel.search(query),Toast.LENGTH_SHORT).show();
+                ((BrowseActivity)getActivity()).goToResultFromSearch(query);
                 return false;
             }
         });
@@ -56,6 +56,5 @@ public class BrowseStartFragment extends Fragment {
     public void onResume(){
         super.onResume();
         ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Search and Browse");
-
     }
 }
