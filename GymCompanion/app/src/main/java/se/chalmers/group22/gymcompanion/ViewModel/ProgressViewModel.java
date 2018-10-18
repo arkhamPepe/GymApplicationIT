@@ -12,7 +12,7 @@ public class ProgressViewModel extends BaseViewModel {
 
 
     public int getAmountOfExercisesInAR(){
-        return getModel().getAmountOfExercisesInAR();
+        return getModel().getAmountOfExercisesInActiveRoutine();
     }
 
     public String getAEName(){
