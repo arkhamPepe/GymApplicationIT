@@ -22,9 +22,9 @@ public class MyRoutinesActivity extends BaseActivity {
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private final Fragment fragmentStart = new MyRoutinesStartFragment();
+    private final MyRoutinesStartFragment fragmentStart = new MyRoutinesStartFragment();
     private final MyRoutinesRoutineInfoFragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
-    private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
+    private final MyRoutinesExerciseInfoFragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
     private Fragment active = fragmentStart;
 
@@ -63,6 +63,7 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onClickCreateRoutine(View view){
         viewModel.createRoutine();
+        fragmentStart.update();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);
@@ -97,6 +98,29 @@ public class MyRoutinesActivity extends BaseActivity {
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);
         transaction.commit();
+    }
 
+    public void onClickEnterExercise(int position){
+        viewModel.setSelectedExerciseIndex(position);
+        fragmentExerciseInfo.update();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentExerciseInfo);
+        transaction.hide(fragmentRoutineInfo);
+        transaction.commit();
+    }
+
+    public void goBackFromExercise(View view){
+        fragmentRoutineInfo.update();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentRoutineInfo);
+        transaction.hide(fragmentExerciseInfo);
+        transaction.commit();
+    }
+
+    public void goBackFromRoutine(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentStart);
+        transaction.hide(fragmentRoutineInfo);
+        transaction.commit();
     }
 }

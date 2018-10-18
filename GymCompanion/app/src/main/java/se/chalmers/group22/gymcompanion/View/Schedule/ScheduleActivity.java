@@ -42,8 +42,8 @@ public class ScheduleActivity extends BaseActivity {
         transaction.commit();
     }
 
-    public void scheduleRoutine(){
-        viewModel.scheduleSelectedRoutine();
+    public void scheduleRoutine(String routineName){
+        viewModel.scheduleSelectedRoutine(routineName);
     }
 
     public void goToPickRoutine(View view){

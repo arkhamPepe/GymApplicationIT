@@ -12,6 +12,12 @@
             android:layout_alignParentTop="true" android:layout_marginTop="18dp"
             android:id="@+id/textViewMyRoutinesInfoRoutineName" android:textSize="24sp" android:textColor="@color/blackColour"
             android:layout_centerHorizontal="true"/>
+    <Button
+            android:text="Go Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/btnBackToMyRoutines" android:onClick="goBackFromRoutine"/>
     <TextView
             android:text="Amount of Exercises:"
             android:layout_width="wrap_content"

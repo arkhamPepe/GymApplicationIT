@@ -47,4 +47,11 @@ public class MyRoutinesStartFragment extends Fragment {
         });
 
     }
+
+    public void update(){
+        RoutineListAdapter adapter = new RoutineListAdapter(getActivity(), viewModel.getRoutines());
+        ListView listView = getView().findViewById(R.id.listviewMyRoutines);
+        listView.setAdapter(adapter);
+
+    }
 }

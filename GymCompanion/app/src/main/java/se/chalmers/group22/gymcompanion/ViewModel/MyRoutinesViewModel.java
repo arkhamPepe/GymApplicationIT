@@ -2,7 +2,6 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.ArrayList;
@@ -12,17 +11,11 @@ public class MyRoutinesViewModel extends BaseViewModel {
 
     @Getter
     private int selectedRoutineIndex;
-    List<Routine> routines = new ArrayList<>();
+    private int selectedExerciseIndex;
+
+
 
     public MyRoutinesViewModel(){
-        Routine routine1 = new Routine("Routine1");
-        Routine routine2 = new Routine("Routine2");
-        Exercise strengthExercise1 = new StrengthExercise("Benkprench",3.4);
-        Exercise strengthExercise2 = new StrengthExercise("Squats",5.5);
-        routine1.addExercise(strengthExercise1);
-        routine2.addExercise(strengthExercise2);
-        routines.add(routine1);
-        routines.add(routine2);
     }
 
     public void createRoutine(){
@@ -35,27 +28,75 @@ public class MyRoutinesViewModel extends BaseViewModel {
     }*/
 
     public String getSelectedRoutineExerciseAmount(){
-        return Integer.toString(routines.get(selectedRoutineIndex).getExercises().size());
+        if (!checkIfEmptyRoutineList()){
+            return Integer.toString(getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().size());
+        }
+        return "";
     }
 
     public List<Routine> getRoutines(){
-        return routines;
+        if (!checkIfEmptyRoutineList()) {
+            return getModel().getUser().getRoutines();
+        }
+        return new ArrayList<>();
     }
 
     public void setSelectedRoutineIndex(int position){
         selectedRoutineIndex = position;
     }
 
+    public void setSelectedExerciseIndex(int position){
+        selectedExerciseIndex = position;
+    }
+
     public String getSelectedRoutineName(){
-        return  routines.get(selectedRoutineIndex).getName();
+        if (!checkIfEmptyRoutineList()){
+             return  getModel().getUser().getRoutines().get(selectedRoutineIndex).getName();
+        }
+        return "";
     }
 
     public List<Exercise> getExercises(){
-        return routines.get(selectedRoutineIndex).getExercises();
+        if (!checkIfEmptyExerciseList()){
+            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises();
+        }
+        return new ArrayList<>();
     }
 
     public void setActiveRoutine(){
-        getModel().setActiveRoutine(routines.get(selectedRoutineIndex));
+        if (!checkIfEmptyRoutineList()){
+            getModel().setActiveRoutine(getModel().getUser().getRoutines().get(selectedRoutineIndex));
+
+        }
     }
 
+    public String getExerciseName(){
+        if (!checkIfEmptyExerciseList()) {
+            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getName();
+        }
+        return "";
+    }
+
+    public String getExerciseGuide(){
+        return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getVideoguide();
+    }
+
+    public String getExerciseDescription(){
+        if(!checkIfEmptyExerciseList()){
+            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getDescription();
+
+        }
+        return "";
+    }
+
+    private boolean checkIfEmptyRoutineList(){
+        return getModel().getUser().getRoutines().isEmpty();
+    }
+
+    private boolean checkIfEmptyExerciseList(){
+        if (!checkIfEmptyRoutineList()) {
+            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().isEmpty();
+        }
+        return true;
+    }
 }
