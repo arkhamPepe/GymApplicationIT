@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
@@ -13,7 +12,6 @@ import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.Recommen
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Filter;
 
 public class BrowseViewModel extends BaseViewModel {
 
@@ -29,13 +27,9 @@ public class BrowseViewModel extends BaseViewModel {
     // TEMPORARY
     private List<Routine> routines = new ArrayList<>();
     private List<Exercise> exercises = new ArrayList<>();
-    private List<Exercise> exercises1 = new ArrayList<>();
-    private List<Exercise> exercises2 = new ArrayList<>();
-    private List<Exercise> exercises3 = new ArrayList<>();
 
+    //Current page
     private String currentPage;
-
-    private FilterStrategy filterStrategy;
 
     private List<ISortable> sortableList = new ArrayList<>();
 
@@ -75,17 +69,17 @@ public class BrowseViewModel extends BaseViewModel {
     public String getCurrentPage(){
         switch(index){
             case 0:
-                currentPage = "Search";
+                currentPage = "Search result";
                 break;
             case 1:
                 currentPage = getMuscleGroupString();
                 break;
             case 2:
-                filterStrategy = new BeginnerFilter();
+                filter(new BeginnerFilter());
                 currentPage = "Beginner";
                 break;
             case 3:
-                filterStrategy = new RecommendedFilter();
+                filter(new RecommendedFilter());
                 currentPage = "Mix";
                 break;
             default:
@@ -145,34 +139,13 @@ public class BrowseViewModel extends BaseViewModel {
         return difficulties;
     }
 
-    public List<String> getRoutineExercisesAmounts(){
-        List<String> amounts = new ArrayList<>();
+    public List<Integer> getRoutineAmountExercises(){
+        List<Integer> exerciseAmount = new ArrayList<>();
 
-        for (Routine r : routines){
-            amounts.add(Integer.toString(r.getExercises().size()));
+        for (Routine r : routines) {
+            exerciseAmount.add(r.getExercises().size());
         }
-
-        return amounts;
-    }
-
-    public List<String> getExerciseNames(){
-        List<String> names = new ArrayList<>();
-
-        for (Exercise e : exercises){
-            names.add(e.getName());
-        }
-
-        return names;
-    }
-
-    public List<Double> getExerciseDifficulties(){
-        List<Double> difficulties = new ArrayList<>();
-
-        for (Exercise e : exercises){
-            difficulties.add(e.getDifficulty());
-        }
-
-        return difficulties;
+        return exerciseAmount;
     }
 
     public List<String> getMuscleGroups(){

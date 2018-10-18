@@ -5,9 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
@@ -34,6 +32,24 @@ public class BrowseResultFragment extends Fragment {
     public void onStart() {
         super.onStart();
         viewModel = ((BrowseActivity) getActivity()).getViewModel();
+
+        CheckBox cbxRoutines = (CheckBox)getView().findViewById(R.id.cbxRoutines);
+        CheckBox cbxExercises = (CheckBox)getView().findViewById(R.id.cbxExercises);
+
+        cbxRoutines.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+               @Override
+               public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                   Toast.makeText(getActivity(),"Routines",Toast.LENGTH_SHORT).show();
+               }
+           }
+        );
+        cbxExercises.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+               @Override
+               public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                   Toast.makeText(getActivity(),"Exercises",Toast.LENGTH_SHORT).show();
+               }
+           }
+        );
     }
 
     @Override

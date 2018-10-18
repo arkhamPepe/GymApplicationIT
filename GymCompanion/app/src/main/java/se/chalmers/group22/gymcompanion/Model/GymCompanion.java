@@ -193,7 +193,7 @@ public class GymCompanion {
     }
 
     public <T extends ISortable> List<T> filter(List<T> toBeFiltered, List<MUSCLE_GROUP> muscleGroups) {
-        List<T> newList = new ArrayList<>(toBeFiltered);
+        List<T> newList = new ArrayList<>();
 
         for (MUSCLE_GROUP mg : muscleGroups){
             for (T re : toBeFiltered) {
