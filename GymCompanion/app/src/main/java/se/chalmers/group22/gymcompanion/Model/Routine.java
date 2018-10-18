@@ -57,6 +57,7 @@ public class Routine implements ISortable, Serializable {
         this.comment = "";
         this.muscleGroups = new ArrayList<>();
         initMuscleGroupList();
+        initDifficulty();
     }
 
     private void initMuscleGroupList(){
@@ -67,6 +68,15 @@ public class Routine implements ISortable, Serializable {
                 }
             }
         }
+    }
+
+    private void initDifficulty(){
+        double sum = 0;
+        for(Exercise e : exercises){
+            sum += e.getDifficulty();
+        }
+        difficulty = sum / exercises.size();
+        difficulty = (double) Math.round(difficulty * 10) / 10;
     }
 
     public void addExercise(Exercise exercise) {

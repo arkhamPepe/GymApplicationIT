@@ -181,7 +181,27 @@ public class GymCompanion {
         return routine.getAverageDifficulty();
     }
 
-    //Sorting and Filtering
+    public int getTotalAmountOfCompletedRoutines(){
+        return user.getTotalAmountOfCompletedRoutines();
+    }
+
+    public int getTotalAmountOfCompletedExercises(){
+        return user.getTotalAmountOfCompletedExercises();
+    }
+
+    public String getFavouriteRoutineName(){
+        return user.getFavouriteRoutineName();
+    }
+
+    public String getFavouriteExerciseName(){
+        return user.getFavouriteExerciseName();
+    }
+
+    public String getBiggestCompletedRoutineName(){
+        return user.getBiggestCompletedRoutineName();
+    }
+
+    //Sorting, Filtering and Searching
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
         strat.sort(list);
@@ -202,6 +222,18 @@ public class GymCompanion {
                 }
             }
         }
+        return newList;
+    }
+
+    public <T extends ISortable> List<T> filterRoutines(List<T> toBeFiltered){
+        List<T> newList = new ArrayList<>(toBeFiltered);
+        newList.removeAll(exerciseList);
+        return newList;
+    }
+
+    public <T extends ISortable> List<T> filterExercises(List<T> toBeFiltered){
+        List<T> newList = new ArrayList<>(toBeFiltered);
+        newList.removeAll(routineList);
         return newList;
     }
 
