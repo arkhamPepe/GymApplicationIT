@@ -2,7 +2,6 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
-import se.chalmers.group22.gymcompanion.Model.ISchedule;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.*;
@@ -92,32 +91,19 @@ public class ScheduleViewModel extends BaseViewModel {
         return getModel().getRoutineNameOnDate(selectedYear, selectedMonth, selectedDay);
     }
 
-    public String getToday(){
-        return getModel().getTodaysDate();
+    public String getDateText(int year, int month, int day){
+        return getModel().getDateText(year, month, day);
+    }
+
+    public String getTodayText(){
+        return getModel().getTodayText();
     }
 
     /** getSelectedDate
      * @return selected date formatted as String
      */
-    public String getSelectedDate(){ /* TODO CHANGE THIS */
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(selectedYear);
-        sb.append("-");
-
-        if (selectedMonth < 10) {
-            sb.append("0");
-        }
-
-        sb.append(selectedMonth);
-        sb.append("-");
-
-        if (selectedDay < 10) {
-            sb.append("0");
-        }
-
-        sb.append(selectedDay);
-        return sb.toString();
+    public String getSelectedDate(){
+        return getModel().getDateText(selectedYear, selectedMonth, selectedDay);
     }
 
     public String getBookingButtonText(){

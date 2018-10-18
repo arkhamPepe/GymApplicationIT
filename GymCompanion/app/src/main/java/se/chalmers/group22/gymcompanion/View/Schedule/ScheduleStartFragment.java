@@ -42,7 +42,7 @@ public class ScheduleStartFragment extends Fragment {
         Button btnBook = getActivity().findViewById(R.id.btnScheduleBook);
 
         // set initial texts
-        txtDate.setText(viewModel.getToday());
+        txtDate.setText(viewModel.getTodayText());
         btnBook.setText(viewModel.getBookingButtonText());
         txtRoutineName.setText(viewModel.getSelectedDateRoutineName());
 

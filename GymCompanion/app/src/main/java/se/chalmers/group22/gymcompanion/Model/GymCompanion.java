@@ -113,8 +113,12 @@ public class GymCompanion {
         return user.getSchedule();
     }
 
-    public String getTodaysDate(){
-        return user.getToday();
+    public String getDateText(int year, int month, int day){
+        return user.getScheduleDateText(year, month, day);
+    }
+
+    public String getTodayText(){
+        return user.getTodayText();
     }
 
     public int getYearToday() {
@@ -166,7 +170,6 @@ public class GymCompanion {
     public void addExercise(Exercise exercise, Routine routine){
         user.addExerciseToRoutine(exercise, routine);
     }
-
 
     public List<Routine> getRoutines() {
         return user.getRoutines();

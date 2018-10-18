@@ -91,10 +91,10 @@ public class Schedule implements Serializable, ISchedule {
         return new HashMap<>(routineSchedule);
     }
 
-    /** getToday
+    /** getTodayText
      * @return String representation of the date of today.
      */
-    public String getToday(){
+    public String getTodayText(){
         return getDateText(calendar); // calendar has today's date
     }
 
