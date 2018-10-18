@@ -201,7 +201,7 @@ public class GymCompanion {
         return user.getBiggestCompletedRoutineName();
     }
 
-    //Sorting and Filtering
+    //Sorting, Filtering and Searching
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
         strat.sort(list);
@@ -222,6 +222,18 @@ public class GymCompanion {
                 }
             }
         }
+        return newList;
+    }
+
+    public <T extends ISortable> List<T> filterRoutines(List<T> toBeFiltered){
+        List<T> newList = new ArrayList<>(toBeFiltered);
+        newList.removeAll(exerciseList);
+        return newList;
+    }
+
+    public <T extends ISortable> List<T> filterExercises(List<T> toBeFiltered){
+        List<T> newList = new ArrayList<>(toBeFiltered);
+        newList.removeAll(routineList);
         return newList;
     }
 
