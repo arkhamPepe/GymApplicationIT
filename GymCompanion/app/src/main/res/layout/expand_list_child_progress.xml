@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical" android:background="@color/colorAccent">
+
+    <TextView
+            android:id="@+id/expandableListSetNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp" android:layout_alignParentStart="true" android:layout_centerVertical="true"
+            android:layout_marginStart="11dp" android:text="Set 1:" android:textColor="@color/colorPrimaryDark"/>
+
+    <TextView
+            android:id="@+id/expandableListReps"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:textSize="14dp" android:layout_alignParentStart="true" android:layout_centerVertical="true"
+            android:layout_marginStart="88dp" android:text="Repetitions: " android:textColor="@color/colorPrimaryDark"/>
+
+    <TextView
+            android:id="@+id/expandableListKilograms"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="14dp" android:layout_centerVertical="true" android:layout_alignParentEnd="true"
+            android:text="Kilograms" android:textColor="@color/colorPrimaryDark" android:layout_marginEnd="72dp"/>
+
+</RelativeLayout>

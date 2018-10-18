@@ -27,6 +27,7 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         homeViewModel = new HomeViewModel();
 
         FragmentTransaction transaction = fm.beginTransaction();
@@ -54,7 +55,6 @@ public class HomeActivity extends BaseActivity {
     public String getScheduledRoutineName(){
         return homeViewModel.getTodaysRoutineName();
     }
-
 
     public void goToProgress(View view) {
         Intent intent = new Intent(this, ProgressActivity.class);

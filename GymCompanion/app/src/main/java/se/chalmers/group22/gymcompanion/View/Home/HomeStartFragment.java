@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 
 public class HomeStartFragment extends Fragment {
+
+    private HomeViewModel viewModel;
 
     private TextView textViewRoutineOfToday;
     private Button btnGotoProgress;
@@ -33,8 +36,13 @@ public class HomeStartFragment extends Fragment {
 
     public void onStart(){
         super.onStart();
+
+        viewModel = ((HomeActivity)getActivity()).getViewModel();
+
         btnGotoProgress = getView().findViewById(R.id.btnGotoProgress);
         textViewRoutineOfToday = getView().findViewById(R.id.textViewRoutineOfToday);
-        textViewRoutineOfToday.setText(((HomeActivity)getActivity()).getScheduledRoutineName());
+        textViewRoutineOfToday.setText(viewModel.getScheduledRoutineName());
     }
+
+
 }

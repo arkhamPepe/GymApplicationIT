@@ -10,12 +10,16 @@ public class HomeViewModel extends BaseViewModel {
     public HomeViewModel(){
     }
 
-    public String getTodaysRoutineName(){
-        String routineName = getModel().getTodaysRoutineName();
-        if(routineName.isEmpty()) {
+    public String getTodaysRoutineName() {
+        String routineName = getModel().getActiveRoutine().getName();
+        if (routineName.isEmpty()) {
             return "No routine for today";
         }
         return routineName;
+    }
+
+    public String getScheduledRoutineName(){
+        return getModel().getScheduledRoutineName();
     }
 
     public void startRoutine(){
