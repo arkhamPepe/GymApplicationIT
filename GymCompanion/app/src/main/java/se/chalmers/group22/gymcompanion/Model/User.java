@@ -69,8 +69,12 @@ public class User implements Serializable {
     }
 
     // Defensive Copy
-    public Map<Calendar, Routine> getCompletedRoutinesKeySet(){
-        return new HashMap<Calendar, Routine>(completedRoutines);
+    public Map<Calendar, Routine> getCompletedRoutines(){
+        return new HashMap<>(completedRoutines);
+    }
+
+    public void finishRoutine(Routine routine){
+        completedRoutines.put(Calendar.getInstance(), routine);
     }
 
     public void addFriend(User friend){

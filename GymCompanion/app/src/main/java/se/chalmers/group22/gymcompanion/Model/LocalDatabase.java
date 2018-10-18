@@ -3,6 +3,7 @@ package se.chalmers.group22.gymcompanion.Model;
 import android.content.Context;
 import android.util.Log;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.io.*;
@@ -51,7 +52,6 @@ public class LocalDatabase {
             //fis = GymCompanionContext.getContext().getResources().openRawResource(R.raw.user);
             is = new ObjectInputStream(fis);
             loadedUser = (User) is.readObject();
-            String s = loadedUser.getName();
             is.close();
             fis.close();
         }catch (Exception e){
@@ -60,6 +60,11 @@ public class LocalDatabase {
 
         if(loadedUser == null){
             User user = new User("Unknown User", "Unknown Gym", 1, 1, true);
+            Routine r1 = new Routine();
+            Exercise e1 = new StrengthExercise("Test Exercise", 2);
+            r1.addExercise(e1);
+            user.addRoutine(r1);
+            user.finishRoutine(r1);
             saveUser(user);
             return user;
         }
