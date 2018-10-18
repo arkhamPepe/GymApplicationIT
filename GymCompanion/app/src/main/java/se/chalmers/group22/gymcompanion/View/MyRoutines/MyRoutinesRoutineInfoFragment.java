@@ -5,10 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.R;
@@ -39,7 +36,19 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
     public void onStart(){
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
+
         update();
+
+        ExerciseListAdapter adapter = new ExerciseListAdapter(getActivity(), viewModel.getExercises());
+        ListView listView = getView().findViewById(R.id.listViewExercise);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                ((MyRoutinesActivity)getActivity()).onClickEnterExercise(position);
+            }
+        });
     }
 
     public void update(){

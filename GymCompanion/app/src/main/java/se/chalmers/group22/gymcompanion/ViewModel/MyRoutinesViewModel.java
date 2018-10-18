@@ -12,7 +12,9 @@ public class MyRoutinesViewModel extends BaseViewModel {
 
     @Getter
     private int selectedRoutineIndex;
+    private int selectedExerciseIndex;
     List<Routine> routines = new ArrayList<>();
+
 
     public MyRoutinesViewModel(){
         Routine routine1 = new Routine("Routine1");
@@ -46,6 +48,10 @@ public class MyRoutinesViewModel extends BaseViewModel {
         selectedRoutineIndex = position;
     }
 
+    public void setSelectedExerciseIndex(int position){
+        selectedExerciseIndex = position;
+    }
+
     public String getSelectedRoutineName(){
         return  routines.get(selectedRoutineIndex).getName();
     }
@@ -56,6 +62,18 @@ public class MyRoutinesViewModel extends BaseViewModel {
 
     public void setActiveRoutine(){
         getModel().setActiveRoutine(routines.get(selectedRoutineIndex));
+    }
+
+    public String getExerciseName(){
+        return  routines.get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getName();
+    }
+
+    public String getExerciseGuide(){
+        return routines.get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getVideoguide();
+    }
+
+    public String getExerciseDescription(){
+        return routines.get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getDescription();
     }
 
 }

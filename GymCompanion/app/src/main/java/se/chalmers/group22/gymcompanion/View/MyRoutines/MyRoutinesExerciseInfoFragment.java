@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 public class MyRoutinesExerciseInfoFragment extends Fragment {
 
@@ -13,6 +14,8 @@ public class MyRoutinesExerciseInfoFragment extends Fragment {
     private TextView textViewExerciseDescription;
     private TextView textViewGuideDescription;
     private TextView textViewExerciseName;
+
+    private MyRoutinesViewModel viewModel;
 
     public static MyRoutinesExerciseInfoFragment newInstance() {
         MyRoutinesExerciseInfoFragment fragment = new MyRoutinesExerciseInfoFragment();
@@ -33,9 +36,16 @@ public class MyRoutinesExerciseInfoFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
+        viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); //get the viewmodel
+
+    }
+
+    public void update(){
         textViewExerciseDescription = getView().findViewById(R.id.textViewDescription);
         textViewExerciseName = getView().findViewById(R.id.textViewMyRoutinesInfoRoutineName);
         textViewGuideDescription = getView().findViewById(R.id.textViewGuide);
+
+        textViewExerciseName.setText(viewModel.getExerciseName());
 
     }
 }

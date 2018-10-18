@@ -24,7 +24,7 @@ public class MyRoutinesActivity extends BaseActivity {
 
     private final Fragment fragmentStart = new MyRoutinesStartFragment();
     private final MyRoutinesRoutineInfoFragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
-    private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
+    private final MyRoutinesExerciseInfoFragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
     private Fragment active = fragmentStart;
 
@@ -97,6 +97,14 @@ public class MyRoutinesActivity extends BaseActivity {
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);
         transaction.commit();
+    }
 
+    public void onClickEnterExercise(int position){
+        viewModel.setSelectedExerciseIndex(position);
+        fragmentExerciseInfo.update();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentExerciseInfo);
+        transaction.hide(fragmentRoutineInfo);
+        transaction.commit();
     }
 }
