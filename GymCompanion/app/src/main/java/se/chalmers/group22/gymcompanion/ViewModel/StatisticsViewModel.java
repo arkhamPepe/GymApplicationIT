@@ -48,6 +48,22 @@ public class StatisticsViewModel extends BaseViewModel {
         return getModel().getTotalAmountOfCompletedRoutines();
     }
 
+    public int getTotalAmountOfCompletedExercises(){
+        return getModel().getTotalAmountOfCompletedExercises();
+    }
+
+    public String getFavouriteRoutineName(){
+        return getModel().getFavouriteRoutineName();
+    }
+
+    public String getFavouriteExerciseName(){
+        return getModel().getFavouriteExerciseName();
+    }
+
+    public String getBiggestCompletedRoutineName(){
+        return getModel().getBiggestCompletedRoutineName();
+    }
+
     public List<String> getRoutineNamesWeek(){
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date());

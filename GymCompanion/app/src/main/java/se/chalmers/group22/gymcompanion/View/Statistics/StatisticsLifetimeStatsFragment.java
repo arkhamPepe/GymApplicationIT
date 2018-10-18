@@ -48,6 +48,10 @@ public class StatisticsLifetimeStatsFragment extends Fragment {
         biggestRoutine = getView().findViewById(R.id.biggestRoutine);
 
         totalRoutinesCompleted.setText("Total Routines Completed: " + viewModel.getTotalAmountOfCompletedRoutines());
+        totalExercisesCompleted.setText("Total Exercises Completed: " + viewModel.getTotalAmountOfCompletedExercises());
+        favouriteRoutine.setText("Favourite Routine: " + viewModel.getFavouriteRoutineName());
+        favouriteExercise.setText("Favourite Exercise: " + viewModel.getFavouriteExerciseName());
+        biggestRoutine.setText("Biggest Routine Completed: " + viewModel.getBiggestCompletedRoutineName());
 
     }
 }

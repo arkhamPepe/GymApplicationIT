@@ -185,6 +185,22 @@ public class GymCompanion {
         return user.getTotalAmountOfCompletedRoutines();
     }
 
+    public int getTotalAmountOfCompletedExercises(){
+        return user.getTotalAmountOfCompletedExercises();
+    }
+
+    public String getFavouriteRoutineName(){
+        return user.getFavouriteRoutineName();
+    }
+
+    public String getFavouriteExerciseName(){
+        return user.getFavouriteExerciseName();
+    }
+
+    public String getBiggestCompletedRoutineName(){
+        return user.getBiggestCompletedRoutineName();
+    }
+
     //Sorting and Filtering
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
