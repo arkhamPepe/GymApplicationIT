@@ -46,6 +46,8 @@ public class User implements Serializable {
     }
 
     public User(String name, String gym, int age, int weight, boolean isBeginner){
+        this.name = name;
+        this.gym = gym;
         this.friends = new ArrayList<>();
         this.routines = new ArrayList<>();
         this.age = age;

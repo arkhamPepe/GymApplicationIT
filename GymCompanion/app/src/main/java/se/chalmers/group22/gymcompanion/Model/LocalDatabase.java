@@ -3,6 +3,7 @@ package se.chalmers.group22.gymcompanion.Model;
 import android.content.Context;
 import android.util.Log;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.R;
 
 import java.io.*;
 import java.util.List;
@@ -11,7 +12,6 @@ public class LocalDatabase {
     private static final String FILENAME = "database.txt";
 
     private static LocalDatabase localDatabase;
-    private static Context context;
 
     private Parser parser;
 
@@ -24,7 +24,6 @@ public class LocalDatabase {
         if(localDatabase == null){
             localDatabase = new LocalDatabase();
         }
-        context = GymCompanionContext.getContext();
         return localDatabase;
     }
 
@@ -32,11 +31,10 @@ public class LocalDatabase {
         FileOutputStream fos;
         ObjectOutputStream os;
         try{
-            fos = new FileOutputStream("raw/user.ser");
-            //fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            //fos = new FileOutputStream("raw/user.ser");
+            fos = GymCompanionContext.getContext().openFileOutput(FILENAME, Context.MODE_PRIVATE);
             os = new ObjectOutputStream(fos);
             os.writeObject(user);
-            Log.i("LocalDataBase", user.toString());
             os.close();
             fos.close();
         } catch (Exception e){
@@ -45,26 +43,26 @@ public class LocalDatabase {
     }
 
     public User loadUser(){
-        File file = new File(FILENAME);
-        if(!file.exists())
-        {
-            return new User("Test User", "Test Gym", 10, 10, true);
-        }
-
         User loadedUser = null;
         FileInputStream fis;
         ObjectInputStream is;
         try{
-            //fis = context.openFileInput(FILENAME);
-            fis = new FileInputStream("raw/user.ser");
+            fis = GymCompanionContext.getContext().openFileInput(FILENAME);
+            //fis = GymCompanionContext.getContext().getResources().openRawResource(R.raw.user);
             is = new ObjectInputStream(fis);
             loadedUser = (User) is.readObject();
+            String s = loadedUser.getName();
             is.close();
             fis.close();
         }catch (Exception e){
             e.printStackTrace();
         }
 
+        if(loadedUser == null){
+            User user = new User("Unknown User", "Unknown Gym", 1, 1, true);
+            saveUser(user);
+            return user;
+        }
 
         return loadedUser;
     }
