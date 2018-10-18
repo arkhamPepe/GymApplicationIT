@@ -55,7 +55,7 @@ public class BrowseViewModel extends BaseViewModel {
     }
 
     public void filter(FilterStrategy strategy){
-        //sortableList.clear();
+        sortableList.clear();
         sortableList.addAll(getModel().filter(getModel().getRoutinesAndExercises(), strategy));
     }
 
@@ -68,10 +68,8 @@ public class BrowseViewModel extends BaseViewModel {
                 mgList.add(m);
             }
         }
-        List<ISortable> temp = new ArrayList<>();
-        temp.addAll(sortableList);
         sortableList.clear();
-        sortableList.addAll(getModel().filter(temp, mgList));
+        sortableList.addAll(getModel().filter(getModel().getRoutinesAndExercises(), mgList));
     }
 
     public String getCurrentPage(){
