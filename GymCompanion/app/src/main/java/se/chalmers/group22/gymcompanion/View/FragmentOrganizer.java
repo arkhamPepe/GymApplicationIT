@@ -1,8 +1,10 @@
 package se.chalmers.group22.gymcompanion.View;
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentContainer;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.util.ArrayList;
@@ -11,31 +13,49 @@ import java.util.List;
 public class FragmentOrganizer {
 
     private List<Fragment> fragments;
-    private FragmentManager fragmentManager;
-    private NavigationFragment navigationFragment;
+    private FragmentManager fm;
+    private Fragment navigationFragment;
+    private int id;
 
-    public FragmentOrganizer(List<Fragment> f, FragmentManager fragmentManager, NavigationFragment nf){
+    public FragmentOrganizer(List<Fragment> f, FragmentManager fragmentManager,
+                             Fragment navigationFragment, int id){
         this.fragments.addAll(f);
-        this.fragmentManager = fragmentManager;
-        this.navigationFragment = nf;
+        this.fm = fragmentManager;
+        this.navigationFragment = navigationFragment;
+        this.id = id;
     }
 
-    /*public void performInitTransaction(){
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
+    public FragmentOrganizer(List<Fragment> f, FragmentManager fragmentManager, int id){
+        this.fragments.addAll(f);
+        this.fm = fragmentManager;
+        this.navigationFragment = null;
+        this.id = id;
+    }
 
-        int index = 2;
-        for (Fragment f : fragments){
-            if (f == active){
-                transaction.add(R.id.statistics_container, f, "1");
-            }
-            else {
-                transaction.add(R.id.statistics_container, f, String.valueOf(index)).hide(f);
-                index++;
-            }
+    public void setUpFragments(Fragment startFocus){
+
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        for (Fragment f:fragments) {
+            transaction.add(id,f);
         }
-        transaction.add(R.id.navigation, navigationFragment);
 
+        if(navigationFragment != null){
+            transaction.add(R.id.navigation,navigationFragment);
+        }
+
+        transaction.show(startFocus);
         transaction.commit();
-    }*/
+    }
+
+    public void changeToFragment(Fragment changeFocus){
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        for (Fragment f:fragments) {
+           transaction.hide(f);
+        }
+        transaction.show(changeFocus);
+        transaction.commit();
+    }
 
 }
