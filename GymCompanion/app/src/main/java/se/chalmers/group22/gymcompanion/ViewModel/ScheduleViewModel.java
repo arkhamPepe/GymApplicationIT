@@ -9,7 +9,7 @@ import java.util.*;
 
 public class ScheduleViewModel extends BaseViewModel {
     private Map<Calendar, Routine> calendarRoutineMap;
-    private ISchedule schedule;
+    private ISchedule schedule; /* TODO Remove */
     private int selectedYear;
     private int selectedMonth;
     private int selectedDay;
@@ -65,21 +65,12 @@ public class ScheduleViewModel extends BaseViewModel {
 
     /** scheduleSelectedRoutine
      * Purpose: Schedule the selected routine on the selected day.
-     * @return true if routine got scheduled.
      */
-    public boolean scheduleSelectedRoutine(){
+    public void scheduleSelectedRoutine(){
         Calendar day = new GregorianCalendar();
         day.set(selectedYear, selectedMonth, selectedDay);
 
-        if (getModel().isScheduled(day)){
-            getModel().scheduleRoutine(day, selectedRoutineName);
-            return false;
-        }
-
-        if (getModel().isScheduled(day))
-            return true;
-
-        return false;
+        getModel().scheduleRoutine(day, selectedRoutineName);
     }
 
     /**--------------------------------------------------------------*/
@@ -102,8 +93,7 @@ public class ScheduleViewModel extends BaseViewModel {
 
     /* TODO: Fix this */
     public String getSelectedDateRoutineName(){
-        //return getModel().getRoutineNameOnDate(selectedYear, selectedMonth, selectedDay);
-        return "";
+        return getModel().getRoutineNameOnDate(selectedYear, selectedMonth, selectedDay);
     }
 
     public String getToday(){

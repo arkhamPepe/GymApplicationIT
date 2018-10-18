@@ -27,24 +27,41 @@ public class Schedule implements Serializable, ISchedule {
      * @param date
      */
     public void addRoutine(Routine routine, Calendar date){
-        routineSchedule.put(date,routine);
+        if (dateHasRoutine(date)){
+            removeRoutine(date);
+            routineSchedule.put(date, routine); // Schedule new routine
+        } else if (date != null){
+            routineSchedule.put(date,routine);
+        }
     }
-
 
     /** removeRoutine
      * Purpose: Remove routine on input date from schedule
      * @param date
      */
     public void removeRoutine(Calendar date){
-        routineSchedule.remove(date);
+        for (Calendar calendar : routineSchedule.keySet()){
+            if (calendar.get(Calendar.DAY_OF_YEAR) == date.get(Calendar.DAY_OF_YEAR) &&
+                    calendar.get(Calendar.YEAR) == date.get(Calendar.YEAR)
+            ){
+                routineSchedule.remove(calendar);
+            }
+        }
     }
 
     /** dateHasRoutine
      * @param date
-     * @return
+     * @return true if input date has a routine scheduled, else false
      */
     public boolean dateHasRoutine(Calendar date){
-        return routineSchedule.containsKey(date);
+        for (Calendar calendar : routineSchedule.keySet()){
+            if (calendar.get(Calendar.DAY_OF_YEAR) == date.get(Calendar.DAY_OF_YEAR) &&
+                    calendar.get(Calendar.YEAR) == date.get(Calendar.YEAR)
+            ){
+                return true;
+            }
+        }
+        return false;
     }
 
     /**--------------------------------------------------------------*/

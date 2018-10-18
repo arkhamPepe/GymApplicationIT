@@ -140,15 +140,15 @@ public class GymCompanion {
     public void scheduleRoutine(Calendar day, String routineName){
         Routine routine = getRoutine(routineName);
 
-        user.getSchedule().addRoutine(routine, day);
+        user.scheduleAddRoutine(routine, day);
     }
 
     public double getRoutineDifficulty(Routine routine){
         return routine.getAverageDifficulty();
     }
 
-    public String getRoutineNameOnDate(int year, int day){
-        return user.getRoutineNameOnDate(year, day);
+    public String getRoutineNameOnDate(int year, int month, int day){
+        return user.getRoutineNameOnDate(year, month, day);
     }
 
     private Routine getRoutine(String routineName){
@@ -156,7 +156,6 @@ public class GymCompanion {
             if (r.getName().equals(routineName))
                 return r;
         }
-
         return null;
     }
 

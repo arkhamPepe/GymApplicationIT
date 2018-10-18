@@ -123,6 +123,10 @@ public class User implements Serializable {
         return schedule.getLatestFinishedRoutine();
     }
 
+    public void scheduleAddRoutine(Routine routine, Calendar date){
+        schedule.addRoutine(routine, date);
+    }
+
     public ISchedule getSchedule(){
         return schedule;
     }
@@ -135,8 +139,8 @@ public class User implements Serializable {
         return schedule.getSchedule();
     }
 
-    public String getRoutineNameOnDate(int year, int day){
-        return schedule.getRoutineNameFromDate(year, day);
+    public String getRoutineNameOnDate(int year, int month, int day){
+        return schedule.getRoutineNameFromDate(year, month, day);
     }
 
     public int getYearToday() {
