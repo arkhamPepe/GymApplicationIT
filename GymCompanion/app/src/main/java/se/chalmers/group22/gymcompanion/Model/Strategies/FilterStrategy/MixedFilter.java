@@ -11,9 +11,6 @@ public class MixedFilter implements FilterStrategy {
     @Getter
     private final String name = "Mix";
 
-    private static final List<MUSCLE_GROUP> VALUES =
-            Collections.unmodifiableList(Arrays.asList(MUSCLE_GROUP.values()));
-    private static final int SIZE = VALUES.size();
     private static final Random RANDOM = new Random();
 
 
