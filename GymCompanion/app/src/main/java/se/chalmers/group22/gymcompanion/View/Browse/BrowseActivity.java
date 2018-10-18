@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.Button;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
@@ -20,6 +19,7 @@ public class BrowseActivity extends BaseActivity {
     private final Fragment fragmentStart = new BrowseStartFragment();
     private final Fragment fragmentSelection = new BrowseSelectionFragment();
     private final Fragment fragmentResult = new BrowseResultFragment();
+    private final Fragment fragmentRecommended = new BrowseRecommendedFragment();
     private final Fragment navigationFragment = new NavigationFragment();
     private final FragmentManager fm = getSupportFragmentManager();
 
@@ -38,6 +38,7 @@ public class BrowseActivity extends BaseActivity {
         navigationFragment.setArguments(navBundle);
 
         FragmentTransaction transaction = fm.beginTransaction();
+        transaction.add(R.id.browse_container, fragmentRecommended, "4").hide(fragmentRecommended);
         transaction.add(R.id.browse_container, fragmentResult, "3").hide(fragmentResult);
         transaction.add(R.id.browse_container, fragmentSelection, "2").hide(fragmentSelection);
         transaction.add(R.id.browse_container, fragmentStart, "1");
@@ -45,33 +46,83 @@ public class BrowseActivity extends BaseActivity {
         transaction.commit();
     }
 
-    public void goToBrowseSelection(View view){
+    public void goToMuscleGroupSelection(View view){
         FragmentTransaction transaction = fm.beginTransaction();
 
         transaction.hide(fragmentStart);
         transaction.show(fragmentSelection);
         transaction.hide(fragmentResult);
-
-        int i = Integer.valueOf((String)view.getTag());
-        browseViewModel.setIndex(i);
-
-        fragmentSelection.onResume();
+        transaction.hide(fragmentRecommended);
 
         transaction.commit();
     }
 
-    public void goToResult(View view) {
+    public void resultBack(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.hide(fragmentStart);
+        transaction.hide(fragmentSelection);
+        transaction.hide(fragmentResult);
+        transaction.hide(fragmentRecommended);
+
+        switch(browseViewModel.getIndex()){
+            case 0:
+                transaction.show(fragmentStart);
+                break;
+            case 1:
+                transaction.show(fragmentSelection);
+                break;
+            case 2:
+                transaction.show(fragmentRecommended);
+                break;
+            default:
+                break;
+        }
+        transaction.commit();
+    }
+
+    public void goToResult(View view, String s) {
         FragmentTransaction transaction = fm.beginTransaction();
 
         transaction.hide(fragmentStart);
         transaction.hide(fragmentSelection);
         transaction.show(fragmentResult);
+        transaction.hide(fragmentRecommended);
 
-        String x = ((Button)view).getText().toString();
-        x = x.replace(" ", "_");
+        String x;
+        x = s.replace(" ", "_");
         browseViewModel.setMuscleGroup(x);
+        browseViewModel.setIndex(1);
+        browseViewModel.filter(x);
         fragmentResult.onResume();
+        transaction.commit();
+    }
 
+    public void goToResultFromSearch(String s){
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        transaction.hide(fragmentStart);
+        transaction.hide(fragmentSelection);
+        transaction.show(fragmentResult);
+        transaction.hide(fragmentRecommended);
+
+        browseViewModel.setIndex(0);
+        browseViewModel.search(s);
+        fragmentResult.onResume();
+        transaction.commit();
+    }
+
+    public void goToResultFromRecommended(View view) {
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        transaction.hide(fragmentStart);
+        transaction.hide(fragmentSelection);
+        transaction.show(fragmentResult);
+        transaction.hide(fragmentRecommended);
+
+        int i = Integer.valueOf((String)view.getTag());
+        browseViewModel.setIndex(i);
+
+        fragmentResult.onResume();
         transaction.commit();
     }
 
@@ -81,7 +132,20 @@ public class BrowseActivity extends BaseActivity {
         transaction.show(fragmentStart);
         transaction.hide(fragmentSelection);
         transaction.hide(fragmentResult);
+        transaction.hide(fragmentRecommended);
+
         fragmentStart.onResume();
+        transaction.commit();
+    }
+
+    public void goToRecommendedSelection(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+
+        transaction.hide(fragmentStart);
+        transaction.hide(fragmentSelection);
+        transaction.hide(fragmentResult);
+        transaction.show(fragmentRecommended);
+
         transaction.commit();
     }
 

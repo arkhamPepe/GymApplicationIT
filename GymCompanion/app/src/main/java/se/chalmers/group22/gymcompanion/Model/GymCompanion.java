@@ -24,15 +24,15 @@ public class GymCompanion {
     private Routine activeRoutine;
     private Exercise activeExercise;
     private boolean isRoutineActive;
+
+    @Setter
     private List<Routine> routineList;
+
+    @Setter
     private List<Exercise> exerciseList;
 
     public GymCompanion(){
 
-    }
-
-    public String getTodaysRoutineName(){
-        return user.getTodaysRoutineName();
     }
 
     public void startRoutine(){
@@ -46,32 +46,21 @@ public class GymCompanion {
         /*TODO redirect to "Workout in progress"-page*/
     }
 
-    public void endActiveRoutine(){
-        activeRoutine = null;
-        isRoutineActive = false;
-    }
-
-    public void checkDay(){
-        Calendar today = Calendar.getInstance();
-        if (user.scheduleDayHasRoutine(today)){
-            startRoutine(user.getScheduleRoutineFromDay(today));
-        }
-        else {
-            /*TODO Direct the user to MR so it can create a new routine*/
-        }
-    }
+    //Active Routine Methods
 
     public void setActiveExerciseInActiveRoutine(int index){
         activeExercise = activeRoutine.getExercises().get(index);
     }
 
-    public int getAmountOfExercisesInAR(){
+    public int getAmountOfExercisesInActiveRoutine(){
         if(activeRoutine == null)
         {
             return 0;
         }
         return activeRoutine.getExercises().size();
     }
+
+    //Active Exercise Methods
 
     public String getActiveExerciseName(){
         return activeExercise.getName();
@@ -95,6 +84,13 @@ public class GymCompanion {
 
     public double getAmountWeightFromActiveExerciseSetWithIndex(int index){
         return ((StrengthExercise)activeExercise).getKilograms().get(index);
+    }
+
+
+    //Schedule Methods
+
+    public String getScheduledRoutineName(){
+        return user.getScheduledRoutineName();
     }
 
     public Routine getFinishedRoutine() {
@@ -139,12 +135,37 @@ public class GymCompanion {
         user.getSchedule().addRoutine(routine, day);
     }
 
-    public double getRoutineDifficulty(Routine routine){
-        return routine.getAverageDifficulty();
+
+    //Routine creation and modification
+
+    public void createRoutine(){
+        user.createRoutine();
     }
 
-    public String getRoutineNameOnDate(int year, int day){
-        return user.getRoutineNameOnDate(year, day);
+    public void addExercise(Exercise exercise, Routine routine){
+        user.addExerciseToRoutine(exercise, routine);
+    }
+
+    //Routine and Exercise Getters
+
+    public List<ISortable> getRoutinesAndExercises(){
+        List<ISortable> newList = new ArrayList<>();
+
+        if(!(routineList == null || exerciseList == null)) {
+            newList.addAll(routineList);
+            newList.addAll(exerciseList);
+        }
+
+        return newList;
+    }
+
+
+    public List<Routine> getRoutines() {
+        return user.getRoutines();
+    }
+
+    public Routine getRoutineFromDay(Calendar day){
+        return user.getRoutineFromDay(day);
     }
 
     private Routine getRoutine(String routineName){
@@ -156,18 +177,11 @@ public class GymCompanion {
         return null;
     }
 
-    public void createRoutine(){
-        user.createRoutine();
+    public double getRoutineDifficulty(Routine routine){
+        return routine.getAverageDifficulty();
     }
 
-    public void addExercise(Exercise exercise, Routine routine){
-        user.addExerciseToRoutine(exercise, routine);
-    }
-
-
-    public List<Routine> getRoutines() {
-        return user.getRoutines();
-    }
+    //Sorting and Filtering
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
         strat.sort(list);
@@ -188,17 +202,6 @@ public class GymCompanion {
                 }
             }
         }
-        return newList;
-    }
-
-    public List<ISortable> getRoutinesAndExercises(){
-        List<ISortable> newList = new ArrayList<>();
-
-        if(!(routineList == null || exerciseList == null)) {
-            newList.addAll(routineList);
-            newList.addAll(exerciseList);
-        }
-
         return newList;
     }
 
@@ -227,9 +230,5 @@ public class GymCompanion {
             }
         }
         return newList;
-    }
-
-    public Routine getRoutineFromDay(Calendar day){
-        return user.getRoutineFromDay(day);
     }
 }

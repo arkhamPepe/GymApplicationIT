@@ -1,11 +1,15 @@
 package se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy;
 
+import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
 
 import java.util.*;
 
 public class RecommendedFilter implements FilterStrategy {
+
+    @Getter
+    private final String name = "Mix";
 
     private static final List<MUSCLE_GROUP> VALUES =
             Collections.unmodifiableList(Arrays.asList(MUSCLE_GROUP.values()));

@@ -5,16 +5,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BrowseMuscleGroupsListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
-public class BrowseSelectionFragment extends Fragment /*implements View.OnClickListener*/ {
+public class BrowseSelectionFragment extends Fragment {
 
     private BrowseViewModel viewModel;
-    private TextView currentIndex;
     public static BrowseSelectionFragment getInstance() {
         return new BrowseSelectionFragment();
     }
@@ -34,16 +33,33 @@ public class BrowseSelectionFragment extends Fragment /*implements View.OnClickL
     public void onStart() {
         super.onStart();
         viewModel = ((BrowseActivity) getActivity()).getViewModel();
+
+        //ListView
+        ListView listView = getView().findViewById(R.id.listViewBrowseMuscleGroups);
+
+        BrowseMuscleGroupsListAdapter adapter = new BrowseMuscleGroupsListAdapter(getActivity(),
+                viewModel.getMuscleGroups());
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                String s = listView.getAdapter().getItem(position).toString();
+                ((BrowseActivity)getActivity()).goToResult(view, s);
+            }
+        });
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        /*
         this.currentIndex = getView().findViewById(R.id.currentIndex);
 
         String current = "Category: " + viewModel.getCurrentPage();
         this.currentIndex.setText(current);
-
+        */
         ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Search and Browse");
     }
 }

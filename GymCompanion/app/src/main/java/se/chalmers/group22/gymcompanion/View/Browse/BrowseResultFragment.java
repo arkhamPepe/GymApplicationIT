@@ -5,8 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 public class BrowseResultFragment extends Fragment {
@@ -31,23 +34,6 @@ public class BrowseResultFragment extends Fragment {
     public void onStart() {
         super.onStart();
         viewModel = ((BrowseActivity) getActivity()).getViewModel();
-
-        //this.dummy = getView().findViewById(R.id.dummy);
-
-        /*ScheduleListAdapter adapter = new ScheduleListAdapter(getActivity(),
-                viewModel.getRoutineNames(),
-                viewModel.getRoutineDifficulties(),
-                viewModel.getRoutineExercisesAmounts());
-        ListView listView = getView().findViewById(R.id.listviewSchedulePick);
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                //((BrowseActivity)getActivity()).scheduleRoutine();
-            }
-        });*/
     }
 
     @Override
@@ -56,8 +42,24 @@ public class BrowseResultFragment extends Fragment {
         ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Browse Results");
 
         this.currentMuscleGroup = getView().findViewById(R.id.currentMuscleGroup);
-        String t = "Category: " + viewModel.getMuscleGroupString();
+        String t = "Browsing: " + viewModel.getCurrentPage();
 
         this.currentMuscleGroup.setText(t);
+
+        //ListView
+        BrowseResultListAdapter adapter;
+        ListView listView = getView().findViewById(R.id.listViewBrowseResult);
+        adapter = new BrowseResultListAdapter(getActivity(),
+                viewModel.getRoutineAndExerciseNames(),
+                viewModel.getRoutineAndExerciseDifficulties());
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                //((BrowseActivity)getActivity()).scheduleRoutine();
+            }
+        });
     }
 }

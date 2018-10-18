@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
 import se.chalmers.group22.gymcompanion.Model.Routine;
+import se.chalmers.group22.gymcompanion.Model.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,27 +11,30 @@ public class HomeViewModel extends BaseViewModel {
     public HomeViewModel(){
     }
 
-    public String getScheduledRoutineName(){
-        return "Hej";
+    public String getTodaysRoutineName() {
+        String routineName = getModel().getActiveRoutine().getName();
+        if (routineName.isEmpty()) {
+            return "No routine for today";
+        }
+        return routineName;
     }
 
-    public String getTodaysRoutineName(){
-        return getModel().getTodaysRoutineName();
+    public String getScheduledRoutineName(){
+        return getModel().getScheduledRoutineName();
     }
 
     public void startRoutine(){
         getModel().startRoutine();
     }
 
-    public Map<String, Integer> getFinishedRoutineStats(){
+    public Map<String, String> getFinishedRoutineStats(){
         Routine finishedRoutine = getModel().getFinishedRoutine();
-        Map<String, Integer> routineStatsMap = new HashMap<>();
+        Map<String, String> routineStatsMap = new HashMap<>();
 
-        if(finishedRoutine != null) {
-            // TODO fix timeSpent value
-            routineStatsMap.put("timeSpent", 0);
-            routineStatsMap.put("totalExercises", finishedRoutine.getExercises().size());
-            routineStatsMap.put("completedExercises", finishedRoutine.getCompletedExercises());
+       if(finishedRoutine != null) {
+            routineStatsMap.put("timeSpent", String.valueOf(0));
+            routineStatsMap.put("totalExercises", String.valueOf(finishedRoutine.getExercises().size()));
+            routineStatsMap.put("completedExercises", String.valueOf(finishedRoutine.getCompletedExercises()));
         }
 
         return routineStatsMap;
