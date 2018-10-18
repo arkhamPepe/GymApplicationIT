@@ -8,12 +8,10 @@ import java.util.*;
 
 public class MixedFilter implements FilterStrategy {
 
-    @Getter
-    private final String name = "Mix";
+
 
     private static final Random RANDOM = new Random();
-
-
+    
     //Filters the list with a mix of routines/exercises (Completely Random)
     public <T extends ISortable> List<T> filter(List<T> oldList){
         List<T> newList = new ArrayList<>(oldList);
