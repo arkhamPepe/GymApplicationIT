@@ -8,8 +8,6 @@ import se.chalmers.group22.gymcompanion.Model.Routine;
 import java.util.*;
 
 public class ScheduleViewModel extends BaseViewModel {
-    private Map<Calendar, Routine> calendarRoutineMap;
-    private ISchedule schedule; /* TODO Remove */
     private int selectedYear;
     private int selectedMonth;
     private int selectedDay;
@@ -25,8 +23,6 @@ public class ScheduleViewModel extends BaseViewModel {
     private List<Exercise> exercises3 = new ArrayList<>();
 
     public ScheduleViewModel(){
-        calendarRoutineMap = getModel().getUserRoutineSchedule();
-        schedule = getModel().getUserSchedule();
         initSelectedDate();
 
         // TEMPORARY
@@ -66,11 +62,11 @@ public class ScheduleViewModel extends BaseViewModel {
     /** scheduleSelectedRoutine
      * Purpose: Schedule the selected routine on the selected day.
      */
-    public void scheduleSelectedRoutine(){
+    public void scheduleSelectedRoutine(String routineName){
         Calendar day = new GregorianCalendar();
         day.set(selectedYear, selectedMonth, selectedDay);
 
-        getModel().scheduleRoutine(day, selectedRoutineName);
+        getModel().scheduleRoutine(day, routineName);
     }
 
     /**--------------------------------------------------------------*/

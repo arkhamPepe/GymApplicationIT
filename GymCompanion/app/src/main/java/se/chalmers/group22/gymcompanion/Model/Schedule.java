@@ -12,6 +12,7 @@ public class Schedule implements Serializable, ISchedule {
 
     private Reminder reminder;
     private Calendar calendar = new GregorianCalendar();
+    private final String NO_ROUTINE_SCHEDULED_ON_DATE = "No Scheduled Routine";
 
     @Getter(AccessLevel.NONE)
     private Map<Calendar, Routine> routineSchedule;
@@ -128,7 +129,7 @@ public class Schedule implements Serializable, ISchedule {
 
         Routine r = getRoutineFromDay(date);
         if(r==null){
-            return "No Scheduled Routine";
+            return NO_ROUTINE_SCHEDULED_ON_DATE;
         }
 
         return r.getName();
@@ -176,6 +177,10 @@ public class Schedule implements Serializable, ISchedule {
 
     public int getDayOfMonthToday() {
         return calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public String getTextNoRoutineScheduled(){
+        return NO_ROUTINE_SCHEDULED_ON_DATE;
     }
 }
 

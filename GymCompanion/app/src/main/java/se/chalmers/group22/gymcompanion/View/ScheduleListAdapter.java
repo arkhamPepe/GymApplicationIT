@@ -20,7 +20,7 @@ public class ScheduleListAdapter extends ArrayAdapter {
     private final List<Integer> routineExercisesAmounts;
 
     public ScheduleListAdapter(Activity context, List<String> routineNames, List<Double> routineDifficulties, List<Integer> routineExercisesAmounts){
-        super(context, R.layout.listitem_history , routineNames);
+        super(context, R.layout.listitem_schedule , routineNames);
 
         this.context = context;
         this.routineNames = routineNames;
