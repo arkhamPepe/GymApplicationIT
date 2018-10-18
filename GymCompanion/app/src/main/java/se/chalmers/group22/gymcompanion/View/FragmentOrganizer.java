@@ -12,21 +12,21 @@ import java.util.List;
 
 public class FragmentOrganizer {
 
-    private List<Fragment> fragments;
+    private List<Fragment> fragments = null;
     private FragmentManager fm;
     private Fragment navigationFragment;
     private int id;
 
-    public FragmentOrganizer(List<Fragment> f, FragmentManager fragmentManager,
+    public FragmentOrganizer(List<Fragment> fragments, FragmentManager fragmentManager,
                              Fragment navigationFragment, int id){
-        this.fragments.addAll(f);
+        this.fragments = new ArrayList<>(fragments);
         this.fm = fragmentManager;
         this.navigationFragment = navigationFragment;
         this.id = id;
     }
 
-    public FragmentOrganizer(List<Fragment> f, FragmentManager fragmentManager, int id){
-        this.fragments.addAll(f);
+    public FragmentOrganizer(List<Fragment> fragments, FragmentManager fragmentManager, int id){
+        this.fragments = new ArrayList<>(fragments);
         this.fm = fragmentManager;
         this.navigationFragment = null;
         this.id = id;
@@ -37,7 +37,7 @@ public class FragmentOrganizer {
         FragmentTransaction transaction = fm.beginTransaction();
 
         for (Fragment f:fragments) {
-            transaction.add(id,f);
+            transaction.add(id,f).hide(f);
         }
 
         if(navigationFragment != null){
