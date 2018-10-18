@@ -46,20 +46,8 @@ public class BrowseSelectionFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 String s = listView.getAdapter().getItem(position).toString();
-                ((BrowseActivity)getActivity()).goToResult(view, s);
+                ((BrowseActivity)getActivity()).goToResult(s);
             }
         });
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        /*
-        this.currentIndex = getView().findViewById(R.id.currentIndex);
-
-        String current = "Category: " + viewModel.getCurrentPage();
-        this.currentIndex.setText(current);
-        */
-        ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Search and Browse");
     }
 }

@@ -32,6 +32,7 @@ public class BrowseViewModel extends BaseViewModel {
     private String currentPage;
 
     private List<ISortable> sortableList = new ArrayList<>();
+    private List<ISortable> filteredList = new ArrayList<>();
 
     public BrowseViewModel(){
         init();
@@ -64,6 +65,10 @@ public class BrowseViewModel extends BaseViewModel {
         }
         sortableList.clear();
         sortableList.addAll(getModel().filter(getModel().getRoutinesAndExercises(), mgList));
+    }
+
+    public void filter() {
+
     }
 
     public String getCurrentPage(){
