@@ -60,11 +60,6 @@ public class LocalDatabase {
 
         if(loadedUser == null){
             User user = new User("Unknown User", "Unknown Gym", 1, 1, true);
-            Routine r1 = new Routine();
-            Exercise e1 = new StrengthExercise("Test Exercise", 2);
-            r1.addExercise(e1);
-            user.addRoutine(r1);
-            user.finishRoutine(r1);
             saveUser(user);
             return user;
         }
