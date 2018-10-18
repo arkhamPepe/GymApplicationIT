@@ -52,6 +52,5 @@ public class MyRoutinesStartFragment extends Fragment {
         RoutineListAdapter adapter = new RoutineListAdapter(getActivity(), viewModel.getRoutines());
         ListView listView = getView().findViewById(R.id.listviewMyRoutines);
         listView.setAdapter(adapter);
-
     }
 }

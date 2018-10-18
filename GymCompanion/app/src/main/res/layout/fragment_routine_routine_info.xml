@@ -5,12 +5,14 @@
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
-    <TextView
+    <EditText
             android:text="Workout Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true" android:layout_marginTop="18dp"
-            android:id="@+id/textViewMyRoutinesInfoRoutineName" android:textSize="24sp" android:textColor="@color/blackColour"
+            android:id="@+id/textViewMyRoutinesInfoRoutineName" android:textSize="24sp"
+            android:textColor="@color/blackColour"
+            android:background="@android:color/transparent"
             android:layout_centerHorizontal="true"/>
     <Button
             android:text="Go Back"

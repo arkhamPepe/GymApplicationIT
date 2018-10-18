@@ -62,16 +62,14 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void onClickCreateRoutine(View view){
-        viewModel.createRoutine();
-        fragmentStart.update();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);
         transaction.commit();
+        viewModel.createRoutine();
+        fragmentStart.update();
+
     }
-    /*public void createRoutine(View view){
-        dataHandler.createRoutine();
-    }*/
 
     public void onClickAddExercise(View view){
         Intent intent = new Intent(this, BrowseActivity.class);
@@ -80,7 +78,6 @@ public class MyRoutinesActivity extends BaseActivity {
         intent.putExtra("MyRoutines",true);
         //viewModel.addExercise();
         startActivity(intent);
-
     }
 
     public MyRoutinesViewModel getViewModel(){
