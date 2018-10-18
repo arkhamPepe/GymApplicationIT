@@ -20,7 +20,7 @@
             android:text="Back"
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:id="@+id/btnMyRoutinesPickMGBack" android:onClick="goToStart"
+            android:id="@+id/btnMyRoutinesPickMGBack" android:onClick="goToRoutineInfo"
             android:background="@color/DefaultColour"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"

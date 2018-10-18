@@ -16,7 +16,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnMyRoutinesPickExerciseBack"
-            android:onClick="resultBack"
+            android:onClick="goToPickMG"
             android:tag="3"/>
 
     <ListView

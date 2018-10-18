@@ -75,8 +75,31 @@ public class MyRoutinesActivity extends BaseActivity {
 
     }
 
-    public void onClickAddExercise(View view){
+    public void goToRoutineInfo(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentRoutineInfo);
+        transaction.hide(fragmentPickMG);
+        transaction.commit();
+    }
 
+    public void goToPickExercise(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentPickExercise);
+        transaction.hide(fragmentPickMG);
+        transaction.commit();
+    }
+
+    public void goToPickMG(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentPickMG);
+        transaction.hide(fragmentRoutineInfo);
+        transaction.hide(fragmentPickExercise);
+        transaction.commit();
+    }
+
+    /* TODO Add stuff */
+    public void onClickAddExercise(View view){
+        goToPickMG(view);
     }
 
     public MyRoutinesViewModel getViewModel(){
