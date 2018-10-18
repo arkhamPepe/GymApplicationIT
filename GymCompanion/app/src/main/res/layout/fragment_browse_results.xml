@@ -3,11 +3,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:id="@+id/searchBarHolder" android:background="@color/DefaultColour">
+    <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/searchBar"
+            android:background="@color/white"
+            android:layout_marginBottom="1dp"/>
+    </RelativeLayout>
+
     <TextView
             android:text="Currently browsing"
             android:layout_width="250dp"
             android:layout_height="wrap_content" android:id="@+id/currentMuscleGroup" android:textSize="18sp"
             android:textAlignment="viewStart" android:layout_alignBaseline="@+id/btnBrowseResultsBack"
+            android:layout_below="@+id/searchBarHolder"
             android:layout_alignParentEnd="true" android:textAllCaps="false"/>
 
     <Button
@@ -16,12 +27,40 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnBrowseResultsBack"
             android:onClick="resultBack"
+            android:layout_below="@+id/searchBarHolder"
             android:tag="3"/>
 
-    <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" android:layout_marginTop="57dp"
-            android:id="@+id/listViewBrowseResult"/>
+    <CheckBox
+            android:text="Exercises"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" android:id="@+id/cbxExercises"
+            android:tag="1"
+            android:layout_below="@id/btnBrowseResultsBack" android:layout_toEndOf="@id/cbxRoutines"
+            android:checked="true"/>
+    <CheckBox
+            android:text="Routines"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" android:id="@+id/cbxRoutines"
+            android:tag="0"
+            android:layout_below="@id/btnBrowseResultsBack" android:layout_toEndOf="@id/txtFilterBy"
+            android:checked="true"/>
+
+    <TextView
+            android:text="Filter by: "
+            android:layout_width="wrap_content"
+            android:id="@+id/txtFilterBy"
+            android:layout_alignParentStart="true"
+            android:textSize="20sp" android:layout_below="@+id/btnBrowseResultsBack" android:layout_height="32dp"/>
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtFilterBy" android:background="@color/DefaultColour">
+        <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_alignParentStart="true"
+                android:layout_marginTop="1dp"
+                android:id="@+id/listViewBrowseResult"
+                android:background="@color/white"
+        />
+    </RelativeLayout>
 
 </RelativeLayout>

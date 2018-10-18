@@ -8,6 +8,18 @@
             android:layout_width="match_parent"
             android:layout_height="52dp" android:id="@+id/txtChooseFilter"
             android:layout_alignParentStart="true" android:textAlignment="center" android:textSize="30sp"/>
+
+    <Button
+            android:text="Back"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnBrowseRecommendedBack" android:onClick="goToStart"
+            android:background="@color/DefaultColour"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"/>
+
     <Button
             android:text="Beginner"
             android:layout_width="match_parent"
