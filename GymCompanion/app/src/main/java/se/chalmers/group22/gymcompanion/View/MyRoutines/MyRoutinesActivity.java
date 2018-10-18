@@ -22,7 +22,7 @@ public class MyRoutinesActivity extends BaseActivity {
     final Fragment navigationFragment = new NavigationFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private final Fragment fragmentStart = new MyRoutinesStartFragment();
+    private final MyRoutinesStartFragment fragmentStart = new MyRoutinesStartFragment();
     private final MyRoutinesRoutineInfoFragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
     private final MyRoutinesExerciseInfoFragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
@@ -63,6 +63,7 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onClickCreateRoutine(View view){
         viewModel.createRoutine();
+        fragmentStart.update();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);
