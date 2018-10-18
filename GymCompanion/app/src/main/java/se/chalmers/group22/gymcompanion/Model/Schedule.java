@@ -28,11 +28,9 @@ public class Schedule implements Serializable, ISchedule {
      * @param date
      */
     public void addRoutine(Routine routine, Calendar date){
-        if (dateHasRoutine(date)){
-            removeRoutine(date);
+        if (routine != null && date != null ) {
+            removeRoutine(date); // Remove existing booked date
             routineSchedule.put(date, routine); // Schedule new routine
-        } else if (date != null){
-            routineSchedule.put(date,routine);
         }
     }
 

@@ -138,7 +138,7 @@ public class GymCompanion {
     }
 
     public boolean isScheduled(Calendar day){
-        return user.getSchedule().dateHasRoutine(day);
+        return user.scheduleDayHasRoutine(day);
     }
 
     public void scheduleRoutine(Calendar day, String routineName){

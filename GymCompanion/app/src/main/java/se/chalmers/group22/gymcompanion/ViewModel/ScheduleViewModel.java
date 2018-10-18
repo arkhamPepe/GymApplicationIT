@@ -1,117 +1,120 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Routine;
-
 import java.util.*;
 
 public class ScheduleViewModel extends BaseViewModel {
-    private int selectedYear;
-    private int selectedMonth;
-    private int selectedDay;
-    private String selectedRoutineName = "";
+    private int selectedYear; // Year of selected date
+    private int selectedMonth; // Month of selected date
+    private int selectedDay; // Day of selected date
 
     private final String buttonBookTextScheduledDate = "Change routine";
     private final String buttonBookTextEmptyDate = "Book routine";
 
-    // TEMPORARY
-    private List<Routine> routines = new ArrayList<>();
-    private List<Exercise> exercises1 = new ArrayList<>();
-    private List<Exercise> exercises2 = new ArrayList<>();
-    private List<Exercise> exercises3 = new ArrayList<>();
+    private List<Routine> routines; // Gets updated when the owner of this dies (fragment or activity)
 
+    /** ScheduleViewModel
+     * Purpose: Select today as selected date
+     */
     public ScheduleViewModel(){
-        initSelectedDate();
-
-        // TEMPORARY
-        exercises1.add(new StrengthExercise("Bench press", 2));
-        exercises1.add(new StrengthExercise("Incline bench press", 2));
-        exercises1.add(new StrengthExercise("Incline flies", 2));
-
-        exercises2.add(new StrengthExercise("Squats", 3));
-        exercises2.add(new StrengthExercise("Deadlifts", 5));
-        exercises2.add(new StrengthExercise("Hamstring curls", 2));
-        exercises2.add(new StrengthExercise("Calf raises", 1));
-
-        exercises3.add(new StrengthExercise("Pull-ups", 3));
-        exercises3.add(new StrengthExercise("Rows", 2));
-
-        routines.add(new Routine("Chest ripper", exercises1));
-        routines.add(new Routine("Leg breaker", exercises2));
-        routines.add(new Routine("Back attack", exercises3));
-        routines.add(new Routine("Chest ripper 2", exercises1));
-        routines.add(new Routine("Leg breaker 2", exercises2));
-        routines.add(new Routine("Back attack 2", exercises3));
-        routines.add(new Routine("Chest ripper 3", exercises1));
-        routines.add(new Routine("Leg breaker 3", exercises2));
-        routines.add(new Routine("Back attack 3", exercises3));
-        routines.add(new Routine("Chest ripper 4", exercises1));
-        routines.add(new Routine("Leg breaker 4", exercises2));
-        routines.add(new Routine("Back attack 4", exercises3));
-    }
-
-    /* TODO: Fix this */
-    private void initSelectedDate(){
         selectedYear = getModel().getYearToday();
         selectedMonth = getModel().getMonthToday();
         selectedDay = getModel().getDayToday();
+
+        routines = getModel().getRoutines();
     }
 
     /** scheduleSelectedRoutine
      * Purpose: Schedule the selected routine on the selected day.
      */
     public void scheduleSelectedRoutine(String routineName){
-        Calendar day = new GregorianCalendar();
-        day.set(selectedYear, selectedMonth, selectedDay);
+        getModel().scheduleRoutine(getSelectedDate(), routineName);
+    }
 
-        getModel().scheduleRoutine(day, routineName);
+    /** isSelectedDateBooked
+     * Purpose: Helper method
+     * @return true if the currently selected date has a scheduled routine
+     */
+    private boolean isSelectedDateBooked(){
+        return getModel().isScheduled(getSelectedDate());
     }
 
     /**--------------------------------------------------------------*/
     /**                         SETTERS                              */
     /**--------------------------------------------------------------*/
 
-    public void setDate(int year, int month, int day){
+    /** setSelectedDate
+     * Purpose: Make input date the new selected date
+     * @param year
+     * @param month
+     * @param day
+     */
+    public void setSelectedDate(int year, int month, int day){
         selectedYear = year;
         selectedMonth = month;
         selectedDay = day;
-    }
-
-    public void setSelectedDateRoutine(String routineName){
-        selectedRoutineName = routineName;
     }
 
     /**--------------------------------------------------------------*/
     /**                         GETTERS                              */
     /**--------------------------------------------------------------*/
 
-    /* TODO: Fix this */
+    /** getSelectedDate
+     * Purpose: Helper method
+     * @return
+     */
+    private Calendar getSelectedDate(){
+        Calendar date = new GregorianCalendar();
+        date.set(Calendar.YEAR, selectedYear);
+        date.set(Calendar.MONTH, selectedMonth);
+        date.set(Calendar.DAY_OF_MONTH, selectedDay);
+
+        return date;
+    }
+
+    /** getSelectedDateRoutineName
+     * @return the name of the routine that is scheduled on the currently selected date
+     */
     public String getSelectedDateRoutineName(){
         return getModel().getRoutineNameOnDate(selectedYear, selectedMonth, selectedDay);
     }
 
+    /** getDateText
+     * @param year
+     * @param month
+     * @param day
+     * @return the date corresponding to the input year, month and day as text
+     */
     public String getDateText(int year, int month, int day){
         return getModel().getDateText(year, month, day);
     }
 
+    /** getTodayText
+     * @return the date of today as text
+     */
     public String getTodayText(){
         return getModel().getTodayText();
     }
 
-    /** getSelectedDate
-     * @return selected date formatted as String
+    /** getSelectedDateText
+     * @return the date of the currently selected date as text
      */
-    public String getSelectedDate(){
+    public String getSelectedDateText(){
         return getModel().getDateText(selectedYear, selectedMonth, selectedDay);
-    }
+    } // Might be useful if other fragments in ScheduleActivity wants to get the date of selected date without knowing exactly what the selected date is
 
+    /** getBookingButtonText
+     * @return the text for the booking button
+     */
     public String getBookingButtonText(){
-        if (selectedRoutineName.length() < 2)
+        if (isSelectedDateBooked())
             return buttonBookTextEmptyDate;
         return buttonBookTextScheduledDate;
     }
 
+    /** getRoutineNames
+     * @return all the names of the routines to be displayed in order
+     */
     public List<String> getRoutineNames(){
         List<String> names = new ArrayList<>();
 
@@ -122,6 +125,9 @@ public class ScheduleViewModel extends BaseViewModel {
         return names;
     }
 
+    /** getRoutineNames
+     * @return the difficulties of the routines to be displayed in order
+     */
     public List<Double> getRoutineDifficulties(){
         List<Double> difficulties = new ArrayList<>();
 
@@ -132,6 +138,9 @@ public class ScheduleViewModel extends BaseViewModel {
         return difficulties;
     }
 
+    /** getRoutineExercisesAmounts
+     * @return the amount of exercises for each routine to be displayed in order
+     */
     public List<Integer> getRoutineExercisesAmounts(){
         List<Integer> amounts = new ArrayList<>();
 
