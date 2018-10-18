@@ -107,4 +107,19 @@ public class MyRoutinesActivity extends BaseActivity {
         transaction.hide(fragmentRoutineInfo);
         transaction.commit();
     }
+
+    public void goBackFromExercise(View view){
+        fragmentRoutineInfo.update();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentRoutineInfo);
+        transaction.hide(fragmentExerciseInfo);
+        transaction.commit();
+    }
+
+    public void goBackFromRoutine(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentStart);
+        transaction.hide(fragmentRoutineInfo);
+        transaction.commit();
+    }
 }
