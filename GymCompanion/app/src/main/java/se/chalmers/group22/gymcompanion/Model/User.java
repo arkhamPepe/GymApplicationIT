@@ -46,6 +46,8 @@ public class User implements Serializable {
     }
 
     public User(String name, String gym, int age, int weight, boolean isBeginner){
+        this.name = name;
+        this.gym = gym;
         this.friends = new ArrayList<>();
         this.routines = new ArrayList<>();
         this.age = age;
@@ -67,8 +69,12 @@ public class User implements Serializable {
     }
 
     // Defensive Copy
-    public Map<Calendar, Routine> getCompletedRoutinesKeySet(){
-        return new HashMap<Calendar, Routine>(completedRoutines);
+    public Map<Calendar, Routine> getCompletedRoutines(){
+        return new HashMap<>(completedRoutines);
+    }
+
+    public void finishRoutine(Routine routine){
+        completedRoutines.put(Calendar.getInstance(), routine);
     }
 
     public void addFriend(User friend){
@@ -120,7 +126,15 @@ public class User implements Serializable {
     }
 
     public Routine getFinishedRoutine() {
-        return schedule.getLatestFinishedRoutine();
+        Routine latestFinishedRoutine = null;
+        Calendar latestDate = null;
+        for(Calendar day : completedRoutines.keySet()){
+            if(latestDate == null || day.after(latestDate)){
+                latestDate = day;
+                latestFinishedRoutine = completedRoutines.get(day);
+            }
+        }
+        return latestFinishedRoutine;
     }
 
     public ISchedule getSchedule(){
