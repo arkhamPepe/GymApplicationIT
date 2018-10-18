@@ -159,4 +159,8 @@ public class User implements Serializable {
         return schedule.getRoutineFromDay(day);
     }
 
+    public int getTotalAmountOfCompletedRoutines(){
+        return completedRoutines.size();
+    }
+
 }

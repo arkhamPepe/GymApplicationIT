@@ -44,6 +44,10 @@ public class StatisticsViewModel extends BaseViewModel {
         return routineNames;
     }
 
+    public int getTotalAmountOfCompletedRoutines(){
+        return getModel().getTotalAmountOfCompletedRoutines();
+    }
+
     public List<String> getRoutineNamesWeek(){
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date());

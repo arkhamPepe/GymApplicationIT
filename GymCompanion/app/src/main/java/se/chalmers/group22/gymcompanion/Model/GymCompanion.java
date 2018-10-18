@@ -181,6 +181,10 @@ public class GymCompanion {
         return routine.getAverageDifficulty();
     }
 
+    public int getTotalAmountOfCompletedRoutines(){
+        return user.getTotalAmountOfCompletedRoutines();
+    }
+
     //Sorting and Filtering
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
