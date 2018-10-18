@@ -74,7 +74,7 @@ public class User implements Serializable {
     }
 
     public void finishRoutine(Routine routine){
-        completedRoutines.put(Calendar.getInstance(), routine);
+        completedRoutines.put(getTodaysDate(), routine);
     }
 
     public void addFriend(User friend){
