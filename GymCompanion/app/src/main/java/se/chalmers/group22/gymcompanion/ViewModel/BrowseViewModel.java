@@ -82,11 +82,11 @@ public class BrowseViewModel extends BaseViewModel {
                 break;
             case 2:
                 filterStrategy = new BeginnerFilter();
-                currentPage = ((BeginnerFilter) filterStrategy).getName();
+                currentPage = "Beginner";
                 break;
             case 3:
                 filterStrategy = new RecommendedFilter();
-                currentPage = ((RecommendedFilter) filterStrategy).getName();
+                currentPage = "Mix";
                 break;
             default:
                 currentPage = "NoIndex";

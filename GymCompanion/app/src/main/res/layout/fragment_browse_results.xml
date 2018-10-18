@@ -3,11 +3,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/searchBar"
+            android:background="@color/white"/>
+
     <TextView
             android:text="Currently browsing"
             android:layout_width="250dp"
             android:layout_height="wrap_content" android:id="@+id/currentMuscleGroup" android:textSize="18sp"
             android:textAlignment="viewStart" android:layout_alignBaseline="@+id/btnBrowseResultsBack"
+            android:layout_below="@+id/searchBar"
             android:layout_alignParentEnd="true" android:textAllCaps="false"/>
 
     <Button
@@ -16,12 +23,31 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnBrowseResultsBack"
             android:onClick="resultBack"
+            android:layout_below="@+id/searchBar"
             android:tag="3"/>
 
-    <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" android:layout_marginTop="57dp"
-            android:id="@+id/listViewBrowseResult"/>
+    <CheckBox
+            android:text="Exercises"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" android:id="@+id/cbxExercises"
+            android:layout_below="@id/btnBrowseResultsBack" android:layout_toEndOf="@id/cbxRoutines"/>
+    <CheckBox
+            android:text="Routines"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" android:id="@+id/cbxRoutines"
+            android:layout_below="@id/btnBrowseResultsBack" android:layout_toEndOf="@id/txtFilterBy"/>
+
+    <TextView
+            android:text="Filter by: "
+            android:layout_width="wrap_content"
+            android:id="@+id/txtFilterBy"
+            android:layout_alignParentStart="true"
+            android:textSize="20sp" android:layout_above="@+id/listViewBrowseResult" android:layout_height="32dp"/>
+        <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_alignParentStart="true"
+                android:id="@+id/listViewBrowseResult" android:layout_marginTop="200dp"
+        />
+
 
 </RelativeLayout>
