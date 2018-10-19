@@ -1,3 +1,10 @@
+// Title    :  HomeStartFragment
+// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :  October 2, 2018
+//
+// Purpose  :  Fragment connected to a xml displaying the Home Start Page in the app
+//----------------------------------------------------------------------------------------------
+
 package se.chalmers.group22.gymcompanion.View.Home;
 
 import android.os.Bundle;

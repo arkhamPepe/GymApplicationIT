@@ -1,3 +1,10 @@
+// Title    :  HomeActivity
+// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :  September 20, 2018
+//
+// Purpose  :  Manages user interaction and handles which Fragments are in view of the user
+//----------------------------------------------------------------------------------------------
+
 package se.chalmers.group22.gymcompanion.View.Home;
 
 import android.content.Intent;
