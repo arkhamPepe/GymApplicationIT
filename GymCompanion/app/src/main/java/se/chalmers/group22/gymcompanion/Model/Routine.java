@@ -10,6 +10,20 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Title: Routine
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: September 21, 2018
+ *
+ * Purpose: Class for handling routine data.
+ */
+
 @Getter
 @Setter
 public class Routine implements ISortable, Serializable {

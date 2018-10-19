@@ -14,6 +14,21 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Title: Parser
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 15, 2018
+ *
+ * Purpose: Class for parsing JSON-structured data files in 'res/raw/'-folder to
+ *          convert it to objects of corresponding types.
+ */
+
 @Getter
 public class Parser {
 

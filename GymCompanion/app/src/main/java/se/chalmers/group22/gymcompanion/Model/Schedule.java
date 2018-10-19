@@ -7,6 +7,20 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/***
+ * Title: Schedule
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: September 21, 2018
+ *
+ * Purpose: Class for scheduling user routines.
+ */
+
 @Getter
 public class Schedule implements Serializable, ISchedule {
 
