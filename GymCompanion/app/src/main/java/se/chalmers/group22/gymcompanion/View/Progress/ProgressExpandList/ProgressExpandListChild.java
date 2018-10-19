@@ -1,3 +1,10 @@
+// Title    :  ProgressExpandListChild
+// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :  October 14, 2018
+//
+// Purpose  :  Class that contains the information necessary for the child elements in ProgressExpandListAdapter
+//----------------------------------------------------------------------------------------------
+
 package se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList;
 
 public class ProgressExpandListChild {

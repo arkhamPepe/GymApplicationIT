@@ -1,3 +1,11 @@
+// Title    :  ProgressStartFragment
+// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :  October 5, 2018
+//
+// Purpose  :  Fragment connected to a xml displaying the Progress Start Page in the app
+//----------------------------------------------------------------------------------------------
+
+
 package se.chalmers.group22.gymcompanion.View.Progress;
 
 import android.os.Bundle;
