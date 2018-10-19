@@ -12,14 +12,19 @@ import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeActivity extends BaseActivity {
 
     private static final int index = 0;
 
-    final Fragment fragmentHome = new HomeStartFragment();
-    final Fragment fragmentFinished = new HomeFinishedFragment();
-    final Fragment navigationFragment = new NavigationFragment();
-    final FragmentManager fm = getSupportFragmentManager();
+    private final Fragment fragmentHome = new HomeStartFragment();
+    private final Fragment fragmentFinished = new HomeFinishedFragment();
+    private final Fragment navigationFragment = new NavigationFragment();
+    private final FragmentManager fm = getSupportFragmentManager();
+    private FragmentOrganizer fo;
+    private List<Fragment> fragments = new ArrayList<>();
 
     private HomeViewModel homeViewModel;
 
@@ -30,26 +35,28 @@ public class HomeActivity extends BaseActivity {
 
         homeViewModel = new HomeViewModel();
 
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        if(getIntent().getExtras() != null) {
-            transaction.add(R.id.main_container, fragmentFinished, "2");
-            transaction.add(R.id.main_container, fragmentHome, "1").hide(fragmentHome);
-        }
-        else{
-            transaction.add(R.id.main_container, fragmentFinished, "2").hide(fragmentFinished);;
-            transaction.add(R.id.main_container, fragmentHome, "1");
-        }
-
         //Sends the activity index to NavigationFragment via Bundle
         Bundle bundle = new Bundle();
         bundle.putInt("index", index);
         navigationFragment.setArguments(bundle);
 
-        transaction.add(R.id.navigation,navigationFragment);
+        fillFragmentsList();
 
-        transaction.commit();
+        fo = new FragmentOrganizer(fragments, fm,
+                navigationFragment, R.id.main_container);
 
+        if(getIntent().getExtras() != null) {
+            fo.setUpFragments(fragmentFinished);
+        }
+        else{
+            fo.setUpFragments(fragmentHome);
+        }
+
+    }
+
+    private void fillFragmentsList(){
+        fragments.add(fragmentHome);
+        fragments.add(fragmentFinished);
     }
 
     public void goToProgress(View view) {
@@ -61,11 +68,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     public void goToHome(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        transaction.hide(fragmentFinished);
-        transaction.show(fragmentHome);
-        transaction.commit();
+        fo.changeToFragment(fragmentHome);
     }
 
     public HomeViewModel getViewModel(){
