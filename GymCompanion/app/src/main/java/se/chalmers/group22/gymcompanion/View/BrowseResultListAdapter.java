@@ -12,6 +12,20 @@ import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 import java.util.List;
 
+/***
+ * Title: BrowseResultListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Adds the list elements to the Browse Result List GUI
+ */
+
 public class BrowseResultListAdapter extends ArrayAdapter {
 
     //to reference the Activity

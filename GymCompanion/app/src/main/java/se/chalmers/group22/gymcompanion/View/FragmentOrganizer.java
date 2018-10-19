@@ -10,6 +10,20 @@ import se.chalmers.group22.gymcompanion.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Title: FragmentOrganizer
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 12, 2018
+ *
+ * Purpose: Help-class for Activities that aids the in setting up and changing between their fragments
+ */
+
 public class FragmentOrganizer {
 
     private List<Fragment> fragments = null;

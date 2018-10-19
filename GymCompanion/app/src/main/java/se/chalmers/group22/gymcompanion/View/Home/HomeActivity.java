@@ -4,16 +4,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.*;
+import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
+import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/***
+ * Title: HomeActivity
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: September 20, 2018
+ *
+ * Purpose: Manages user interaction and handles which Fragments are in view of the user when this activity is active
+ */
 
 public class HomeActivity extends BaseActivity {
 

@@ -14,6 +14,20 @@ import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.Sorting
 
 import java.util.*;
 
+/***
+ * Title: GymCompanion
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Class for handling external access to model classes.
+ */
+
 @Getter
 public class GymCompanion {
     @Setter
