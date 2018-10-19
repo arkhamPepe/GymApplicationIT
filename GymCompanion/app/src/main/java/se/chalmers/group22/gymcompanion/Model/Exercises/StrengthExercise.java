@@ -9,6 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
 
+/***
+        * Title: StrengthExercise
+        *
+        * @author Alexander Bergsten
+        * @author Marcus Svensson
+        * @author Erik Bock
+        * @author Augustas Eidikis
+        * @author Daniel Olsson
+        *
+        * Created: October 19, 2018
+        *
+        * Purpose: a subclass that contains more precise attributes and methods concerning etrenght exercises
+        */
+
 @Getter
 public class StrengthExercise extends Exercise implements Serializable {
 
@@ -51,6 +65,7 @@ public class StrengthExercise extends Exercise implements Serializable {
 
 
     // Defensive copy
+
     public List<Integer> getRepetitions() {
         return new ArrayList<>(repetitions);
     }

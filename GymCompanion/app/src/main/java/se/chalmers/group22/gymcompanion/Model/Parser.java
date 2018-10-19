@@ -111,6 +111,7 @@ public class Parser {
         return null;
     }
 
+
     private String readFile(int resourceID)
     {
         InputStream resourceReader = GymCompanionContext.getContext().
