@@ -52,6 +52,20 @@ public class BrowseResultFragment extends Fragment {
                }
            }
         );
+
+        SearchView searchView = getView().findViewById(R.id.searchBar);
+        
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                ((BrowseActivity)getActivity()).goToResultFromSearch(query);
+                return false;
+            }
+        });
     }
 
     @Override

@@ -22,7 +22,7 @@ public class BrowseViewModel extends BaseViewModel {
     @Getter
     private int index;
     @Setter
-    private List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
+    private List<MUSCLE_GROUP> muscleGroups;
 
     //Current page
     private String currentPage;
@@ -34,6 +34,7 @@ public class BrowseViewModel extends BaseViewModel {
     private List<ISortable> filteredList = new ArrayList<>();
 
     public BrowseViewModel(){
+        muscleGroups = new ArrayList<>();
         init();
     }
 
@@ -41,11 +42,13 @@ public class BrowseViewModel extends BaseViewModel {
         for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
             muscleGroups.add(mg);
         }
+
+        routines.addAll(getModel().getRoutineList());
+        exercises.addAll(getModel().getExerciseList());
     }
 
     public void search(String query){
-        searchedList.clear();
-        filteredList.clear();
+        clearLists();
 
         searchedList.addAll(getModel().search(query));
         filteredList.addAll(searchedList);
@@ -181,5 +184,12 @@ public class BrowseViewModel extends BaseViewModel {
             muscles.add(mg.toString().replace("_", " "));
         }
         return muscles;
+    }
+
+    private void clearLists(){
+        routines.clear();
+        exercises.clear();
+        filteredList.clear();
+        searchedList.clear();
     }
 }
