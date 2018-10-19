@@ -19,6 +19,20 @@ import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Title: ProgressActivity
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Manages user interaction and handles which Fragments are in view of the user when this Activity is active
+ */
+
 public class ProgressActivity extends BaseActivity {
 
     private final FragmentManager fm = getSupportFragmentManager();

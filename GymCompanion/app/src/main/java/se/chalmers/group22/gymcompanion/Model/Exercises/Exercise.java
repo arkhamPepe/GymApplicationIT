@@ -12,6 +12,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
+
+/***
+        * Title: Exercise
+        *
+        * @author Alexander Bergsten
+        * @author Marcus Svensson
+        * @author Erik Bock
+        * @author Augustas Eidikis
+        * @author Daniel Olsson
+        *
+        * Created: October 19, 2018
+        *
+        * Purpose: An abstract class containing attributes and methods concerning physical exercises
+        */
+
 @Getter
 public abstract class Exercise implements ISortable, Serializable {
 

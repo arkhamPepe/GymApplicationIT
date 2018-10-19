@@ -9,6 +9,20 @@ import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import java.io.Serializable;
 import java.util.*;
 
+/***
+ * Title: StatisticsCalculator
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: September 27, 2018
+ *
+ * Purpose: Class for calculating statistics and graphs of workout data.
+ */
+
 public class StatisticsCalculator implements Serializable {
     private User user;
     private Schedule schedule;

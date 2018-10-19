@@ -87,4 +87,24 @@ public class RoutineTest {
         routine = new Routine(muscleGroups2, 3.2);
         assertTrue(routine.containsMuscleGroup(MUSCLE_GROUP.QUADS));
     }
+
+    @Test
+    public void removeExerciseTest(){
+        routine.addExercise(ex1);
+        routine.addExercise(ex2);
+        routine.removeExercise(ex1);
+        assertEquals(1, routine.getExercises().size());
+        routine.removeExercise(ex2);
+        assertEquals(0, routine.getExercises().size());
+    }
+
+    @Test
+    public void getCompletedExercisesTest(){
+        routine.addExercise(ex1);
+        routine.addExercise(ex2);
+        ex1.complete();
+        assertEquals(1, routine.getCompletedExercises());
+        ex2.complete();
+        assertEquals(2, routine.getCompletedExercises());
+    }
 }

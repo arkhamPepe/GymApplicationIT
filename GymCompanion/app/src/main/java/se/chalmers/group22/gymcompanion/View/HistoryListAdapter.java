@@ -9,6 +9,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
+/***
+ * Title: HistoryListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 8, 2018
+ *
+ * Purpose: Adds the list elements to the Statistics History List GUI
+ */
+
 public class HistoryListAdapter extends ArrayAdapter {
 
     public HistoryListAdapter(Activity context, String[] routineArrayParam, String[] dateArrayParam){
