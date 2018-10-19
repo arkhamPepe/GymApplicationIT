@@ -8,7 +8,6 @@ import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -17,6 +16,7 @@ public class GymCompanionTest {
     private GymCompanion gymCompanion;
     private User user;
     private Routine r1;
+    private Calendar d;
 
     @Before
     public void init(){
@@ -34,6 +34,7 @@ public class GymCompanionTest {
                 30
         );
         r1.addExercise(ce);
+        d = Calendar.getInstance();
     }
 
     @Test
@@ -66,4 +67,73 @@ public class GymCompanionTest {
         user.finishRoutine(r1);
         assertEquals(1, gymCompanion.getTotalAmountOfCompletedExercises());
     }
+
+    @Test
+    public void getRoutineTest(){
+        assertEquals(0, gymCompanion.getRoutines().size());
+        user.addRoutine(r1);
+        assertEquals(1, gymCompanion.getRoutines().size());
+    }
+
+    @Test
+    public void startRoutineTest(){
+        gymCompanion.startRoutine(r1);
+        assertEquals(r1, gymCompanion.getActiveRoutine());
+    }
+
+    @Test
+    public void activeExerciseTest(){
+        gymCompanion.startRoutine(r1);
+        gymCompanion.setActiveExerciseInActiveRoutine(0);
+        assertEquals("Sprinter", gymCompanion.getActiveExerciseName());
+    }
+
+    @Test
+    public void getAmountOfExercisesInActiveRoutineTest(){
+        gymCompanion.startRoutine(r1);
+        assertEquals(1, gymCompanion.getAmountOfExercisesInActiveRoutine());
+    }
+
+    @Test
+    public void getActiveExerciseTest(){
+        gymCompanion.startRoutine(r1);
+        gymCompanion.setActiveExerciseInActiveRoutine(0);
+        Exercise expected = r1.getExercises().get(0);
+        assertEquals(expected, gymCompanion.getActiveExercise());
+    }
+
+    @Test
+    public void getActiveRoutineTest(){
+        gymCompanion.startRoutine(r1);
+        assertEquals(r1, gymCompanion.getActiveRoutine());
+    }
+
+    @Test
+    public void getScheduleRoutineName(){
+        user.getSchedule().addRoutine(r1, d);
+        assertEquals("Routine 1", gymCompanion.getScheduledRoutineName());
+    }
+
+    @Test
+    public void getYearTodayTest(){
+        assertEquals(d.get(Calendar.YEAR), gymCompanion.getYearToday());
+    }
+
+    @Test
+    public void getMonthTodayTest(){
+        assertEquals(d.get(Calendar.MONTH), gymCompanion.getMonthToday());
+    }
+
+    @Test
+    public void getDayTodayTest(){
+        assertEquals(d.get(Calendar.DAY_OF_MONTH), gymCompanion.getDayToday());
+    }
+
+    @Test
+    public void scheduleRoutineTest(){
+        user.addRoutine(r1);
+        gymCompanion.scheduleRoutine(d, "Routine 1");
+        assertEquals("Routine 1", gymCompanion.getScheduledRoutineName());
+    }
+    
 }
