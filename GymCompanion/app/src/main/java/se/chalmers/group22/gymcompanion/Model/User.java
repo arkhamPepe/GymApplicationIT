@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
  * Purpose: Class for handling overall User related actions and data.
  */
 
-
 @Getter
 public class User implements Serializable {
 

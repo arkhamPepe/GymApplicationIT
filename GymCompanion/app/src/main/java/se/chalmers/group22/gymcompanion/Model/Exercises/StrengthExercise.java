@@ -20,7 +20,7 @@ import java.io.Serializable;
         *
         * Created: October 19, 2018
         *
-        * Purpose: a subclass that contains more precise attributes and methods concerning etrenght exercises
+        * Purpose: (Subclass to Exercise) contains more precise attributes and methods concerning etrenght exercises
         */
 
 @Getter

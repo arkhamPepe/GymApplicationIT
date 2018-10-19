@@ -19,7 +19,7 @@ import java.util.List;
  *
  * Created: October 19, 2018
  *
- * Purpose: a subclass to Exercise that contains more precise attributes and methods concerning cardio exercises
+ * Purpose: (subclass to Exercise) Contains more precise attributes and methods concerning cardio exercises
  */
 
 

@@ -17,7 +17,7 @@ import java.util.List;
  *
  * Created: October 19, 2018
  *
- * Purpose: a subclass to Exercise that contains more precise attributes and methods concerning stretching exercises
+ * Purpose: (Subclass to Exercise) contains more precise attributes and methods concerning stretching exercises
  */
 
 public class StretchingExercise extends Exercise implements Serializable{
