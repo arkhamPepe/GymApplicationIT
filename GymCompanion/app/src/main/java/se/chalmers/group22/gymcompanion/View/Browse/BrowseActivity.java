@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
@@ -26,6 +24,7 @@ public class BrowseActivity extends BaseActivity {
     private final Fragment fragmentSelection = new BrowseSelectionFragment();
     private final Fragment fragmentResult = new BrowseResultFragment();
     private final Fragment fragmentRecommended = new BrowseRecommendedFragment();
+    private final Fragment fragmentExerciseInfo = new BrowseExerciseInfoFragment();
     private final Fragment navigationFragment = new NavigationFragment();
     private List<Fragment> fragments = new ArrayList<>();
     private final FragmentManager fm = getSupportFragmentManager();
@@ -62,6 +61,7 @@ public class BrowseActivity extends BaseActivity {
         fragments.add(fragmentRecommended);
         fragments.add(fragmentResult);
         fragments.add(fragmentSelection);
+        fragments.add(fragmentExerciseInfo);
     }
 
     public void goToStart(View view) {
@@ -125,6 +125,10 @@ public class BrowseActivity extends BaseActivity {
         fragmentResult.onResume();
     }
 
+    public void goToExerciseInfo(){
+        fo.changeToFragment(fragmentExerciseInfo);
+    }
+
     public void onAddClick(View view){
         String s = view.getTag().toString();
 
@@ -136,7 +140,7 @@ public class BrowseActivity extends BaseActivity {
             Toast.makeText(this, "Routine added to My Routines!", Toast.LENGTH_SHORT).show();
         } //EXERCISE
         else if (index == 1) {
-            Toast.makeText(this, "TODO: SWAP FRAGMENT", Toast.LENGTH_SHORT).show();
+            goToExerciseInfo();
         }
     }
 
