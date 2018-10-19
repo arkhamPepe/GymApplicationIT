@@ -75,6 +75,10 @@ public class MyRoutinesActivity extends BaseActivity {
 
     }
 
+    public void onClickPickMG(View view){
+        goToPickExercise(view);
+    }
+
     public void goToRoutineInfo(View view){
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);

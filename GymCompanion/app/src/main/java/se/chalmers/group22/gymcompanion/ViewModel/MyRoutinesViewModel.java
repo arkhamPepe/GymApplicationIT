@@ -3,18 +3,23 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Observable;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
+import java.nio.channels.Channel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyRoutinesViewModel extends BaseViewModel {
+public class MyRoutinesViewModel extends BaseViewModel implements Observable {
 
     @Getter
     private int selectedRoutineIndex;
     private int selectedExerciseIndex;
+    private int selectedMGIndex;
 
-    List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
+    private List<Observer> observers = new ArrayList<>();
+    private List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
 
     public MyRoutinesViewModel(){
         initMuscleGroups();
@@ -44,6 +49,14 @@ public class MyRoutinesViewModel extends BaseViewModel {
         }
     }
 
+    public void setSelectedMGIndex(int index){
+        selectedMGIndex = index;
+        notifyObservers();
+    }
+
+    public String getSelectedMuscleGroup(){
+        return muscleGroups.get(selectedMGIndex).toString();
+    }
 
     public String getSelectedRoutineExerciseAmount(){
         if (!checkIfEmptyRoutineList()){
@@ -116,5 +129,24 @@ public class MyRoutinesViewModel extends BaseViewModel {
             return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().isEmpty();
         }
         return true;
+    }
+
+
+
+    @Override
+    public void notifyObservers() {
+        for (Observer o : observers){
+            o.update();
+        }
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        this.observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        this.observers.remove(observer);
     }
 }

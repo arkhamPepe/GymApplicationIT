@@ -6,10 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
-public class MyRoutinesPickExerciseFragment extends Fragment {
+public class MyRoutinesPickExerciseFragment extends Fragment implements Observer {
 
     private MyRoutinesViewModel viewModel;
 
@@ -34,5 +35,19 @@ public class MyRoutinesPickExerciseFragment extends Fragment {
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); //get the viewmodel
 
+        viewModel.addObserver(this);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        viewModel.removeObserver(this);
+
+    }
+
+    @Override
+    public void update() {
+        TextView title = getView().findViewById(R.id.txtMyRoutinesPickExerciseTitle);
+        title.setText(viewModel.getSelectedMuscleGroup());
     }
 }
