@@ -8,7 +8,7 @@ import se.chalmers.group22.gymcompanion.Model.ISortable;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
-import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.RecommendedFilter;
+import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.MixedFilter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,7 +103,7 @@ public class BrowseViewModel extends BaseViewModel {
                 currentPage = "Beginner";
                 break;
             case 3:
-                filter(new RecommendedFilter());
+                filter(new MixedFilter());
                 currentPage = "Mix";
                 break;
             default:

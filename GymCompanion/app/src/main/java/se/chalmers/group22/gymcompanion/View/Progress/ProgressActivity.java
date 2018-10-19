@@ -11,14 +11,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.Home.HomeActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProgressActivity extends BaseActivity {
 
     private final FragmentManager fm = getSupportFragmentManager();
+    private FragmentOrganizer fo;
     private final Fragment fragmentStart = new ProgressStartFragment();
     private final Fragment fragmentEditRoutine = new ProgressEditRoutineFragment();
+    private List<Fragment> fragments = new ArrayList<>();
 
     private ProgressViewModel progressViewModel = new ProgressViewModel();
 
@@ -27,25 +33,25 @@ public class ProgressActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
 
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.add(R.id.progress_container, fragmentStart, "1");
-        transaction.add(R.id.progress_container, fragmentEditRoutine, "1").hide(fragmentEditRoutine);
-        transaction.commit();
+        fillFragmentsList();
 
+        fo = new FragmentOrganizer(fragments, fm, R.id.progress_container);
+
+        fo.setUpFragments(fragmentStart);
+
+    }
+
+    private void fillFragmentsList(){
+        fragments.add(fragmentStart);
+        fragments.add(fragmentEditRoutine);
     }
 
     public void goToStart(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentStart);
-        transaction.hide(fragmentEditRoutine);
-        transaction.commit();
+        fo.changeToFragment(fragmentStart);
     }
 
     public void goToEditRoutine(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.hide(fragmentStart);
-        transaction.show(fragmentEditRoutine);
-        transaction.commit();
+        fo.changeToFragment(fragmentEditRoutine);
     }
 
     //Goes back to HomeActivity with an extra boolean so that the Finished Fragment is in focus

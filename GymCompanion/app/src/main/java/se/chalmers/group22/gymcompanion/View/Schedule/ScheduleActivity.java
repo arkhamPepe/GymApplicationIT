@@ -8,16 +8,22 @@ import android.view.View;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScheduleActivity extends BaseActivity {
 
     public static final int index = 2;
-    private final Fragment fragmentStart = new ScheduleStartFragment();
-    private final Fragment fragmentPickRoutine = new SchedulePickRoutineFragment();
+    private final Fragment startFragment = new ScheduleStartFragment();
+    private final Fragment pickRoutineFragment = new SchedulePickRoutineFragment();
     private final Fragment navigationFragment = new NavigationFragment();
+    private List<Fragment> fragments = new ArrayList<>(); // Collection of all local fragments
     private final FragmentManager fm = getSupportFragmentManager();
+    private FragmentOrganizer fo;
     private ListView schedule_lv;
 
     private ScheduleViewModel viewModel = new ScheduleViewModel();
@@ -30,16 +36,25 @@ public class ScheduleActivity extends BaseActivity {
 
         schedule_lv = findViewById(R.id.schedule_list);
 
+        fillFragmentsList();
+
+        fo = new FragmentOrganizer(fragments, fm,
+                navigationFragment, R.id.schedule_container);
+
+        fo.setUpFragments(startFragment);
+
         //Sends the activity index to NavigationFragment via Bundle
         Bundle bundle = new Bundle();
         bundle.putInt("index", index);
         navigationFragment.setArguments(bundle);
+    }
 
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.add(R.id.schedule_container, fragmentStart, "1");
-        transaction.add(R.id.schedule_container, fragmentPickRoutine, "2").hide(fragmentPickRoutine);
-        transaction.add(R.id.navigation, navigationFragment);
-        transaction.commit();
+    /** fillFragmentsList()
+     *  Purpose: Sets up list containing all local fragments
+     * */
+    private void fillFragmentsList(){
+        fragments.add(startFragment);
+        fragments.add(pickRoutineFragment);
     }
 
     public void scheduleRoutine(String routineName){
@@ -47,17 +62,11 @@ public class ScheduleActivity extends BaseActivity {
     }
 
     public void goToPickRoutine(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentPickRoutine);
-        transaction.hide(fragmentStart);
-        transaction.commit();
+        fo.changeToFragment(pickRoutineFragment);
     }
 
     public void goToStart(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.hide(fragmentPickRoutine);
-        transaction.show(fragmentStart);
-        transaction.commit();
+        fo.changeToFragment(startFragment);
     }
 
     public ScheduleViewModel getViewModel(){
