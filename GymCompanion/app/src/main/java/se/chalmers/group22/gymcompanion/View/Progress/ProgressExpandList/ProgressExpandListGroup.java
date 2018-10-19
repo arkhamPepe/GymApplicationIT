@@ -1,11 +1,3 @@
-// Title    :  ProgressExpandListGroup
-// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
-// Created  :  October 14, 2018
-//
-// Purpose  :  Class that contains the information necessary for the parent elements in ProgressExpandListAdapter.
-//             Also contains the child elements connected to the parent.
-//----------------------------------------------------------------------------------------------
-
 package se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList;
 
 import java.util.ArrayList;
