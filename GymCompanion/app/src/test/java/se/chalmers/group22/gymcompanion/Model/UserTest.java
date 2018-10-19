@@ -58,7 +58,7 @@ public class UserTest {
 /*
     @Test
     public void startRoutineTest(){
-        user.startRoutine(user.getRoutines().get(0));
+        user.startRoutine(user.getUserRoutines().get(0));
         assertTrue(user.isRoutineActive());
     }
 

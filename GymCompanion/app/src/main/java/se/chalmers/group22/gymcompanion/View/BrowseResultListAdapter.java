@@ -18,34 +18,18 @@ public class BrowseResultListAdapter extends ArrayAdapter {
     //to store the list of routine names
     private final List<String> names;
     private final List<Double> difficulties;
-    private final List<String> amount;
-    private final List<String> type;
+    private final List<Integer> amount;
 
     public BrowseResultListAdapter(Activity context, List<String> nameArrayParam, List<Double> difficultyArrayParam,
-                                   List<String> amountArrayParam, List<String> typeArrayParam){
+                                   List<Integer> amountArrayParam){
 
         super(context, R.layout.listitem_browse , nameArrayParam);
 
         this.context = context;
         this.names = nameArrayParam;
         this.difficulties = difficultyArrayParam;
-        this.type = typeArrayParam;
         this.amount = amountArrayParam;
     }
-
-    public BrowseResultListAdapter(Activity context, List<String> nameArrayParam,
-                                   List<Double> difficultyArrayParam, List<String> typeArrayParam){
-
-        super(context, R.layout.listitem_browse , nameArrayParam);
-
-        this.context = context;
-        this.names = nameArrayParam;
-        this.difficulties = difficultyArrayParam;
-        this.type = typeArrayParam;
-        this.amount = null;
-    }
-
-
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
@@ -53,19 +37,20 @@ public class BrowseResultListAdapter extends ArrayAdapter {
 
         //this code gets references to objects in the listview_row.xml file
         TextView browseName = (TextView) rowView.findViewById(R.id.txtName);
-        TextView browseAmountExercises = (TextView) rowView.findViewById(R.id.txtSchedulePickAmountNumber);
+        TextView browseAmountExercises = (TextView) rowView.findViewById(R.id.txtBrowsePickAmountNumber);
         TextView browsePickAmountPrefix = (TextView) rowView.findViewById(R.id.txtBrowsePickAmountPrefix);
         TextView browseDifficulty = (TextView) rowView.findViewById(R.id.txtBrowseDifficulty);
         TextView browseType = (TextView) rowView.findViewById(R.id.txtType);
 
         //this code sets the values of the objects to values from the arrays
         browseName.setText(names.get(position));
-        if(amount != null) {
-            browseAmountExercises.setText(amount.get(position));
-            browsePickAmountPrefix.setText("Exercises:  ");
+        if(amount.get(position) != 0) {
+            browsePickAmountPrefix.setText("Exercises: " + amount.get(position).toString());
+            browseType.setText("Routine");
+        } else {
+            browseType.setText("Exercise");
         }
         browseDifficulty.setText(difficulties.get(position).toString());
-        browseType.setText(type.get(position));
         return rowView;
 
     }

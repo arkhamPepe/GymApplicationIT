@@ -2,7 +2,7 @@
   {
     "name":"Bench Press",
     "difficulty":5,
-    "muscleGroups":["BICEPS"],
+    "muscleGroups":["CHEST"],
     "description":"A very stronk exercise",
     "sets":3,
     "repetitions":[12, 12, 12],

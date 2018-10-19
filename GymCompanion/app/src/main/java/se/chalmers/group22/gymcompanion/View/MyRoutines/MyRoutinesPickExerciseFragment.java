@@ -39,11 +39,6 @@ public class MyRoutinesPickExerciseFragment extends Fragment implements Observer
 
         viewModel.addObserver(this);
 
-        /*BrowseResultListAdapter adapter = new BrowseResultListAdapter(getActivity(),viewModel.getExerciseName(),viewModel.getRoutineExercisesDifficulty(),);
-        ListView listView = getView().findViewById(R.id.listviewMyRoutinesPickExercise);
-        listView.setAdapter(adapter);*/
-
-
         viewModel.addObserver(this);
     }
 
