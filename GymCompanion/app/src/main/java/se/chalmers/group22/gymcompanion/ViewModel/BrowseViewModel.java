@@ -268,6 +268,10 @@ public class BrowseViewModel extends BaseViewModel {
         return muscles;
     }
 
+    /** addRoutineToUser(String)
+     *  Purpose: adds a selected routine to the user
+     * @param routineName name of the clicked routine in listview
+     * */
     public void addRoutineToUser(String routineName){
         List<Routine> routinesToBeAdded = getModel().getRoutineList();
         for(Routine r :routinesToBeAdded) {
@@ -278,6 +282,11 @@ public class BrowseViewModel extends BaseViewModel {
         }
     }
 
+    /** compareRoutineExercises(String)
+     * Purpose: checks whether the name is a routine or exercise name
+     * @param name name of routine or exercise
+     * @return an index depending on if the name corresponds to a routine or an exercise
+     * */
     public int compareRoutineExercises(String name){
         for(Routine r : getModel().getRoutineList()) {
             if(r.getName().equals(name)) {
