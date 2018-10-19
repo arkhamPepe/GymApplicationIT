@@ -10,7 +10,6 @@ import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
-import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ public class BrowseActivity extends BaseActivity {
     private final Fragment fragmentSelection = new BrowseSelectionFragment();
     private final Fragment fragmentResult = new BrowseResultFragment();
     private final Fragment fragmentRecommended = new BrowseRecommendedFragment();
-    private final Fragment fragmentExerciseInfo = new BrowseExerciseInfoFragment();
+    private final Fragment fragmentExerciseInfo = new BrowseExerciseAddToRoutineFragment();
     private final Fragment navigationFragment = new NavigationFragment();
     private List<Fragment> fragments = new ArrayList<>();
     private final FragmentManager fm = getSupportFragmentManager();
@@ -141,8 +140,20 @@ public class BrowseActivity extends BaseActivity {
             Toast.makeText(this, "Routine added to My Routines!", Toast.LENGTH_SHORT).show();
         } //EXERCISE
         else if (index == 1) {
+            browseViewModel.setExerciseToAdd(s);
             goToExerciseInfo();
         }
+    }
+
+    public void onAddExerciseToRoutineClick(View view) {
+        String s = view.getTag().toString();
+        browseViewModel.addExerciseToUserRoutine(s);
+        Toast.makeText(this, "Exercise added to the routine!", Toast.LENGTH_SHORT).show();
+        fragmentExerciseInfo.onResume();
+    }
+
+    public void infoBack(View view){
+        fo.changeToFragment(fragmentResult);
     }
 
     public BrowseViewModel getBrowseViewModel(){

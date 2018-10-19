@@ -5,17 +5,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
-import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
-public class BrowseExerciseInfoFragment extends Fragment {
+public class BrowseExerciseAddToRoutineFragment extends Fragment {
 
     private BrowseViewModel browseViewModel;
-    public static BrowseExerciseInfoFragment getInstance() { return new BrowseExerciseInfoFragment(); }
+    public static BrowseExerciseAddToRoutineFragment getInstance() { return new BrowseExerciseAddToRoutineFragment(); }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,16 +41,8 @@ public class BrowseExerciseInfoFragment extends Fragment {
         adapter = new BrowseResultListAdapter(getActivity(),
                 browseViewModel.getUserRoutineNames(),
                 browseViewModel.getUserRoutineDifficulties(),
-                browseViewModel.getUserRoutineAmountExercises());
+                browseViewModel.getUserRoutineAmountExercises(),
+                1);
         listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                //((BrowseActivity)getActivity()).scheduleRoutine();
-                //Toast.makeText(getActivity(), "ListItem pressed", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }

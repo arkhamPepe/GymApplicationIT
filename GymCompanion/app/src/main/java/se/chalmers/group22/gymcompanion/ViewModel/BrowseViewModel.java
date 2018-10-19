@@ -47,6 +47,11 @@ public class BrowseViewModel extends BaseViewModel {
     //Current page
     private String currentPage;
 
+    //Exercise to add to a user routine
+    @Setter
+    @Getter
+    private String exerciseToAdd;
+
     //Used to separate the routines from exercises
     private List<Routine> routines;
     private List<Exercise> exercises;
@@ -315,10 +320,22 @@ public class BrowseViewModel extends BaseViewModel {
      * @param routineName name of the clicked routine in listview
      * */
     public void addRoutineToUser(String routineName){
-        List<Routine> routinesToBeAdded = getModel().getRoutineList();
-        for(Routine r :routinesToBeAdded) {
+        for(Routine r :getModel().getRoutineList()) {
             if(r.getName().equals(routineName)) {
                 getModel().getUser().addRoutine(r);
+                break;
+            }
+        }
+    }
+
+    /** addExerciseToUserRoutine(String)
+     * Purpose: Adds the the exercise clicked in result list to the routine clicked in routineinfo fragment
+     * @param routineName the name of the routine pressed
+     * */
+    public void addExerciseToUserRoutine(String routineName){
+        for(Routine r :getModel().getUserRoutines()) {
+            if(r.getName().equals(routineName)) {
+                getModel().getUser().addExerciseToRoutine(getExerciseByName(), r);
                 break;
             }
         }
@@ -341,6 +358,15 @@ public class BrowseViewModel extends BaseViewModel {
             }
         }
         return 2;
+    }
+
+    private Exercise getExerciseByName() {
+        for(Exercise e : getModel().getExerciseList()){
+            if(e.getName().equals(exerciseToAdd)) {
+                return e;
+            }
+        }
+        return null;
     }
 
     private void clearLists(){

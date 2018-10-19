@@ -107,7 +107,8 @@ public class BrowseResultFragment extends Fragment {
         adapter = new BrowseResultListAdapter(getActivity(),
                 viewModel.getRoutineAndExerciseNames(),
                 viewModel.getRoutineAndExerciseDifficulties(),
-                viewModel.getRoutineAmountExercises());
+                viewModel.getRoutineAmountExercises(),
+                0);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
