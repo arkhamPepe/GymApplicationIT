@@ -1,5 +1,7 @@
 package se.chalmers.group22.gymcompanion.View.Browse;
 
+
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,6 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
+
+/***
+ * Title:
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Recommended page in the app
+ */
+
 
 public class BrowseRecommendedFragment extends Fragment{
     private BrowseViewModel viewModel;

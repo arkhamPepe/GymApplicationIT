@@ -100,11 +100,13 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void goToPickMG(View view){
+        viewModel.notifyObservers();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentPickMG);
         transaction.hide(fragmentRoutineInfo);
         transaction.hide(fragmentPickExercise);
         transaction.commit();
+
     }
 
     /* TODO Add stuff */
@@ -136,5 +138,9 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void goBackFromRoutine(View view){
         fo.changeToFragment(fragmentStart);
+    }
+
+    public void onAddClick(View view){
+        viewModel.addExercise((String)view.getTag());
     }
 }

@@ -9,6 +9,20 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/***
+ * Title: User
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: 21 September, 2018
+ *
+ * Purpose: Class for handling overall User related actions and data.
+ */
+
 @Getter
 public class User implements Serializable {
 
@@ -100,6 +114,10 @@ public class User implements Serializable {
 
     public void addExerciseToRoutine(Exercise exercise, Routine routine){
         routine.addExercise(exercise);
+    }
+
+    public void addExerciseToRoutine(int selectedRoutineIndex, Exercise e){
+        routines.get(selectedRoutineIndex).addExercise(e);
     }
 
     public void modifyRoutineDescription(Routine routine, String description){

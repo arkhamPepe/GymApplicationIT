@@ -13,6 +13,21 @@ import se.chalmers.group22.gymcompanion.View.MyRoutines.MyRoutinesActivity;
 import se.chalmers.group22.gymcompanion.View.Schedule.ScheduleActivity;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsActivity;
 
+/***
+ * Title: NavigationFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: September 20, 2018
+ *
+ * Purpose: Fragment used by several activities. Handles travel between activities.
+ * Fragment connected to a xml displaying the Bottom Navigation Bar in the app
+ */
+
 public class NavigationFragment extends Fragment {
     /** pageIndex
      * @value get set by the bundle "index" argument

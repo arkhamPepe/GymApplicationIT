@@ -5,9 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 public class MyRoutinesPickExerciseFragment extends Fragment implements Observer {
@@ -33,9 +35,18 @@ public class MyRoutinesPickExerciseFragment extends Fragment implements Observer
     @Override
     public void onStart(){
         super.onStart();
-        viewModel = ((MyRoutinesActivity)getActivity()).getBrowseViewModel(); //get the viewmodel
 
+
+        viewModel = ((MyRoutinesActivity)getActivity()).getBrowseViewModel(); //get the viewmodel
         viewModel.addObserver(this);
+
+        BrowseResultListAdapter adapter = new BrowseResultListAdapter(getActivity(),
+                viewModel.getExerciseNamesWithMG(viewModel.getSelectedMuscleGroup()),
+                viewModel.getRoutineExercisesDifficulty(),viewModel.checkIfNoRoutine(), 0);
+        ListView listView = getView().findViewById(R.id.listviewMyRoutinesPickExercise);
+        listView.setAdapter(adapter);
+
+
     }
 
     @Override
@@ -48,6 +59,12 @@ public class MyRoutinesPickExerciseFragment extends Fragment implements Observer
     @Override
     public void update() {
         TextView title = getView().findViewById(R.id.txtMyRoutinesPickExerciseTitle);
-        title.setText(viewModel.getSelectedMuscleGroup());
+        title.setText(viewModel.getSelectedMuscleGroup().toString());
+
+        BrowseResultListAdapter adapter = new BrowseResultListAdapter(getActivity(),
+                viewModel.getExerciseNamesWithMG(viewModel.getSelectedMuscleGroup()),
+                viewModel.getRoutineExercisesDifficulty(),viewModel.checkIfNoRoutine(), 0);
+        ListView listView = getView().findViewById(R.id.listviewMyRoutinesPickExercise);
+        listView.setAdapter(adapter);
     }
 }

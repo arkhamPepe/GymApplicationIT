@@ -14,6 +14,20 @@ import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Title: BrowseActivity
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: September 20, 2018
+ *
+ * Purpose: Manages user interaction and handles which Fragments are in view of the user when this activity is active
+ */
+
 public class BrowseActivity extends BaseActivity {
 
     /** pageIndex

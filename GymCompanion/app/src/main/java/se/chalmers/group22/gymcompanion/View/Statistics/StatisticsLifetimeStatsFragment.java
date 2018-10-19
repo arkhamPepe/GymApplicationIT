@@ -1,3 +1,10 @@
+// Title    :  StatisticsLifetimeStatsFragment
+// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :  October , 2018
+//
+// Purpose  :  Fragment connected to a xml displaying the Lifetime Stats Page in the app
+//----------------------------------------------------------------------------------------------
+
 package se.chalmers.group22.gymcompanion.View.Statistics;
 
 import android.os.Bundle;

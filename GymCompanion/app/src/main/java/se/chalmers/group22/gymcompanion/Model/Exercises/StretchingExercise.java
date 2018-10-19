@@ -6,6 +6,20 @@ import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import java.io.Serializable;
 import java.util.List;
 
+/***
+ * Title: StretchingExercise
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 19, 2018
+ *
+ * Purpose: (Subclass to Exercise) contains more precise attributes and methods concerning stretching exercises
+ */
+
 public class StretchingExercise extends Exercise implements Serializable{
 
    /* public StretchingExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, int timespent) {
