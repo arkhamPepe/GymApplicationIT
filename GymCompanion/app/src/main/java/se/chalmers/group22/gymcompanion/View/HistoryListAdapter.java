@@ -1,10 +1,3 @@
-// Title    :  HistoryListAdapter
-// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
-// Created  :  October 8, 2018
-//
-// Purpose  :  Adds the list elements to the Statistics History List GUI
-//----------------------------------------------------------------------------------------------
-
 package se.chalmers.group22.gymcompanion.View;
 
 import android.app.Activity;
@@ -15,6 +8,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
+
+/***
+ * Title: HistoryListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 8, 2018
+ *
+ * Purpose: Adds the list elements to the Statistics History List GUI
+ */
 
 public class HistoryListAdapter extends ArrayAdapter {
 

@@ -1,10 +1,3 @@
-// Title    :  ProgressExpandListAdapter
-// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
-// Created  :  October 14, 2018
-//
-// Purpose  :  Adds the list elements to the Edit Routine List GUI
-//----------------------------------------------------------------------------------------------
-
 package se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList;
 
 import android.content.Context;
@@ -17,6 +10,20 @@ import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.util.ArrayList;
+
+/***
+ * Title: ProgressExpandListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 14, 2018
+ *
+ * Purpose: Adds the list elements to the Edit Routine List GUI
+ */
 
 public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
 
