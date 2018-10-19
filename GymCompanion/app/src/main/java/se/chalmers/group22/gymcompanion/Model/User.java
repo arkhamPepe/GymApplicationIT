@@ -102,6 +102,10 @@ public class User implements Serializable {
         routine.addExercise(exercise);
     }
 
+    public void addExerciseToRoutine(int selectedRoutineIndex, Exercise e){
+        routines.get(selectedRoutineIndex).addExercise(e);
+    }
+
     public void modifyRoutineDescription(Routine routine, String description){
         routine.setDescription(description);
     }

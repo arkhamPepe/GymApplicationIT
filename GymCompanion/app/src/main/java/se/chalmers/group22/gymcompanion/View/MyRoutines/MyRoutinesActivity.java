@@ -139,4 +139,8 @@ public class MyRoutinesActivity extends BaseActivity {
     public void goBackFromRoutine(View view){
         fo.changeToFragment(fragmentStart);
     }
+
+    public void addRoutineToExercise(View view){
+        viewModel.addExercise((String)view.getTag());
+    }
 }

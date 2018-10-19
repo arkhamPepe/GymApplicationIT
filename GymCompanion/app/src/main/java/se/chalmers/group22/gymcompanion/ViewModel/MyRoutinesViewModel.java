@@ -29,10 +29,10 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         notifyObservers();
     }
 
-    /*public void addExercise(){
-        getModel().addExercise(,routines.get(selectedRoutineIndex));
+    public void addExercise(String exerciseName){
+        getModel().addExerciseToRoutine(selectedRoutineIndex, exerciseName);
 
-    }*/
+    }
 
     public List<Double> getRoutineExercisesDifficulty(){
         List<Double> exercisesDifficulty = new ArrayList<>();

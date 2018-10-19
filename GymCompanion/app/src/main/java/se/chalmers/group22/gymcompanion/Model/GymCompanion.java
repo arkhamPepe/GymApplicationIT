@@ -150,6 +150,18 @@ public class GymCompanion {
         user.addExerciseToRoutine(exercise, routine);
     }
 
+    public void addExerciseToRoutine(int selectedRoutineIndex, String exerciseName){
+        Exercise e = null;
+        for (Exercise ex: new ArrayList<>(exerciseList)) {
+            if(ex.getName().equals(exerciseName)){
+                e = ex;
+                break;
+            }
+        }
+
+        user.addExerciseToRoutine(selectedRoutineIndex,e );
+    }
+
 
 
     //Routine and Exercise Getters
