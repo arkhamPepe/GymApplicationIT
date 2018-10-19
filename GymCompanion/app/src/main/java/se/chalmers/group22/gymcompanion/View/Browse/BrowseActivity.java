@@ -125,7 +125,7 @@ public class BrowseActivity extends BaseActivity {
         fragmentResult.onResume();
     }
 
-    public void addRoutineExercise(View view){
+    public void onAddClick(View view){
         String s = view.getTag().toString();
 
         int index = browseViewModel.compareRoutineExercises(s);
