@@ -7,10 +7,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
-public class MyRoutinesStartFragment extends Fragment {
+public class MyRoutinesStartFragment extends Fragment implements Observer {
 
     private MyRoutinesViewModel viewModel;
 
@@ -38,6 +39,8 @@ public class MyRoutinesStartFragment extends Fragment {
         ListView listView = getView().findViewById(R.id.listviewMyRoutines);
         listView.setAdapter(adapter);
 
+        viewModel.addObserver(this);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -45,8 +48,15 @@ public class MyRoutinesStartFragment extends Fragment {
                 ((MyRoutinesActivity)getActivity()).onClickEnterRoutine(position);
             }
         });
-
     }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        viewModel.removeObserver(this);
+    }
+
 
     public void update(){
         RoutineListAdapter adapter = new RoutineListAdapter(getActivity(), viewModel.getRoutines());

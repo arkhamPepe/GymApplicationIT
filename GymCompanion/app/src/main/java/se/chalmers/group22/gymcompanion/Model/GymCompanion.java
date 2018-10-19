@@ -210,6 +210,10 @@ public class GymCompanion {
         return user.getBiggestCompletedRoutineName();
     }
 
+    public List<Exercise> getSelectedRoutineExercises(int index){
+        return user.getRoutineExercises(index);
+    }
+
     //Sorting, Filtering and Searching
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){

@@ -27,6 +27,7 @@ public class MyRoutinesViewModel extends BaseViewModel implements Observable {
 
     public void createRoutine(){
         getModel().createRoutine();
+        notifyObservers();
     }
 
     /*public void addExercise(){
@@ -47,6 +48,28 @@ public class MyRoutinesViewModel extends BaseViewModel implements Observable {
         for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
             muscleGroups.add(mg);
         }
+    }
+
+    public List<String> getExerciseNamesWithMG(MUSCLE_GROUP mg){
+        List<String> exerciseNames = new ArrayList<>();
+
+        for (Exercise exercise: getModel().getExerciseList()){
+            if (exercise.getMuscleGroups().contains(mg)){
+                exerciseNames.add(exercise.getName());
+            }
+        }
+
+        return exerciseNames;
+    }
+
+    public List<String> getSelectedRoutineExercisesNames(){
+        List<String> exerciseNames = new ArrayList<>();
+
+        for (Exercise exercise: getModel().getSelectedRoutineExercises(selectedRoutineIndex)){
+            exerciseNames.add(exercise.getName());
+        }
+
+        return exerciseNames;
     }
 
     public void setSelectedMGIndex(int index){
@@ -74,10 +97,12 @@ public class MyRoutinesViewModel extends BaseViewModel implements Observable {
 
     public void setSelectedRoutineIndex(int position){
         selectedRoutineIndex = position;
+        notifyObservers();
     }
 
     public void setSelectedExerciseIndex(int position){
         selectedExerciseIndex = position;
+        notifyObservers();
     }
 
     public String getSelectedRoutineName(){

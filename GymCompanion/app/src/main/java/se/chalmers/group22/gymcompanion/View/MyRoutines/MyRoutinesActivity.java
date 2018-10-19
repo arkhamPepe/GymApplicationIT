@@ -71,7 +71,6 @@ public class MyRoutinesActivity extends BaseActivity {
         transaction.hide(fragmentStart);
         transaction.commit();
         viewModel.createRoutine();
-        fragmentStart.update();
 
     }
 
@@ -116,7 +115,6 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onClickEnterRoutine(int position){
         viewModel.setSelectedRoutineIndex(position);
-        fragmentRoutineInfo.update();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentStart);
@@ -125,7 +123,6 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onClickEnterExercise(int position){
         viewModel.setSelectedExerciseIndex(position);
-        fragmentExerciseInfo.update();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentExerciseInfo);
         transaction.hide(fragmentRoutineInfo);
@@ -133,7 +130,6 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void goBackFromExercise(View view){
-        fragmentRoutineInfo.update();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.show(fragmentRoutineInfo);
         transaction.hide(fragmentExerciseInfo);
