@@ -36,10 +36,15 @@ public class MyRoutinesPickExerciseFragment extends Fragment implements Observer
     public void onStart(){
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); //get the viewmodel
-
         viewModel.addObserver(this);
 
-        viewModel.addObserver(this);
+        BrowseResultListAdapter adapter = new BrowseResultListAdapter(getActivity(),
+                viewModel.getExerciseNamesWithMG(viewModel.getSelectedMuscleGroup()),
+                viewModel.getRoutineExercisesDifficulty(),viewModel.checkIfNoRoutine());
+        ListView listView = getView().findViewById(R.id.listviewMyRoutinesPickExercise);
+        listView.setAdapter(adapter);
+
+
     }
 
     @Override
@@ -52,6 +57,12 @@ public class MyRoutinesPickExerciseFragment extends Fragment implements Observer
     @Override
     public void update() {
         TextView title = getView().findViewById(R.id.txtMyRoutinesPickExerciseTitle);
-        title.setText(viewModel.getSelectedMuscleGroup());
+        title.setText(viewModel.getSelectedMuscleGroup().toString());
+
+        BrowseResultListAdapter adapter = new BrowseResultListAdapter(getActivity(),
+                viewModel.getExerciseNamesWithMG(viewModel.getSelectedMuscleGroup()),
+                viewModel.getRoutineExercisesDifficulty(),viewModel.checkIfNoRoutine());
+        ListView listView = getView().findViewById(R.id.listviewMyRoutinesPickExercise);
+        listView.setAdapter(adapter);
     }
 }
