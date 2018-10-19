@@ -1,3 +1,10 @@
+// Title    :  FragmentOrganizer
+// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :  October 12, 2018
+//
+// Purpose  :  Help-class for Activities that aids the in setting up and changing between their fragments
+//----------------------------------------------------------------------------------------------
+
 package se.chalmers.group22.gymcompanion.View;
 
 import android.support.v4.app.Fragment;

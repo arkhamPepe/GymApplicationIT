@@ -1,3 +1,10 @@
+// Title    :  MainActivity
+// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :  September 20, 2018
+//
+// Purpose  :  Used for initial setup of the application. Is not used again after setup
+//----------------------------------------------------------------------------------------------
+
 package se.chalmers.group22.gymcompanion.View;
 
 import android.content.Intent;

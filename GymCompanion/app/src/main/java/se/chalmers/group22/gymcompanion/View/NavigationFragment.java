@@ -1,3 +1,11 @@
+// Title    :  NavigationFragment
+// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :  September 20, 2018
+//
+// Purpose  :  Fragment used by several activities. Handles travel between activities.
+//             Fragment connected to a xml displaying the Bottom Navigation Bar in the app
+//----------------------------------------------------------------------------------------------
+
 package se.chalmers.group22.gymcompanion.View;
 
 import android.content.Intent;
