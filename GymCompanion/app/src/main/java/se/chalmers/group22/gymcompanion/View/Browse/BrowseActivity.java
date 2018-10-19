@@ -170,7 +170,7 @@ public class BrowseActivity extends BaseActivity {
         fo.changeToFragment(fragmentResult);
     }
 
-    public BrowseViewModel getBrowseViewModel(){
+    public BrowseViewModel getViewModel(){
         return browseViewModel;
     }
 

@@ -46,7 +46,7 @@ public class StatisticsLifetimeStatsFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        viewModel = ((StatisticsActivity)getActivity()).getBrowseViewModel();
+        viewModel = ((StatisticsActivity)getActivity()).getViewModel();
 
         totalRoutinesCompleted = getView().findViewById(R.id.totalRoutinesCompleted);
         totalExercisesCompleted = getView().findViewById(R.id.totalExercisesCompleted);

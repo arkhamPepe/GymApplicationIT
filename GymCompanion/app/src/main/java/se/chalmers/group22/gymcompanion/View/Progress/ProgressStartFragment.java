@@ -56,7 +56,7 @@ public class ProgressStartFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        viewModel = ((ProgressActivity)getActivity()).getBrowseViewModel();
+        viewModel = ((ProgressActivity)getActivity()).getViewModel();
 
         exListView = getView().findViewById(R.id.ProgressExpList);
         listItems = SetStandardGroups();

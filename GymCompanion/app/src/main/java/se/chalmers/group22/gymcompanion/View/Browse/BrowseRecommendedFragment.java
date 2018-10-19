@@ -11,7 +11,7 @@ import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 /***
- * Title:
+ * Title: BrowseRecommendedFragment
  *
  * @author Alexander Bergsten
  * @author Marcus Svensson
@@ -43,6 +43,6 @@ public class BrowseRecommendedFragment extends Fragment{
     @Override
     public void onStart(){
         super.onStart();
-        viewModel = ((BrowseActivity) getActivity()).getBrowseViewModel();
+        viewModel = ((BrowseActivity) getActivity()).getViewModel();
     }
 }

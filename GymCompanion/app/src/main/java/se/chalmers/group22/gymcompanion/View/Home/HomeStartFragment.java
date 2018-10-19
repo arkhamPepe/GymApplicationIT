@@ -52,7 +52,7 @@ public class HomeStartFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        viewModel = ((HomeActivity)getActivity()).getBrowseViewModel();
+        viewModel = ((HomeActivity)getActivity()).getViewModel();
 
         btnGotoProgress = getView().findViewById(R.id.btnGotoProgress);
         textViewRoutineOfToday = getView().findViewById(R.id.textViewRoutineOfToday);

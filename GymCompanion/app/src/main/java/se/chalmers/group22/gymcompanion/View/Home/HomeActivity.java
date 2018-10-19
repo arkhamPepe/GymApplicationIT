@@ -85,7 +85,7 @@ public class HomeActivity extends BaseActivity {
         fo.changeToFragment(fragmentHome);
     }
 
-    public HomeViewModel getBrowseViewModel(){
+    public HomeViewModel getViewModel(){
         return homeViewModel;
     }
 

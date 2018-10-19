@@ -29,7 +29,7 @@ public class BrowseExerciseAddToRoutineFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        browseViewModel = ((BrowseActivity) getActivity()).getBrowseViewModel();
+        browseViewModel = ((BrowseActivity) getActivity()).getViewModel();
     }
 
     @Override

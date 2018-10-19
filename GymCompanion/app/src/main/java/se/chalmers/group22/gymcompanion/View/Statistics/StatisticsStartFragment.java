@@ -49,7 +49,7 @@ public class StatisticsStartFragment extends Fragment implements Observer {
     public void onStart(){
         super.onStart();
 
-        viewModel = ((StatisticsActivity)getActivity()).getBrowseViewModel();
+        viewModel = ((StatisticsActivity)getActivity()).getViewModel();
 
 
         double x = 0.0;

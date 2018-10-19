@@ -8,6 +8,7 @@ import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.MixedFilter;
+import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.SortingStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ import java.util.List;
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
  */
-public class BrowseViewModel extends BaseViewModel {
+public class BrowseViewModel extends ObservableViewModel {
 
     /** index
      * @value 0 = search selection, 1 = musclegroup, 2 = beginner, 3 = mix
@@ -152,6 +153,10 @@ public class BrowseViewModel extends BaseViewModel {
             }
 
         }
+    }
+
+    public void sortRoutinesAndExecises(SortingStrategy strategy){
+
     }
 
     /** getCurrentPage()

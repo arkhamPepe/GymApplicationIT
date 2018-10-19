@@ -35,7 +35,7 @@ public class SchedulePickRoutineFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        viewModel = ((ScheduleActivity)getActivity()).getBrowseViewModel();
+        viewModel = ((ScheduleActivity)getActivity()).getViewModel();
 
         List<String> routineNames = viewModel.getRoutineNames();
         List<Double> routineDifficulties = viewModel.getRoutineDifficulties();
