@@ -3,22 +3,21 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Observable;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.nio.channels.Channel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
-public class MyRoutinesViewModel extends BaseViewModel implements Observable {
+public class MyRoutinesViewModel extends ObservableViewModel {
 
     @Getter
     private int selectedRoutineIndex;
     private int selectedExerciseIndex;
     private int selectedMGIndex;
 
-    private List<Observer> observers = new ArrayList<>();
     private List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
 
     public MyRoutinesViewModel(){
@@ -162,24 +161,5 @@ public class MyRoutinesViewModel extends BaseViewModel implements Observable {
             return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().isEmpty();
         }
         return true;
-    }
-
-
-
-    @Override
-    public void notifyObservers() {
-        for (Observer o : observers){
-            o.update();
-        }
-    }
-
-    @Override
-    public void addObserver(Observer observer) {
-        this.observers.add(observer);
-    }
-
-    @Override
-    public void removeObserver(Observer observer) {
-        this.observers.remove(observer);
     }
 }
