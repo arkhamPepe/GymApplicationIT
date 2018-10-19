@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BrowseMuscleGroupsListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 public class MyRoutinesPickMGFragment extends Fragment {
@@ -36,7 +37,7 @@ public class MyRoutinesPickMGFragment extends Fragment {
 
         ListView listView = getView().findViewById(R.id.listviewMyRoutinesMG);
 
-        MyRoutinesMGAdapter adapter = new MyRoutinesMGAdapter(getActivity(),
+        BrowseMuscleGroupsListAdapter adapter = new BrowseMuscleGroupsListAdapter(getActivity(),
                 viewModel.getMuscleGroups());
         listView.setAdapter(adapter);
 
