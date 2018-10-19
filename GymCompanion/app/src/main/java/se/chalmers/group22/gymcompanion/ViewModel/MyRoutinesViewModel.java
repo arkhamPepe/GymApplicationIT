@@ -35,6 +35,14 @@ public class MyRoutinesViewModel extends BaseViewModel implements Observable {
 
     }*/
 
+    public List<Double> getRoutineExercisesDifficulty(){
+        List<Double> exercisesDifficulty = new ArrayList<>();
+        for (Exercise exercise : getModel().getExerciseList()){
+            exercisesDifficulty.add(exercise.getDifficulty());
+        }
+        return exercisesDifficulty;
+    }
+
     public List getMuscleGroups(){
         List<String> muscles = new ArrayList<>();
         for(MUSCLE_GROUP mg : muscleGroups){

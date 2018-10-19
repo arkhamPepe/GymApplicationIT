@@ -5,9 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 public class MyRoutinesPickExerciseFragment extends Fragment implements Observer {
@@ -34,6 +36,13 @@ public class MyRoutinesPickExerciseFragment extends Fragment implements Observer
     public void onStart(){
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); //get the viewmodel
+
+        viewModel.addObserver(this);
+
+        /*BrowseResultListAdapter adapter = new BrowseResultListAdapter(getActivity(),viewModel.getExerciseName(),viewModel.getRoutineExercisesDifficulty(),);
+        ListView listView = getView().findViewById(R.id.listviewMyRoutinesPickExercise);
+        listView.setAdapter(adapter);*/
+
 
         viewModel.addObserver(this);
     }
