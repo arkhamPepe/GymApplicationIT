@@ -12,7 +12,7 @@ import se.chalmers.group22.gymcompanion.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExerciseListAdapter extends ArrayAdapter {
+public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {
 
     //to reference the activity
     private Activity context;
@@ -20,7 +20,7 @@ public class ExerciseListAdapter extends ArrayAdapter {
     //to store exercises
     private List<String> exerciseNames;
 
-    public ExerciseListAdapter(Activity context, List<String> exerciseNames){
+    public MyRoutinesUserExercisesListAdapter(Activity context, List<String> exerciseNames){
         super(context, R.layout.listitem_my_routines_pick_exercise, exerciseNames);
         this.exerciseNames = exerciseNames;
         this.context = context;

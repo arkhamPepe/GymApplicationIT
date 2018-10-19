@@ -37,7 +37,7 @@ public class MyRoutinesRoutineInfoFragment extends Fragment implements Observer 
 
         viewModel.addObserver(this);
 
-        ExerciseListAdapter adapter = new ExerciseListAdapter(getActivity(), viewModel.getSelectedRoutineExercisesNames());
+        MyRoutinesUserExercisesListAdapter adapter = new MyRoutinesUserExercisesListAdapter(getActivity(), viewModel.getSelectedRoutineExercisesNames());
         ListView listView = getView().findViewById(R.id.listViewExercise);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -61,7 +61,7 @@ public class MyRoutinesRoutineInfoFragment extends Fragment implements Observer 
         TextView textViewAmountOfExercises = getView().findViewById(R.id.textViewRoutineInfoAmountOfExercises);
         textViewRoutineName.setText(viewModel.getSelectedRoutineName());
         textViewAmountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
-        ExerciseListAdapter adapter = new ExerciseListAdapter(getActivity(), viewModel.getSelectedRoutineExercisesNames());
+        MyRoutinesUserExercisesListAdapter adapter = new MyRoutinesUserExercisesListAdapter(getActivity(), viewModel.getSelectedRoutineExercisesNames());
         ListView listView = getView().findViewById(R.id.listViewExercise);
         listView.setAdapter(adapter);
     }
