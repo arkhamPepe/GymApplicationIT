@@ -192,4 +192,5 @@ public class GymCompanionTest {
         gymCompanion.sort(routines, new AscendingAlphabetic());
         assertEquals(r2, routines.get(0));
     }
+
 }

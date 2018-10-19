@@ -89,4 +89,14 @@ public class ScheduleTest {
         assertEquals(1, s.getScheduleKeySet().size());
         assertTrue(s.getScheduleKeySet().contains(d));
     }
+
+    @Test
+    public void getDayOfYearTodayTest(){
+        assertEquals(d.get(Calendar.DAY_OF_YEAR), s.getDayOfYearToday());
+    }
+
+    @Test
+    public void getTextNoRoutineScheduledTest(){
+        assertEquals("No Scheduled Routine", s.getTextNoRoutineScheduled());
+    }
 }
