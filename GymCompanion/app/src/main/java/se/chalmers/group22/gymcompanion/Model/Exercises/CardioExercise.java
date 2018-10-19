@@ -21,4 +21,14 @@ public class CardioExercise extends Exercise implements Serializable {
         super(name, difficulty, muscleGroups, description, videoguide, intensity);
         this.timespent = timespent;
     }
+
+    public double calculateScore() {
+        if (getIntensity() == INTENSITY.LOW) {
+            return timespent * 0.25;
+        } else if (getIntensity() == INTENSITY.MEDIUM) {
+            return timespent * 0.5;
+        } else {
+            return timespent * 0.75;
+        }
+    }
 }

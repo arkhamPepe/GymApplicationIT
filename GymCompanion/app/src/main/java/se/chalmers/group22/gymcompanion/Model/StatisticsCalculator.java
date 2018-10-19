@@ -10,7 +10,6 @@ import java.io.Serializable;
 import java.util.*;
 
 public class StatisticsCalculator implements Serializable {
-    private User user;
     private Schedule schedule;
 
     public StatisticsCalculator(Schedule schedule){
@@ -30,24 +29,32 @@ public class StatisticsCalculator implements Serializable {
         return specificExerciseMap;
     }
 
-    public double calculateScore(StrengthExercise exercise){
-        double sum = 0;
-        int kgIndex = 0;
-        for (Integer repetition: exercise.getRepetitions()){
-            sum += repetition * exercise.getKilograms().get(kgIndex);
-            kgIndex++;
+    public Map<Calendar, Double> getGraphDataPoints(List<Routine> completedRoutines, Calendar date, int weekOffset){
+
+        List<Routine> copyRoutines = new ArrayList<>(completedRoutines);
+        Map<Calendar, Double> graphMap = new HashMap<>();
+
+        double score;
+
+        for (int i = 0; i < 7; i++){
+            score = 0;
+
+            Calendar cal = new GregorianCalendar();
+            cal.set(Calendar.DAY_OF_YEAR, Calendar.DAY_OF_YEAR + (i-date.get(Calendar.DAY_OF_WEEK)) + (7 * weekOffset));
+
+            if(schedule.dateHasRoutine(cal)){
+
+                for (Exercise e : schedule.getRoutineFromDay(cal).getExercises()){
+                    score += e.calculateScore();
+                }
+            }
+
+            graphMap.put(cal, score);
         }
-        return sum;
+
+        return graphMap;
     }
 
-    public double calculateScore(CardioExercise exercise) {
-        if (exercise.getIntensity() == INTENSITY.LOW) {
-            return exercise.getTimespent() * 0.25;
-        } else if (exercise.getIntensity() == INTENSITY.MEDIUM) {
-            return exercise.getTimespent() * 0.5;
-        } else {
-            return exercise.getTimespent() * 0.75;
-        }
-    }
+
 
 }

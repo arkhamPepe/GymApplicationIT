@@ -31,6 +31,16 @@ public class StrengthExercise extends Exercise implements Serializable {
         this.kilograms = kilograms;
     }
 
+    public double calculateScore(){
+        double sum = 0;
+        int kgIndex = 0;
+        for (Integer repetition: repetitions){
+            sum += repetition * kilograms.get(kgIndex);
+            kgIndex++;
+        }
+        return sum;
+    }
+
     // FOR TESTING
     public StrengthExercise(String name, int sets, List<Integer> reps, List<Double> kilograms){
         super(name);

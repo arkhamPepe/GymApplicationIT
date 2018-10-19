@@ -70,6 +70,8 @@ public abstract class Exercise implements ISortable, Serializable {
         this.intensity = intensity;
     }
 
+    abstract public double calculateScore();
+
     public void complete(){
         this.completed = true;
     }
