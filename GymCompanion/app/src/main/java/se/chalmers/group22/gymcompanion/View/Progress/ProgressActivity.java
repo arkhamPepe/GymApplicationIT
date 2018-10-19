@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
@@ -70,6 +71,9 @@ public class ProgressActivity extends BaseActivity {
 
     //Goes back to HomeActivity with an extra boolean so that the Finished Fragment is in focus
     public void goToFinished(View view){
+
+        progressViewModel.completeActiveRoutine();
+
         Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                 Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -89,6 +93,14 @@ public class ProgressActivity extends BaseActivity {
                 Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(0, 0);
+    }
+
+    public void toggleCompleted(View view){
+        if(((CheckBox)view).isChecked()){
+            progressViewModel.toggleCompletionExerciseInARWithIndex((Integer)view.getTag(), true);
+        }else{
+            progressViewModel.toggleCompletionExerciseInARWithIndex((Integer)view.getTag(), false);
+        }
     }
 
     public ProgressViewModel getViewModel(){

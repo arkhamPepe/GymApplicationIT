@@ -204,6 +204,7 @@ public class User implements Serializable {
         return completedRoutines.size();
     }
 
+
     public int getTotalAmountOfCompletedExercises(){
         int amount = 0;
 
@@ -234,6 +235,17 @@ public class User implements Serializable {
         }
 
         return findMostCommonName(strList);
+    }
+
+    public Routine getRoutineFromName(String name){
+        Routine ret = null;
+        for(Routine r: new ArrayList<>(routines)){
+            if(r.getName().equals(name)){
+                ret = r;
+                return ret;
+            }
+        }
+        return ret;
     }
 
     private String findMostCommonName(List<String> strList){

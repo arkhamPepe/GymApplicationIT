@@ -102,9 +102,9 @@ public class RoutineTest {
     public void getCompletedExercisesTest(){
         routine.addExercise(ex1);
         routine.addExercise(ex2);
-        ex1.complete();
+        ex1.toggleCompletion(true);
         assertEquals(1, routine.getCompletedExercises());
-        ex2.complete();
+        ex2.toggleCompletion(true);
         assertEquals(2, routine.getCompletedExercises());
     }
 }

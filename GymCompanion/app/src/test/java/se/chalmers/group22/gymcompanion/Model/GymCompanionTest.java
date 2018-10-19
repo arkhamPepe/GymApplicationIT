@@ -22,6 +22,7 @@ public class GymCompanionTest {
     private GymCompanion gymCompanion;
     private User user;
     private Routine r1;
+    private Routine scheduledRoutine;
     private CardioExercise ce;
     private List<MUSCLE_GROUP> muscleGroups;
     private Calendar d;
@@ -44,7 +45,10 @@ public class GymCompanionTest {
                 30
         );
         r1.addExercise(ce);
+        user.addRoutine(r1);
         d = Calendar.getInstance();
+        gymCompanion.scheduleRoutine(d,r1.getName());
+        scheduledRoutine = gymCompanion.getRoutineFromDay(d);
     }
 
     @Test
@@ -54,9 +58,9 @@ public class GymCompanionTest {
 
     @Test
     public void createRoutineTest(){
-        assertEquals(0, gymCompanion.getUserRoutines().size());
+        assertEquals(1, gymCompanion.getUserRoutines().size());
         gymCompanion.createRoutine();
-        assertEquals(1,gymCompanion.getUserRoutines().size());
+        assertEquals(2,gymCompanion.getUserRoutines().size());
     }
 
     @Test
@@ -80,33 +84,33 @@ public class GymCompanionTest {
 
     @Test
     public void getRoutineTest(){
-        assertEquals(0, gymCompanion.getUserRoutines().size());
-        user.addRoutine(r1);
         assertEquals(1, gymCompanion.getUserRoutines().size());
+        user.addRoutine(r1);
+        assertEquals(2, gymCompanion.getUserRoutines().size());
     }
 
     @Test
     public void startRoutineTest(){
-        gymCompanion.startRoutine(r1);
-        assertEquals(r1, gymCompanion.getActiveRoutine());
+        gymCompanion.startRoutine();
+        assertEquals(scheduledRoutine, gymCompanion.getActiveRoutine());
     }
 
     @Test
     public void activeExerciseTest(){
-        gymCompanion.startRoutine(r1);
+        gymCompanion.startRoutine();
         gymCompanion.setActiveExerciseInActiveRoutine(0);
         assertEquals("Sprinter", gymCompanion.getActiveExerciseName());
     }
 
     @Test
     public void getAmountOfExercisesInActiveRoutineTest(){
-        gymCompanion.startRoutine(r1);
+        gymCompanion.startRoutine();
         assertEquals(1, gymCompanion.getAmountOfExercisesInActiveRoutine());
     }
 
     @Test
     public void getActiveExerciseTest(){
-        gymCompanion.startRoutine(r1);
+        gymCompanion.startRoutine();
         gymCompanion.setActiveExerciseInActiveRoutine(0);
         Exercise expected = r1.getExercises().get(0);
         assertEquals(expected, gymCompanion.getActiveExercise());
@@ -114,8 +118,8 @@ public class GymCompanionTest {
 
     @Test
     public void getActiveRoutineTest(){
-        gymCompanion.startRoutine(r1);
-        assertEquals(r1, gymCompanion.getActiveRoutine());
+        gymCompanion.startRoutine();
+        assertEquals(scheduledRoutine, gymCompanion.getActiveRoutine());
     }
 
     @Test

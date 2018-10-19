@@ -50,14 +50,12 @@ public class GymCompanion {
     }
 
     public void startRoutine(){
-        startRoutine(user.getTodaysRoutine());
+        setActiveRoutine(user.getTodaysRoutine());
     }
 
-    public void startRoutine(Routine routine){
-        /*TODO Start the routine for the current day*/
+    public void setActiveRoutine(Routine routine){
         isRoutineActive = true;
         activeRoutine = routine;
-        /*TODO redirect to "Workout in progress"-page*/
     }
 
     //Active Routine Methods
@@ -72,6 +70,14 @@ public class GymCompanion {
             return 0;
         }
         return activeRoutine.getExercises().size();
+    }
+
+    public void toggleCompletionExerciseInARWithIndex(int index, boolean completed){
+        activeRoutine.getExercises().get(index).toggleCompletion(completed);
+    }
+
+    public void completeActiveRoutine(){
+        user.finishRoutine(activeRoutine);
     }
 
     //Active Exercise Methods
@@ -192,12 +198,17 @@ public class GymCompanion {
     }
 
 
+
     public List<Routine> getUserRoutines() {
         return user.getRoutines();
     }
 
     public Routine getRoutineFromDay(Calendar day){
         return user.getRoutineFromDay(day);
+    }
+
+    public Routine getRoutineFromName(String name){
+        return user.getRoutineFromName(name);
     }
 
     public String getRoutineNameOnDate(int year, int month, int day) {
