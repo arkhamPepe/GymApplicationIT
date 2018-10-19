@@ -7,11 +7,13 @@ import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.*;
 
@@ -71,7 +73,7 @@ public class UserTest {
     public void modifyRoutineDescriptionTest(){
 
         user.modifyRoutineDescription(user.getRoutines().get(0),"Wahoo!");
-        assertTrue(user.getRoutines().get(0).getDescription().equals("Wahoo!"));
+        assertEquals("Wahoo!", user.getRoutines().get(0).getDescription());
     }
 
     @Test
@@ -157,5 +159,40 @@ public class UserTest {
         user.addRoutine(r1);
         user.removeRoutine(r1);
         assertEquals(n, user.getRoutines().size());
+    }
+
+    @Test
+    public void getWeightTest(){
+        assertEquals(420, user.getWeight());
+    }
+
+    @Test
+    public void addFriendTest(){
+        User f1 = new User("Friend", "Friend Gym", 15, 421, false);
+        user.addFriend(f1);
+        assertEquals(f1, user.getFriends().get(0));
+        assertEquals(1, user.getFriends().size());
+    }
+
+    @Test
+    public void removeFriendTest(){
+        User f1 = new User("Friend", "Friend Gym", 15, 421, false);
+        user.addFriend(f1);
+        user.removeFriend(f1);
+        assertEquals(0, user.getFriends().size());
+    }
+
+    @Test
+    public void getFavouriteExerciseNameTest(){
+        assertEquals("No Favourite", user.getFavouriteExerciseName());
+        user.finishRoutine(r1);
+        assertEquals("MasterPull", user.getFavouriteExerciseName());
+    }
+
+    @Test
+    public void getFavouriteRoutineNameTest(){
+        assertEquals("No Favourite", user.getFavouriteRoutineName());
+        user.finishRoutine(r1);
+        assertEquals("Master Routine", user.getFavouriteRoutineName());
     }
 }
