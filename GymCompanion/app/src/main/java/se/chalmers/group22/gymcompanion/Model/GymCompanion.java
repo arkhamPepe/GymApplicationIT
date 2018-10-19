@@ -166,7 +166,7 @@ public class GymCompanion {
     }
 
 
-    public List<Routine> getRoutines() {
+    public List<Routine> getUserRoutines() {
         return user.getRoutines();
     }
 
@@ -236,23 +236,23 @@ public class GymCompanion {
 
     public <T extends ISortable> List<T> filterRoutines(List<T> toBeFiltered){
         List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(exerciseList);
+        newList.removeAll(new ArrayList<>(routineList));
         return newList;
     }
 
     public <T extends ISortable> List<T> filterExercises(List<T> toBeFiltered){
         List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(routineList);
+        newList.removeAll(new ArrayList<>(exerciseList));
         return newList;
     }
 
     public List<Routine> searchRoutine(String search){
         if (search.equals("")) {
-            return getRoutines();
+            return new ArrayList<>(routineList);
         }
         List<Routine> newList = new ArrayList<>();
 
-        for (Routine r: getRoutines()) {
+        for (Routine r: new ArrayList<>(routineList)) {
             matchSearchWithName(search,r,newList);
         }
         return newList;
@@ -260,11 +260,11 @@ public class GymCompanion {
 
     public List<Exercise> searchExercise(String search){
         if (search.equals("")) {
-            return getExerciseList();
+            return new ArrayList<>(exerciseList);
         }
         List<Exercise> newList = new ArrayList<>();
 
-        for (Exercise e: getExerciseList()) {
+        for (Exercise e: new ArrayList<>(exerciseList)) {
             matchSearchWithName(search,e,newList);
         }
         return newList;
