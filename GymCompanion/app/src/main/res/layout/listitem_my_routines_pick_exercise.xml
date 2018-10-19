@@ -9,7 +9,7 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtName"
+            android:id="@+id/txtMyRoutinesListExerciseName"
             android:layout_marginTop="10dp"
             android:text="Name"
             android:textSize="24sp"
@@ -21,33 +21,33 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtBrowsePickAmountPrefix"
-            android:layout_below="@+id/txtName"
+            android:id="@+id/txtMyRoutinesListExercisePickAmountPrefix"
+            android:layout_below="@+id/txtMyRoutinesListExerciseName"
             android:textSize="12sp"
-            android:layout_alignStart="@+id/txtName"
+            android:layout_alignStart="@+id/txtMyRoutinesListExerciseName"
     />
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtBrowsePickAmountNumber"
+            android:id="@+id/txtMyRoutinesListExercisePickAmountNumber"
             android:textSize="12sp"
             android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
-            android:layout_toEndOf="@id/txtBrowsePickAmountPrefix"
+            android:layout_toEndOf="@id/txtMyRoutinesListExercisePickAmountPrefix"
             android:layout_marginStart="63dp"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtBrowsePickDifficultyPrefix"
+            android:id="@+id/txtMyRoutinesListExercisePickDifficultyPrefix"
             android:text="Difficulty:"
             android:textSize="14sp"
-            android:layout_centerVertical="true" android:layout_toStartOf="@+id/txtBrowseDifficulty"/>
+            android:layout_centerVertical="true" android:layout_toStartOf="@+id/txtMyRoutinesListExerciseDifficulty"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtBrowseDifficulty"
+            android:id="@+id/txtMyRoutinesListExerciseDifficulty"
             android:text="3.5"
             android:textSize="20sp"
             android:layout_alignParentEnd="true" android:layout_marginEnd="14dp"
@@ -55,6 +55,6 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true" android:id="@+id/txtType" android:layout_alignStart="@+id/txtName"
+            android:layout_alignParentTop="true" android:id="@+id/txtMyRoutinesListExerciseType" android:layout_alignStart="@+id/txtMyRoutinesListExerciseName"
     />
 </RelativeLayout>

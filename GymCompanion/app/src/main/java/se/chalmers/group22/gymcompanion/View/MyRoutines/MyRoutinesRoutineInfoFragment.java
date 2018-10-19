@@ -1,17 +1,15 @@
 package se.chalmers.group22.gymcompanion.View.MyRoutines;
-import android.arch.lifecycle.ViewModel;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
-public class MyRoutinesRoutineInfoFragment extends Fragment {
+public class MyRoutinesRoutineInfoFragment extends Fragment implements Observer {
 
     //variables for fragment_routine_routine_info.xml
     private MyRoutinesViewModel viewModel;
@@ -37,9 +35,9 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
 
-        update();
+        viewModel.addObserver(this);
 
-        ExerciseListAdapter adapter = new ExerciseListAdapter(getActivity(), viewModel.getExercises());
+        MyRoutinesUserExercisesListAdapter adapter = new MyRoutinesUserExercisesListAdapter(getActivity(), viewModel.getSelectedRoutineExercisesNames());
         ListView listView = getView().findViewById(R.id.listViewExercise);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -51,12 +49,19 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        viewModel.removeObserver(this);
+    }
+
     public void update(){
-        TextView textViewRoutineName = getView().findViewById(R.id.textViewMyRoutinesInfoRoutineName);
+        TextView textViewRoutineName = getView().findViewById(R.id.txtEditMyRoutinesInfoRoutineName);
         TextView textViewAmountOfExercises = getView().findViewById(R.id.textViewRoutineInfoAmountOfExercises);
         textViewRoutineName.setText(viewModel.getSelectedRoutineName());
         textViewAmountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
-        ExerciseListAdapter adapter = new ExerciseListAdapter(getActivity(), viewModel.getExercises());
+        MyRoutinesUserExercisesListAdapter adapter = new MyRoutinesUserExercisesListAdapter(getActivity(), viewModel.getSelectedRoutineExercisesNames());
         ListView listView = getView().findViewById(R.id.listViewExercise);
         listView.setAdapter(adapter);
     }

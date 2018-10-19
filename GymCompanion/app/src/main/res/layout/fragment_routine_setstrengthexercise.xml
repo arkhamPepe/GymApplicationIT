@@ -7,7 +7,7 @@
             android:text="Exercise Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="28dp"
-            android:layout_centerHorizontal="true" android:id="@+id/textViewMyRoutinesInfoRoutineName" android:textSize="24sp"
+            android:layout_centerHorizontal="true" android:id="@+id/txtEditMyRoutinesInfoRoutineName" android:textSize="24sp"
             android:textColor="@color/blackColour"/>
     <ListView
             android:layout_width="match_parent"
@@ -23,7 +23,7 @@
 
     <NumberPicker android:layout_width="50dp" android:layout_height="70dp"
                   android:layout_alignParentTop="true" android:layout_marginTop="70dp"
-                  android:layout_alignEnd="@+id/textViewMyRoutinesInfoRoutineName" android:id="@+id/amountofSets">
+                  android:layout_alignEnd="@+id/txtEditMyRoutinesInfoRoutineName" android:id="@+id/amountofSets">
 
     </NumberPicker>
 </RelativeLayout>

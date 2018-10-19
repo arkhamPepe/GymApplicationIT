@@ -5,7 +5,7 @@ import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.*;
 
-public class StatisticsViewModel extends BaseViewModel {
+public class StatisticsViewModel extends ObservableViewModel {
 
     private List<Routine> routines;
     private List<Exercise> exercises;

@@ -39,7 +39,7 @@ public class Routine implements ISortable, Serializable {
 
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
-    private List<Exercise> exercises;
+    private List<Exercise> exercises = new ArrayList<>();
 
     public Routine(String name, double difficulty){
         this(name);

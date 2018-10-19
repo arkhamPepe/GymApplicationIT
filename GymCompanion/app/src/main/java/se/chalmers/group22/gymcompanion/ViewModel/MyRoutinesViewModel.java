@@ -1,31 +1,84 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
+import java.nio.channels.Channel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
-public class MyRoutinesViewModel extends BaseViewModel {
+public class MyRoutinesViewModel extends ObservableViewModel {
 
     @Getter
     private int selectedRoutineIndex;
     private int selectedExerciseIndex;
+    private int selectedMGIndex;
 
-
+    private List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
 
     public MyRoutinesViewModel(){
+        initMuscleGroups();
     }
 
     public void createRoutine(){
         getModel().createRoutine();
+        notifyObservers();
     }
 
     /*public void addExercise(){
         getModel().addExercise(,routines.get(selectedRoutineIndex));
 
     }*/
+
+    public List getMuscleGroups(){
+        List<String> muscles = new ArrayList<>();
+        for(MUSCLE_GROUP mg : muscleGroups){
+            muscles.add(mg.toString().replace("_", " "));
+        }
+        return muscles;
+    }
+
+    /* TODO FIX CODE DUPLICATION */
+    private void initMuscleGroups(){
+        for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
+            muscleGroups.add(mg);
+        }
+    }
+
+    public List<String> getExerciseNamesWithMG(MUSCLE_GROUP mg){
+        List<String> exerciseNames = new ArrayList<>();
+
+        for (Exercise exercise: getModel().getExerciseList()){
+            if (exercise.getMuscleGroups().contains(mg)){
+                exerciseNames.add(exercise.getName());
+            }
+        }
+
+        return exerciseNames;
+    }
+
+    public List<String> getSelectedRoutineExercisesNames(){
+        List<String> exerciseNames = new ArrayList<>();
+
+        for (Exercise exercise: getModel().getSelectedRoutineExercises(selectedRoutineIndex)){
+            exerciseNames.add(exercise.getName());
+        }
+
+        return exerciseNames;
+    }
+
+    public void setSelectedMGIndex(int index){
+        selectedMGIndex = index;
+        notifyObservers();
+    }
+
+    public String getSelectedMuscleGroup(){
+        return muscleGroups.get(selectedMGIndex).toString();
+    }
 
     public String getSelectedRoutineExerciseAmount(){
         if (!checkIfEmptyRoutineList()){
@@ -43,10 +96,12 @@ public class MyRoutinesViewModel extends BaseViewModel {
 
     public void setSelectedRoutineIndex(int position){
         selectedRoutineIndex = position;
+        notifyObservers();
     }
 
     public void setSelectedExerciseIndex(int position){
         selectedExerciseIndex = position;
+        notifyObservers();
     }
 
     public String getSelectedRoutineName(){

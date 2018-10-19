@@ -180,7 +180,7 @@ public class GymCompanion {
     }
 
 
-    public List<Routine> getRoutines() {
+    public List<Routine> getUserRoutines() {
         return user.getRoutines();
     }
 
@@ -224,6 +224,10 @@ public class GymCompanion {
         return user.getBiggestCompletedRoutineName();
     }
 
+    public List<Exercise> getSelectedRoutineExercises(int index){
+        return user.getRoutineExercises(index);
+    }
+
     //Sorting, Filtering and Searching
 
     public void sort(List<? extends ISortable> list, SortingStrategy strat){
@@ -250,40 +254,50 @@ public class GymCompanion {
 
     public <T extends ISortable> List<T> filterRoutines(List<T> toBeFiltered){
         List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(exerciseList);
+        newList.removeAll(new ArrayList<>(routineList));
         return newList;
     }
 
     public <T extends ISortable> List<T> filterExercises(List<T> toBeFiltered){
         List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(routineList);
+        newList.removeAll(new ArrayList<>(exerciseList));
         return newList;
     }
 
-    public List<ISortable> search(String search){
+    public List<Routine> searchRoutine(String search){
         if (search.equals("")) {
-            return getRoutinesAndExercises();
+            return new ArrayList<>(routineList);
         }
+        List<Routine> newList = new ArrayList<>();
 
-        List<ISortable> newList = new ArrayList<>();
-
-        for (ISortable re: getRoutinesAndExercises()) {
-            if(search.toLowerCase().equals(re.getName().toLowerCase())){
-                newList.add(re);
-            }
-        }
-
-        for (ISortable re: getRoutinesAndExercises()) {
-            if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
-                newList.add(re);
-            }
-        }
-
-        for (ISortable re: getRoutinesAndExercises()) {
-            if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
-                newList.add(re);
-            }
+        for (Routine r: new ArrayList<>(routineList)) {
+            matchSearchWithName(search,r,newList);
         }
         return newList;
     }
+
+    public List<Exercise> searchExercise(String search){
+        if (search.equals("")) {
+            return new ArrayList<>(exerciseList);
+        }
+        List<Exercise> newList = new ArrayList<>();
+
+        for (Exercise e: new ArrayList<>(exerciseList)) {
+            matchSearchWithName(search,e,newList);
+        }
+        return newList;
+    }
+    
+    private <T extends ISortable> void matchSearchWithName(String search, T re, List<T> newList){
+        if(search.toLowerCase().equals(re.getName().toLowerCase())){
+            newList.add(re);
+        }
+        else if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
+            newList.add(re);
+        }
+        else if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
+            newList.add(re);
+        }
+    }
+
 }

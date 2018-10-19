@@ -21,7 +21,7 @@ public class ScheduleViewModel extends BaseViewModel {
         selectedMonth = getModel().getMonthToday();
         selectedDay = getModel().getDayToday();
 
-        routines = getModel().getRoutines();
+        routines = getModel().getUserRoutines();
     }
 
     /** scheduleSelectedRoutine

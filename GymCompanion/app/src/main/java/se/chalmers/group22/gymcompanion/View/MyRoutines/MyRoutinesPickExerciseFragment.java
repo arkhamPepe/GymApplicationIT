@@ -1,24 +1,21 @@
 package se.chalmers.group22.gymcompanion.View.MyRoutines;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
-public class MyRoutinesExerciseInfoFragment extends Fragment {
-
-    //variables for fragment_routine_exercise_info.xml
-    private TextView textViewExerciseDescription;
-    private TextView textViewGuideDescription;
-    private TextView textViewExerciseName;
+public class MyRoutinesPickExerciseFragment extends Fragment implements Observer {
 
     private MyRoutinesViewModel viewModel;
 
-    public static MyRoutinesExerciseInfoFragment newInstance() {
-        MyRoutinesExerciseInfoFragment fragment = new MyRoutinesExerciseInfoFragment();
+    public static MyRoutinesPickExerciseFragment newInstance() {
+        MyRoutinesPickExerciseFragment fragment = new MyRoutinesPickExerciseFragment();
         return fragment;
     }
 
@@ -30,7 +27,7 @@ public class MyRoutinesExerciseInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_routine_exercise_info, container, false);
+        return inflater.inflate(R.layout.fragment_my_routines_pick_exercise, container, false);
     }
 
     @Override
@@ -38,14 +35,19 @@ public class MyRoutinesExerciseInfoFragment extends Fragment {
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); //get the viewmodel
 
+        viewModel.addObserver(this);
     }
 
-    public void update(){
-        textViewExerciseDescription = getView().findViewById(R.id.textViewDescription);
-        textViewExerciseName = getView().findViewById(R.id.txtEditMyRoutinesInfoRoutineName);
-        textViewGuideDescription = getView().findViewById(R.id.textViewGuide);
+    @Override
+    public void onPause(){
+        super.onPause();
+        viewModel.removeObserver(this);
 
-        textViewExerciseName.setText(viewModel.getExerciseName());
+    }
 
+    @Override
+    public void update() {
+        TextView title = getView().findViewById(R.id.txtMyRoutinesPickExerciseTitle);
+        title.setText(viewModel.getSelectedMuscleGroup());
     }
 }

@@ -3,7 +3,6 @@ package se.chalmers.group22.gymcompanion.View.Browse;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
@@ -134,6 +133,10 @@ public class BrowseActivity extends BaseActivity {
         int i = Integer.valueOf((String)view.getTag());
         browseViewModel.setIndex(i);
 
+        fragmentResult.onResume();
+    }
+
+    public void updateFilters(){
         fragmentResult.onResume();
     }
 

@@ -9,14 +9,18 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.*;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 /** StatisticsActivityFragment
  *  Purpose: Initial fragment of StatisticActivity
  *  Authors: Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
  * */
 
-public class StatisticsStartFragment extends Fragment {
+public class StatisticsStartFragment extends Fragment implements Observer {
+
+    private StatisticsViewModel viewModel;
 
     public static StatisticsStartFragment newInstance() {
         StatisticsStartFragment fragment = new StatisticsStartFragment();
@@ -45,18 +49,32 @@ public class StatisticsStartFragment extends Fragment {
      * */
     public void onStart(){
         super.onStart();
-        double x,y;
-        x = 0.0;
-        y = 0.0;
 
+        viewModel = ((StatisticsActivity)getActivity()).getViewModel();
+
+
+        double x = 0.0;
+        int amountOfDots = 7;
+
+        drawGraph(x,amountOfDots);
+
+    }
+
+    @Override
+    public void update() {
+        drawGraph(0, 7);
+    }
+
+    private void drawGraph(double x,int dots){
         //GraphView object
-        GraphView graphView = (GraphView)getView().findViewById(R.id.start_graph);
+        GraphView graphView = getView().findViewById(R.id.start_graph);
 
+        double y;
 
         PointsGraphSeries<DataPoint> seriesPoint = new PointsGraphSeries<DataPoint>();
         LineGraphSeries<DataPoint> seriesLine = new LineGraphSeries<DataPoint>();
 
-        for(int i = 0; i < 7; i++) {
+        for(int i = 0; i < dots; i++) {
             x += 1;
             y=Math.pow(x, 2.0);
 

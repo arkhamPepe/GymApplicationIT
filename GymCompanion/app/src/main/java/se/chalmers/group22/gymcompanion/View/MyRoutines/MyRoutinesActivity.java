@@ -30,6 +30,8 @@ public class MyRoutinesActivity extends BaseActivity {
     private final Fragment fragmentStart = new MyRoutinesStartFragment();
     private final Fragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
     private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
+    private final Fragment fragmentPickExercise = new MyRoutinesPickExerciseFragment();
+    private final Fragment fragmentPickMG = new MyRoutinesPickMGFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
     private List<Fragment> fragments = new ArrayList<>();
 
@@ -70,25 +72,44 @@ public class MyRoutinesActivity extends BaseActivity {
         fragments.add(fragmentExerciseInfo);
         fragments.add(fragmentRoutineInfo);
         fragments.add(fragmentStart);
+        fragments.add(fragmentPickExercise);
+        fragments.add(fragmentPickMG);
     }
 
     public void onClickCreateRoutine(View view){
         viewModel.createRoutine();
-        //fragmentStart.update();
         fo.changeToFragment(fragmentRoutineInfo);
     }
-    /*public void createRoutine(View view){
-        dataHandler.createRoutine();
-    }*/
 
+    public void onClickPickMG(View view){
+        goToPickExercise(view);
+    }
+
+    public void goToRoutineInfo(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentRoutineInfo);
+        transaction.hide(fragmentPickMG);
+        transaction.commit();
+    }
+
+    public void goToPickExercise(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentPickExercise);
+        transaction.hide(fragmentPickMG);
+        transaction.commit();
+    }
+
+    public void goToPickMG(View view){
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.show(fragmentPickMG);
+        transaction.hide(fragmentRoutineInfo);
+        transaction.hide(fragmentPickExercise);
+        transaction.commit();
+    }
+
+    /* TODO Add stuff */
     public void onClickAddExercise(View view){
-        Intent intent = new Intent(this, BrowseActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.putExtra("MyRoutines",true);
-        //viewModel.addExercise();
-        startActivity(intent);
-
+        goToPickMG(view);
     }
 
     public MyRoutinesViewModel getViewModel(){
@@ -101,18 +122,15 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onClickEnterRoutine(int position){
         viewModel.setSelectedRoutineIndex(position);
-        //fragmentRoutineInfo.update();
         fo.changeToFragment(fragmentRoutineInfo);
     }
 
     public void onClickEnterExercise(int position){
         viewModel.setSelectedExerciseIndex(position);
-        //fragmentExerciseInfo.update();
         fo.changeToFragment(fragmentExerciseInfo);
     }
 
     public void goBackFromExercise(View view){
-        //fragmentRoutineInfo.update();
         fo.changeToFragment(fragmentRoutineInfo);
     }
 

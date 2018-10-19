@@ -49,7 +49,7 @@ public class ScheduleListAdapter extends ArrayAdapter {
         //this code gets references to objects in the listview_row.xml file
         TextView routineName = rowView.findViewById(R.id.txtSchedulePickRoutineName);
         TextView routineDifficulty = rowView.findViewById(R.id.txtSchedulePickDifficultyNumber);
-        TextView routineExercisesAmount = rowView.findViewById(R.id.txtSchedulePickAmountNumber);
+        TextView routineExercisesAmount = rowView.findViewById(R.id.txtBrowsePickAmountNumber);
 
         //this code sets the values of the objects to values from the arrays
         routineName.setText(routineNames.get(position));
