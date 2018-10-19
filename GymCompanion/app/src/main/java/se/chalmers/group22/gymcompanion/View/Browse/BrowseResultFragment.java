@@ -10,6 +10,8 @@ import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
+import java.util.List;
+
 public class BrowseResultFragment extends Fragment {
 
     private BrowseViewModel viewModel;
@@ -125,11 +127,26 @@ public class BrowseResultFragment extends Fragment {
         Spinner dropdown = getView().findViewById(R.id.dropdownSpinner);
 
        //List of items to be shown in the menu
-        String[] items = viewModel.getSortFilters();
+        List<String> items = viewModel.getSortFilters();
 
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(spinnerAdapter);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, items);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dropdown.setAdapter(dataAdapter);
+
+        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                        viewModel.sortRoutinesAndExercises(position);
+                        onResume();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Do nothing
+            }
+
+        });
 
         //************************************SEARCHBAR
         //Sets the searchbar to what was searched on startfragment (may be empty if coming from muscle group selection)

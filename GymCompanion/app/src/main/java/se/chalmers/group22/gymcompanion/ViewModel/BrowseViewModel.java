@@ -8,7 +8,7 @@ import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.MixedFilter;
-import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.SortingStrategy;
+import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class BrowseViewModel extends ObservableViewModel {
 
     //Array of the different sort filters
     @Getter
-    private String[] sortFilters;
+    private List<String> sortFilters;
 
     //Current page
     private String currentPage;
@@ -67,20 +67,23 @@ public class BrowseViewModel extends ObservableViewModel {
         this.exercises = new ArrayList<>();
         this.filteredRoutines = new ArrayList<>();
         this.filteredExercises = new ArrayList<>();
+        this.sortFilters = new ArrayList<>();
         init();
     }
 
     /** init()
-     * Purpose: inits List<MUSCLE_GROUP> muscleGroups, sets the sortfilter array
+     * Purpose: inits List<MUSCLE_GROUP> muscleGroups, sets the sortfilter list
      * */
     private void init(){
         for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
             muscleGroups.add(mg);
         }
 
-        sortFilters = new String[]{"Asc. alphabetic.", "Desc. alphabetic", "Asc. difficulty", "Desc. difficulty"};
+        sortFilters.add("Asc. alphabetic.");
+        sortFilters.add("Desc. alphabetic");
+        sortFilters.add("Asc. difficulty");
+        sortFilters.add("Desc. difficulty");
     }
-
     /** search()
      * Purpose: clears all lists and calls searchRoutine() and searchExercise from GymCompanion, and fills
      * the routine and exercise lists with the search results
@@ -155,8 +158,33 @@ public class BrowseViewModel extends ObservableViewModel {
         }
     }
 
-    public void sortRoutinesAndExecises(SortingStrategy strategy){
+    /** sortRoutinesAndExercises(int)
+     * Purpose: to sort the list by user preference
+     * @param position position in spinner to decide what strategy to use
+     * */
+    public void sortRoutinesAndExercises(int position){
+        SortingStrategy strategy;
 
+        switch (position) {
+            case 0:
+                strategy = new AscendingAlphabetic();
+                break;
+            case 1:
+                strategy = new DescendingAlphabetic();
+                break;
+            case 2:
+                strategy = new AscendingDifficulty();
+                break;
+            case 3:
+                strategy = new DescendingDifficulty();
+                break;
+            default:
+                strategy = new AscendingAlphabetic();
+                break;
+        }
+
+        getModel().sort(routines, strategy);
+        getModel().sort(exercises, strategy);
     }
 
     /** getCurrentPage()
