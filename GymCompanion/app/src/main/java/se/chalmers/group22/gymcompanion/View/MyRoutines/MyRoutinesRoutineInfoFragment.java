@@ -1,13 +1,10 @@
 package se.chalmers.group22.gymcompanion.View.MyRoutines;
-import android.arch.lifecycle.ViewModel;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
@@ -52,7 +49,7 @@ public class MyRoutinesRoutineInfoFragment extends Fragment {
     }
 
     public void update(){
-        TextView textViewRoutineName = getView().findViewById(R.id.textViewMyRoutinesInfoRoutineName);
+        TextView textViewRoutineName = getView().findViewById(R.id.txtEditMyRoutinesInfoRoutineName);
         TextView textViewAmountOfExercises = getView().findViewById(R.id.textViewRoutineInfoAmountOfExercises);
         textViewRoutineName.setText(viewModel.getSelectedRoutineName());
         textViewAmountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
