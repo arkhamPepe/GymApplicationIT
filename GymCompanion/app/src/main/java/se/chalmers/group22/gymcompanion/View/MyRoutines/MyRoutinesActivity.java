@@ -140,7 +140,7 @@ public class MyRoutinesActivity extends BaseActivity {
         fo.changeToFragment(fragmentStart);
     }
 
-    public void addRoutineToExercise(View view){
+    public void onAddClick(View view){
         viewModel.addExercise((String)view.getTag());
     }
 }
