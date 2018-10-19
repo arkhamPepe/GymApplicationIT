@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class ExerciseListAdapter extends ArrayAdapter {
     private List<String> exerciseNames;
 
     public ExerciseListAdapter(Activity context, List<Exercise> exercises){
-        super(context, R.layout.listitem_my_routines_exercise,exercises);
+        super(context, R.layout.listitem_my_routines_pick_exercise,exercises);
         exerciseNames = new ArrayList<>();
         this.context = context;
         fillExerciseNames(exercises);
@@ -32,7 +31,7 @@ public class ExerciseListAdapter extends ArrayAdapter {
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.listitem_my_routines_exercise, null,true);
+        View rowView = inflater.inflate(R.layout.listitem_my_routines_pick_exercise, null,true);
 
         //this code gets references to objects in the listview_row.xml file
         TextView exerciseName = (TextView) rowView.findViewById(R.id.textViewExerciseName);

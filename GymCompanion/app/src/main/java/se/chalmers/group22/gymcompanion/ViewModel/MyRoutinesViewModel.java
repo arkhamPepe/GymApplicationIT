@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
@@ -13,9 +14,10 @@ public class MyRoutinesViewModel extends BaseViewModel {
     private int selectedRoutineIndex;
     private int selectedExerciseIndex;
 
-
+    List<MUSCLE_GROUP> muscleGroups = new ArrayList<>();
 
     public MyRoutinesViewModel(){
+        initMuscleGroups();
     }
 
     public void createRoutine(){
@@ -26,6 +28,22 @@ public class MyRoutinesViewModel extends BaseViewModel {
         getModel().addExercise(,routines.get(selectedRoutineIndex));
 
     }*/
+
+    public List getMuscleGroups(){
+        List<String> muscles = new ArrayList<>();
+        for(MUSCLE_GROUP mg : muscleGroups){
+            muscles.add(mg.toString().replace("_", " "));
+        }
+        return muscles;
+    }
+
+    /* TODO FIX CODE DUPLICATION */
+    private void initMuscleGroups(){
+        for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
+            muscleGroups.add(mg);
+        }
+    }
+
 
     public String getSelectedRoutineExerciseAmount(){
         if (!checkIfEmptyRoutineList()){
