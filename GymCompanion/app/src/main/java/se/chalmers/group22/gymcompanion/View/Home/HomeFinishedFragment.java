@@ -1,10 +1,3 @@
-// Title    :  HomeFinishedFragment
-// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
-// Created  :  October 2, 2018
-//
-// Purpose  :  Fragment connected to a xml displaying the Finished Page in the app
-//----------------------------------------------------------------------------------------------
-
 package se.chalmers.group22.gymcompanion.View.Home;
 
 import android.os.Bundle;
@@ -18,6 +11,20 @@ import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
 
 import java.util.Map;
+
+/***
+ * Title: HomeFinishedFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 2, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Finished Page in the app
+ */
 
 public class HomeFinishedFragment extends Fragment {
     private TextView textViewTimeSpent;
