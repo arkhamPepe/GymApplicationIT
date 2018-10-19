@@ -7,14 +7,23 @@ import java.util.*;
 
 public class StatisticsViewModel extends ObservableViewModel {
 
-    private List<Routine> routines;
-    private List<Exercise> exercises;
+
     private Map<Calendar, Routine> schedule;
+    private Calendar graphedDate; // The date from which the graph is displaying data
 
     public StatisticsViewModel(){
-        this.routines = new ArrayList<>();
-        this.exercises = new ArrayList<>();
-        this.schedule = new HashMap<>();
+        schedule = new HashMap<>();
+        graphedDate = new GregorianCalendar();
+    }
+
+    public void setGraphedDateNextWeek(){
+        graphedDate.set(Calendar.WEEK_OF_YEAR, Calendar.WEEK_OF_YEAR + 1);
+        notifyObservers();
+    }
+
+    public void setGraphedDatePreviousWeek(){
+        graphedDate.set(Calendar.WEEK_OF_YEAR, Calendar.WEEK_OF_YEAR + 1);
+        notifyObservers();
     }
 
     /**
@@ -42,6 +51,10 @@ public class StatisticsViewModel extends ObservableViewModel {
             routineNames.add(r.getName());
         }
         return routineNames;
+    }
+
+    public Map<Calendar, Double> getGraphData(Calendar date, int weekOffset){
+        return getModel().getGraphData(date, weekOffset);
     }
 
     public int getTotalAmountOfCompletedRoutines(){

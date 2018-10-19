@@ -29,9 +29,8 @@ public class StatisticsCalculator implements Serializable {
         return specificExerciseMap;
     }
 
-    public Map<Calendar, Double> getGraphDataPoints(List<Routine> completedRoutines, Calendar date, int weekOffset){
+    public Map<Calendar, Double> getGraphDataPoints(Calendar date, int weekOffset){
 
-        List<Routine> copyRoutines = new ArrayList<>(completedRoutines);
         Map<Calendar, Double> graphMap = new HashMap<>();
 
         double score;

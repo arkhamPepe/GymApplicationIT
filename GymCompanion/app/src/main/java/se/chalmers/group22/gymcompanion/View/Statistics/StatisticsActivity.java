@@ -3,19 +3,11 @@ package se.chalmers.group22.gymcompanion.View.Statistics;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
-import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsExercisesFragment;
-import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsHistoryFragment;
-import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsLifetimeStatsFragment;
-import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsStartFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.ArrayList;
@@ -30,7 +22,7 @@ public class StatisticsActivity extends BaseActivity {
     public static final int index = 4; // Defines which item that represents this activity in the bottom navigation
 
     //The ViewModel should be created/die along the View
-    private StatisticsViewModel statisticsViewModel = new StatisticsViewModel();
+    private StatisticsViewModel viewModel = new StatisticsViewModel();
 
     // Local fragments for the statistics activity
     private final Fragment fragmentStart = new StatisticsStartFragment();
@@ -81,6 +73,22 @@ public class StatisticsActivity extends BaseActivity {
         fragments.add(fragmentHistoryDetails);
     }
 
+    /** onClickButtonNextWeek
+     * Purpose: Displays graph data for next week relative to the currently displayed week
+     * @param view
+     */
+    public void onClickButtonNextWeek(View view){
+        viewModel.setGraphedDateNextWeek();
+    }
+
+    /** onClickButtonPreviousWeek
+     * Purpose: Displays graph data for previous week relative to the currently displayed week
+     * @param view
+     */
+    public void onClickButtonPreviousWeek(View view){
+        viewModel.setGraphedDatePreviousWeek();
+    }
+
     /** goToStatisticsStart(View)
      *  Purpose: Show the main page of this activity.
      *  (onClick-method)
@@ -122,7 +130,7 @@ public class StatisticsActivity extends BaseActivity {
     }
 
     public StatisticsViewModel getViewModel(){
-        return statisticsViewModel;
+        return viewModel;
     }
 
 
