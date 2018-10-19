@@ -12,6 +12,7 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModelTest;
 @Suite.SuiteClasses({
         CardioExerciseTest.class,
         StrengthExerciseTest.class,
+        GymCompanionTest.class,
         GymCompanionSearchTest.class,
         GymCompanionSortAndFilterTest.class,
         RoutineTest.class,
