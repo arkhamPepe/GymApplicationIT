@@ -11,24 +11,31 @@ import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseActivity;
+import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MyRoutinesActivity extends BaseActivity {
 
     public static final int index = 3;
 
     private MyRoutinesViewModel viewModel;
-    final Fragment navigationFragment = new NavigationFragment();
-    final FragmentManager fm = getSupportFragmentManager();
+    private final Fragment navigationFragment = new NavigationFragment();
+    private final FragmentManager fm = getSupportFragmentManager();
+    private FragmentOrganizer fo;
 
-    private final MyRoutinesStartFragment fragmentStart = new MyRoutinesStartFragment();
-    private final MyRoutinesRoutineInfoFragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
-    private final MyRoutinesExerciseInfoFragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
-    private final MyRoutinesPickExerciseFragment fragmentPickExercise = new MyRoutinesPickExerciseFragment();
-    private final MyRoutinesPickMGFragment fragmentPickMG = new MyRoutinesPickMGFragment();
+    private final Fragment fragmentStart = new MyRoutinesStartFragment();
+    private final Fragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
+    private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
+    private final Fragment fragmentPickExercise = new MyRoutinesPickExerciseFragment();
+    private final Fragment fragmentPickMG = new MyRoutinesPickMGFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
-    private Fragment active = fragmentStart;
+    private List<Fragment> fragments = new ArrayList<>();
+
+
 
     //Variables for listitem_my_routines.xml
     private TextView routineName;
@@ -45,14 +52,6 @@ public class MyRoutinesActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_routines);
 
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.add(R.id.my_routines_container, fragmentExerciseInfo, "2").hide(fragmentExerciseInfo);
-        transaction.add(R.id.my_routines_container, fragmentRoutineInfo, "3").hide(fragmentRoutineInfo);
-        transaction.add(R.id.my_routines_container, fragmentStrengthExercise, "4").hide(fragmentStrengthExercise);
-        transaction.add(R.id.my_routines_container, fragmentPickExercise, "5").hide(fragmentPickExercise);
-        transaction.add(R.id.my_routines_container, fragmentPickMG, "6").hide(fragmentPickMG);
-        transaction.add(R.id.my_routines_container, fragmentStart, "1");
-
         viewModel = new MyRoutinesViewModel();
 
         //Sends the activity index to NavigationFragment via Bundle
@@ -60,18 +59,26 @@ public class MyRoutinesActivity extends BaseActivity {
         bundle.putInt("index", index);
         navigationFragment.setArguments(bundle);
 
-        transaction.add(R.id.navigation,navigationFragment);
+        fillFragmentsList();
 
-        transaction.commit();
+        fo = new FragmentOrganizer(fragments, fm,
+                navigationFragment, R.id.my_routines_container);
+
+        fo.setUpFragments(fragmentStart);
+    }
+
+    private void fillFragmentsList(){
+        fragments.add(fragmentStrengthExercise);
+        fragments.add(fragmentExerciseInfo);
+        fragments.add(fragmentRoutineInfo);
+        fragments.add(fragmentStart);
+        fragments.add(fragmentPickExercise);
+        fragments.add(fragmentPickMG);
     }
 
     public void onClickCreateRoutine(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentRoutineInfo);
-        transaction.hide(fragmentStart);
-        transaction.commit();
         viewModel.createRoutine();
-
+        fo.changeToFragment(fragmentRoutineInfo);
     }
 
     public void onClickPickMG(View view){
@@ -115,31 +122,19 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onClickEnterRoutine(int position){
         viewModel.setSelectedRoutineIndex(position);
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentRoutineInfo);
-        transaction.hide(fragmentStart);
-        transaction.commit();
+        fo.changeToFragment(fragmentRoutineInfo);
     }
 
     public void onClickEnterExercise(int position){
         viewModel.setSelectedExerciseIndex(position);
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentExerciseInfo);
-        transaction.hide(fragmentRoutineInfo);
-        transaction.commit();
+        fo.changeToFragment(fragmentExerciseInfo);
     }
 
     public void goBackFromExercise(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentRoutineInfo);
-        transaction.hide(fragmentExerciseInfo);
-        transaction.commit();
+        fo.changeToFragment(fragmentRoutineInfo);
     }
 
     public void goBackFromRoutine(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentStart);
-        transaction.hide(fragmentRoutineInfo);
-        transaction.commit();
+        fo.changeToFragment(fragmentStart);
     }
 }

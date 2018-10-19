@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsExercisesFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsHistoryFragment;
@@ -32,19 +33,19 @@ public class StatisticsActivity extends BaseActivity {
     private StatisticsViewModel statisticsViewModel = new StatisticsViewModel();
 
     // Local fragments for the statistics activity
-    final Fragment fragmentStart = new StatisticsStartFragment();
-    final Fragment fragmentExercises = new StatisticsExercisesFragment();
-    final Fragment fragmentHistory = new StatisticsHistoryFragment();
-    final Fragment fragmentLifetimeStats = new StatisticsLifetimeStatsFragment();
-    final Fragment fragmentHistoryDetails = new StatisticsHistoryDetailsFragment();
+    private final Fragment fragmentStart = new StatisticsStartFragment();
+    private final Fragment fragmentExercises = new StatisticsExercisesFragment();
+    private final Fragment fragmentHistory = new StatisticsHistoryFragment();
+    private final Fragment fragmentLifetimeStats = new StatisticsLifetimeStatsFragment();
+    private final Fragment fragmentHistoryDetails = new StatisticsHistoryDetailsFragment();
 
-    final Fragment navigationFragment = new NavigationFragment();
+    private final Fragment navigationFragment = new NavigationFragment();
 
     Fragment active = fragmentStart; // The fragment shown when this activity is created
     private List<Fragment> fragments = new ArrayList<>(); // Collection of all local fragments
 
-    final FragmentManager fm = getSupportFragmentManager(); // Object that handles transitions between local fragments
-
+    private final FragmentManager fm = getSupportFragmentManager(); // Object that handles transitions between local fragments
+    private FragmentOrganizer fo;
 
     /** onCreate(Bundle)
      *  Purpose: Initiates this activity;
@@ -62,7 +63,11 @@ public class StatisticsActivity extends BaseActivity {
         navigationFragment.setArguments(bundle);
 
         fillFragmentsList();
-        performInitTransaction();
+
+        fo = new FragmentOrganizer(fragments, fm,
+                navigationFragment, R.id.statistics_container);
+
+        fo.setUpFragments(fragmentStart);
     }
 
     /** fillFragmentsList()
@@ -76,50 +81,12 @@ public class StatisticsActivity extends BaseActivity {
         fragments.add(fragmentHistoryDetails);
     }
 
-    /** performInitTransaction()
-     *  Purpose: Add all local fragments to the fragment manager.
-     * */
-    private void performInitTransaction(){
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        int index = 2;
-        for (Fragment f : fragments){
-            if (f == active){
-                transaction.add(R.id.statistics_container, f, "1");
-            }
-            else {
-                transaction.add(R.id.statistics_container, f, String.valueOf(index)).hide(f);
-                index++;
-            }
-        }
-        transaction.add(R.id.navigation, navigationFragment);
-
-        transaction.commit();
-    }
-
-    /** openFragment(Fragment)
-     *  Purpose: Show parameter fragment and hide all other fragments.
-     * */
-    private void openFragment(Fragment fragment){
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        for (Fragment f : fragments){
-            if (f == fragment){
-                transaction.show(f);
-            }
-            else {
-                transaction.hide(f);
-            }
-        }
-        transaction.commit();
-    }
-
     /** goToStatisticsStart(View)
      *  Purpose: Show the main page of this activity.
      *  (onClick-method)
      * */
     public void goToStatisticsStart(View view){
-        openFragment(fragmentStart);
+        fo.changeToFragment(fragmentStart);
     }
 
     /** goToExercises(View)
@@ -127,7 +94,7 @@ public class StatisticsActivity extends BaseActivity {
      *  (onClick-method)
      * */
     public void goToExercises(View view){
-        openFragment(fragmentExercises);
+        fo.changeToFragment(fragmentExercises);
     }
 
     /** goToHistory(View)
@@ -135,7 +102,7 @@ public class StatisticsActivity extends BaseActivity {
      *  (onClick-method)
      * */
     public void goToHistory(View view){
-        openFragment(fragmentHistory);
+        fo.changeToFragment(fragmentHistory);
     }
 
     /** goToLifetimeStats(View)
@@ -143,7 +110,7 @@ public class StatisticsActivity extends BaseActivity {
      *  (onClick-method)
      * */
     public void goToLifetimeStats(View view){
-        openFragment(fragmentLifetimeStats);
+        fo.changeToFragment(fragmentLifetimeStats);
     }
 
     /** goToHistoryDetails(View)
@@ -151,7 +118,7 @@ public class StatisticsActivity extends BaseActivity {
      *  (onClick-method)
      * */
     public void goToHistoryDetails(){
-        openFragment(fragmentHistoryDetails);
+        fo.changeToFragment(fragmentHistoryDetails);
     }
 
     public StatisticsViewModel getViewModel(){

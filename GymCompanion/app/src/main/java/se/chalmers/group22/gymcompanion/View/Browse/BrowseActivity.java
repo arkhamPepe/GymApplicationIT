@@ -7,8 +7,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BrowseActivity extends BaseActivity {
 
@@ -21,7 +25,9 @@ public class BrowseActivity extends BaseActivity {
     private final Fragment fragmentResult = new BrowseResultFragment();
     private final Fragment fragmentRecommended = new BrowseRecommendedFragment();
     private final Fragment navigationFragment = new NavigationFragment();
+    private List<Fragment> fragments = new ArrayList<>();
     private final FragmentManager fm = getSupportFragmentManager();
+    private FragmentOrganizer fo;
 
     private BrowseViewModel browseViewModel;
 
@@ -36,92 +42,60 @@ public class BrowseActivity extends BaseActivity {
         Bundle navBundle = new Bundle();
         navBundle.putInt("index", index);
         navigationFragment.setArguments(navBundle);
-        FragmentTransaction transaction = fm.beginTransaction();
+
+        fillFragmentsList();
+
+        fo = new FragmentOrganizer(fragments,fm,navigationFragment,R.id.browse_container);
 
         if(getIntent().getExtras() != null){
-            transaction.add(R.id.browse_container, fragmentRecommended, "4").hide(fragmentRecommended);
-            transaction.add(R.id.browse_container, fragmentResult, "3").hide(fragmentResult);
-            transaction.add(R.id.browse_container, fragmentSelection, "2");
-            transaction.add(R.id.browse_container, fragmentStart, "1").hide(fragmentStart);
-            transaction.add(R.id.navigation, navigationFragment);
+            fo.setUpFragments(fragmentResult);
         }
         else {
-            transaction.add(R.id.browse_container, fragmentRecommended, "4").hide(fragmentRecommended);
-            transaction.add(R.id.browse_container, fragmentResult, "3").hide(fragmentResult);
-            transaction.add(R.id.browse_container, fragmentSelection, "2").hide(fragmentSelection);
-            transaction.add(R.id.browse_container, fragmentStart, "1");
-            transaction.add(R.id.navigation, navigationFragment);
+            fo.setUpFragments(fragmentStart);
         }
-        transaction.commit();
+    }
+
+    private void fillFragmentsList(){
+        fragments.add(fragmentStart);
+        fragments.add(fragmentRecommended);
+        fragments.add(fragmentResult);
+        fragments.add(fragmentSelection);
     }
 
     public void goToStart(View view) {
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        transaction.show(fragmentStart);
-        transaction.hide(fragmentSelection);
-        transaction.hide(fragmentResult);
-        transaction.hide(fragmentRecommended);
-
-        fragmentStart.onResume();
-        transaction.commit();
+        fo.changeToFragment(fragmentStart);
     }
 
     public void goToMuscleGroupSelection(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        transaction.hide(fragmentStart);
-        transaction.show(fragmentSelection);
-        transaction.hide(fragmentResult);
-        transaction.hide(fragmentRecommended);
-
-        transaction.commit();
+        fo.changeToFragment(fragmentSelection);
     }
 
     public void goToRecommendedSelection(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        transaction.hide(fragmentStart);
-        transaction.hide(fragmentSelection);
-        transaction.hide(fragmentResult);
-        transaction.show(fragmentRecommended);
-
-        transaction.commit();
+        fo.changeToFragment(fragmentRecommended);
     }
 
     public void resultBack(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.hide(fragmentStart);
-        transaction.hide(fragmentSelection);
-        transaction.hide(fragmentResult);
-        transaction.hide(fragmentRecommended);
 
         switch(browseViewModel.getIndex()){
             case 0:
-                transaction.show(fragmentStart);
+                fo.changeToFragment(fragmentStart);
                 break;
             case 1:
-                transaction.show(fragmentSelection);
+                fo.changeToFragment(fragmentSelection);
                 break;
             case 2:
-                transaction.show(fragmentRecommended);
+                fo.changeToFragment(fragmentRecommended);
                 break;
             case 3:
-                transaction.show(fragmentRecommended);
+                fo.changeToFragment(fragmentRecommended);
                 break;
             default:
                 break;
         }
-        transaction.commit();
     }
 
     public void goToResult(String s) {
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        transaction.hide(fragmentStart);
-        transaction.hide(fragmentSelection);
-        transaction.show(fragmentResult);
-        transaction.hide(fragmentRecommended);
+        fo.changeToFragment(fragmentResult);
 
         String x;
         x = s.replace(" ", "_");
@@ -129,36 +103,24 @@ public class BrowseActivity extends BaseActivity {
         browseViewModel.setIndex(1);
         browseViewModel.filter(x);
         fragmentResult.onResume();
-        transaction.commit();
     }
 
     public void goToResultFromSearch(String s){
-        FragmentTransaction transaction = fm.beginTransaction();
 
-        transaction.hide(fragmentStart);
-        transaction.hide(fragmentSelection);
-        transaction.show(fragmentResult);
-        transaction.hide(fragmentRecommended);
+        fo.changeToFragment(fragmentResult);
 
         browseViewModel.setIndex(0);
         browseViewModel.search(s);
         fragmentResult.onResume();
-        transaction.commit();
     }
 
     public void goToResultFromRecommended(View view) {
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        transaction.hide(fragmentStart);
-        transaction.hide(fragmentSelection);
-        transaction.show(fragmentResult);
-        transaction.hide(fragmentRecommended);
+        fo.changeToFragment(fragmentResult);
 
         int i = Integer.valueOf((String)view.getTag());
         browseViewModel.setIndex(i);
 
         fragmentResult.onResume();
-        transaction.commit();
     }
 
     public BrowseViewModel getViewModel(){
