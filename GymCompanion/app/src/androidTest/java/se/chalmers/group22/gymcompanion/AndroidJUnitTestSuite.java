@@ -12,5 +12,5 @@ import se.chalmers.group22.gymcompanion.Model.ParserTest;
         ParserTest.class
 })
 
-public class JunitTestSuite {
+public class AndroidJUnitTestSuite {
 }

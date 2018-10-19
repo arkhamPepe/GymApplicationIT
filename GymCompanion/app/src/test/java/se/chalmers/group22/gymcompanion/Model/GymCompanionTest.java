@@ -1,13 +1,19 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
+import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
+import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.AscendingAlphabetic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -16,6 +22,8 @@ public class GymCompanionTest {
     private GymCompanion gymCompanion;
     private User user;
     private Routine r1;
+    private CardioExercise ce;
+    private List<MUSCLE_GROUP> muscleGroups;
     private Calendar d;
 
     @Before
@@ -24,10 +32,12 @@ public class GymCompanionTest {
         user  = new User("Gym User", "The Gym", 1, 2, false);
         gymCompanion.setUser(user);
         r1 = new Routine("Routine 1", new ArrayList<>());
-        CardioExercise ce = new CardioExercise(
+        muscleGroups = new ArrayList<>();
+        muscleGroups.add(MUSCLE_GROUP.FULL_BODY);
+        ce = new CardioExercise(
                 "Sprinter",
-                6.7,
-                new ArrayList<>(),
+                4.1,
+                muscleGroups,
                 "Jogging for fun",
                 "",
                 INTENSITY.LOW,
@@ -51,7 +61,7 @@ public class GymCompanionTest {
 
     @Test
     public void getRoutineDifficulty(){
-        assertEquals(6.7, gymCompanion.getRoutineDifficulty(r1), 0.01);
+        assertEquals(4.1, gymCompanion.getRoutineDifficulty(r1), 0.01);
     }
 
     @Test
@@ -135,5 +145,52 @@ public class GymCompanionTest {
         gymCompanion.scheduleRoutine(d, "Routine 1");
         assertEquals("Routine 1", gymCompanion.getScheduledRoutineName());
     }
-    
+
+    @Test
+    public void filterMuscleGroupsTest(){
+        List<Exercise> exerciseList = new ArrayList<>();
+        exerciseList.add(ce);
+
+        List<MUSCLE_GROUP> muscleGroupList = new ArrayList<>();
+        muscleGroupList.add(MUSCLE_GROUP.FULL_BODY);
+
+        List<Exercise> filteredList = gymCompanion.filter(exerciseList, muscleGroupList);
+        assertEquals(1, filteredList.size());
+    }
+
+    @Test
+    public void searchRoutineTest(){
+        List<Routine> totalRoutines = new ArrayList<>();
+        totalRoutines.add(r1);
+
+        List<Exercise> exercises = new ArrayList<>();
+        exercises.add(ce);
+
+        Routine r2 = new Routine("Routine 2", exercises);
+        totalRoutines.add(r2);
+        gymCompanion.setRoutineList(totalRoutines);
+        List<Routine> routineSearch = gymCompanion.searchRoutine("Routine 2");
+        assertEquals(r2, routineSearch.get(0));
+    }
+
+    @Test
+    public void searchExerciseTest(){
+        List<Exercise> exerciseList = new ArrayList<>();
+        exerciseList.add(ce);
+        gymCompanion.setExerciseList(exerciseList);
+        List<Exercise> searchExercise = gymCompanion.searchExercise("Sprinter");
+        assertEquals(ce, searchExercise.get(0));
+    }
+
+    @Test
+    public void sortTest(){
+        Routine r2 = new Routine("A Routine 2", new ArrayList<>());
+        List<Routine> routines = new ArrayList<>();
+        routines.add(r1);
+        routines.add(r2);
+
+        gymCompanion.sort(routines, new AscendingAlphabetic());
+        assertEquals(r2, routines.get(0));
+    }
+
 }
