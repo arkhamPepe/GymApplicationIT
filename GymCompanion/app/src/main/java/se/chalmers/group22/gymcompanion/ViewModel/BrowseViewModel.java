@@ -255,6 +255,49 @@ public class BrowseViewModel extends BaseViewModel {
         return amount;
     }
 
+    /** getUserRoutineNames()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of the user's custom routines names (String)
+     * */
+    public List<String> getUserRoutineNames(){
+        List<String> names = new ArrayList<>();
+
+        for(Routine r : getModel().getUserRoutines()) {
+            names.add(r.getName());
+        }
+
+        return names;
+    }
+
+    /** getUserRoutineDifficulties()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of user routine difficulties (Double)
+     * */
+    public List<Double> getUserRoutineDifficulties(){
+        List<Double> difficulties = new ArrayList<>();
+
+        for(Routine r : getModel().getUserRoutines()) {
+            difficulties.add(r.getDifficulty());
+        }
+
+        return difficulties;
+    }
+
+    /** getUserRoutineAmountExercises()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of user routine amount of exercises (Integer)
+     * */
+    public List<Integer> getUserRoutineAmountExercises(){
+        List<Integer> amount = new ArrayList<>();
+
+        for(Routine r : getModel().getUserRoutines()) {
+            amount.add(r.getExercises().size());
+        }
+
+        return amount;
+    }
+
+
     /** getMuscleGroups()
      * Purpose: used in the arrayadapter that builds the muscle group list, to get the muscle group name
      * @return list of muscle group names (String)

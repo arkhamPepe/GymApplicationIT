@@ -31,7 +31,7 @@ public class BrowseStartFragment extends Fragment {
     public void onStart() {
         super.onStart();
         SearchView searchView = getView().findViewById(R.id.searchBar);
-        viewModel = ((BrowseActivity) getActivity()).getViewModel();
+        viewModel = ((BrowseActivity) getActivity()).getBrowseViewModel();
 
         //Sets the ActionBar title for this particular fragment
         ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Search and Browse");

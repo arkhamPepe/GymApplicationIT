@@ -32,7 +32,7 @@ public class BrowseSelectionFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        viewModel = ((BrowseActivity) getActivity()).getViewModel();
+        viewModel = ((BrowseActivity) getActivity()).getBrowseViewModel();
 
         //ListView
         ListView listView = getView().findViewById(R.id.listViewBrowseMuscleGroups);

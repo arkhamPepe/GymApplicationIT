@@ -40,7 +40,7 @@ public class HomeFinishedFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        viewModel = ((HomeActivity)getActivity()).getViewModel();
+        viewModel = ((HomeActivity)getActivity()).getBrowseViewModel();
 
         this.textViewTimeSpent = getView().findViewById(R.id.textViewTimeSpent);
         this.textViewCompletedExercises = getView().findViewById(R.id.textViewExercisesCompleted);

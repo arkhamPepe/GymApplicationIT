@@ -112,7 +112,7 @@ public class MyRoutinesActivity extends BaseActivity {
         goToPickMG(view);
     }
 
-    public MyRoutinesViewModel getViewModel(){
+    public MyRoutinesViewModel getBrowseViewModel(){
         return viewModel;
     }
 

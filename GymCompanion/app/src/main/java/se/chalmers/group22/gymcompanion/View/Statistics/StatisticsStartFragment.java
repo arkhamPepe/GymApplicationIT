@@ -1,6 +1,5 @@
 package se.chalmers.group22.gymcompanion.View.Statistics;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -50,7 +49,7 @@ public class StatisticsStartFragment extends Fragment implements Observer {
     public void onStart(){
         super.onStart();
 
-        viewModel = ((StatisticsActivity)getActivity()).getViewModel();
+        viewModel = ((StatisticsActivity)getActivity()).getBrowseViewModel();
 
 
         double x = 0.0;

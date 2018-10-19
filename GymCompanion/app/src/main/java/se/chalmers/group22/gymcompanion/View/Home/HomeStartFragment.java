@@ -37,7 +37,7 @@ public class HomeStartFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        viewModel = ((HomeActivity)getActivity()).getViewModel();
+        viewModel = ((HomeActivity)getActivity()).getBrowseViewModel();
 
         btnGotoProgress = getView().findViewById(R.id.btnGotoProgress);
         textViewRoutineOfToday = getView().findViewById(R.id.textViewRoutineOfToday);

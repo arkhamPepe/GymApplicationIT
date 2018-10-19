@@ -69,7 +69,7 @@ public class ScheduleActivity extends BaseActivity {
         fo.changeToFragment(startFragment);
     }
 
-    public ScheduleViewModel getViewModel(){
+    public ScheduleViewModel getBrowseViewModel(){
         return viewModel;
     }
 }

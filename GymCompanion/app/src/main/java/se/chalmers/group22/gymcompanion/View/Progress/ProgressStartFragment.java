@@ -2,12 +2,10 @@ package se.chalmers.group22.gymcompanion.View.Progress;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList.ProgressExpandListAdapter;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList.ProgressExpandListChild;
@@ -44,7 +42,7 @@ public class ProgressStartFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        viewModel = ((ProgressActivity)getActivity()).getViewModel();
+        viewModel = ((ProgressActivity)getActivity()).getBrowseViewModel();
 
         exListView = getView().findViewById(R.id.ProgressExpList);
         listItems = SetStandardGroups();

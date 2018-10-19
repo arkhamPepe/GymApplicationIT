@@ -26,6 +26,6 @@ public class BrowseRecommendedFragment extends Fragment{
     @Override
     public void onStart(){
         super.onStart();
-        viewModel = ((BrowseActivity) getActivity()).getViewModel();
+        viewModel = ((BrowseActivity) getActivity()).getBrowseViewModel();
     }
 }

@@ -10,6 +10,7 @@ import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
+import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -144,7 +145,7 @@ public class BrowseActivity extends BaseActivity {
         }
     }
 
-    public BrowseViewModel getViewModel(){
+    public BrowseViewModel getBrowseViewModel(){
         return browseViewModel;
     }
 

@@ -121,7 +121,7 @@ public class StatisticsActivity extends BaseActivity {
         fo.changeToFragment(fragmentHistoryDetails);
     }
 
-    public StatisticsViewModel getViewModel(){
+    public StatisticsViewModel getBrowseViewModel(){
         return statisticsViewModel;
     }
 

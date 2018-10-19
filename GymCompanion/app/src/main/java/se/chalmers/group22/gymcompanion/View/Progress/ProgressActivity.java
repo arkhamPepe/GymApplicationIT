@@ -77,7 +77,7 @@ public class ProgressActivity extends BaseActivity {
         overridePendingTransition(0, 0);
     }
 
-    public ProgressViewModel getViewModel(){
+    public ProgressViewModel getBrowseViewModel(){
         return progressViewModel;
     }
 

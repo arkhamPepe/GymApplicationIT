@@ -33,7 +33,7 @@ public class MyRoutinesPickExerciseFragment extends Fragment implements Observer
     @Override
     public void onStart(){
         super.onStart();
-        viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); //get the viewmodel
+        viewModel = ((MyRoutinesActivity)getActivity()).getBrowseViewModel(); //get the viewmodel
 
         viewModel.addObserver(this);
     }

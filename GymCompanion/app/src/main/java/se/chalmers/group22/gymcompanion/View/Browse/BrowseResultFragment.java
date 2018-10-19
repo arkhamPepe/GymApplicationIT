@@ -32,7 +32,7 @@ public class BrowseResultFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        viewModel = ((BrowseActivity) getActivity()).getViewModel();
+        viewModel = ((BrowseActivity) getActivity()).getBrowseViewModel();
 
         CheckBox cbxRoutines = (CheckBox)getView().findViewById(R.id.cbxRoutines);
         CheckBox cbxExercises = (CheckBox)getView().findViewById(R.id.cbxExercises);
