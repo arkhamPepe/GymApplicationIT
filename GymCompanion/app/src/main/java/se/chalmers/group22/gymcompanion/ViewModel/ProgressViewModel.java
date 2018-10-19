@@ -39,4 +39,12 @@ public class ProgressViewModel extends BaseViewModel {
         return getModel().getTimeInActiveExercise();
     }
 
+    public void toggleCompletionExerciseInARWithIndex(int index, boolean completed){
+        getModel().toggleCompletionExerciseInARWithIndex(index, completed);
+    }
+
+    public void completeActiveRoutine(){
+        getModel().completeActiveRoutine();
+    }
+
 }

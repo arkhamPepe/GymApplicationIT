@@ -190,6 +190,7 @@ public class User implements Serializable {
         return completedRoutines.size();
     }
 
+
     public int getTotalAmountOfCompletedExercises(){
         int amount = 0;
 

@@ -58,6 +58,14 @@ public class GymCompanion {
         return activeRoutine.getExercises().size();
     }
 
+    public void toggleCompletionExerciseInARWithIndex(int index, boolean completed){
+        activeRoutine.getExercises().get(index).toggleCompletion(completed);
+    }
+
+    public void completeActiveRoutine(){
+        user.finishRoutine(activeRoutine);
+    }
+
     //Active Exercise Methods
 
     public String getActiveExerciseName(){

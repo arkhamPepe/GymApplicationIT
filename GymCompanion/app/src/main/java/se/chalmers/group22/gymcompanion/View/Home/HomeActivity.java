@@ -35,6 +35,8 @@ public class HomeActivity extends BaseActivity {
 
         homeViewModel = new HomeViewModel();
 
+        homeViewModel.startRoutine();
+
         //Sends the activity index to NavigationFragment via Bundle
         Bundle bundle = new Bundle();
         bundle.putInt("index", index);
@@ -51,6 +53,7 @@ public class HomeActivity extends BaseActivity {
         else{
             fo.setUpFragments(fragmentHome);
         }
+
 
     }
 

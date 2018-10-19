@@ -70,9 +70,11 @@ public abstract class Exercise implements ISortable, Serializable {
         this.intensity = intensity;
     }
 
-    public void complete(){
-        this.completed = true;
+    public void toggleCompletion(boolean completed){
+        this.completed = completed;
     }
+
+
 
     public List<MUSCLE_GROUP> getMuscleGroups(){
         return new ArrayList<>(muscleGroups);

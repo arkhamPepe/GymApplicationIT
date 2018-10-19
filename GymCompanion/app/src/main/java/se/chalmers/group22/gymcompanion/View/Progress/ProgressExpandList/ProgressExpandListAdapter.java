@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
@@ -97,6 +98,8 @@ public class ProgressExpandListAdapter extends BaseExpandableListAdapter {
 
         TextView exerciseName = view.findViewById(R.id.expandableListExerciseName);
         TextView extraInfo = view.findViewById(R.id.expandableListExtraInfo);
+        CheckBox cb = view.findViewById(R.id.ExerciseCheckBox);
+        cb.setTag(groupPosition);
         exerciseName.setText(group.getExerciseName());
         extraInfo.setText(group.getExtraInfo());
         // TODO Auto-generated method stub
