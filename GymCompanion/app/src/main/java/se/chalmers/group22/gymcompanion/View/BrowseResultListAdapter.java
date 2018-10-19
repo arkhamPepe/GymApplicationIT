@@ -1,10 +1,3 @@
-// Title    :  BrowseResultListAdapter
-// Authors  :  Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
-// Created  :  October 18, 2018
-//
-// Purpose  :  Adds the list elements to the Browse Result List GUI
-//----------------------------------------------------------------------------------------------
-
 package se.chalmers.group22.gymcompanion.View;
 
 import android.app.Activity;
@@ -16,6 +9,20 @@ import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.util.List;
+
+/***
+ * Title: BrowseResultListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Adds the list elements to the Browse Result List GUI
+ */
 
 public class BrowseResultListAdapter extends ArrayAdapter {
 
