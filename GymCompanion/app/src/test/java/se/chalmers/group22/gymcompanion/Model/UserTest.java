@@ -1,21 +1,19 @@
 package se.chalmers.group22.gymcompanion.Model;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 public class UserTest {
     private INTENSITY intensity = INTENSITY.MEDIUM;
@@ -194,5 +192,26 @@ public class UserTest {
         assertEquals("No Favourite", user.getFavouriteRoutineName());
         user.finishRoutine(r1);
         assertEquals("Master Routine", user.getFavouriteRoutineName());
+    }
+
+    @Test
+    public void getBiggestCompletedRoutineTest(){
+        assertEquals("No Routines Completed", user.getBiggestCompletedRoutineName());
+        user.finishRoutine(r1);
+        assertEquals("Master Routine", user.getBiggestCompletedRoutineName());
+    }
+
+    @Test
+    public void getTotalAmountOfCompletedExercisesTest(){
+        assertEquals(0, user.getTotalAmountOfCompletedExercises());
+        user.finishRoutine(r1);
+        assertEquals(1, user.getTotalAmountOfCompletedExercises());
+    }
+
+    @Test
+    public void getTotalAmountOfCompletedRoutinesTest(){
+        assertEquals(0, user.getTotalAmountOfCompletedRoutines());
+        user.finishRoutine(r1);
+        assertEquals(1, user.getTotalAmountOfCompletedRoutines());
     }
 }
