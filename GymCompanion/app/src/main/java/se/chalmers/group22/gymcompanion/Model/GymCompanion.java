@@ -246,30 +246,40 @@ public class GymCompanion {
         return newList;
     }
 
-    public List<ISortable> search(String search){
+    public List<Routine> searchRoutine(String search){
         if (search.equals("")) {
-            return getRoutinesAndExercises();
+            return getRoutines();
         }
+        List<Routine> newList = new ArrayList<>();
 
-        List<ISortable> newList = new ArrayList<>();
-
-        for (ISortable re: getRoutinesAndExercises()) {
-            if(search.toLowerCase().equals(re.getName().toLowerCase())){
-                newList.add(re);
-            }
-        }
-
-        for (ISortable re: getRoutinesAndExercises()) {
-            if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
-                newList.add(re);
-            }
-        }
-
-        for (ISortable re: getRoutinesAndExercises()) {
-            if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
-                newList.add(re);
-            }
+        for (Routine r: getRoutines()) {
+            matchSearchWithName(search,r,newList);
         }
         return newList;
     }
+
+    public List<Exercise> searchExercise(String search){
+        if (search.equals("")) {
+            return getExerciseList();
+        }
+        List<Exercise> newList = new ArrayList<>();
+
+        for (Exercise e: getExerciseList()) {
+            matchSearchWithName(search,e,newList);
+        }
+        return newList;
+    }
+    
+    private <T extends ISortable> void matchSearchWithName(String search, T re, List<T> newList){
+        if(search.toLowerCase().equals(re.getName().toLowerCase())){
+            newList.add(re);
+        }
+        else if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
+            newList.add(re);
+        }
+        else if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
+            newList.add(re);
+        }
+    }
+
 }
