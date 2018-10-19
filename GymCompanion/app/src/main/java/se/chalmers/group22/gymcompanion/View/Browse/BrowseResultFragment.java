@@ -115,7 +115,7 @@ public class BrowseResultFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 //((BrowseActivity)getActivity()).scheduleRoutine();
-                Toast.makeText(getActivity(), "ListItem pressed", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "ListItem pressed", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -17,6 +17,12 @@
             android:textColor="@color/blackColour"
     />
 
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtBrowseDifficulty"
+            android:textSize="12sp"
+            android:layout_alignParentBottom="true" android:layout_below="@+id/txtName" android:layout_marginLeft="10dp"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -24,37 +30,21 @@
             android:id="@+id/txtBrowsePickAmountPrefix"
             android:layout_below="@+id/txtName"
             android:textSize="12sp"
-            android:layout_alignStart="@+id/txtName"
+            android:layout_alignStart="@+id/txtBrowseDifficulty"
+            android:layout_marginLeft="75dp"
     />
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtBrowsePickAmountNumber"
-            android:textSize="12sp"
-            android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
-            android:layout_toEndOf="@id/txtBrowsePickAmountPrefix"
-            android:layout_marginStart="63dp"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtBrowsePickDifficultyPrefix"
-            android:text="Difficulty:"
-            android:textSize="14sp"
-            android:layout_centerVertical="true" android:layout_toStartOf="@+id/txtBrowseDifficulty"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtBrowseDifficulty"
-            android:text="3.5"
-            android:textSize="20sp"
-            android:layout_alignParentEnd="true" android:layout_marginEnd="14dp"
-            android:layout_centerVertical="true"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true" android:id="@+id/txtType" android:layout_alignStart="@+id/txtName"
     />
+    <ImageButton
+            android:layout_width="40dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp"
+            android:layout_height="40dp" app:srcCompat="@android:drawable/ic_input_add"
+            android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:id="@+id/btnAddExerciseRoutine"
+            android:onClick="onAddClick"
+            style="@android:style/Widget.ImageButton"/>
 </RelativeLayout>
