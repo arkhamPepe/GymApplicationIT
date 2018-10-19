@@ -5,9 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.SearchView;
-import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
@@ -33,7 +31,6 @@ public class BrowseStartFragment extends Fragment {
     public void onStart() {
         super.onStart();
         SearchView searchView = getView().findViewById(R.id.searchBar);
-
         viewModel = ((BrowseActivity) getActivity()).getViewModel();
 
         //Sets the ActionBar title for this particular fragment
@@ -50,11 +47,5 @@ public class BrowseStartFragment extends Fragment {
                 return false;
             }
         });
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
-        ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Search and Browse");
     }
 }

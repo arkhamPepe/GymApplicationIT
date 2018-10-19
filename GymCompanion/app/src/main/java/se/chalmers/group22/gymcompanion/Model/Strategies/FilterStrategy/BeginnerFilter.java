@@ -10,9 +10,6 @@ import java.util.List;
 
 public class BeginnerFilter implements FilterStrategy {
 
-    @Getter
-    private final String name = "Beginner";
-
     @Override
     public <T extends ISortable> List<T> filter(List<T> oldList){
         oldList.sort(Comparator.comparingDouble(ISortable::getDifficulty));

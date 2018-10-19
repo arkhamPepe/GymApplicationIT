@@ -2,7 +2,6 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.io.Serializable;
@@ -139,20 +138,28 @@ public class User implements Serializable {
         return latestFinishedRoutine;
     }
 
+    public void scheduleAddRoutine(Routine routine, Calendar date){
+        schedule.addRoutine(routine, date);
+    }
+
     public ISchedule getSchedule(){
         return schedule;
     }
 
-    public String getToday(){
-        return schedule.getToday();
+    public String getScheduleDateText(int year, int month, int day){
+        return schedule.getDateText(year, month, day);
+    }
+
+    public String getTodayText(){
+        return schedule.getTodayText();
     }
 
     public Map<Calendar, Routine> getRoutineSchedule(){
         return schedule.getSchedule();
     }
 
-    public String getRoutineNameOnDate(int year, int day){
-        return schedule.getRoutineNameFromDate(year, day);
+    public String getRoutineNameOnDate(int year, int month, int day){
+        return schedule.getRoutineNameFromDate(year, month, day);
     }
 
     public int getYearToday() {

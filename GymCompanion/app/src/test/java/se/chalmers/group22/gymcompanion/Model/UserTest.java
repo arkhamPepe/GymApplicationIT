@@ -101,4 +101,10 @@ public class UserTest {
         user.finishRoutine(r1);
         assertEquals(1, user.getCompletedRoutines().size());
     }
+
+    @Test
+    public void getFinishedRoutineTest(){
+        user.finishRoutine(r1);
+        assertEquals(r1, user.getFinishedRoutine());
+    }
 }

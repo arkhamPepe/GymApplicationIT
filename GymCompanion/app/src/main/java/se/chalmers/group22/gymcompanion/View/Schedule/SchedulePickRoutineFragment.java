@@ -7,9 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.ScheduleListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
+
+import java.util.List;
 
 public class SchedulePickRoutineFragment extends Fragment {
 
@@ -34,7 +37,11 @@ public class SchedulePickRoutineFragment extends Fragment {
 
         viewModel = ((ScheduleActivity)getActivity()).getViewModel();
 
-        ScheduleListAdapter adapter = new ScheduleListAdapter(getActivity(), viewModel.getRoutineNames(), viewModel.getRoutineDifficulties(), viewModel.getRoutineExercisesAmounts());
+        List<String> routineNames = viewModel.getRoutineNames();
+        List<Double> routineDifficulties = viewModel.getRoutineDifficulties();
+        List<Integer> routineExercisesAmounts = viewModel.getRoutineExercisesAmounts();
+
+        ScheduleListAdapter adapter = new ScheduleListAdapter(getActivity(), routineNames, routineDifficulties, routineExercisesAmounts);
         ListView listView = getView().findViewById(R.id.listviewSchedulePick);
         listView.setAdapter(adapter);
 
@@ -42,7 +49,8 @@ public class SchedulePickRoutineFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                ((ScheduleActivity)getActivity()).scheduleRoutine();
+                ((ScheduleActivity)getActivity()).scheduleRoutine(routineNames.get(position));
+                Toast.makeText(getActivity(), "Clicked!", Toast.LENGTH_SHORT).show();
             }
         });
     }

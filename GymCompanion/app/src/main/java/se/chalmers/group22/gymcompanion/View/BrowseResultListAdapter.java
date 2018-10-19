@@ -19,25 +19,29 @@ public class BrowseResultListAdapter extends ArrayAdapter {
     private final List<String> names;
     private final List<Double> difficulties;
     private final List<String> amount;
+    private final List<String> type;
 
     public BrowseResultListAdapter(Activity context, List<String> nameArrayParam, List<Double> difficultyArrayParam,
-                                   List<String> amountArrayParam){
+                                   List<String> amountArrayParam, List<String> typeArrayParam){
 
         super(context, R.layout.listitem_browse , nameArrayParam);
 
         this.context = context;
         this.names = nameArrayParam;
         this.difficulties = difficultyArrayParam;
+        this.type = typeArrayParam;
         this.amount = amountArrayParam;
     }
 
-    public BrowseResultListAdapter(Activity context, List<String> nameArrayParam, List<Double> difficultyArrayParam){
+    public BrowseResultListAdapter(Activity context, List<String> nameArrayParam,
+                                   List<Double> difficultyArrayParam, List<String> typeArrayParam){
 
         super(context, R.layout.listitem_browse , nameArrayParam);
 
         this.context = context;
         this.names = nameArrayParam;
         this.difficulties = difficultyArrayParam;
+        this.type = typeArrayParam;
         this.amount = null;
     }
 
@@ -50,6 +54,7 @@ public class BrowseResultListAdapter extends ArrayAdapter {
         TextView browseAmountExercises = (TextView) rowView.findViewById(R.id.txtSchedulePickAmountNumber);
         TextView browsePickAmountPrefix = (TextView) rowView.findViewById(R.id.txtBrowsePickAmountPrefix);
         TextView browseDifficulty = (TextView) rowView.findViewById(R.id.txtBrowseDifficulty);
+        TextView browseType = (TextView) rowView.findViewById(R.id.txtType);
 
         //this code sets the values of the objects to values from the arrays
         browseName.setText(names.get(position));
@@ -58,7 +63,7 @@ public class BrowseResultListAdapter extends ArrayAdapter {
             browsePickAmountPrefix.setText("Exercises:  ");
         }
         browseDifficulty.setText(difficulties.get(position).toString());
-
+        browseType.setText(type.get(position));
         return rowView;
 
     }

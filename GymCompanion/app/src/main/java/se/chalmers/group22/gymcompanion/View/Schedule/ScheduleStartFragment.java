@@ -42,18 +42,17 @@ public class ScheduleStartFragment extends Fragment {
         Button btnBook = getActivity().findViewById(R.id.btnScheduleBook);
 
         // set initial texts
-        txtDate.setText(viewModel.getToday());
-        btnBook.setText(viewModel.getBookingButtonText());
+        txtDate.setText(viewModel.getTodayText());
         txtRoutineName.setText(viewModel.getSelectedDateRoutineName());
+        btnBook.setText(viewModel.getBookingButtonText());
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                viewModel.setDate(year, month + 1, dayOfMonth); // month +1 since month is between 0 and 11
-                String date = viewModel.getSelectedDate();
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
+                viewModel.setSelectedDate(year, month + 1, day); // Tell book button which date to book on
+                String date = viewModel.getDateText(year, month + 1, day);
                 String routineName = viewModel.getSelectedDateRoutineName();
 
-                viewModel.setSelectedDateRoutine(routineName);
                 txtDate.setText(date);
                 txtRoutineName.setText(routineName);
                 btnBook.setText(viewModel.getBookingButtonText());

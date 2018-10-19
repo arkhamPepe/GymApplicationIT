@@ -105,8 +105,12 @@ public class GymCompanion {
         return user.getSchedule();
     }
 
-    public String getTodaysDate(){
-        return user.getToday();
+    public String getDateText(int year, int month, int day){
+        return user.getScheduleDateText(year, month, day);
+    }
+
+    public String getTodayText(){
+        return user.getTodayText();
     }
 
     public int getYearToday() {
@@ -126,13 +130,13 @@ public class GymCompanion {
     }
 
     public boolean isScheduled(Calendar day){
-        return user.getSchedule().dateHasRoutine(day);
+        return user.scheduleDayHasRoutine(day);
     }
 
     public void scheduleRoutine(Calendar day, String routineName){
         Routine routine = getRoutine(routineName);
 
-        user.getSchedule().addRoutine(routine, day);
+        user.scheduleAddRoutine(routine, day);
     }
 
 
@@ -145,6 +149,8 @@ public class GymCompanion {
     public void addExercise(Exercise exercise, Routine routine){
         user.addExerciseToRoutine(exercise, routine);
     }
+
+
 
     //Routine and Exercise Getters
 
@@ -168,12 +174,15 @@ public class GymCompanion {
         return user.getRoutineFromDay(day);
     }
 
+    public String getRoutineNameOnDate(int year, int month, int day) {
+        return user.getRoutineNameOnDate(year, month, day);
+    }
+
     private Routine getRoutine(String routineName){
         for (Routine r : user.getRoutines()){
             if (r.getName().equals(routineName))
                 return r;
         }
-
         return null;
     }
 
@@ -213,7 +222,7 @@ public class GymCompanion {
     }
 
     public <T extends ISortable> List<T> filter(List<T> toBeFiltered, List<MUSCLE_GROUP> muscleGroups) {
-        List<T> newList = new ArrayList<>(toBeFiltered);
+        List<T> newList = new ArrayList<>();
 
         for (MUSCLE_GROUP mg : muscleGroups){
             for (T re : toBeFiltered) {
