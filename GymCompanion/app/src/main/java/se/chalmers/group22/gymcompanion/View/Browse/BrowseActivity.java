@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
@@ -122,8 +125,19 @@ public class BrowseActivity extends BaseActivity {
         fragmentResult.onResume();
     }
 
-    public void updateFilters(){
-        fragmentResult.onResume();
+    public void addRoutineExercise(View view){
+        String s = view.getTag().toString();
+
+        int index = browseViewModel.compareRoutineExercises(s);
+
+        //ROUTINE
+        if(index == 0) {
+            browseViewModel.addRoutineToUser(s);
+            Toast.makeText(this, "Routine added to My Routines!", Toast.LENGTH_SHORT).show();
+        } //EXERCISE
+        else if (index == 1) {
+            Toast.makeText(this, "TODO: SWAP FRAGMENT", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public BrowseViewModel getViewModel(){

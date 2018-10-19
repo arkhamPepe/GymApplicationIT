@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.ISortable;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
@@ -12,10 +11,21 @@ import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.MixedFil
 
 import java.util.ArrayList;
 import java.util.List;
-/** BrowseViewModel
- *  Purpose: Process data from model to fit the view
- *  Authors: Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
- * */
+/***
+ * Title: BrowseViewModel
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 12, 2018
+ *
+ * Purpose: To handle the communication between the model and the view without without showing the model's underlying
+ * representation to the view.
+ */
+
 public class BrowseViewModel extends BaseViewModel {
 
     /** index
@@ -69,6 +79,7 @@ public class BrowseViewModel extends BaseViewModel {
     /** search()
      * Purpose: clears all lists and calls searchRoutine() and searchExercise from GymCompanion, and fills
      * the routine and exercise lists with the search results
+     * @param query is the text from the searchbox
      * */
     public void search(String query){
         clearLists();
@@ -83,17 +94,24 @@ public class BrowseViewModel extends BaseViewModel {
     }
 
     /** filter(FilterStrategy)
-     * Purpose: clears all lists and
+     * Purpose: clears all lists and applies a filter depending on strategy
+     * (see se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy)
+     * @param strategy is the chosen filterstrategy
      * */
     public void filter(FilterStrategy strategy){
-        filteredRoutines.addAll(getModel().filter(getModel().getRoutineList(), strategy));
-        filteredExercises.addAll(getModel().filter(getModel().getExerciseList(), strategy));
+        clearLists();
+        routines.addAll(getModel().filter(getModel().getRoutineList(), strategy));
+        exercises.addAll(getModel().filter(getModel().getExerciseList(), strategy));
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
     }
 
+    /** filter(String)
+     * Purpose: clears al lists and applies a filter depending on muscle group
+     * */
     public void filter(String mg) {
+        clearLists();
         List<MUSCLE_GROUP> mgList = new ArrayList<>();
 
         for(MUSCLE_GROUP m : muscleGroups) {
@@ -102,7 +120,6 @@ public class BrowseViewModel extends BaseViewModel {
             }
         }
 
-
         routines.addAll(getModel().filter(getModel().getRoutineList(), mgList));
         exercises.addAll(getModel().filter(getModel().getExerciseList(), mgList));
 
@@ -110,6 +127,11 @@ public class BrowseViewModel extends BaseViewModel {
         filteredExercises.addAll(exercises);
     }
 
+    /** filterRoutinesExercises(boolean, int)
+     * Purpose: filters out either all routines or all exercises
+     * @param t if this is false, the checkbox is unchecked (and vice versa)
+     * @param type if this is 1, it filters routines, 0 filters exercises
+     * */
     public void filterRoutinesExercises(boolean t, int type) {
         //Filters Routines
         if(t){
@@ -128,6 +150,9 @@ public class BrowseViewModel extends BaseViewModel {
         }
     }
 
+    /** getCurrentPage()
+     * @return a string that displays what page you are currently on (decided through getting where you came from)
+     * */
     public String getCurrentPage(){
         switch(index){
             case 0:
@@ -161,39 +186,34 @@ public class BrowseViewModel extends BaseViewModel {
         return muscles.toString();
     }
 
+    /** setMuscleGroup()
+     * Purpose: sets the muscle_group to the chosen muscle group
+     * */
     public void setMuscleGroup(String s){
         muscleGroups.clear();
-
-        if(s.equals("ARMS")) {
-            muscleGroups.add(MUSCLE_GROUP.TRICEPS);
-            muscleGroups.add(MUSCLE_GROUP.BICEPS);
-            muscleGroups.add(MUSCLE_GROUP.FOREARMS);
-        } else if(s.equals("LEGS")) {
-            muscleGroups.add(MUSCLE_GROUP.QUADS);
-            muscleGroups.add(MUSCLE_GROUP.HAMSTRINGS);
-            muscleGroups.add(MUSCLE_GROUP.GLUTES);
-        } else {
-            for (MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
-                if(s.equals(mg.toString())) {
-                    muscleGroups.add(mg);
-                }
+        for (MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
+            if(s.equals(mg.toString())) {
+                muscleGroups.add(mg);
             }
         }
     }
-
+    /** getRoutineAndExerciseNames()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of routine & exercise names (String)
+     * */
     public List<String> getRoutineAndExerciseNames(){
         List<String> names = new ArrayList<>();
 
         for(Routine r : filteredRoutines) {
-            if(r.getName().length() > 17) {
-                names.add(r.getName().substring(0,17) + "...");
+            if(r.getName().length() > 25) {
+                names.add(r.getName().substring(0,25) + "...");
             } else {
                 names.add(r.getName());
             }
         }
         for(Exercise e : filteredExercises) {
-            if(e.getName().length() > 17) {
-                names.add(e.getName().substring(0,17) + "...");
+            if(e.getName().length() > 25) {
+                names.add(e.getName().substring(0,25) + "...");
             } else {
                 names.add(e.getName());
             }
@@ -202,6 +222,10 @@ public class BrowseViewModel extends BaseViewModel {
         return names;
     }
 
+    /** getRoutineAndExerciseDifficulties()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of routine & exercise difficulties in (Double)
+     * */
     public List<Double> getRoutineAndExerciseDifficulties(){
         List<Double> difficulties = new ArrayList<>();
 
@@ -216,6 +240,10 @@ public class BrowseViewModel extends BaseViewModel {
         return difficulties;
     }
 
+    /** getRoutineAmountExercises()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of the amount of exercises a routine contains, if this is an exercise it will contain 0 (Integer)
+     * */
     public List<Integer> getRoutineAmountExercises(){
         List<Integer> amount = new ArrayList<>();
 
@@ -228,12 +256,40 @@ public class BrowseViewModel extends BaseViewModel {
         return amount;
     }
 
+    /** getMuscleGroups()
+     * Purpose: used in the arrayadapter that builds the muscle group list, to get the muscle group name
+     * @return list of muscle group names (String)
+     * */
     public List<String> getMuscleGroups(){
         List<String> muscles = new ArrayList<>();
         for(MUSCLE_GROUP mg : muscleGroups){
             muscles.add(mg.toString().replace("_", " "));
         }
         return muscles;
+    }
+
+    public void addRoutineToUser(String routineName){
+        List<Routine> routinesToBeAdded = getModel().getRoutineList();
+        for(Routine r :routinesToBeAdded) {
+            if(r.getName().equals(routineName)) {
+                getModel().getUser().addRoutine(r);
+                break;
+            }
+        }
+    }
+
+    public int compareRoutineExercises(String name){
+        for(Routine r : getModel().getRoutineList()) {
+            if(r.getName().equals(name)) {
+                return 0;
+            }
+        }
+        for(Exercise e : getModel().getExerciseList()) {
+            if(e.getName().equals(name)) {
+                return 1;
+            }
+        }
+        return 2;
     }
 
     private void clearLists(){
