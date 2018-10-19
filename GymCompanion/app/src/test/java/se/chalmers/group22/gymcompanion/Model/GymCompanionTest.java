@@ -44,9 +44,9 @@ public class GymCompanionTest {
 
     @Test
     public void createRoutineTest(){
-        assertEquals(0, gymCompanion.getRoutines().size());
+        assertEquals(0, gymCompanion.getUserRoutines().size());
         gymCompanion.createRoutine();
-        assertEquals(1,gymCompanion.getRoutines().size());
+        assertEquals(1,gymCompanion.getUserRoutines().size());
     }
 
     @Test
@@ -70,9 +70,9 @@ public class GymCompanionTest {
 
     @Test
     public void getRoutineTest(){
-        assertEquals(0, gymCompanion.getRoutines().size());
+        assertEquals(0, gymCompanion.getUserRoutines().size());
         user.addRoutine(r1);
-        assertEquals(1, gymCompanion.getRoutines().size());
+        assertEquals(1, gymCompanion.getUserRoutines().size());
     }
 
     @Test
