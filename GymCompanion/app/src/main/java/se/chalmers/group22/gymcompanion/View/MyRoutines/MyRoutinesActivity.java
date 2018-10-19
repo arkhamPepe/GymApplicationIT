@@ -143,4 +143,8 @@ public class MyRoutinesActivity extends BaseActivity {
     public void onAddClick(View view){
         viewModel.addExercise((String)view.getTag());
     }
+
+    public void onDeleteClick(View view){
+        viewModel.removeExercise((String)view.getTag());
+    }
 }

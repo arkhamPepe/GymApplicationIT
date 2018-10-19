@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.R;
@@ -33,6 +34,9 @@ public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {
         //this code gets references to objects in the listview_row.xml file
         TextView exerciseName = rowView.findViewById(R.id.textViewExerciseName);
         //TextView amountOfSets = (TextView) rowView.findViewById(R.id.amountOfSetsList);
+
+        ImageButton btnremoveExercise = rowView.findViewById(R.id.btnRemoveExercise);
+        btnremoveExercise.setTag(exerciseNames.get(position));
 
         //this code sets the values of the objects to values from the arrays
         exerciseName.setText(exerciseNames.get(position));

@@ -24,6 +24,11 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         initMuscleGroups();
     }
 
+    public void removeExercise(String exerciseName){
+        getModel().removeExerciseFromRoutine(selectedRoutineIndex,exerciseName);
+        notifyObservers();
+    }
+
     public void createRoutine(){
         getModel().createRoutine();
         notifyObservers();

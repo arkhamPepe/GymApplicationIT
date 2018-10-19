@@ -4,6 +4,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
 
+    <ImageButton
+            android:layout_width="36dp"
+            android:layout_height="30dp" app:srcCompat="@android:drawable/btn_dialog"
+            android:layout_alignParentEnd="true" android:id="@+id/btnRemoveExercise"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="20dp" android:onClick="onDeleteClick"
+            android:layout_marginRight="5dp"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
