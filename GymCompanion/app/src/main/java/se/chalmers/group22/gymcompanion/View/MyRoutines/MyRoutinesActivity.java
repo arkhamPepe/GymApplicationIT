@@ -139,6 +139,15 @@ public class MyRoutinesActivity extends BaseActivity {
             fo.changeToFragment(fragmentCardioExercise);
         }
     }
+
+    public void updateSelectedExerciseKilogramInSet(int index, int value){
+        viewModel.updateSelectedExerciseKilogramInSet(index, value);
+    }
+
+    public void updateSelectedExerciseRepsInSet(int index, int value){
+        viewModel.updateSelectedExerciseRepsInSet(index, value);
+    }
+    
     public void goBackFromExercise(View view){
         fo.changeToFragment(fragmentRoutineInfo);
     }

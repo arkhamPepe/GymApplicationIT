@@ -59,4 +59,28 @@ public class StrengthExercise extends Exercise implements Serializable {
     public List<Double> getKilograms() {
         return new ArrayList<>(kilograms);
     }
+
+    public void setKilogram(int index, double value){
+        kilograms.set(index, value);
+    }
+
+    public void setRepetitions(int index, int value){
+        repetitions.set(index, value);
+    }
+
+    public void updateSets(int sets){
+        if(sets < 0 || sets > 5){
+            return;
+        }
+        while (sets < this.sets) {
+            kilograms.remove(kilograms.size() - 1);
+            repetitions.remove(repetitions.size() - 1);
+            this.sets--;
+        }
+        while(sets > this.sets){
+            kilograms.add(20.0);
+            repetitions.add(10);
+            this.sets++;
+        }
+    }
 }

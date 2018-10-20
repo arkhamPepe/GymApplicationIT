@@ -34,15 +34,17 @@ public class MyRoutinesStrengthExerciseFragment extends Fragment implements Obse
     public void onStart(){
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
-        update();
         viewModel.addObserver(this);
+        NumberPicker amountOfSets = getView().findViewById(R.id.amountofSets);
 
-        MyRoutinesStrengthExerciseSetsAdapter adapter = new MyRoutinesStrengthExerciseSetsAdapter(
-                getActivity(), viewModel.getStrengthExerciseKilograms(), viewModel.getStrengthExerciseReps()
-        );
-        ListView listView = getView().findViewById(R.id.setsList);
-        listView.setAdapter(adapter);
-
+        amountOfSets.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                viewModel.updateStrengthExerciseSets(newVal);
+                update();
+            }
+        });
+        update();
     }
 
     @Override
@@ -56,12 +58,14 @@ public class MyRoutinesStrengthExerciseFragment extends Fragment implements Obse
         txtviewStrenghtExerciseName.setText(viewModel.getExerciseName());
 
         NumberPicker amountOfSets = getView().findViewById(R.id.amountofSets);
+        amountOfSets.setMinValue(1);
+        amountOfSets.setMaxValue(5);
+        amountOfSets.setValue(viewModel.getStrengthExerciseSets());
 
         MyRoutinesStrengthExerciseSetsAdapter adapter = new MyRoutinesStrengthExerciseSetsAdapter(
                 getActivity(), viewModel.getStrengthExerciseKilograms(), viewModel.getStrengthExerciseReps()
         );
         ListView listView = getView().findViewById(R.id.setsList);
         listView.setAdapter(adapter);
-
     }
 }
