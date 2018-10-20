@@ -9,5 +9,10 @@
             android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="28dp"
             android:layout_centerHorizontal="true" android:id="@+id/txtViewCardioExerciseName" android:textSize="24sp"
             android:textColor="@color/blackColour"/>
+    <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:id="@+id/button3" android:layout_alignParentTop="true" android:onClick="goBackFromExercise"/>
 
 </RelativeLayout>
