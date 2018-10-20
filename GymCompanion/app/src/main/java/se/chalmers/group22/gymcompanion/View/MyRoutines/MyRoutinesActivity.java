@@ -34,6 +34,7 @@ public class MyRoutinesActivity extends BaseActivity {
     private final Fragment fragmentPickExercise = new MyRoutinesPickExerciseFragment();
     private final Fragment fragmentPickMG = new MyRoutinesPickMGFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
+    private final Fragment fragmentCardioExercise = new MyRoutinesCardioExerciseFragment();
     private List<Fragment> fragments = new ArrayList<>();
 
 
@@ -75,6 +76,7 @@ public class MyRoutinesActivity extends BaseActivity {
         fragments.add(fragmentStart);
         fragments.add(fragmentPickExercise);
         fragments.add(fragmentPickMG);
+        fragments.add(fragmentCardioExercise);
     }
 
     public void onClickCreateRoutine(View view){
