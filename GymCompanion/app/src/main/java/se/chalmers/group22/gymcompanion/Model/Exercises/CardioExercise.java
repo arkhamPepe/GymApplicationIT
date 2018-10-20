@@ -4,6 +4,7 @@ package se.chalmers.group22.gymcompanion.Model.Exercises;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Model.ExerciseVisitor;
 
 import java.io.Serializable;
 import java.util.List;
@@ -20,5 +21,10 @@ public class CardioExercise extends Exercise implements Serializable {
     public CardioExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, INTENSITY intensity, int timespent) {
         super(name, difficulty, muscleGroups, description, videoguide, intensity);
         this.timespent = timespent;
+    }
+
+    @Override
+    public void accept(ExerciseVisitor visitor) {
+        visitor.visit(this);
     }
 }
