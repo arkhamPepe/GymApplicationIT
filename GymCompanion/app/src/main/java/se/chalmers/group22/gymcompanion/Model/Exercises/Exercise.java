@@ -10,7 +10,6 @@ import se.chalmers.group22.gymcompanion.Model.ISortable;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 
@@ -101,4 +100,5 @@ public abstract class Exercise implements ISortable, Serializable {
     public List<MUSCLE_GROUP> getMuscleGroups(){
         return new ArrayList<>(muscleGroups);
     }
+
 }

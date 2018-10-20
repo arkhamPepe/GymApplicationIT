@@ -27,6 +27,10 @@ public class HomeViewModel extends BaseViewModel {
         getModel().startRoutine();
     }
 
+    public boolean startRoutineIsSet(){
+        return getModel().startRoutineIsSet();
+    }
+
     public Map<String, String> getFinishedRoutineStats(){
         Routine finishedRoutine = getModel().getFinishedRoutine();
         Map<String, String> routineStatsMap = new HashMap<>();

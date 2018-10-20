@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
+import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
@@ -77,11 +78,15 @@ public class HomeActivity extends BaseActivity {
     }
 
     public void goToProgress(View view) {
-        Intent intent = new Intent(this, ProgressActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        overridePendingTransition(0, 0);
+        if(homeViewModel.startRoutineIsSet()) {
+            Intent intent = new Intent(this, ProgressActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        }else{
+            Toast.makeText(this, "No Scheduled Routine For Today", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void goToHome(View view){

@@ -120,12 +120,16 @@ public class User implements Serializable {
         routines.get(selectedRoutineIndex).addExercise(e);
     }
 
+    public void removeExerciseFromRoutine(int selectedRoutineIndex,Exercise e){
+        routines.get(selectedRoutineIndex).removeExercise(e);
+    }
+
     public void modifyRoutineDescription(Routine routine, String description){
         routine.setDescription(description);
     }
 
     private Calendar getTodaysDate(){
-        return Calendar.getInstance();
+        return new GregorianCalendar();
     }
 
     public String getScheduledRoutineName(){

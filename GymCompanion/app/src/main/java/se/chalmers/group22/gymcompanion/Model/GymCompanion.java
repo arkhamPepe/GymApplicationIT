@@ -76,8 +76,11 @@ public class GymCompanion {
         activeRoutine.getExercises().get(index).toggleCompletion(completed);
     }
 
-    public void completeActiveRoutine(){
+    public void completeActiveRoutine() {
         user.finishRoutine(activeRoutine);
+    }
+    public boolean startRoutineIsSet(){
+        return activeRoutine != null;
     }
 
     //Active Exercise Methods
@@ -183,6 +186,18 @@ public class GymCompanion {
         }
 
         user.addExerciseToRoutine(selectedRoutineIndex,e );
+    }
+
+    public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){
+        Exercise e = null;
+        for (Exercise ex: new ArrayList<>(exerciseList)) {
+            if(ex.getName().equals(exerciseName)){
+                e = ex;
+                break;
+            }
+        }
+
+        user.removeExerciseFromRoutine(selectedRoutineIndex,e);
     }
 
 

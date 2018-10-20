@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:text="Exercise Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="28dp"
+            android:layout_centerHorizontal="true" android:id="@+id/txtViewCardioExerciseName" android:textSize="24sp"
+            android:textColor="@color/blackColour"/>
+    <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:id="@+id/button3" android:layout_alignParentTop="true" android:onClick="goBackFromExercise"/>
+    <TextView
+            android:text="Time Goal:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blackColour"
+            android:textSize="30sp"
+            android:id="@+id/textView2"
+            android:layout_alignParentTop="true" android:layout_marginTop="166dp"
+            android:layout_centerHorizontal="true"/>
+    <TextView
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blackColour"
+            android:textSize="30sp"
+            android:id="@+id/cardioExerciseTime" android:text="cardioTime"
+            android:layout_alignParentTop="true" android:layout_marginTop="233dp"
+            android:layout_centerHorizontal="true"/>
+    <TextView
+            android:text="Intensity:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" android:id="@+id/textView8" android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:textColor="@color/blackColour"
+            android:layout_marginBottom="247dp"/>
+    <TextView
+            android:text="cardioIntensity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blackColour"
+            android:textSize="30sp"
+            android:layout_alignParentBottom="true" android:id="@+id/cardioExerciseIntensity"
+            android:layout_centerHorizontal="true" android:layout_marginBottom="176dp"/>
+    <TextView
+            android:text="Minutes"
+            android:layout_width="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/blackColour"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView12"
+            android:layout_alignTop="@+id/cardioExerciseTime"
+            android:layout_alignParentEnd="true" android:layout_marginEnd="61dp"/>
+
+</RelativeLayout>
