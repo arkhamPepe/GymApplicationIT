@@ -115,7 +115,7 @@ public class User implements Serializable {
     }
 
     private Calendar getTodaysDate(){
-        return Calendar.getInstance();
+        return new GregorianCalendar();
     }
 
     public String getScheduledRoutineName(){

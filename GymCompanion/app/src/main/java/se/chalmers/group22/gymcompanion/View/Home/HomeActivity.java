@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
@@ -35,6 +36,8 @@ public class HomeActivity extends BaseActivity {
 
         homeViewModel = new HomeViewModel();
 
+        homeViewModel.startRoutine();
+
         //Sends the activity index to NavigationFragment via Bundle
         Bundle bundle = new Bundle();
         bundle.putInt("index", index);
@@ -60,11 +63,15 @@ public class HomeActivity extends BaseActivity {
     }
 
     public void goToProgress(View view) {
-        Intent intent = new Intent(this, ProgressActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        overridePendingTransition(0, 0);
+        if(homeViewModel.startRoutineIsSet()) {
+            Intent intent = new Intent(this, ProgressActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        }else{
+            Toast.makeText(this, "No Scheduled Routine For Today", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void goToHome(View view){
