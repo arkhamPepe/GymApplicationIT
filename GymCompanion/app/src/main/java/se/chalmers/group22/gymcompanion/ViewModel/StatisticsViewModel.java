@@ -62,14 +62,21 @@ public class StatisticsViewModel extends ObservableViewModel {
 
     private void sortPoints(List<Point> points){
         Point temp;
+        int min_idx;
 
         for (int i = 0; i < points.size()-1; i++)
-            for (int j = 0; j < points.size()-i-1; j++)
-                if (points.get(j).getX() > points.get(j+1).getX()){
-                    temp = points.get(j);
-                    points.set(j, points.get(j+1));
-                    points.set(j+1, temp);
-                }
+        {
+            // Find the minimum element in unsorted array
+            min_idx = i;
+            for (int j = i+1; j < points.size(); j++)
+                if (points.get(j).getX() < points.get(min_idx).getX())
+                    min_idx = j;
+
+            // Swap the found minimum element with the first element
+            temp = points.get(min_idx);
+            points.set(min_idx, points.get(i));
+            points.set(i, temp);
+        }
     }
 
     private class Point {
