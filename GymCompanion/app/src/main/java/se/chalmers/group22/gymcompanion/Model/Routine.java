@@ -74,6 +74,16 @@ public class Routine implements ISortable, Serializable {
         initDifficulty();
     }
 
+    public Routine(Routine routine){
+        this.exercises = routine.getExercises();
+        this.name = routine.getName();
+        this.description = routine.getDescription();
+        this.comment = routine.getComment();
+        this.muscleGroups = new ArrayList<>();
+        initMuscleGroupList();
+        initDifficulty();
+    }
+
     private void initMuscleGroupList(){
         for(Exercise e : this.exercises){
             for(MUSCLE_GROUP mg : e.getMuscleGroups()){
@@ -94,7 +104,8 @@ public class Routine implements ISortable, Serializable {
     }
 
     public void addExercise(Exercise exercise) {
-        exercises.add(exercise);
+        Exercise e = exercise.clone();
+        exercises.add(e);
     }
 
     public void removeExercise(Exercise exercise){
@@ -108,7 +119,17 @@ public class Routine implements ISortable, Serializable {
 
     // Defensive copy
     public List<Exercise> getExercises() {
-        return new ArrayList<>(exercises);
+        List<Exercise> eList = new ArrayList<>();
+
+        for (Exercise e : exercises) {
+            eList.add(e.clone());
+        }
+
+        return eList;
+    }
+
+    public void setCompletionOfExerciseWithIndex(int index, boolean completed){
+        exercises.get(index).toggleCompletion(completed);
     }
 
     public boolean containsMuscleGroup(MUSCLE_GROUP mg){

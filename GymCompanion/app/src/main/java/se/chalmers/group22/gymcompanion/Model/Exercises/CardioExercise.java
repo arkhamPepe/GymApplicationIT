@@ -35,4 +35,13 @@ public class CardioExercise extends Exercise implements Serializable {
         super(name, difficulty, muscleGroups, description, videoguide, intensity);
         this.timespent = timespent;
     }
+
+    public CardioExercise(CardioExercise exercise){
+        super(exercise);
+        this.timespent = exercise.getTimespent();
+    }
+
+    public Exercise clone(){
+        return new CardioExercise(this);
+    }
 }

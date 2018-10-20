@@ -2,6 +2,8 @@ package se.chalmers.group22.gymcompanion.Model.Exercises;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 
@@ -34,6 +36,10 @@ public class StrengthExercise extends Exercise implements Serializable {
     @Getter(AccessLevel.NONE)
     private List<Double> kilograms;
 
+    public StrengthExercise(){
+        super();
+    }
+
     public StrengthExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, List<Integer> repetitions, int sets) {
         super(name, difficulty, muscleGroups, description, videoguide);
         this.repetitions = repetitions;
@@ -43,6 +49,13 @@ public class StrengthExercise extends Exercise implements Serializable {
         this.repetitions = repetitions;
         this.sets = sets;
         this.kilograms = kilograms;
+    }
+
+    public StrengthExercise(StrengthExercise exercise){
+        super(exercise);
+        this.repetitions = exercise.getRepetitions();
+        this.sets = exercise.getSets();
+        this.kilograms = exercise.kilograms;
     }
 
     // FOR TESTING
@@ -73,5 +86,9 @@ public class StrengthExercise extends Exercise implements Serializable {
     // Defensive copy
     public List<Double> getKilograms() {
         return new ArrayList<>(kilograms);
+    }
+
+    public Exercise clone(){
+        return new StrengthExercise(this);
     }
 }
