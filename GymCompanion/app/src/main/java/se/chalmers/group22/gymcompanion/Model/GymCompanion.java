@@ -164,6 +164,9 @@ public class GymCompanion {
         user.scheduleAddRoutine(routine, day);
     }
 
+    public Map<Calendar, Double> getGraphData(int weekOffset){
+        return user.getGraphData(weekOffset);
+    }
 
     //Routine creation and modification
 

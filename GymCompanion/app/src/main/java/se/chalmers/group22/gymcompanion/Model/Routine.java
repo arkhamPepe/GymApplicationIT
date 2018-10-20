@@ -75,7 +75,7 @@ public class Routine implements ISortable, Serializable {
     }
 
     public Routine(Routine routine){
-        this.exercises = routine.getExercises();
+        this.exercises = routine.getExercisesCopy();
         this.name = routine.getName();
         this.description = routine.getDescription();
         this.comment = routine.getComment();
@@ -119,6 +119,10 @@ public class Routine implements ISortable, Serializable {
 
     // Defensive copy
     public List<Exercise> getExercises() {
+        return new ArrayList<>(exercises);
+    }
+
+    public List<Exercise> getExercisesCopy() {
         List<Exercise> eList = new ArrayList<>();
 
         for (Exercise e : exercises) {

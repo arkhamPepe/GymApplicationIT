@@ -300,4 +300,8 @@ public class User implements Serializable {
         return new ArrayList<>();
     }
 
+    public Map<Calendar, Double> getGraphData(int weekOffset){
+        return statCalc.getGraphDataPoints(weekOffset);
+    }
+
 }

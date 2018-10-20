@@ -1,13 +1,13 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 
-import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 /***
  * Title: StatisticsCalculator
@@ -24,7 +24,6 @@ import java.util.*;
  */
 
 public class StatisticsCalculator implements Serializable {
-    private User user;
     private Schedule schedule;
 
     public StatisticsCalculator(Schedule schedule){
@@ -44,24 +43,30 @@ public class StatisticsCalculator implements Serializable {
         return specificExerciseMap;
     }
 
-    public double calculateScore(StrengthExercise exercise){
-        double sum = 0;
-        int kgIndex = 0;
-        for (Integer repetition: exercise.getRepetitions()){
-            sum += repetition * exercise.getKilograms().get(kgIndex);
-            kgIndex++;
+    public Map<Calendar, Double> getGraphDataPoints(int weekOffset){
+
+        Map<Calendar, Double> graphMap = new HashMap<>();
+        Calendar today = new GregorianCalendar();
+        double score;
+
+        for (int i = 6; i >= 0; i--){
+            score = 0;
+
+            Calendar cal = new GregorianCalendar();
+            cal.add(Calendar.DAY_OF_YEAR, (i-today.get(Calendar.DAY_OF_WEEK)) + (7 * weekOffset));
+            if(schedule.dateHasRoutine(cal)){
+
+                for (Exercise e : schedule.getRoutineFromDay(cal).getExercises()){
+                    score += e.calculateScore();
+                }
+            }
+
+            graphMap.put(cal, score);
         }
-        return sum;
+
+        return graphMap;
     }
 
-    public double calculateScore(CardioExercise exercise) {
-        if (exercise.getIntensity() == INTENSITY.LOW) {
-            return exercise.getTimespent() * 0.25;
-        } else if (exercise.getIntensity() == INTENSITY.MEDIUM) {
-            return exercise.getTimespent() * 0.5;
-        } else {
-            return exercise.getTimespent() * 0.75;
-        }
-    }
+
 
 }

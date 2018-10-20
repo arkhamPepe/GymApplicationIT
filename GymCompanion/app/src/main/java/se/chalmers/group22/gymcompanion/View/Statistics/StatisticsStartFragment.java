@@ -5,12 +5,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.*;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /** StatisticsActivityFragment
  *  Purpose: Initial fragment of StatisticActivity
@@ -50,46 +55,44 @@ public class StatisticsStartFragment extends Fragment implements Observer {
         super.onStart();
 
         viewModel = ((StatisticsActivity)getActivity()).getViewModel();
+        viewModel.addObserver(this);
 
+        drawGraph();
+    }
 
-        double x = 0.0;
-        int amountOfDots = 7;
+    @Override
+    public void onPause(){
+        viewModel.removeObserver(this);
 
-        drawGraph(x,amountOfDots);
-
+        super.onPause();
     }
 
     @Override
     public void update() {
-        drawGraph(0, 7);
+        drawGraph();
     }
 
-    private void drawGraph(double x,int dots){
-        //GraphView object
-        GraphView graphView = getView().findViewById(R.id.start_graph);
+    /** drawGraph
+     * Purpose: Draw the graph from scratch
+     */
+    private void drawGraph(){
+        GraphView graph = getView().findViewById(R.id.start_graph);
 
-        double y;
+        DataPoint[] dataPoints = viewModel.getDataPoints(); // Points in graph
 
-        PointsGraphSeries<DataPoint> seriesPoint = new PointsGraphSeries<DataPoint>();
-        LineGraphSeries<DataPoint> seriesLine = new LineGraphSeries<DataPoint>();
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
 
-        for(int i = 0; i < dots; i++) {
-            x += 1;
-            y=Math.pow(x, 2.0);
+        graph.addSeries(series);
 
-            seriesPoint.appendData(new DataPoint(x, y), true, 7);
-            seriesLine.appendData(new DataPoint(x, y), true, 7);
-        }
+        // set date label formatter
+        graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
+        graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
 
-        seriesPoint.setOnDataPointTapListener(new OnDataPointTapListener() {
-            @Override
-            public void onTap(Series series, DataPointInterface dataPoint) {
-                Toast.makeText(getActivity(), "DataPoint clicked: " + dataPoint, Toast.LENGTH_SHORT).show();
-            }
-        });
+        // set manual x bounds to have nice steps
+        graph.getViewport().setXAxisBoundsManual(true);
 
-        seriesPoint.setShape(PointsGraphSeries.Shape.POINT);
-        graphView.addSeries(seriesPoint);
-        graphView.addSeries(seriesLine);
+        // as we use dates as labels, the human rounding to nice readable numbers
+        // is not necessary
+        graph.getGridLabelRenderer().setHumanRounding(false);
     }
 }
