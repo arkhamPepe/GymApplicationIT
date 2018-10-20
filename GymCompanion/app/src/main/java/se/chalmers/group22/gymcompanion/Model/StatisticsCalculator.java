@@ -39,7 +39,6 @@ public class StatisticsCalculator implements Serializable {
             score = 0;
 
             Calendar cal = new GregorianCalendar();
-            //cal.set(Calendar.DAY_OF_YEAR, Calendar.DAY_OF_YEAR + (i-date.get(Calendar.DAY_OF_WEEK)) + (7 * weekOffset));
             cal.add(Calendar.DAY_OF_YEAR, (i-today.get(Calendar.DAY_OF_WEEK)) + (7 * weekOffset));
             if(schedule.dateHasRoutine(cal)){
 
