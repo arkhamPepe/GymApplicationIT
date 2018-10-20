@@ -29,10 +29,10 @@ public class StatisticsCalculator implements Serializable {
         return specificExerciseMap;
     }
 
-    public Map<Calendar, Double> getGraphDataPoints(Calendar date, int weekOffset){
+    public Map<Calendar, Double> getGraphDataPoints(int weekOffset){
 
         Map<Calendar, Double> graphMap = new HashMap<>();
-
+        Calendar today = new GregorianCalendar();
         double score;
 
         for (int i = 6; i >= 0; i--){
@@ -40,7 +40,7 @@ public class StatisticsCalculator implements Serializable {
 
             Calendar cal = new GregorianCalendar();
             //cal.set(Calendar.DAY_OF_YEAR, Calendar.DAY_OF_YEAR + (i-date.get(Calendar.DAY_OF_WEEK)) + (7 * weekOffset));
-            cal.add(Calendar.DAY_OF_YEAR, (i-date.get(Calendar.DAY_OF_WEEK)) + (7 * weekOffset));
+            cal.add(Calendar.DAY_OF_YEAR, (i-today.get(Calendar.DAY_OF_WEEK)) + (7 * weekOffset));
             if(schedule.dateHasRoutine(cal)){
 
                 for (Exercise e : schedule.getRoutineFromDay(cal).getExercises()){

@@ -7,18 +7,16 @@ import java.util.*;
 
 public class StatisticsViewModel extends ObservableViewModel {
     private Map<Calendar, Routine> schedule;
-    private Calendar graphedDate; // The date from which the graph is displaying data
     private int currentWeekOffset = 0;
     private Map<Calendar, Double> currentGraphPoints;
 
     public StatisticsViewModel(){
         schedule = new HashMap<>();
-        graphedDate = new GregorianCalendar();
         update();
     }
 
     public void update(){
-        currentGraphPoints = getModel().getGraphData(graphedDate, currentWeekOffset);
+        currentGraphPoints = getModel().getGraphData(currentWeekOffset);
         notifyObservers();
     }
 
