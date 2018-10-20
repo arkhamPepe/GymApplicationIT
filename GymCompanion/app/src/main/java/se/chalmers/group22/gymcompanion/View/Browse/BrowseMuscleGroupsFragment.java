@@ -10,11 +10,11 @@ import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
-public class BrowseSelectionFragment extends Fragment {
+public class BrowseMuscleGroupsFragment extends Fragment {
 
     private BrowseViewModel viewModel;
-    public static BrowseSelectionFragment getInstance() {
-        return new BrowseSelectionFragment();
+    public static BrowseMuscleGroupsFragment getInstance() {
+        return new BrowseMuscleGroupsFragment();
     }
 
     @Override

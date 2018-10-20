@@ -35,7 +35,7 @@ public class BrowseActivity extends BaseActivity {
      * */
     private static final int index = 1;
     private final Fragment fragmentStart = new BrowseStartFragment();
-    private final Fragment fragmentSelection = new BrowseSelectionFragment();
+    private final Fragment fragmentSelection = new BrowseMuscleGroupsFragment();
     private final Fragment fragmentResult = new BrowseResultFragment();
     private final Fragment fragmentRecommended = new BrowseRecommendedFragment();
     private final Fragment fragmentAddExercise = new BrowseAddExerciseFragment();

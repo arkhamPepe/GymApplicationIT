@@ -97,10 +97,10 @@ public class BrowseViewModel extends ObservableViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
-
+        sortRoutinesAndExercises(0);
         this.query = query;
 
-        this.notifyObservers();
+        notifyObservers();
     }
 
     /** filter(FilterStrategy)
@@ -115,6 +115,10 @@ public class BrowseViewModel extends ObservableViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
+
+        sortRoutinesAndExercises(0);
+
+        notifyObservers();
     }
 
     /** filter(String)
@@ -136,7 +140,9 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
 
-        this.notifyObservers();
+        sortRoutinesAndExercises(0);
+
+        notifyObservers();
     }
 
     /** filterRoutinesExercises(boolean, int)
@@ -159,7 +165,7 @@ public class BrowseViewModel extends ObservableViewModel {
                 filteredExercises.addAll(exercises);
             }
         }
-        this.notifyObservers();
+        notifyObservers();
     }
 
     /** sortRoutinesAndExercises(int)
@@ -190,7 +196,7 @@ public class BrowseViewModel extends ObservableViewModel {
         getModel().sort(filteredExercises, strategy);
         getModel().sort(filteredRoutines, strategy);
 
-        this.notifyObservers();
+        notifyObservers();
     }
 
     /** getCurrentPage()
@@ -239,7 +245,7 @@ public class BrowseViewModel extends ObservableViewModel {
                 muscleGroups.add(mg);
             }
         }
-        this.notifyObservers();
+        notifyObservers();
     }
     /** getRoutineAndExerciseNames()
      * Purpose: used by arrayadapters to build their listviews
@@ -364,7 +370,7 @@ public class BrowseViewModel extends ObservableViewModel {
                 break;
             }
         }
-        this.notifyObservers();
+        notifyObservers();
     }
 
     /** addExerciseToUserRoutine(String)
