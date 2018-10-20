@@ -3,6 +3,7 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
@@ -152,6 +153,18 @@ public class MyRoutinesViewModel extends ObservableViewModel {
             return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getName();
         }
         return "";
+    }
+    private Exercise getSelectedExecise(){
+        return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex);
+    }
+
+    public int checkTypeExercise(){
+        if (getSelectedExecise() instanceof StrengthExercise){
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
 
     public String getExerciseGuide(){

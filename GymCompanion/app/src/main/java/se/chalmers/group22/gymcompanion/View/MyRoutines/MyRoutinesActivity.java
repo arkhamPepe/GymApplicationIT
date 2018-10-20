@@ -131,7 +131,12 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onClickEnterExercise(int position){
         viewModel.setSelectedExerciseIndex(position);
-        fo.changeToFragment(fragmentExerciseInfo);
+        if(viewModel.checkTypeExercise() == 1){
+            fo.changeToFragment(fragmentStrengthExercise);
+        }
+        else {
+            fo.changeToFragment(fragmentCardioExercise);
+        }
     }
 
     public void goBackFromExercise(View view){
