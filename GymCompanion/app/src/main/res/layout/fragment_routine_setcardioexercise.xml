@@ -24,13 +24,13 @@
             android:layout_alignParentTop="true" android:layout_marginTop="166dp"
             android:layout_centerHorizontal="true"/>
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="92dp"
             android:layout_height="wrap_content"
             android:textColor="@color/blackColour"
             android:textSize="30sp"
             android:id="@+id/cardioExerciseTime" android:text="cardioTime"
-            android:layout_alignParentTop="true" android:layout_marginTop="231dp" android:layout_alignParentStart="true"
-            android:layout_marginStart="63dp"/>
+            android:layout_alignParentTop="true" android:layout_marginTop="233dp"
+            android:layout_centerHorizontal="true"/>
     <TextView
             android:text="Intensity:"
             android:layout_width="wrap_content"
@@ -53,7 +53,8 @@
             android:textSize="30sp"
             android:textColor="@color/blackColour"
             android:layout_height="wrap_content"
-            android:id="@+id/textView12" android:layout_toEndOf="@+id/cardioExerciseTime"
-            android:layout_alignTop="@+id/cardioExerciseTime"/>
+            android:id="@+id/textView12"
+            android:layout_alignTop="@+id/cardioExerciseTime"
+            android:layout_alignParentEnd="true" android:layout_marginEnd="61dp"/>
 
 </RelativeLayout>
