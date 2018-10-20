@@ -1,13 +1,13 @@
 package se.chalmers.group22.gymcompanion.Model;
 
 
-import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StatisticsCalculator implements Serializable {
     private Schedule schedule;
@@ -35,7 +35,7 @@ public class StatisticsCalculator implements Serializable {
 
         double score;
 
-        for (int i = 0; i < 7; i++){
+        for (int i = 6; i >= 0; i--){
             score = 0;
 
             Calendar cal = new GregorianCalendar();

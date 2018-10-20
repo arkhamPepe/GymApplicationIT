@@ -6,12 +6,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.*;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /** StatisticsActivityFragment
  *  Purpose: Initial fragment of StatisticActivity
@@ -51,54 +56,34 @@ public class StatisticsStartFragment extends Fragment implements Observer {
         super.onStart();
 
         viewModel = ((StatisticsActivity)getActivity()).getViewModel();
+        viewModel.addObserver(this);
 
+        drawGraph();
+    }
 
-        double x = 0.0;
-        int amountOfDots = 7;
+    @Override
+    public void onPause(){
+        viewModel.removeObserver(this);
 
-        drawGraph(x,amountOfDots);
-
+        super.onPause();
     }
 
     @Override
     public void update() {
-        drawGraph(0, 7);
+        drawGraph();
     }
 
-    private void drawGraph(double x,int dots){
-        //GraphView object
-        GraphView graphView = getView().findViewById(R.id.start_graph);
+    private void drawGraphTest(){
+        // generate Dates
+        Calendar calendar = Calendar.getInstance();
+        Date d1 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d2 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d3 = calendar.getTime();
 
-        double y;
+        GraphView graph = (GraphView) getView().findViewById(R.id.start_graph);
 
-        PointsGraphSeries<DataPoint> seriesPoint = new PointsGraphSeries<DataPoint>();
-        LineGraphSeries<DataPoint> seriesLine = new LineGraphSeries<DataPoint>();
-
-        for(int i = 0; i < dots; i++) {
-            x += 1;
-            y=Math.pow(x, 2.0);
-
-            seriesPoint.appendData(new DataPoint(x, y), true, 7);
-            seriesLine.appendData(new DataPoint(x, y), true, 7);
-        }
-
-        seriesPoint.setOnDataPointTapListener(new OnDataPointTapListener() {
-            @Override
-            public void onTap(Series series, DataPointInterface dataPoint) {
-                Toast.makeText(getActivity(), "DataPoint clicked: " + dataPoint, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        seriesPoint.setShape(PointsGraphSeries.Shape.POINT);
-        graphView.addSeries(seriesPoint);
-        graphView.addSeries(seriesLine);
-    }
-
-    private void drawGraph(){
-        GraphView graph = getView().findViewById(R.id.start_graph);
-
-
-/*
 // you can directly pass Date objects to DataPoint-Constructor
 // this will convert the Date to double via Date#getTime()
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
@@ -120,6 +105,27 @@ public class StatisticsStartFragment extends Fragment implements Observer {
 
 // as we use dates as labels, the human rounding to nice readable numbers
 // is not necessary
-        graph.getGridLabelRenderer().setHumanRounding(false);*/
+        graph.getGridLabelRenderer().setHumanRounding(false);
+    }
+
+    private void drawGraph(){
+        GraphView graph = getView().findViewById(R.id.start_graph);
+
+        DataPoint[] dataPoints = viewModel.getDataPoints(); // Points in graph
+
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
+
+        graph.addSeries(series);
+
+        // set date label formatter
+        graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
+        graph.getGridLabelRenderer().setNumHorizontalLabels(7); // only 4 because of the space
+
+        // set manual x bounds to have nice steps
+        graph.getViewport().setXAxisBoundsManual(true);
+
+        // as we use dates as labels, the human rounding to nice readable numbers
+        // is not necessary
+        graph.getGridLabelRenderer().setHumanRounding(false);
     }
 }

@@ -1,29 +1,92 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
+import com.jjoe64.graphview.series.DataPoint;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.*;
 
 public class StatisticsViewModel extends ObservableViewModel {
-
-
     private Map<Calendar, Routine> schedule;
     private Calendar graphedDate; // The date from which the graph is displaying data
+    private int currentWeekOffset = 0;
+    private Map<Calendar, Double> currentGraphPoints;
 
     public StatisticsViewModel(){
         schedule = new HashMap<>();
         graphedDate = new GregorianCalendar();
+        update();
+    }
+
+    public void update(){
+        currentGraphPoints = getModel().getGraphData(graphedDate, currentWeekOffset);
+        notifyObservers();
     }
 
     public void setGraphedDateNextWeek(){
-        graphedDate.set(Calendar.WEEK_OF_YEAR, Calendar.WEEK_OF_YEAR + 1);
-        notifyObservers();
+        currentWeekOffset++;
+        update();
     }
 
     public void setGraphedDatePreviousWeek(){
-        graphedDate.set(Calendar.WEEK_OF_YEAR, Calendar.WEEK_OF_YEAR + 1);
-        notifyObservers();
+        currentWeekOffset--;
+        update();
+    }
+
+    public DataPoint[] getDataPoints(){
+        int size = 0;
+        size = currentGraphPoints.size();
+
+        DataPoint[] dataPoints = new DataPoint[size];
+        int index = 0;
+        long xValue;
+        double yValue;
+
+        List<Tuple> points = new ArrayList<>();
+
+        for (Calendar c : currentGraphPoints.keySet()){
+            xValue = c.getTime().getTime();
+            yValue = currentGraphPoints.get(c);
+            points.add(new Tuple(xValue, yValue));
+        }
+
+
+        for (Calendar c : currentGraphPoints.keySet()){
+            Tuple point = points.get(index);
+            dataPoints[index] = new DataPoint(point.getX(), point.getY());
+            index++;
+        }
+
+        return dataPoints;
+    }
+
+    private void sortTuples(List<Tuple> points){
+        Tuple t1, t2;
+
+        for(int i = 0; i < points.size(); i++){
+            t1 = points.get(i);
+            for(int j = 0; j < points.size()-i; j++){
+
+            }
+        }
+
+    }
+    private class Tuple {
+        double x;
+        double y;
+
+        Tuple(double x, double y){
+            this.x = x;
+            this.y = y;
+        }
+
+        double getX(){
+            return x;
+        }
+        double getY(){
+            return y;
+        }
     }
 
     /**
@@ -53,9 +116,7 @@ public class StatisticsViewModel extends ObservableViewModel {
         return routineNames;
     }
 
-    public Map<Calendar, Double> getGraphData(Calendar date, int weekOffset){
-        return getModel().getGraphData(date, weekOffset);
-    }
+
 
     public int getTotalAmountOfCompletedRoutines(){
         return getModel().getTotalAmountOfCompletedRoutines();
