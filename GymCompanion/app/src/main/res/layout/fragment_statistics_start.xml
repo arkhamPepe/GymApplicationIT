@@ -12,12 +12,36 @@
             android:layout_marginTop="1dp" android:background="@color/white"/>
 
     <Button
+            android:text="Next"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStatisticsNextGraph"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/start_graph"
+            android:onClick="onClickButtonNextWeek"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:background="@color/DefaultColour"/>
+
+    <Button
+            android:text="Previous"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStatisticsPreviousGraph"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/start_graph"
+            android:onClick="onClickButtonPreviousWeek"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:background="@color/DefaultColour"/>
+
+    <Button
             android:text="@string/btnHistory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnStatisticsHistory"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/start_graph"
+            android:layout_below="@+id/btnStatisticsNextGraph"
             android:onClick="goToHistory"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
