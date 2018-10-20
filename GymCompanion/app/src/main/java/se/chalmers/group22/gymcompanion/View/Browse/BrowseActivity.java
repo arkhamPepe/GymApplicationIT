@@ -118,7 +118,7 @@ public class BrowseActivity extends BaseActivity {
         viewModel.setMuscleGroup(x);
         viewModel.setIndex(1);
         viewModel.filter(x);
-        fragmentResult.onResume();
+        //fragmentResult.onResume();
     }
 
     public void goToResultFromSearch(String s){
@@ -127,7 +127,7 @@ public class BrowseActivity extends BaseActivity {
 
         viewModel.setIndex(0);
         viewModel.search(s);
-        fragmentResult.onResume();
+        //fragmentResult.onResume();
     }
 
     public void goToResultFromRecommended(View view) {
@@ -163,7 +163,7 @@ public class BrowseActivity extends BaseActivity {
         String s = view.getTag().toString();
         viewModel.addExerciseToUserRoutine(s);
         Toast.makeText(this, "Exercise added to the routine!", Toast.LENGTH_SHORT).show();
-        fragmentAddExercise.onResume();
+        //fragmentAddExercise.onResume();
     }
 
     public void infoBack(View view){

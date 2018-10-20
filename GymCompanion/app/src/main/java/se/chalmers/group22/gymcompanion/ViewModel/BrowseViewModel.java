@@ -99,6 +99,8 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredExercises.addAll(exercises);
 
         this.query = query;
+
+        this.notifyObservers();
     }
 
     /** filter(FilterStrategy)
@@ -133,6 +135,8 @@ public class BrowseViewModel extends ObservableViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
+
+        this.notifyObservers();
     }
 
     /** filterRoutinesExercises(boolean, int)
@@ -154,8 +158,8 @@ public class BrowseViewModel extends ObservableViewModel {
             } else {
                 filteredExercises.addAll(exercises);
             }
-
         }
+        this.notifyObservers();
     }
 
     /** sortRoutinesAndExercises(int)
@@ -183,8 +187,10 @@ public class BrowseViewModel extends ObservableViewModel {
                 break;
         }
 
-        getModel().sort(routines, strategy);
-        getModel().sort(exercises, strategy);
+        getModel().sort(filteredExercises, strategy);
+        getModel().sort(filteredRoutines, strategy);
+
+        this.notifyObservers();
     }
 
     /** getCurrentPage()
@@ -233,6 +239,7 @@ public class BrowseViewModel extends ObservableViewModel {
                 muscleGroups.add(mg);
             }
         }
+        this.notifyObservers();
     }
     /** getRoutineAndExerciseNames()
      * Purpose: used by arrayadapters to build their listviews
@@ -255,7 +262,6 @@ public class BrowseViewModel extends ObservableViewModel {
                 names.add(e.getName());
             }
         }
-
         return names;
     }
 
@@ -358,6 +364,7 @@ public class BrowseViewModel extends ObservableViewModel {
                 break;
             }
         }
+        this.notifyObservers();
     }
 
     /** addExerciseToUserRoutine(String)
@@ -368,6 +375,7 @@ public class BrowseViewModel extends ObservableViewModel {
         for(Routine r :getModel().getUserRoutines()) {
             if(r.getName().equals(routineName)) {
                 getModel().getUser().addExerciseToRoutine(getExerciseByName(), r);
+                notifyObservers();
                 break;
             }
         }
