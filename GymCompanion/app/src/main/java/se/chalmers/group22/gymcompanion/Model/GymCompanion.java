@@ -80,6 +80,10 @@ public class GymCompanion {
 
     public void completeActiveRoutine() {
         user.finishRoutine(activeRoutine);
+
+        for (Exercise e: exerciseList) {
+            e.toggleCompletion(false);
+        }
     }
     public boolean startRoutineIsSet(){
         return activeRoutine != null;

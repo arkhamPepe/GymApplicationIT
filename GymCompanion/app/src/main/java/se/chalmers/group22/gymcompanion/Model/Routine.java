@@ -104,8 +104,7 @@ public class Routine implements ISortable, Serializable {
     }
 
     public void addExercise(Exercise exercise) {
-        Exercise e = exercise.clone();
-        exercises.add(e);
+        exercises.add(exercise);
     }
 
     public void removeExercise(Exercise exercise){
