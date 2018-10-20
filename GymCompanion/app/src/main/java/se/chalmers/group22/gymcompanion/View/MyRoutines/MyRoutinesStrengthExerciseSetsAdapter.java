@@ -35,6 +35,11 @@ public class MyRoutinesStrengthExerciseSetsAdapter extends ArrayAdapter {
         NumberPicker setWeight = (NumberPicker) rowView.findViewById(R.id.numberPickerSetWeight);
         NumberPicker setReps = (NumberPicker) rowView.findViewById(R.id.numberPickerSetReps);
 
+        setWeight.setMinValue(1);
+        setWeight.setMaxValue(200);
+        setReps.setMinValue(1);
+        setReps.setMaxValue(20);
+
 
         //this code sets the values of the objects to values from the arrays
         setNumber.setText(String.valueOf(position + 1));
