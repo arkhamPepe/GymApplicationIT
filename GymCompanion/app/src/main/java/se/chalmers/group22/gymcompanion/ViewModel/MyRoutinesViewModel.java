@@ -202,7 +202,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
     }
 
     public List<Double> getStrengthExerciseKilograms(){
-        if(!checkIfEmptyExerciseList()) {
+        if(!checkIfEmptyExerciseList() && checkTypeExercise() != 1) {
             return ((StrengthExercise) getModel().getUser().getRoutines().
                     get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getKilograms();
         }
