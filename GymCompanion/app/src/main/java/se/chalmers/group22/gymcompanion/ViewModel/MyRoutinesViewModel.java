@@ -202,7 +202,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
     }
 
     public List<Double> getStrengthExerciseKilograms(){
-        if(!checkIfEmptyExerciseList() && checkTypeExercise() != 1) {
+        if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1) {
             return ((StrengthExercise) getModel().getUser().getRoutines().
                     get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getKilograms();
         }
@@ -210,11 +210,39 @@ public class MyRoutinesViewModel extends ObservableViewModel {
     }
 
     public List<Integer> getStrengthExerciseReps(){
-        if(!checkIfEmptyExerciseList()) {
+        if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1) {
             return ((StrengthExercise) getModel().getUser().getRoutines().
                     get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getRepetitions();
         }
         return new ArrayList<>();
+    }
+
+    public int getStrengthExerciseSets(){
+        if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1){
+            return ((StrengthExercise) getModel().getUser().getRoutines().
+                    get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getSets();
+        }
+        return 0;
+    }
+
+    public void updateStrengthExerciseSets(int sets){
+        if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1){
+            ((StrengthExercise) getModel().getUser().getRoutines().
+                    get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).updateSets(sets);
+        }
+    }
+
+    public void updateSelectedExerciseKilogramInSet(int index, int value){
+        StrengthExercise se = (StrengthExercise) ( getModel().getUser().getRoutines().
+                get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex));
+
+        se.setKilogram(index, value);
+    }
+
+    public void updateSelectedExerciseRepsInSet(int index, int value){
+        StrengthExercise se = (StrengthExercise) ( getModel().getUser().getRoutines().
+                get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex));
+        se.setRepetitions(index, value);
     }
 
     private boolean checkIfEmptyRoutineList(){
