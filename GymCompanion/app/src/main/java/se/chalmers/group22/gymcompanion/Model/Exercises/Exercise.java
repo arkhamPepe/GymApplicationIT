@@ -4,18 +4,15 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.ExerciseElement;
-import se.chalmers.group22.gymcompanion.Model.ExerciseVisitor;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
 
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Getter
-public abstract class Exercise implements ISortable, Serializable, ExerciseElement {
+public abstract class Exercise implements ISortable, Serializable {
 
     private String name;
     private double difficulty;

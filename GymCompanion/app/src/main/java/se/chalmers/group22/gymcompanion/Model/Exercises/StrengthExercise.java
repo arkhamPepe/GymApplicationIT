@@ -4,7 +4,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
-import se.chalmers.group22.gymcompanion.Model.ExerciseVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,10 +58,5 @@ public class StrengthExercise extends Exercise implements Serializable {
     // Defensive copy
     public List<Double> getKilograms() {
         return new ArrayList<>(kilograms);
-    }
-
-    @Override
-    public void accept(ExerciseVisitor visitor) {
-        visitor.visit(this);
     }
 }
