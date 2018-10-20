@@ -119,7 +119,7 @@ public class StatisticsStartFragment extends Fragment implements Observer {
 
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
-        graph.getGridLabelRenderer().setNumHorizontalLabels(7); // only 4 because of the space
+        graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
 
         // set manual x bounds to have nice steps
         graph.getViewport().setXAxisBoundsManual(true);
