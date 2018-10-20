@@ -50,12 +50,21 @@ public class GymCompanion {
     }
 
     public void startRoutine(){
+
+        if(exerciseList != null) {
+            for (Exercise e : exerciseList) {
+                e.toggleCompletion(false);
+            }
+        }
+
         setActiveRoutine(user.getTodaysRoutine());
     }
 
     public void setActiveRoutine(Routine routine){
-        isRoutineActive = true;
-        activeRoutine = routine;
+        if(routine != null) {
+            isRoutineActive = true;
+            activeRoutine = new Routine(routine);
+        }
     }
 
     //Active Routine Methods
@@ -73,7 +82,7 @@ public class GymCompanion {
     }
 
     public void toggleCompletionExerciseInARWithIndex(int index, boolean completed){
-        activeRoutine.getExercises().get(index).toggleCompletion(completed);
+        activeRoutine.setCompletionOfExerciseWithIndex(index,completed);
     }
 
     public void completeActiveRoutine() {

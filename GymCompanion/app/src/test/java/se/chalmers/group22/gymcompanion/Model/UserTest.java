@@ -81,12 +81,6 @@ public class UserTest {
     }
 
     @Test
-    public void getFinishedRoutineTest(){
-        user.finishRoutine(r1);
-        assertEquals(r1, user.getFinishedRoutine());
-    }
-
-    @Test
     public void getRoutinesTest(){
         assertNotNull(user.getRoutines());
         assertEquals(1, user.getRoutines().size());

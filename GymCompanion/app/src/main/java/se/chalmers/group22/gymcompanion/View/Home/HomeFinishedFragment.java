@@ -27,7 +27,7 @@ import java.util.Map;
  */
 
 public class HomeFinishedFragment extends Fragment {
-    private TextView textViewTimeSpent;
+    private TextView textViewRoutineName;
     private TextView textViewTotalExercises;
     private TextView textViewCompletedExercises;
     private Button btnGotoHome;
@@ -56,14 +56,14 @@ public class HomeFinishedFragment extends Fragment {
         super.onStart();
         viewModel = ((HomeActivity)getActivity()).getViewModel();
 
-        this.textViewTimeSpent = getView().findViewById(R.id.textViewRoutineName);
+        this.textViewRoutineName = getView().findViewById(R.id.textViewRoutineName);
         this.textViewCompletedExercises = getView().findViewById(R.id.textViewExercisesCompleted);
         this.textViewTotalExercises = getView().findViewById(R.id.textViewTotalExercises);
         this.btnGotoHome = getView().findViewById(R.id.btnGotoHome);
 
         Map<String, String> finishedRoutineStats = viewModel.getFinishedRoutineStats();
 
-        textViewTimeSpent.setText(finishedRoutineStats.get("exerciseName"));
+        textViewRoutineName.setText(finishedRoutineStats.get("exerciseName"));
         textViewTotalExercises.setText(finishedRoutineStats.get("totalExercises"));
         textViewCompletedExercises.setText(finishedRoutineStats.get("completedExercises"));
     }

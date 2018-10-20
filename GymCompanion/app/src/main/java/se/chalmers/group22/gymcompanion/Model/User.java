@@ -89,7 +89,7 @@ public class User implements Serializable {
     }
 
     public void finishRoutine(Routine routine){
-        completedRoutines.put(getTodaysDate(), routine);
+        completedRoutines.put(getTodaysDate(), new Routine(routine));
     }
 
     public void addFriend(User friend){

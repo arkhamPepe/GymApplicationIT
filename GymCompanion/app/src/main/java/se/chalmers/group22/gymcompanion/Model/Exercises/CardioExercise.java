@@ -36,6 +36,16 @@ public class CardioExercise extends Exercise implements Serializable {
         this.timespent = timespent;
     }
 
+
+    public CardioExercise(CardioExercise exercise){
+        super(exercise);
+        this.timespent = exercise.getTimespent();
+    }
+
+    public Exercise clone() {
+        return new CardioExercise(this);
+    }
+
     public double calculateScore() {
         if (getIntensity() == INTENSITY.LOW) {
             return timespent * 0.25;

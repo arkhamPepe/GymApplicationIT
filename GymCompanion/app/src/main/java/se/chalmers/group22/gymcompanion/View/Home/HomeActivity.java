@@ -50,8 +50,6 @@ public class HomeActivity extends BaseActivity {
 
         homeViewModel = new HomeViewModel();
 
-        homeViewModel.startRoutine();
-
         //Sends the activity index to NavigationFragment via Bundle
         Bundle bundle = new Bundle();
         bundle.putInt("index", index);
@@ -78,6 +76,9 @@ public class HomeActivity extends BaseActivity {
     }
 
     public void goToProgress(View view) {
+
+        homeViewModel.startRoutine();
+
         if(homeViewModel.startRoutineIsSet()) {
             Intent intent = new Intent(this, ProgressActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
