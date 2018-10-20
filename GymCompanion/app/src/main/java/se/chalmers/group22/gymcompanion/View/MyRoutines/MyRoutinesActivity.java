@@ -147,7 +147,7 @@ public class MyRoutinesActivity extends BaseActivity {
     public void updateSelectedExerciseRepsInSet(int index, int value){
         viewModel.updateSelectedExerciseRepsInSet(index, value);
     }
-
+    
     public void goBackFromExercise(View view){
         fo.changeToFragment(fragmentRoutineInfo);
     }
@@ -162,5 +162,8 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onDeleteClick(View view){
         viewModel.removeExercise((String)view.getTag());
+    }
+    public void onDeleteClickRoutine(View view){
+        viewModel.removeSelectedRoutine((String)view.getTag());
     }
 }
