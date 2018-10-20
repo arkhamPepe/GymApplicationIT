@@ -26,7 +26,7 @@ public class MyRoutinesCardioExerciseFragment extends Fragment implements Observ
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_routine_setstrengthexercise, container, false);
+        return inflater.inflate(R.layout.fragment_routine_cardioexercise, container, false);
     }
 
     @Override
