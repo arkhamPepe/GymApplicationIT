@@ -139,7 +139,6 @@ public class MyRoutinesActivity extends BaseActivity {
             fo.changeToFragment(fragmentCardioExercise);
         }
     }
-
     public void goBackFromExercise(View view){
         fo.changeToFragment(fragmentRoutineInfo);
     }
@@ -154,5 +153,8 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onDeleteClick(View view){
         viewModel.removeExercise((String)view.getTag());
+    }
+    public void onDeleteClickRoutine(View view){
+        viewModel.removeSelectedRoutine((String)view.getTag());
     }
 }

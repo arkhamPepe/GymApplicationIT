@@ -31,6 +31,10 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         getModel().removeExerciseFromRoutine(selectedRoutineIndex,exerciseName);
         notifyObservers();
     }
+    public void removeSelectedRoutine(String routineName){
+        getModel().removeRoutine(routineName);
+        notifyObservers();
+    }
 
     public void createRoutine(){
         getModel().createRoutine();
@@ -135,6 +139,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         }
         return "";
     }
+
 
     public List<Exercise> getExercises(){
         if (!checkIfEmptyExerciseList()){

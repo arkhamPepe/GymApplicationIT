@@ -178,6 +178,17 @@ public class GymCompanion {
         user.removeExerciseFromRoutine(selectedRoutineIndex,e);
     }
 
+    public void removeRoutine(String routineName){
+        Routine r = null;
+        for (Routine ro: new ArrayList<>(routineList)) {
+            if(ro.getName().equals(routineName)){
+                r= ro;
+                break;
+            }
+        }
+        user.removeRoutine(r);
+    }
+
 
 
     //Routine and Exercise Getters
