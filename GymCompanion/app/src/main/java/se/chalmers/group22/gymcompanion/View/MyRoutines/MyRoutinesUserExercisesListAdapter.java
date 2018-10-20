@@ -43,13 +43,5 @@ public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {
         return rowView;
 
     }
-    /*public void fillExerciseNames(List<Exercise> exercises){
-        if (!exercises.isEmpty()){
-            for (Exercise exercise: exercises){
-                exerciseNames.add(exercise.getName());
-            }
-        }
-
-    }*/
 
 }
