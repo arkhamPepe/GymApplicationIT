@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseActivity;
@@ -34,6 +35,7 @@ public class MyRoutinesActivity extends BaseActivity {
     private final Fragment fragmentPickExercise = new MyRoutinesPickExerciseFragment();
     private final Fragment fragmentPickMG = new MyRoutinesPickMGFragment();
     private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
+    private final Fragment fragmentCardioExercise = new MyRoutinesCardioExerciseFragment();
     private List<Fragment> fragments = new ArrayList<>();
 
 
@@ -75,6 +77,7 @@ public class MyRoutinesActivity extends BaseActivity {
         fragments.add(fragmentStart);
         fragments.add(fragmentPickExercise);
         fragments.add(fragmentPickMG);
+        fragments.add(fragmentCardioExercise);
     }
 
     public void onClickCreateRoutine(View view){
@@ -130,7 +133,12 @@ public class MyRoutinesActivity extends BaseActivity {
 
     public void onClickEnterExercise(int position){
         viewModel.setSelectedExerciseIndex(position);
-        fo.changeToFragment(fragmentExerciseInfo);
+        if(viewModel.checkTypeExercise() == 1){
+            fo.changeToFragment(fragmentStrengthExercise);
+        }
+        else {
+            fo.changeToFragment(fragmentCardioExercise);
+        }
     }
 
     public void goBackFromExercise(View view){
@@ -145,7 +153,11 @@ public class MyRoutinesActivity extends BaseActivity {
         viewModel.addExercise((String)view.getTag());
     }
 
-    public MyRoutinesViewModel getViewModel(){
+    public MyRoutinesViewModel getViewModel() {
         return viewModel;
+    }
+    public void onDeleteClick(View view){
+        viewModel.removeExercise((String)view.getTag());
+
     }
 }

@@ -1,8 +1,11 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
@@ -22,6 +25,11 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public MyRoutinesViewModel(){
         initMuscleGroups();
+    }
+
+    public void removeExercise(String exerciseName){
+        getModel().removeExerciseFromRoutine(selectedRoutineIndex,exerciseName);
+        notifyObservers();
     }
 
     public void createRoutine(){
@@ -141,12 +149,44 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
         }
     }
-
+    //TODO fix all Law of demeter deal-breakers
     public String getExerciseName(){
         if (!checkIfEmptyExerciseList()) {
             return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getName();
         }
         return "";
+    }
+
+    public String getSelectedCardioExerciseIntensity(){
+        if(!checkIfEmptyExerciseList()) {
+            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getIntensity().toString();
+        }
+        return "";
+    }
+
+
+    public int getSelectedCardioExerciseTime(){
+        if (!checkIfEmptyExerciseList() && checkTypeExercise() !=1){return ((CardioExercise)
+                (getModel().getUser()
+                        .getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex))).getTimespent();
+        }
+        return 0;
+    }
+
+    private Exercise getSelectedExecise(){
+        if(!checkIfEmptyExerciseList()){
+        return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex);
+        }
+        return null;
+    }
+
+    public int checkTypeExercise(){
+        if (getSelectedExecise() instanceof StrengthExercise){
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
 
     public String getExerciseGuide(){
@@ -159,6 +199,22 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
         }
         return "";
+    }
+
+    public List<Double> getStrengthExerciseKilograms(){
+        if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1) {
+            return ((StrengthExercise) getModel().getUser().getRoutines().
+                    get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getKilograms();
+        }
+        return new ArrayList<>();
+    }
+
+    public List<Integer> getStrengthExerciseReps(){
+        if(!checkIfEmptyExerciseList() && checkTypeExercise() ==1) {
+            return ((StrengthExercise) getModel().getUser().getRoutines().
+                    get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getRepetitions();
+        }
+        return new ArrayList<>();
     }
 
     private boolean checkIfEmptyRoutineList(){
