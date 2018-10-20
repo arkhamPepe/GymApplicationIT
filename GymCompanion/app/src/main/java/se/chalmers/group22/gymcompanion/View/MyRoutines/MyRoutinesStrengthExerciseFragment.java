@@ -33,7 +33,7 @@ public class MyRoutinesStrengthExerciseFragment extends Fragment implements Obse
     public void onStart(){
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
-
+        update();
         viewModel.addObserver(this);
 
     }
@@ -46,9 +46,9 @@ public class MyRoutinesStrengthExerciseFragment extends Fragment implements Obse
 
     public void update(){
         TextView txtviewStrenghtExerciseName = getView().findViewById(R.id.txtEditMyRoutinesInfoRoutineName);
-        NumberPicker amountOfSets = getView().findViewById(R.id.amountofSets);
+        txtviewStrenghtExerciseName.setText(viewModel.getExerciseName());
 
-        //txtviewStrenghtExerciseName.setText(viewModel.getSelectedExerciseName());
+        NumberPicker amountOfSets = getView().findViewById(R.id.amountofSets);
 
     }
 }
