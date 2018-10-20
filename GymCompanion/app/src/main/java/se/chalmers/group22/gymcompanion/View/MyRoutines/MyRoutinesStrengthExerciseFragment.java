@@ -57,5 +57,11 @@ public class MyRoutinesStrengthExerciseFragment extends Fragment implements Obse
 
         NumberPicker amountOfSets = getView().findViewById(R.id.amountofSets);
 
+        MyRoutinesStrengthExerciseSetsAdapter adapter = new MyRoutinesStrengthExerciseSetsAdapter(
+                getActivity(), viewModel.getStrengthExerciseKilograms(), viewModel.getStrengthExerciseReps()
+        );
+        ListView listView = getView().findViewById(R.id.setsList);
+        listView.setAdapter(adapter);
+
     }
 }
