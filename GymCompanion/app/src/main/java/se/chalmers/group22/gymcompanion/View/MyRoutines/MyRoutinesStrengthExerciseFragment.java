@@ -38,6 +38,12 @@ public class MyRoutinesStrengthExerciseFragment extends Fragment implements Obse
 
     }
 
+    @Override
+    public void onPause(){
+        super.onPause();
+        viewModel.removeObserver(this);
+    }
+
     public void update(){
         TextView txtviewStrenghtExerciseName = getView().findViewById(R.id.txtEditMyRoutinesInfoRoutineName);
         NumberPicker amountOfSets = getView().findViewById(R.id.amountofSets);

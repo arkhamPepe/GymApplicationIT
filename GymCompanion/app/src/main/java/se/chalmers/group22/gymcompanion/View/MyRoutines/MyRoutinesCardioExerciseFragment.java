@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
@@ -26,7 +25,7 @@ public class MyRoutinesCardioExerciseFragment extends Fragment implements Observ
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_routine_cardioexercise, container, false);
+        return inflater.inflate(R.layout.fragment_routine_setcardioexercise, container, false);
     }
 
     @Override
@@ -37,6 +36,12 @@ public class MyRoutinesCardioExerciseFragment extends Fragment implements Observ
         update();
         viewModel.addObserver(this);
 
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        viewModel.removeObserver(this);
     }
 
     public void update() {
