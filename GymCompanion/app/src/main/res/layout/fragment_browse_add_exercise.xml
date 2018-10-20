@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+            android:text="Add to routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/addToRoutine" android:textSize="24sp"
+            android:textAlignment="viewStart" android:layout_alignBaseline="@+id/btnBrowseResultsBack"
+            android:textAllCaps="false" android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"/>
+
+    <Button
+            android:text="go back"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnExerciseInfoBack"
+            android:onClick="infoBack"/>
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnExerciseInfoBack" android:background="@color/DefaultColour">
+        <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_alignParentStart="true"
+                android:layout_marginTop="1dp"
+                android:id="@+id/listViewBrowseAddExercise"
+                android:background="@color/white"
+        />
+    </RelativeLayout>
+
+</RelativeLayout>

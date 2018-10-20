@@ -7,8 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
+
+import java.util.List;
 
 public class BrowseResultFragment extends Fragment {
 
@@ -124,7 +125,7 @@ public class BrowseResultFragment extends Fragment {
         Spinner dropdown = getView().findViewById(R.id.dropdownSpinner);
 
        //List of items to be shown in the menu
-        String[] items = viewModel.getSortFilters();
+        List<String> items = viewModel.getSortFilters();
 
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, items);

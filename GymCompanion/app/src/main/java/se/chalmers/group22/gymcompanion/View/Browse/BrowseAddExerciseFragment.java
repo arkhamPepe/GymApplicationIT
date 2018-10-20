@@ -5,14 +5,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 public class BrowseAddExerciseFragment extends Fragment {
 
-    private BrowseViewModel browseViewModel;
+    private BrowseViewModel viewModel;
     public static BrowseAddExerciseFragment getInstance() { return new BrowseAddExerciseFragment(); }
 
     @Override
@@ -29,20 +30,28 @@ public class BrowseAddExerciseFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        browseViewModel = ((BrowseActivity) getActivity()).getViewModel();
+        viewModel = ((BrowseActivity) getActivity()).getViewModel();
+
+        //************************************LISTVIEW
+        BrowseAddExerciseListAdapter adapter;
+        ListView listView = getView().findViewById(R.id.listViewBrowseAddExercise);
+        adapter = new BrowseAddExerciseListAdapter(getActivity(),
+                viewModel.getUserRoutineNames(),
+                viewModel.getUserRoutineDifficulties(),
+                viewModel.getUserRoutineAmountExercises());
+        listView.setAdapter(adapter);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         //************************************LISTVIEW
-        /*BrowseResultListAdapter adapter;
-        ListView listView = getView().findViewById(R.id.listViewExerciseInfo);
-        adapter = new BrowseResultListAdapter(getActivity(),
-                browseViewModel.getUserRoutineNames(),
-                browseViewModel.getUserRoutineDifficulties(),
-                browseViewModel.getUserRoutineAmountExercises(),
-                1);
-        listView.setAdapter(adapter);*/
+        BrowseAddExerciseListAdapter adapter;
+        ListView listView = getView().findViewById(R.id.listViewBrowseAddExercise);
+        adapter = new BrowseAddExerciseListAdapter(getActivity(),
+                viewModel.getUserRoutineNames(),
+                viewModel.getUserRoutineDifficulties(),
+                viewModel.getUserRoutineAmountExercises());
+        listView.setAdapter(adapter);
     }
 }
