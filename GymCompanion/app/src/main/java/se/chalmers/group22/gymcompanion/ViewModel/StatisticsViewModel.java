@@ -8,6 +8,7 @@ import java.util.*;
 
 public class StatisticsViewModel extends ObservableViewModel {
     private Map<Calendar, Routine> schedule;
+    private Map<Calendar, Routine> completedRoutines;
     private int currentWeekOffset = 0;
     private Map<Calendar, Double> currentGraphPoints;
     private String selectedRoutine;
@@ -19,6 +20,7 @@ public class StatisticsViewModel extends ObservableViewModel {
 
     public void update(){
         currentGraphPoints = getModel().getGraphData(currentWeekOffset);
+        completedRoutines = getModel().getUserCompletedRoutines();
         notifyObservers();
     }
 
@@ -130,6 +132,39 @@ public class StatisticsViewModel extends ObservableViewModel {
         return performances;
     }
 
+    public List<String> getRoutineNames(){
+        List<String> routineNames = new ArrayList<>();
+
+        for(Calendar c : getDates()){
+            routineNames.add(completedRoutines.get(c).getName());
+        }
+        return routineNames;
+    }
+
+    public List<String> getRoutineDates(){
+        List<String> dateNames = new ArrayList<>();
+
+        for(Calendar c : getDates()){
+            StringBuilder sb = new StringBuilder();
+
+            sb.append(c.get(Calendar.WEEK_OF_YEAR));
+            sb.append(" " + c.get(Calendar.DAY_OF_WEEK));
+            dateNames.add(sb.toString());
+        }
+        return dateNames;
+    }
+
+    private List<Calendar> getDates(){
+        List<Calendar> dates = new ArrayList<>();
+
+        for(Calendar c : completedRoutines.keySet()){
+            dates.add(c);
+        }
+        Collections.reverse(dates);
+
+        return dates;
+    }
+
     /**
      * Purpose: Gets all routines performed from a given date to the current date
      * @return treemap of all routines between a given date and current date
@@ -177,21 +212,21 @@ public class StatisticsViewModel extends ObservableViewModel {
         return getModel().getBiggestCompletedRoutineName();
     }
 
-    public List<String> getRoutineNamesWeek(){
+    private List<String> getRoutineNamesWeek(){
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date());
         cal.add(Calendar.DATE, -7);
         return getRoutineNames(cal);
     }
 
-    public List<String> getRoutineNamesMonth(){
+    private List<String> getRoutineNamesMonth(){
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date());
         cal.add(Calendar.MONTH, -1);
         return getRoutineNames(cal);
     }
 
-    public List<String> getRoutineNamesYear(){
+    private List<String> getRoutineNamesYear(){
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date());
         cal.add(Calendar.YEAR, -1);

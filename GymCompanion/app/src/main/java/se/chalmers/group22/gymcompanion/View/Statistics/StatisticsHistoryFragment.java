@@ -10,15 +10,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.HistoryListAdapter;
+import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 //import se.chalmers.group22.gymcompanion.View.HomeActivity;
 
 
 public class StatisticsHistoryFragment extends Fragment {
     /** TEMPORARY DATA */
-    private String[] routineNames = {"Chest demolisher", "Leg killer", "Back attack", "Arms mauler", "Murder your shoulders", "Chest demolisher",
+    /*private String[] routineNames = {"Chest demolisher", "Leg killer", "Back attack", "Arms mauler", "Murder your shoulders", "Chest demolisher",
             "Leg killer", "Back attack", "Chest demolisher", "Arms mauler", "Marathon Sprint", "Crossfit session"};
     private String[] dates = {"Monday w.42", "Tuesday w.42", "Thursday w.42", "Caturday w.42", "Monday w.43", "Tuesday w.43", "Thursday w.43", "Saturday w.43",
-            "Monday w.44", "Tuesday w.44", "Thursday w.44", "Saturday w.44"};
+            "Monday w.44", "Tuesday w.44", "Thursday w.44", "Saturday w.44"};*/
+
+    private StatisticsViewModel viewModel;
 
     public static StatisticsHistoryFragment newInstance() {
         StatisticsHistoryFragment fragment = new StatisticsHistoryFragment();
@@ -38,8 +41,9 @@ public class StatisticsHistoryFragment extends Fragment {
 
     public void onStart(){
         super.onStart();
+        viewModel = ((StatisticsActivity)getActivity()).getViewModel();
 
-        HistoryListAdapter adapter = new HistoryListAdapter(getActivity(), routineNames, dates);
+        HistoryListAdapter adapter = new HistoryListAdapter(getActivity(), viewModel.getRoutineNames(), viewModel.getRoutineDates());
         ListView listView = getListView();
         listView.setAdapter(adapter);
 

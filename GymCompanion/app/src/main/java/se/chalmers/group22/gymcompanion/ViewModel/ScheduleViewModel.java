@@ -116,8 +116,8 @@ public class ScheduleViewModel extends BaseViewModel {
      */
     public String getBookingButtonText(){
         if (isSelectedDateBooked())
-            return buttonBookTextEmptyDate;
-        return buttonBookTextScheduledDate;
+            return buttonBookTextScheduledDate;
+        return buttonBookTextEmptyDate;
     }
 
     /** getRoutineNames

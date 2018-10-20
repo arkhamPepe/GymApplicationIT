@@ -166,6 +166,10 @@ public class GymCompanion {
         return user.getGraphData(weekOffset);
     }
 
+    public Map<Calendar, Routine> getUserCompletedRoutines(){
+        return user.getCompletedRoutines();
+    }
+
     //Routine creation and modification
 
     public void createRoutine(){
