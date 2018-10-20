@@ -38,8 +38,9 @@ public class StatisticsHistoryDetailsFragment extends Fragment {
             String[] exerciseNames;
             int[] exerciseSets;
 
+            TextView routineName = getActivity().findViewById(R.id.txtHistoryDetailsTitle);
+            ListView exerciseList = getActivity().findViewById(R.id.listviewHistoryDetails);
 
-            TextView routineName = (TextView) getActivity().findViewById(R.id.txtHistoryDetailsTitle);
-            ListView exerciseList = (ListView) getActivity().findViewById(R.id.listviewHistoryDetails);
+
         }
 }
