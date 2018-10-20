@@ -26,7 +26,6 @@ public class StatisticsActivity extends BaseActivity {
 
     // Local fragments for the statistics activity
     private final Fragment fragmentStart = new StatisticsStartFragment();
-    private final Fragment fragmentExercises = new StatisticsExercisesFragment();
     private final Fragment fragmentHistory = new StatisticsHistoryFragment();
     private final Fragment fragmentLifetimeStats = new StatisticsLifetimeStatsFragment();
     private final Fragment fragmentHistoryDetails = new StatisticsHistoryDetailsFragment();
@@ -67,7 +66,6 @@ public class StatisticsActivity extends BaseActivity {
      * */
     private void fillFragmentsList(){
         fragments.add(fragmentStart);
-        fragments.add(fragmentExercises);
         fragments.add(fragmentHistory);
         fragments.add(fragmentLifetimeStats);
         fragments.add(fragmentHistoryDetails);
@@ -95,14 +93,6 @@ public class StatisticsActivity extends BaseActivity {
      * */
     public void goToStatisticsStart(View view){
         fo.changeToFragment(fragmentStart);
-    }
-
-    /** goToExercises(View)
-     *  Purpose: Show the page "Exercises".
-     *  (onClick-method)
-     * */
-    public void goToExercises(View view){
-        fo.changeToFragment(fragmentExercises);
     }
 
     /** goToHistory(View)
