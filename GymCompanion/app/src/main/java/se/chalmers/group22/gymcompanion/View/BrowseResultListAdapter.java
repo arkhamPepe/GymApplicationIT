@@ -51,7 +51,6 @@ public class BrowseResultListAdapter extends ArrayAdapter {
         if(amount.get(position) != 0) {
             browsePickAmountPrefix.setText(" , Exercises: " + amount.get(position).toString());
             browseType.setText("Routine");
-
         } else {
             browseType.setText("Exercise");
         }
