@@ -43,10 +43,15 @@ public class BrowseViewModel extends BaseViewModel {
 
     //Array of the different sort filters
     @Getter
-    private String[] sortFilters;
+    private List<String> sortFilters;
 
     //Current page
     private String currentPage;
+
+    //Exercise to add to a user routine
+    @Setter
+    @Getter
+    private String exerciseToAdd;
 
     //Used to separate the routines from exercises
     private List<Routine> routines;
@@ -256,6 +261,49 @@ public class BrowseViewModel extends BaseViewModel {
         return amount;
     }
 
+    /** getUserRoutineNames()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of the user's custom routines names (String)
+     * */
+    public List<String> getUserRoutineNames(){
+        List<String> names = new ArrayList<>();
+
+        for(Routine r : getModel().getUserRoutines()) {
+            names.add(r.getName());
+        }
+
+        return names;
+    }
+
+    /** getUserRoutineDifficulties()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of user routine difficulties (Double)
+     * */
+    public List<Double> getUserRoutineDifficulties(){
+        List<Double> difficulties = new ArrayList<>();
+
+        for(Routine r : getModel().getUserRoutines()) {
+            difficulties.add(r.getDifficulty());
+        }
+
+        return difficulties;
+    }
+
+    /** getUserRoutineAmountExercises()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of user routine amount of exercises (Integer)
+     * */
+    public List<Integer> getUserRoutineAmountExercises(){
+        List<Integer> amount = new ArrayList<>();
+
+        for(Routine r : getModel().getUserRoutines()) {
+            amount.add(r.getExercises().size());
+        }
+
+        return amount;
+    }
+
+
     /** getMuscleGroups()
      * Purpose: used in the arrayadapter that builds the muscle group list, to get the muscle group name
      * @return list of muscle group names (String)
@@ -268,9 +316,12 @@ public class BrowseViewModel extends BaseViewModel {
         return muscles;
     }
 
+    /** addRoutineToUser(String)
+     *  Purpose: adds a selected routine to the user
+     * @param routineName name of the clicked routine in listview
+     * */
     public void addRoutineToUser(String routineName){
-        List<Routine> routinesToBeAdded = getModel().getRoutineList();
-        for(Routine r :routinesToBeAdded) {
+        for(Routine r :getModel().getRoutineList()) {
             if(r.getName().equals(routineName)) {
                 getModel().getUser().addRoutine(r);
                 break;
@@ -278,6 +329,24 @@ public class BrowseViewModel extends BaseViewModel {
         }
     }
 
+    /** addExerciseToUserRoutine(String)
+     * Purpose: Adds the the exercise clicked in result list to the routine clicked in routineinfo fragment
+     * @param routineName the name of the routine pressed
+     * */
+    public void addExerciseToUserRoutine(String routineName){
+        for(Routine r :getModel().getUserRoutines()) {
+            if(r.getName().equals(routineName)) {
+                getModel().getUser().addExerciseToRoutine(getExerciseByName(), r);
+                break;
+            }
+        }
+    }
+
+    /** compareRoutineExercises(String)
+     * Purpose: checks whether the name is a routine or exercise name
+     * @param name name of routine or exercise
+     * @return an index depending on if the name corresponds to a routine or an exercise
+     * */
     public int compareRoutineExercises(String name){
         for(Routine r : getModel().getRoutineList()) {
             if(r.getName().equals(name)) {
@@ -290,6 +359,15 @@ public class BrowseViewModel extends BaseViewModel {
             }
         }
         return 2;
+    }
+
+    private Exercise getExerciseByName() {
+        for(Exercise e : getModel().getExerciseList()){
+            if(e.getName().equals(exerciseToAdd)) {
+                return e;
+            }
+        }
+        return null;
     }
 
     private void clearLists(){
