@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.Observer;
@@ -35,6 +36,12 @@ public class MyRoutinesStrengthExerciseFragment extends Fragment implements Obse
         viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
         update();
         viewModel.addObserver(this);
+
+        MyRoutinesStrengthExerciseSetsAdapter adapter = new MyRoutinesStrengthExerciseSetsAdapter(
+                getActivity(), viewModel.getStrengthExerciseKilograms(), viewModel.getStrengthExerciseReps()
+        );
+        ListView listView = getView().findViewById(R.id.setsList);
+        listView.setAdapter(adapter);
 
     }
 
