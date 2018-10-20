@@ -201,6 +201,22 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         return "";
     }
 
+    public List<Double> getStrengthExerciseKilograms(){
+        if(!checkIfEmptyExerciseList()) {
+            return ((StrengthExercise) getModel().getUser().getRoutines().
+                    get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getKilograms();
+        }
+        return new ArrayList<>();
+    }
+
+    public List<Integer> getStrengthExerciseReps(){
+        if(!checkIfEmptyExerciseList()) {
+            return ((StrengthExercise) getModel().getUser().getRoutines().
+                    get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getRepetitions();
+        }
+        return new ArrayList<>();
+    }
+
     private boolean checkIfEmptyRoutineList(){
         return getModel().getUser().getRoutines().isEmpty();
     }
