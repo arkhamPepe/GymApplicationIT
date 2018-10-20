@@ -47,5 +47,11 @@ public class MyRoutinesCardioExerciseFragment extends Fragment implements Observ
     public void update() {
         TextView txtViewCardioName = getView().findViewById(R.id.txtViewCardioExerciseName);
         txtViewCardioName.setText(viewModel.getExerciseName());
+
+        TextView cardioTime = getView().findViewById(R.id.cardioExerciseTime);
+        cardioTime.setText(String.valueOf(viewModel.getSelectedCardioExerciseTime()));
+
+        TextView cardioIntensity = getView().findViewById(R.id.cardioExerciseIntensity);
+        cardioIntensity.setText(viewModel.getSelectedCardioExerciseIntensity());
     }
 }

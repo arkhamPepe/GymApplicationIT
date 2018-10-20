@@ -9,5 +9,42 @@
             android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="28dp"
             android:layout_centerHorizontal="true" android:id="@+id/txtViewCardioExerciseName" android:textSize="24sp"
             android:textColor="@color/blackColour"/>
+    <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:id="@+id/button3" android:layout_alignParentTop="true" android:onClick="goBackFromExercise"/>
+    <TextView
+            android:text="Time Goal:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blackColour"
+            android:textSize="30sp"
+            android:id="@+id/textView2"
+            android:layout_alignParentTop="true" android:layout_marginTop="166dp"
+            android:layout_centerHorizontal="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blackColour"
+            android:textSize="30sp"
+            android:id="@+id/cardioExerciseTime" android:text="cardioTime" android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true" android:layout_marginTop="229dp"/>
+    <TextView
+            android:text="Intensity:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" android:id="@+id/textView8" android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:textColor="@color/blackColour"
+            android:layout_marginBottom="247dp"/>
+    <TextView
+            android:text="cardioIntensity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blackColour"
+            android:textSize="30sp"
+            android:layout_alignParentBottom="true" android:id="@+id/cardioExerciseIntensity"
+            android:layout_centerHorizontal="true" android:layout_marginBottom="176dp"/>
 
 </RelativeLayout>
