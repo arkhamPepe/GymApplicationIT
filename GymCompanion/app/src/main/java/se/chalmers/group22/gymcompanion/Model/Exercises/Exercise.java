@@ -54,7 +54,7 @@ public abstract class Exercise implements ISortable, Serializable {
     public Exercise(Exercise exercise){
         this.name = exercise.getName();
         this.difficulty = exercise.getDifficulty();
-        this.completed = false;
+        this.completed = exercise.isCompleted();
         this.muscleGroups = exercise.getMuscleGroups();
         this.description = exercise.getDescription();
         this.intensity = exercise.getIntensity();
