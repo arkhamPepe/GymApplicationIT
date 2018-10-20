@@ -1,8 +1,6 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
 import com.jjoe64.graphview.series.DataPoint;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.*;
@@ -43,17 +41,18 @@ public class StatisticsViewModel extends ObservableViewModel {
         long xValue;
         double yValue;
 
-        List<Tuple> points = new ArrayList<>();
+        List<Point> points = new ArrayList<>();
 
         for (Calendar c : currentGraphPoints.keySet()){
             xValue = c.getTime().getTime();
             yValue = currentGraphPoints.get(c);
-            points.add(new Tuple(xValue, yValue));
+            points.add(new Point(xValue, yValue));
         }
 
+        sortPoints(points);
 
         for (Calendar c : currentGraphPoints.keySet()){
-            Tuple point = points.get(index);
+            Point point = points.get(index);
             dataPoints[index] = new DataPoint(point.getX(), point.getY());
             index++;
         }
@@ -61,22 +60,23 @@ public class StatisticsViewModel extends ObservableViewModel {
         return dataPoints;
     }
 
-    private void sortTuples(List<Tuple> points){
-        Tuple t1, t2;
+    private void sortPoints(List<Point> points){
+        Point temp;
 
-        for(int i = 0; i < points.size(); i++){
-            t1 = points.get(i);
-            for(int j = 0; j < points.size()-i; j++){
-
-            }
-        }
-
+        for (int i = 0; i < points.size()-1; i++)
+            for (int j = 0; j < points.size()-i-1; j++)
+                if (points.get(j).getX() > points.get(j+1).getX()){
+                    temp = points.get(j);
+                    points.set(j, points.get(j+1));
+                    points.set(j+1, temp);
+                }
     }
-    private class Tuple {
-        double x;
-        double y;
 
-        Tuple(double x, double y){
+    private class Point {
+        private double x;
+        private double y;
+
+        Point(double x, double y){
             this.x = x;
             this.y = y;
         }
