@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
 import com.jjoe64.graphview.series.DataPoint;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.*;
@@ -9,6 +10,7 @@ public class StatisticsViewModel extends ObservableViewModel {
     private Map<Calendar, Routine> schedule;
     private int currentWeekOffset = 0;
     private Map<Calendar, Double> currentGraphPoints;
+    private String selectedRoutine;
 
     public StatisticsViewModel(){
         schedule = new HashMap<>();
@@ -18,6 +20,10 @@ public class StatisticsViewModel extends ObservableViewModel {
     public void update(){
         currentGraphPoints = getModel().getGraphData(currentWeekOffset);
         notifyObservers();
+    }
+
+    public void setSelectedRoutine(String routineName){
+        selectedRoutine = routineName;
     }
 
     public void setGraphedDateNextWeek(){
@@ -94,6 +100,36 @@ public class StatisticsViewModel extends ObservableViewModel {
         }
     }
 
+    /* TODO Control functionality when history is implemented */
+    public List<String> getHistoryExerciseNames(){
+        List<String> names = new ArrayList<>();
+
+        try {
+            for(Exercise e : getModel().getRoutineFromName(selectedRoutine).getExercises()){
+                names.add(e.getName());
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return names;
+    }
+
+    /* TODO Control functionality when history is implemented */
+    public List<Boolean> getHistoryExercisePerformedValues(){
+        List<Boolean> performances = new ArrayList<>();
+
+        try {
+            for (Exercise e : getModel().getRoutineFromName(selectedRoutine).getExercises()) {
+                performances.add(e.isCompleted());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return performances;
+    }
+
     /**
      * Purpose: Gets all routines performed from a given date to the current date
      * @return treemap of all routines between a given date and current date
@@ -120,8 +156,6 @@ public class StatisticsViewModel extends ObservableViewModel {
         }
         return routineNames;
     }
-
-
 
     public int getTotalAmountOfCompletedRoutines(){
         return getModel().getTotalAmountOfCompletedRoutines();
