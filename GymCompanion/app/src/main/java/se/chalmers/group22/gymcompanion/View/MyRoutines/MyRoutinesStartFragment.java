@@ -32,7 +32,7 @@ public class MyRoutinesStartFragment extends Fragment implements Observer {
 
     public void onStart(){
         super.onStart();
-        viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
+        viewModel = ((MyRoutinesActivity)getActivity()).getBrowseViewModel(); // Get the ViewModel
 
         MyRoutinesUserRoutinesListAdapter adapter = new MyRoutinesUserRoutinesListAdapter(getActivity(), viewModel.getRoutines());
         ListView listView = getView().findViewById(R.id.listviewMyRoutines);

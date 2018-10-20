@@ -21,17 +21,17 @@ public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {
     private List<String> exerciseNames;
 
     public MyRoutinesUserExercisesListAdapter(Activity context, List<String> exerciseNames){
-        super(context, R.layout.listitem_my_routines_pick_exercise, exerciseNames);
+        super(context, R.layout.listitem_my_routines_exercise, exerciseNames);
         this.exerciseNames = exerciseNames;
         this.context = context;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.listitem_my_routines_pick_exercise, null,true);
+        View rowView = inflater.inflate(R.layout.listitem_my_routines_exercise, null,true);
 
         //this code gets references to objects in the listview_row.xml file
-        TextView exerciseName = (TextView) rowView.findViewById(R.id.textViewExerciseName);
+        TextView exerciseName = rowView.findViewById(R.id.textViewExerciseName);
         //TextView amountOfSets = (TextView) rowView.findViewById(R.id.amountOfSetsList);
 
         //this code sets the values of the objects to values from the arrays

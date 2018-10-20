@@ -9,6 +9,20 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
+/***
+ * Title: StatisticsCalculator
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: September 27, 2018
+ *
+ * Purpose: Class for calculating statistics and graphs of workout data.
+ */
+
 public class StatisticsCalculator implements Serializable {
     private Schedule schedule;
 

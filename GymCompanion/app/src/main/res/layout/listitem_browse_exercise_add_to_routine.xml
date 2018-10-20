@@ -45,6 +45,6 @@
             android:layout_marginTop="11dp"
             android:layout_height="40dp" app:srcCompat="@android:drawable/ic_input_add"
             android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:id="@+id/btnAddExerciseRoutine"
-            android:onClick="onAddClick"
+            android:onClick="onAddExerciseToRoutineClick"
             style="@android:style/Widget.ImageButton"/>
 </RelativeLayout>

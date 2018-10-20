@@ -5,10 +5,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.util.List;
+
+/***
+ * Title: BrowseResultListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Adds the list elements to the Browse Result List GUI
+ */
 
 public class BrowseResultListAdapter extends ArrayAdapter {
 
@@ -18,52 +33,48 @@ public class BrowseResultListAdapter extends ArrayAdapter {
     //to store the list of routine names
     private final List<String> names;
     private final List<Double> difficulties;
-    private final List<String> amount;
-    private final List<String> type;
+    private final List<Integer> amount;
+    private int index;
 
     public BrowseResultListAdapter(Activity context, List<String> nameArrayParam, List<Double> difficultyArrayParam,
-                                   List<String> amountArrayParam, List<String> typeArrayParam){
+                                   List<Integer> amountArrayParam, int index){
 
         super(context, R.layout.listitem_browse , nameArrayParam);
 
         this.context = context;
         this.names = nameArrayParam;
         this.difficulties = difficultyArrayParam;
-        this.type = typeArrayParam;
         this.amount = amountArrayParam;
-    }
-
-    public BrowseResultListAdapter(Activity context, List<String> nameArrayParam,
-                                   List<Double> difficultyArrayParam, List<String> typeArrayParam){
-
-        super(context, R.layout.listitem_browse , nameArrayParam);
-
-        this.context = context;
-        this.names = nameArrayParam;
-        this.difficulties = difficultyArrayParam;
-        this.type = typeArrayParam;
-        this.amount = null;
+        this.index = index;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.listitem_browse, null,true);
+        View rowView;
+        if(index == 0) {
+            rowView = inflater.inflate(R.layout.listitem_browse, null,true);
+        } else {
+            rowView = inflater.inflate(R.layout.listitem_browse_exercise_add_to_routine, null,true);
+        }
 
         //this code gets references to objects in the listview_row.xml file
         TextView browseName = (TextView) rowView.findViewById(R.id.txtName);
-        TextView browseAmountExercises = (TextView) rowView.findViewById(R.id.txtSchedulePickAmountNumber);
         TextView browsePickAmountPrefix = (TextView) rowView.findViewById(R.id.txtBrowsePickAmountPrefix);
         TextView browseDifficulty = (TextView) rowView.findViewById(R.id.txtBrowseDifficulty);
         TextView browseType = (TextView) rowView.findViewById(R.id.txtType);
+        ImageButton browseAdd = (ImageButton) rowView.findViewById(R.id.btnAddExerciseRoutine);
 
         //this code sets the values of the objects to values from the arrays
         browseName.setText(names.get(position));
-        if(amount != null) {
-            browseAmountExercises.setText(amount.get(position));
-            browsePickAmountPrefix.setText("Exercises:  ");
+        if(amount.get(position) != 0) {
+            browsePickAmountPrefix.setText(" , Exercises: " + amount.get(position).toString());
+            browseType.setText("Routine");
+        } else {
+            browseType.setText("Exercise");
         }
-        browseDifficulty.setText(difficulties.get(position).toString());
-        browseType.setText(type.get(position));
+        browseDifficulty.setText("Difficulty: " + difficulties.get(position).toString());
+        browseAdd.setTag(names.get(position));
+
         return rowView;
 
     }

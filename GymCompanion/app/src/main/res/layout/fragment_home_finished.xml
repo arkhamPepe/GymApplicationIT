@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewExercisesCompleted"
             android:layout_alignTop="@+id/textView9"
-            android:layout_alignStart="@+id/textViewTimeSpent" android:textColor="@color/colorPrimaryDark"/>
+            android:layout_alignStart="@+id/textViewRoutineName" android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:text="8"
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewTotalExercises"
             android:layout_alignTop="@+id/textView3"
-            android:layout_alignStart="@+id/textViewTimeSpent" android:textColor="@color/colorPrimaryDark"/>
+            android:layout_alignStart="@+id/textViewRoutineName" android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
             android:text="Workout Finished!"
@@ -45,15 +45,14 @@
             android:layout_centerHorizontal="true" android:background="@color/DefaultColour"/>
 
     <TextView
-            android:text="Time Spent:"
+            android:text="Routine Name:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="125dp"
             android:id="@+id/textView1"
             android:textSize="18sp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="100dp" android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark" android:layout_alignStart="@+id/textView4"/>
 
     <TextView
             android:text="Exercises Completed:"
@@ -78,11 +77,11 @@
     <TextView
             android:text="50"
             android:textSize="18sp"
-            android:layout_width="42dp"
+            android:layout_width="156dp"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewTimeSpent"
+            android:id="@+id/textViewRoutineName"
             android:layout_alignTop="@+id/textView1"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="109dp" android:textColor="@color/colorPrimaryDark"/>
+            android:layout_marginEnd="19dp" android:textColor="@color/colorPrimaryDark"/>
 
 </RelativeLayout>

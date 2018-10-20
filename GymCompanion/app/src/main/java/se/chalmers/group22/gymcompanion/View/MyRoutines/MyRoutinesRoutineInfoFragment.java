@@ -33,7 +33,7 @@ public class MyRoutinesRoutineInfoFragment extends Fragment implements Observer 
     @Override
     public void onStart(){
         super.onStart();
-        viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
+        viewModel = ((MyRoutinesActivity)getActivity()).getBrowseViewModel(); // Get the ViewModel
 
         viewModel.addObserver(this);
 

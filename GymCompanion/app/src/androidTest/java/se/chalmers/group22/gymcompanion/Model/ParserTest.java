@@ -7,10 +7,9 @@ import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ParserTest {
-
     private Parser parser;
 
     @Before

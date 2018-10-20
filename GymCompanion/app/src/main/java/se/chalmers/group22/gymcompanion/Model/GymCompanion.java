@@ -14,6 +14,20 @@ import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.Sorting
 
 import java.util.*;
 
+/***
+ * Title: GymCompanion
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Class for handling external access to model classes.
+ */
+
 @Getter
 public class GymCompanion {
     @Setter
@@ -36,14 +50,12 @@ public class GymCompanion {
     }
 
     public void startRoutine(){
-        startRoutine(user.getTodaysRoutine());
+        setActiveRoutine(user.getTodaysRoutine());
     }
 
-    public void startRoutine(Routine routine){
-        /*TODO Start the routine for the current day*/
+    public void setActiveRoutine(Routine routine){
         isRoutineActive = true;
         activeRoutine = routine;
-        /*TODO redirect to "Workout in progress"-page*/
     }
 
     //Active Routine Methods
@@ -58,6 +70,14 @@ public class GymCompanion {
             return 0;
         }
         return activeRoutine.getExercises().size();
+    }
+
+    public void toggleCompletionExerciseInARWithIndex(int index, boolean completed){
+        activeRoutine.getExercises().get(index).toggleCompletion(completed);
+    }
+
+    public void completeActiveRoutine(){
+        user.finishRoutine(activeRoutine);
     }
 
     //Active Exercise Methods
@@ -153,6 +173,18 @@ public class GymCompanion {
         user.addExerciseToRoutine(exercise, routine);
     }
 
+    public void addExerciseToRoutine(int selectedRoutineIndex, String exerciseName){
+        Exercise e = null;
+        for (Exercise ex: new ArrayList<>(exerciseList)) {
+            if(ex.getName().equals(exerciseName)){
+                e = ex;
+                break;
+            }
+        }
+
+        user.addExerciseToRoutine(selectedRoutineIndex,e );
+    }
+
 
 
     //Routine and Exercise Getters
@@ -169,12 +201,17 @@ public class GymCompanion {
     }
 
 
-    public List<Routine> getRoutines() {
+
+    public List<Routine> getUserRoutines() {
         return user.getRoutines();
     }
 
     public Routine getRoutineFromDay(Calendar day){
         return user.getRoutineFromDay(day);
+    }
+
+    public Routine getRoutineFromName(String name){
+        return user.getRoutineFromName(name);
     }
 
     public String getRoutineNameOnDate(int year, int month, int day) {
@@ -243,40 +280,50 @@ public class GymCompanion {
 
     public <T extends ISortable> List<T> filterRoutines(List<T> toBeFiltered){
         List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(exerciseList);
+        newList.removeAll(new ArrayList<>(routineList));
         return newList;
     }
 
     public <T extends ISortable> List<T> filterExercises(List<T> toBeFiltered){
         List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(routineList);
+        newList.removeAll(new ArrayList<>(exerciseList));
         return newList;
     }
 
-    public List<ISortable> search(String search){
+    public List<Routine> searchRoutine(String search){
         if (search.equals("")) {
-            return getRoutinesAndExercises();
+            return new ArrayList<>(routineList);
         }
+        List<Routine> newList = new ArrayList<>();
 
-        List<ISortable> newList = new ArrayList<>();
-
-        for (ISortable re: getRoutinesAndExercises()) {
-            if(search.toLowerCase().equals(re.getName().toLowerCase())){
-                newList.add(re);
-            }
-        }
-
-        for (ISortable re: getRoutinesAndExercises()) {
-            if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
-                newList.add(re);
-            }
-        }
-
-        for (ISortable re: getRoutinesAndExercises()) {
-            if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
-                newList.add(re);
-            }
+        for (Routine r: new ArrayList<>(routineList)) {
+            matchSearchWithName(search,r,newList);
         }
         return newList;
     }
+
+    public List<Exercise> searchExercise(String search){
+        if (search.equals("")) {
+            return new ArrayList<>(exerciseList);
+        }
+        List<Exercise> newList = new ArrayList<>();
+
+        for (Exercise e: new ArrayList<>(exerciseList)) {
+            matchSearchWithName(search,e,newList);
+        }
+        return newList;
+    }
+    
+    private <T extends ISortable> void matchSearchWithName(String search, T re, List<T> newList){
+        if(search.toLowerCase().equals(re.getName().toLowerCase())){
+            newList.add(re);
+        }
+        else if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
+            newList.add(re);
+        }
+        else if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
+            newList.add(re);
+        }
+    }
+
 }

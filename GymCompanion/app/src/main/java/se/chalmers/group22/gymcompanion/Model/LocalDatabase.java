@@ -9,6 +9,21 @@ import se.chalmers.group22.gymcompanion.R;
 import java.io.*;
 import java.util.List;
 
+/***
+ * Title: LocalDatabase
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 1, 2018
+ *
+ * Purpose: Class for deserializing stored User-object. Also handles access to loading
+ *          the deserialized object and parsed objects from JSON-files.
+ */
+
 public class LocalDatabase {
     private static final String FILENAME = "database.txt";
 

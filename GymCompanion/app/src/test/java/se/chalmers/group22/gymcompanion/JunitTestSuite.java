@@ -11,6 +11,7 @@ import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExerciseTest;
 @Suite.SuiteClasses({
         CardioExerciseTest.class,
         StrengthExerciseTest.class,
+        GymCompanionTest.class,
         GymCompanionSearchTest.class,
         GymCompanionSortAndFilterTest.class,
         RoutineTest.class,

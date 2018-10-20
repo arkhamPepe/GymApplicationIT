@@ -10,6 +10,20 @@ import se.chalmers.group22.gymcompanion.R;
 
 import java.util.List;
 
+/***
+ * Title: ScheduleListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 8, 2018
+ *
+ * Purpose: Adds the list elements to the Schedule Pick Routine List GUI
+ */
+
 public class ScheduleListAdapter extends ArrayAdapter {
     //to reference the Activity
     private final Activity context;
@@ -35,7 +49,7 @@ public class ScheduleListAdapter extends ArrayAdapter {
         //this code gets references to objects in the listview_row.xml file
         TextView routineName = rowView.findViewById(R.id.txtSchedulePickRoutineName);
         TextView routineDifficulty = rowView.findViewById(R.id.txtSchedulePickDifficultyNumber);
-        TextView routineExercisesAmount = rowView.findViewById(R.id.txtSchedulePickAmountNumber);
+        TextView routineExercisesAmount = rowView.findViewById(R.id.txtBrowsePickAmountNumber);
 
         //this code sets the values of the objects to values from the arrays
         routineName.setText(routineNames.get(position));

@@ -29,10 +29,18 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         notifyObservers();
     }
 
-    /*public void addExercise(){
-        getModel().addExercise(,routines.get(selectedRoutineIndex));
+    public void addExercise(String exerciseName){
+        getModel().addExerciseToRoutine(selectedRoutineIndex, exerciseName);
 
-    }*/
+    }
+
+    public List<Double> getRoutineExercisesDifficulty(){
+        List<Double> exercisesDifficulty = new ArrayList<>();
+        for (Exercise exercise : getModel().getExerciseList()){
+            exercisesDifficulty.add(exercise.getDifficulty());
+        }
+        return exercisesDifficulty;
+    }
 
     public List getMuscleGroups(){
         List<String> muscles = new ArrayList<>();
@@ -71,13 +79,22 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         return exerciseNames;
     }
 
+    public List<Integer> checkIfNoRoutine(){
+        List<Integer> amountlist = new ArrayList<>();
+        int size = getExerciseNamesWithMG(getSelectedMuscleGroup()).size();
+        for (int i = 0; i < size; i++){
+            amountlist.add(0);
+        }
+        return amountlist;
+    }
+
     public void setSelectedMGIndex(int index){
         selectedMGIndex = index;
         notifyObservers();
     }
 
-    public String getSelectedMuscleGroup(){
-        return muscleGroups.get(selectedMGIndex).toString();
+    public MUSCLE_GROUP getSelectedMuscleGroup(){
+        return muscleGroups.get(selectedMGIndex);
     }
 
     public String getSelectedRoutineExerciseAmount(){

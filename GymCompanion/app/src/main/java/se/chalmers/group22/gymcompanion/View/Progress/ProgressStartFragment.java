@@ -2,12 +2,10 @@ package se.chalmers.group22.gymcompanion.View.Progress;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList.ProgressExpandListAdapter;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList.ProgressExpandListChild;
@@ -15,6 +13,20 @@ import se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList.Progres
 import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
 
 import java.util.ArrayList;
+
+/***
+ * Title: ProgressStartFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Progress Start Page in the app
+ */
 
 public class ProgressStartFragment extends Fragment {
 

@@ -3,8 +3,8 @@ package se.chalmers.group22.gymcompanion.View.Browse;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
@@ -13,6 +13,20 @@ import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/***
+ * Title: BrowseActivity
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: September 20, 2018
+ *
+ * Purpose: Manages user interaction and handles which Fragments are in view of the user when this activity is active
+ */
 
 public class BrowseActivity extends BaseActivity {
 
@@ -24,6 +38,7 @@ public class BrowseActivity extends BaseActivity {
     private final Fragment fragmentSelection = new BrowseSelectionFragment();
     private final Fragment fragmentResult = new BrowseResultFragment();
     private final Fragment fragmentRecommended = new BrowseRecommendedFragment();
+    private final Fragment fragmentExerciseInfo = new BrowseExerciseAddToRoutineFragment();
     private final Fragment navigationFragment = new NavigationFragment();
     private List<Fragment> fragments = new ArrayList<>();
     private final FragmentManager fm = getSupportFragmentManager();
@@ -60,6 +75,7 @@ public class BrowseActivity extends BaseActivity {
         fragments.add(fragmentRecommended);
         fragments.add(fragmentResult);
         fragments.add(fragmentSelection);
+        fragments.add(fragmentExerciseInfo);
     }
 
     public void goToStart(View view) {
@@ -121,6 +137,37 @@ public class BrowseActivity extends BaseActivity {
         browseViewModel.setIndex(i);
 
         fragmentResult.onResume();
+    }
+
+    public void goToExerciseInfo(){
+        fo.changeToFragment(fragmentExerciseInfo);
+    }
+
+    public void onAddClick(View view){
+        String s = view.getTag().toString();
+
+        int index = browseViewModel.compareRoutineExercises(s);
+
+        //ROUTINE
+        if(index == 0) {
+            browseViewModel.addRoutineToUser(s);
+            Toast.makeText(this, "Routine added to My Routines!", Toast.LENGTH_SHORT).show();
+        } //EXERCISE
+        else if (index == 1) {
+            browseViewModel.setExerciseToAdd(s);
+            goToExerciseInfo();
+        }
+    }
+
+    public void onAddExerciseToRoutineClick(View view) {
+        String s = view.getTag().toString();
+        browseViewModel.addExerciseToUserRoutine(s);
+        Toast.makeText(this, "Exercise added to the routine!", Toast.LENGTH_SHORT).show();
+        fragmentExerciseInfo.onResume();
+    }
+
+    public void infoBack(View view){
+        fo.changeToFragment(fragmentResult);
     }
 
     public BrowseViewModel getViewModel(){
