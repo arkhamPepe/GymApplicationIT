@@ -60,6 +60,10 @@ public class GymCompanion {
         return activeRoutine.getExercises().size();
     }
 
+    public boolean startRoutineIsSet(){
+        return activeRoutine != null;
+    }
+
     //Active Exercise Methods
 
     public String getActiveExerciseName(){
