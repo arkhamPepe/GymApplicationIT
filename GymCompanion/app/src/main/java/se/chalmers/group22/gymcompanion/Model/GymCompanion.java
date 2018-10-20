@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
@@ -37,6 +38,7 @@ public class GymCompanion {
 
     public void startRoutine(){
         startRoutine(user.getTodaysRoutine());
+        saveUser();
     }
 
     public void startRoutine(Routine routine){
@@ -44,12 +46,14 @@ public class GymCompanion {
         isRoutineActive = true;
         activeRoutine = routine;
         /*TODO redirect to "Workout in progress"-page*/
+        saveUser();
     }
 
     //Active Routine Methods
 
     public void setActiveExerciseInActiveRoutine(int index){
         activeExercise = activeRoutine.getExercises().get(index);
+        saveUser();
     }
 
     public int getAmountOfExercisesInActiveRoutine(){
@@ -141,6 +145,7 @@ public class GymCompanion {
         Routine routine = getRoutine(routineName);
 
         user.scheduleAddRoutine(routine, day);
+        saveUser();
     }
 
 
@@ -152,6 +157,7 @@ public class GymCompanion {
 
     public void addExercise(Exercise exercise, Routine routine){
         user.addExerciseToRoutine(exercise, routine);
+        saveUser();
     }
 
     public void addExerciseToRoutine(int selectedRoutineIndex, String exerciseName){
@@ -164,6 +170,7 @@ public class GymCompanion {
         }
 
         user.addExerciseToRoutine(selectedRoutineIndex,e );
+        saveUser();
     }
 
     public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){
@@ -176,6 +183,7 @@ public class GymCompanion {
         }
 
         user.removeExerciseFromRoutine(selectedRoutineIndex,e);
+        saveUser();
     }
 
 
@@ -312,6 +320,13 @@ public class GymCompanion {
         else if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
             newList.add(re);
         }
+    }
+
+    // User save data
+
+    private void saveUser(){
+        LocalDatabase db = LocalDatabase.getInstance();
+        db.saveUser(user);
     }
 
 }

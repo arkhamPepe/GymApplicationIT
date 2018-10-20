@@ -107,14 +107,14 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public String getSelectedRoutineExerciseAmount(){
         if (!checkIfEmptyRoutineList()){
-            return Integer.toString(getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().size());
+            return Integer.toString(getModel().getUserRoutines().get(selectedRoutineIndex).getExercises().size());
         }
         return "";
     }
 
     public List<Routine> getRoutines(){
         if (!checkIfEmptyRoutineList()) {
-            return getModel().getUser().getRoutines();
+            return getModel().getUserRoutines();
         }
         return new ArrayList<>();
     }
@@ -131,35 +131,37 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public String getSelectedRoutineName(){
         if (!checkIfEmptyRoutineList()){
-             return  getModel().getUser().getRoutines().get(selectedRoutineIndex).getName();
+             return  getModel().getUserRoutines().get(selectedRoutineIndex).getName();
         }
         return "";
     }
 
     public List<Exercise> getExercises(){
         if (!checkIfEmptyExerciseList()){
-            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises();
+            return getModel().getUserRoutines().get(selectedRoutineIndex).getExercises();
         }
         return new ArrayList<>();
     }
 
     public void setActiveRoutine(){
         if (!checkIfEmptyRoutineList()){
-            getModel().setActiveRoutine(getModel().getUser().getRoutines().get(selectedRoutineIndex));
+            getModel().setActiveRoutine(getModel().getUserRoutines().get(selectedRoutineIndex));
 
         }
     }
     //TODO fix all Law of demeter deal-breakers
     public String getExerciseName(){
         if (!checkIfEmptyExerciseList()) {
-            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getName();
+            return getModel().getUserRoutines().get(selectedRoutineIndex).
+                    getExercises().get(selectedExerciseIndex).getName();
         }
         return "";
     }
 
     public String getSelectedCardioExerciseIntensity(){
         if(!checkIfEmptyExerciseList()) {
-            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getIntensity().toString();
+            return getModel().getUserRoutines().get(selectedRoutineIndex).
+                    getExercises().get(selectedExerciseIndex).getIntensity().toString();
         }
         return "";
     }
@@ -167,15 +169,16 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public int getSelectedCardioExerciseTime(){
         if (!checkIfEmptyExerciseList() && checkTypeExercise() !=1){return ((CardioExercise)
-                (getModel().getUser()
-                        .getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex))).getTimespent();
+                (getModel().getUserRoutines().get(selectedRoutineIndex).
+                        getExercises().get(selectedExerciseIndex))).getTimespent();
         }
         return 0;
     }
 
     private Exercise getSelectedExecise(){
         if(!checkIfEmptyExerciseList()){
-        return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex);
+        return getModel().getUserRoutines().
+                get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex);
         }
         return null;
     }
@@ -190,12 +193,14 @@ public class MyRoutinesViewModel extends ObservableViewModel {
     }
 
     public String getExerciseGuide(){
-        return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getVideoguide();
+        return getModel().getUserRoutines().get(selectedRoutineIndex).
+                getExercises().get(selectedExerciseIndex).getVideoguide();
     }
 
     public String getExerciseDescription(){
         if(!checkIfEmptyExerciseList()){
-            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getDescription();
+            return getModel().getUserRoutines().get(selectedRoutineIndex).
+                    getExercises().get(selectedExerciseIndex).getDescription();
 
         }
         return "";
@@ -203,7 +208,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public List<Double> getStrengthExerciseKilograms(){
         if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1) {
-            return ((StrengthExercise) getModel().getUser().getRoutines().
+            return ((StrengthExercise) getModel().getUserRoutines().
                     get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getKilograms();
         }
         return new ArrayList<>();
@@ -211,7 +216,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public List<Integer> getStrengthExerciseReps(){
         if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1) {
-            return ((StrengthExercise) getModel().getUser().getRoutines().
+            return ((StrengthExercise) getModel().getUserRoutines().
                     get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getRepetitions();
         }
         return new ArrayList<>();
@@ -219,7 +224,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public int getStrengthExerciseSets(){
         if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1){
-            return ((StrengthExercise) getModel().getUser().getRoutines().
+            return ((StrengthExercise) getModel().getUserRoutines().
                     get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getSets();
         }
         return 0;
@@ -227,31 +232,31 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public void updateStrengthExerciseSets(int sets){
         if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1){
-            ((StrengthExercise) getModel().getUser().getRoutines().
+            ((StrengthExercise) getModel().getUserRoutines().
                     get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).updateSets(sets);
         }
     }
 
     public void updateSelectedExerciseKilogramInSet(int index, int value){
-        StrengthExercise se = (StrengthExercise) ( getModel().getUser().getRoutines().
+        StrengthExercise se = (StrengthExercise) ( getModel().getUserRoutines().
                 get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex));
 
         se.setKilogram(index, value);
     }
 
     public void updateSelectedExerciseRepsInSet(int index, int value){
-        StrengthExercise se = (StrengthExercise) ( getModel().getUser().getRoutines().
+        StrengthExercise se = (StrengthExercise) ( getModel().getUserRoutines().
                 get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex));
         se.setRepetitions(index, value);
     }
 
     private boolean checkIfEmptyRoutineList(){
-        return getModel().getUser().getRoutines().isEmpty();
+        return getModel().getUserRoutines().isEmpty();
     }
 
     private boolean checkIfEmptyExerciseList(){
         if (!checkIfEmptyRoutineList()) {
-            return getModel().getUser().getRoutines().get(selectedRoutineIndex).getExercises().isEmpty();
+            return getModel().getUserRoutines().get(selectedRoutineIndex).getExercises().isEmpty();
         }
         return true;
     }
