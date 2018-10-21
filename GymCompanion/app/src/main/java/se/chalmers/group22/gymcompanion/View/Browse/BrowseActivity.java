@@ -131,12 +131,10 @@ public class BrowseActivity extends BaseActivity {
     }
 
     public void goToResultFromRecommended(View view) {
-        fo.changeToFragment(fragmentResult);
-
         int i = Integer.valueOf((String)view.getTag());
         viewModel.setIndex(i);
-
-        fragmentResult.onResume();
+        viewModel.filter();
+        fo.changeToFragment(fragmentResult);
     }
 
     private void goToAddExercise(){

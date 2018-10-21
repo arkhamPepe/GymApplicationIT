@@ -20,6 +20,7 @@ public class BrowseResultFragment extends Fragment implements Observer {
     private CheckBox cbxRoutines;
     private CheckBox cbxExercises;
     private Spinner dropDown;
+    private ListView listView;
     public static BrowseMuscleGroupsFragment getInstance() {
         return new BrowseMuscleGroupsFragment();
     }
@@ -41,6 +42,24 @@ public class BrowseResultFragment extends Fragment implements Observer {
 
         viewModel.addObserver(this);
 
+        //************************************LISTVIEW
+        BrowseResultListAdapter adapter;
+        listView = getView().findViewById(R.id.listViewBrowseResult);
+        adapter = new BrowseResultListAdapter(getActivity(),
+                viewModel.getRoutineAndExerciseNames(),
+                viewModel.getRoutineAndExerciseDifficulties(),
+                viewModel.getRoutineAmountExercises(),
+                0);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Toast.makeText(getActivity(), "ListItem pressed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         cbxRoutines = getView().findViewById(R.id.cbxRoutines);
         cbxExercises = getView().findViewById(R.id.cbxExercises);
 
@@ -60,7 +79,7 @@ public class BrowseResultFragment extends Fragment implements Observer {
                        cbxRoutines.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
                    }
-                   update();
+                   //update();
                }
            }
         );
@@ -77,7 +96,7 @@ public class BrowseResultFragment extends Fragment implements Observer {
                        cbxExercises.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
                    }
-                   update();
+                   //update();
                }
            }
         );
@@ -103,16 +122,6 @@ public class BrowseResultFragment extends Fragment implements Observer {
         String t = "Browsing: " + viewModel.getCurrentPage();
         this.currentMuscleGroup.setText(t);
 
-
-        //************************************LISTVIEW
-        BrowseResultListAdapter adapter;
-        ListView listView = getView().findViewById(R.id.listViewBrowseResult);
-        adapter = new BrowseResultListAdapter(getActivity(),
-                viewModel.getRoutineAndExerciseNames(),
-                viewModel.getRoutineAndExerciseDifficulties(),
-                viewModel.getRoutineAmountExercises(),
-                0);
-        listView.setAdapter(adapter);
 
         //************************************DROPDOWN
         //DropDown menu from xml
@@ -165,7 +174,7 @@ public class BrowseResultFragment extends Fragment implements Observer {
 
         //************************************LISTVIEW
         BrowseResultListAdapter adapter;
-        ListView listView = getView().findViewById(R.id.listViewBrowseResult);
+        listView = getView().findViewById(R.id.listViewBrowseResult);
         adapter = new BrowseResultListAdapter(getActivity(),
                 viewModel.getRoutineAndExerciseNames(),
                 viewModel.getRoutineAndExerciseDifficulties(),

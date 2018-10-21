@@ -31,7 +31,6 @@ public class BrowseViewModel extends ObservableViewModel {
     /** index
      * @value 0 = search selection, 1 = musclegroup, 2 = beginner, 3 = mix
      * */
-    @Setter
     @Getter
     private int index;
     @Setter
@@ -49,11 +48,10 @@ public class BrowseViewModel extends ObservableViewModel {
     private String currentPage;
 
     //Exercise to add to a user routine
-    @Setter
     @Getter
+    @Setter
     private String exerciseToAdd;
 
-    @Setter
     @Getter
     private int currentSortIndex;
 
@@ -101,7 +99,7 @@ public class BrowseViewModel extends ObservableViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
-        sortRoutinesAndExercises(0);
+        //sortRoutinesAndExercises(0);
         this.query = query;
 
         notifyObservers();
@@ -110,17 +108,24 @@ public class BrowseViewModel extends ObservableViewModel {
     /** filter(FilterStrategy)
      * Purpose: clears all lists and applies a filter depending on strategy
      * (see se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy)
-     * @param strategy is the chosen filterstrategy
      * */
-    public void filter(FilterStrategy strategy){
+    public void filter(){
         clearLists();
+        FilterStrategy strategy;
+        if(index == 2){
+            strategy = new BeginnerFilter();
+        } else if (index == 3) {
+            strategy = new MixedFilter();
+        } else {
+            strategy = new BeginnerFilter();
+        }
         routines.addAll(getModel().filter(getModel().getRoutineList(), strategy));
         exercises.addAll(getModel().filter(getModel().getExerciseList(), strategy));
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
 
-        sortRoutinesAndExercises(0);
+        //sortRoutinesAndExercises(0);
 
         notifyObservers();
     }
@@ -144,7 +149,7 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
 
-        sortRoutinesAndExercises(0);
+        //sortRoutinesAndExercises(0);
 
         notifyObservers();
     }
@@ -215,11 +220,9 @@ public class BrowseViewModel extends ObservableViewModel {
                 currentPage = getMuscleGroupString();
                 break;
             case 2:
-                filter(new BeginnerFilter());
                 currentPage = "Beginner";
                 break;
             case 3:
-                filter(new MixedFilter());
                 currentPage = "Mix";
                 break;
             default:
@@ -424,5 +427,10 @@ public class BrowseViewModel extends ObservableViewModel {
         exercises.clear();
         filteredExercises.clear();
         filteredRoutines.clear();
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+        //notifyObservers();
     }
 }
