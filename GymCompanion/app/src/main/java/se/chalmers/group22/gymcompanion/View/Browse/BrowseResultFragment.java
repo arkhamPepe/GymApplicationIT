@@ -52,14 +52,6 @@ public class BrowseResultFragment extends Fragment implements Observer {
                 0);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                Toast.makeText(getActivity(), "ListItem pressed", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         cbxRoutines = getView().findViewById(R.id.cbxRoutines);
         cbxExercises = getView().findViewById(R.id.cbxExercises);
 
@@ -134,21 +126,19 @@ public class BrowseResultFragment extends Fragment implements Observer {
                 android.R.layout.simple_spinner_dropdown_item, items);
         dropDown.setAdapter(spinnerAdapter);
 
-        //TODO FIX SPINNER
-        //Sorting spinner
-
-        //dropDown.setSelection(viewModel.getCurrentSortIndex());
+        //Gets current index from viewmodel
+        dropDown.setSelection(viewModel.getCurrentSortIndex());
 
         dropDown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
-                //viewModel.setCurrentSortIndex(position);
-                //viewModel.sortRoutinesAndExercises(position);
-            } // to close the onItemSelected
+                viewModel.setCurrentSortIndex(position);
+                viewModel.sortRoutinesAndExercises(position);
+            }
             public void onNothingSelected(AdapterView<?> parent)
             {
-
+                //Nothing
             }
         });
 
@@ -171,6 +161,9 @@ public class BrowseResultFragment extends Fragment implements Observer {
         this.currentMuscleGroup = getView().findViewById(R.id.currentMuscleGroup);
         String t = "Browsing: " + viewModel.getCurrentPage();
         this.currentMuscleGroup.setText(t);
+
+        //gets current index from the viewmodel
+        dropDown.setSelection(viewModel.getCurrentSortIndex());
 
         //************************************LISTVIEW
         BrowseResultListAdapter adapter;

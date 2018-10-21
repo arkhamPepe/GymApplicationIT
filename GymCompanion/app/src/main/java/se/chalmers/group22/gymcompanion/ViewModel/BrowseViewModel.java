@@ -28,11 +28,11 @@ import java.util.List;
  */
 public class BrowseViewModel extends ObservableViewModel {
 
-    /** index
-     * @value 0 = search selection, 1 = musclegroup, 2 = beginner, 3 = mix
-     * */
+    // page index
     @Getter
+    @Setter
     private int index;
+
     @Setter
     private List<MUSCLE_GROUP> muscleGroups;
 
@@ -52,7 +52,9 @@ public class BrowseViewModel extends ObservableViewModel {
     @Setter
     private String exerciseToAdd;
 
+    //Index from the dropdown spinner
     @Getter
+    @Setter
     private int currentSortIndex;
 
     //Used to separate the routines from exercises
@@ -99,7 +101,7 @@ public class BrowseViewModel extends ObservableViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
-        //sortRoutinesAndExercises(0);
+        sortRoutinesAndExercises(0);
         this.query = query;
 
         notifyObservers();
@@ -125,7 +127,7 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
 
-        //sortRoutinesAndExercises(0);
+        sortRoutinesAndExercises(0);
 
         notifyObservers();
     }
@@ -149,7 +151,7 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
 
-        //sortRoutinesAndExercises(0);
+        sortRoutinesAndExercises(0);
 
         notifyObservers();
     }
@@ -427,10 +429,5 @@ public class BrowseViewModel extends ObservableViewModel {
         exercises.clear();
         filteredExercises.clear();
         filteredRoutines.clear();
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-        //notifyObservers();
     }
 }
