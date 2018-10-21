@@ -48,6 +48,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public void setSelectedRoutineName(String name){
         getModel().setSelectedRoutineName(selectedRoutineIndex,name);
+        notifyObservers();
     }
 
     public List<Double> getRoutineExercisesDifficulty(){
