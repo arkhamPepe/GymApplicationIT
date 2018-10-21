@@ -12,6 +12,7 @@ public class StatisticsViewModel extends ObservableViewModel {
     private int currentWeekOffset = 0;
     private Map<Calendar, Double> currentGraphPoints;
     private String selectedRoutine;
+    String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday", "Friday", "Saturday" };
 
     public StatisticsViewModel(){
         schedule = new HashMap<>();
@@ -147,8 +148,8 @@ public class StatisticsViewModel extends ObservableViewModel {
         for(Calendar c : getDates()){
             StringBuilder sb = new StringBuilder();
 
-            sb.append(c.get(Calendar.WEEK_OF_YEAR));
-            sb.append(" " + c.get(Calendar.DAY_OF_WEEK));
+            sb.append("Week " + c.get(Calendar.WEEK_OF_YEAR));
+            sb.append(" " + strDays[c.get(Calendar.DAY_OF_WEEK)]);
             dateNames.add(sb.toString());
         }
         return dateNames;
