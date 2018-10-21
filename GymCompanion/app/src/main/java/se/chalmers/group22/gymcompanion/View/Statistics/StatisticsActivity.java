@@ -11,6 +11,7 @@ import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /** StatisticsActivity
@@ -69,6 +70,14 @@ public class StatisticsActivity extends BaseActivity {
         fragments.add(fragmentHistory);
         fragments.add(fragmentLifetimeStats);
         fragments.add(fragmentHistoryDetails);
+    }
+
+    /** onRoutineClick
+     * Purpose: Show details about clicked routine.
+     */
+    public void onRoutineClick(Calendar time){
+        viewModel.setSelectedDate(time);
+        goToHistoryDetails();
     }
 
     /** onClickButtonNextWeek
