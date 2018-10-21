@@ -12,20 +12,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /***
-        * Title: Exercise
-        *
-        * @author Alexander Bergsten
-        * @author Marcus Svensson
-        * @author Erik Bock
-        * @author Augustas Eidikis
-        * @author Daniel Olsson
-        *
-        * Created: October 19, 2018
-        *
-        * Purpose: An abstract class containing attributes and methods concerning physical exercises
-        * Used by: GymCompanion.java, Parser.java, LocalDatabase.java, StatisticsCalculator.java, User.java, Routine.java.
-        * Uses: MUSCLE_GROUP, INTENSITY
-        */
+ * Title: Exercise
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 19, 2018
+ *
+ * Purpose: An abstract class containing attributes and methods concerning physical exercises
+ * Used by: GymCompanion.java, GymCompanionSortAndFilterTest.java, RoutineTest.java,
+ *      UserTest.java, ParserTest.java, Parser.java, StatisticsCalculator.java,
+ *      User.java, Routine.java, BrowseViewModel.java, MyRoutinesViewModel.java,
+ *      StatisticsViewModel.java, CardioExercise.java, StrengthExercise.java,
+ *      GymCompanionTest.java, LocalDatabase.java, MainViewModel.java
+ * Uses: INTENSITY.java, ISortable.java, MUSCLE_GROUP.java
+ *
+*/
 
 @Getter
 public abstract class Exercise implements ISortable, Serializable {
@@ -98,7 +103,10 @@ public abstract class Exercise implements ISortable, Serializable {
         this.intensity = intensity;
     }
 
-
+    /** calculateScore
+     *
+     * @return
+     */
     abstract public double calculateScore();
 
     public void complete() {

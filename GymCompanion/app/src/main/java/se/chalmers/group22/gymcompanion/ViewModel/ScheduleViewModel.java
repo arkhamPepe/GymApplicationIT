@@ -27,15 +27,15 @@ public class ScheduleViewModel extends BaseViewModel {
     /** scheduleSelectedRoutine
      * Purpose: Schedule the selected routine on the selected day.
      */
-    public void scheduleSelectedRoutine(String routineName){
-        getModel().scheduleRoutine(getSelectedDate(), routineName);
+    public void scheduleSelectedRoutine(int routineIndex){
+        getModel().scheduleRoutine(getSelectedDate(), routineIndex);
 
         int x = new GregorianCalendar().get(Calendar.DAY_OF_MONTH);
         int y = new GregorianCalendar().get(Calendar.YEAR);
 
         if (selectedDay == x &&
                 selectedYear == y){
-            getModel().setActiveRoutine(getModel().getRoutineFromName(routineName));
+            getModel().setActiveRoutine(getModel().getRoutineFromIndex(routineIndex));
         }
     }
 

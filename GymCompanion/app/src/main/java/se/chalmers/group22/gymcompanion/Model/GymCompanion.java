@@ -29,6 +29,12 @@ import java.util.*;
  * Created: October 5, 2018
  *
  * Purpose: Class for handling external access to model classes.
+ * Used by: GymCompanionSearchTest.java, GymCompanionSortAndFilterTest.java,
+ *      GymCompanionTest.java, BaseViewModel.java
+ * Uses: User.java, Routine.java, Exercise.java,
+ *      StrengthExercise.java, CardioExercise.java,
+ *      ISortable.java, SortingStrategy.java, FilterStrategy.java,
+ *      GymCompanionContext.java, LocalDatabase.java
  */
 
 @Getter
@@ -66,6 +72,10 @@ public class GymCompanion {
             isRoutineActive = true;
             activeRoutine = new Routine(routine);
         }
+    }
+
+    public Routine getRoutineFromIndex(int routineIndex){
+        return user.getRoutine(routineIndex);
     }
 
     //Active Routine Methods
@@ -165,6 +175,10 @@ public class GymCompanion {
 
     public boolean isScheduled(Calendar day){
         return user.scheduleDayHasRoutine(day);
+    }
+
+    public void scheduleRoutine(Calendar day, int routineIndex){
+        user.scheduleAddRoutine(user.getRoutine(routineIndex), day);
     }
 
     public void scheduleRoutine(Calendar day, String routineName){

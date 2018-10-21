@@ -57,8 +57,8 @@ public class ScheduleActivity extends BaseActivity {
         fragments.add(pickRoutineFragment);
     }
 
-    public void scheduleRoutine(String routineName){
-        viewModel.scheduleSelectedRoutine(routineName);
+    public void scheduleRoutine(int routineIndex){
+        viewModel.scheduleSelectedRoutine(routineIndex);
     }
 
     public void goToPickRoutine(View view){

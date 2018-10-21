@@ -10,18 +10,22 @@ import java.util.List;
 import java.io.Serializable;
 
 /***
-        * Title: StrengthExercise
-        *
-        * @author Alexander Bergsten
-        * @author Marcus Svensson
-        * @author Erik Bock
-        * @author Augustas Eidikis
-        * @author Daniel Olsson
-        *
-        * Created: October 19, 2018
-        *
-        * Purpose: (Subclass to Exercise) contains more precise attributes and methods concerning etrenght exercises
-        */
+ * Title: StrengthExercise
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 19, 2018
+ *
+ * Purpose: (Subclass to Exercise) contains more precise attributes and methods concerning etrenght exercises
+ * Used by: StrengthExerciseTest.java, MyRoutinesViewModel.java, StrengthExercise.java,
+ *      GymCompanionSortAndFilterTest.java, RoutineTest.java, Parser.java
+ *
+ * Uses:
+ */
 
 @Getter
 public class StrengthExercise extends Exercise implements Serializable {

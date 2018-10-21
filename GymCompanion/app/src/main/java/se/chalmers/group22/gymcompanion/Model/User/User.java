@@ -295,6 +295,10 @@ public class User implements Serializable {
         return "No Routines Completed";
     }
 
+    public Routine getRoutine(int index){
+        return routines.get(index);
+    }
+
     public List<Exercise> getRoutineExercises(int routineIndex){
         if(!routines.isEmpty()) {
             return routines.get(routineIndex).getExercises();

@@ -19,6 +19,8 @@ import java.util.List;
  * Created: October 19, 2018
  *
  * Purpose: Filters the easiests exercises/routines in the local storage.
+ * Used by: BrowseViewModel.java, GymCompanionSortAndFilterTest.java
+ * Uses: ISortable.java, MUSCLE_GROUP
  */
 
 public class BeginnerFilter implements FilterStrategy {

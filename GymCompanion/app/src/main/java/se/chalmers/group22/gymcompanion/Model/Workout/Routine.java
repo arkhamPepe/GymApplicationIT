@@ -23,6 +23,11 @@ import java.util.List;
  * Created: September 21, 2018
  *
  * Purpose: Class for handling routine data.
+ * Used by: ScheduleViewModel.java, Statistics.java, StatisticsViewModel.java, User.java,
+ *          BrowseViewModel.java, GymCompanion.java, GymCompanionSortAndFilterTest.java,
+ *          GymCompanionTest.java, HomeViewModel.java, MainViewModel.java, MyRoutinesUserRoutinesListAdapter.java,
+ *          UserTest.java
+ * Uses: Exercise.java, MUSCLE_GROUP
  */
 
 @Getter

@@ -16,6 +16,8 @@ import java.util.List;
  * Created: October 19, 2018
  *
  * Purpose: A common interface for all filters so that the strategy pattern can be implemented.
+ * Used by: BeginnerFilter.java, MixedFilter.java, BrowseViewModel.java, GymCompanion.java
+ * Uses: ISortable.java
  */
 
 public interface FilterStrategy {

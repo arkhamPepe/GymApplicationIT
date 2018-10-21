@@ -49,9 +49,9 @@ public class SchedulePickRoutineFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                ((ScheduleActivity)getActivity()).scheduleRoutine(routineNames.get(position));
-                Toast.makeText(getActivity(), "Added!", Toast.LENGTH_SHORT).show();
+                ((ScheduleActivity)getActivity()).scheduleRoutine(position);
                 ((ScheduleActivity) getActivity()).goToStart(view);
+                Toast.makeText(getActivity(), "Added!", Toast.LENGTH_SHORT).show();
             }
         });
     }

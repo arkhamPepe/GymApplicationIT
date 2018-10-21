@@ -29,6 +29,8 @@ import java.util.List;
  *
  * Purpose: Class for parsing JSON-structured data files in 'res/raw/'-folder to
  *          convert it to objects of corresponding types.
+ * Used by: LocalDatabase.java, ParserTest.java
+ * Uses:    Exercise.java, Routine.java, CardioExercise.java, StrengthExercise.java,
  */
 
 @Getter
