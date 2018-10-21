@@ -23,6 +23,8 @@ import java.util.List;
         * Created: October 19, 2018
         *
         * Purpose: An abstract class containing attributes and methods concerning physical exercises
+        * Used by: GymCompanion.java, Parser.java, LocalDatabase.java, StatisticsCalculator.java, User.java, Routine.java.
+        * Uses: MUSCLE_GROUP, INTENSITY
         */
 
 @Getter
