@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.Strategies.ISortable;
+import se.chalmers.group22.gymcompanion.Model.ISortable;
 import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
 
 import java.io.Serializable;

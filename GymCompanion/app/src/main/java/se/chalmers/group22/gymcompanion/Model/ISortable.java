@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.Model.Strategies;
+package se.chalmers.group22.gymcompanion.Model;
 
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 

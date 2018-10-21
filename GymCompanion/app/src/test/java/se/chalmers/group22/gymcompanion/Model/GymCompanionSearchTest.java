@@ -1,6 +1,5 @@
 package se.chalmers.group22.gymcompanion.Model;
 import org.junit.Test;
-import se.chalmers.group22.gymcompanion.Model.Strategies.ISortable;
 import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.ArrayList;
