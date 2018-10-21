@@ -336,8 +336,10 @@ public class GymCompanion {
     // User save data
 
     private void saveUser(){
-        LocalDatabase db = LocalDatabase.getInstance();
-        db.saveUser(user);
+        if(GymCompanionContext.getContext() != null) {
+            LocalDatabase db = LocalDatabase.getInstance();
+            db.saveUser(user);
+        }
     }
 
 }
