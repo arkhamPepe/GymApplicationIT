@@ -1,14 +1,18 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
 import com.jjoe64.graphview.series.DataPoint;
+import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.*;
 
 public class StatisticsViewModel extends ObservableViewModel {
     private Map<Calendar, Routine> schedule;
+    private Map<Calendar, Routine> completedRoutines;
     private int currentWeekOffset = 0;
     private Map<Calendar, Double> currentGraphPoints;
+    private Calendar selectedDate;
+    String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday", "Friday", "Saturday" };
 
     public StatisticsViewModel(){
         schedule = new HashMap<>();
@@ -17,6 +21,12 @@ public class StatisticsViewModel extends ObservableViewModel {
 
     public void update(){
         currentGraphPoints = getModel().getGraphData(currentWeekOffset);
+        completedRoutines = getModel().getUserCompletedRoutines();
+        notifyObservers();
+    }
+
+    public void setSelectedDate(Calendar time){
+        selectedDate = time;
         notifyObservers();
     }
 
@@ -94,6 +104,86 @@ public class StatisticsViewModel extends ObservableViewModel {
         }
     }
 
+    /* TODO Control functionality when history is implemented */
+    public List<String> getHistoryExerciseNames(){
+        List<String> names = new ArrayList<>();
+
+        /*try {
+            for(Exercise e : getModel().getRoutineFromName(selectedRoutine).getExercises()){
+                names.add(e.getName());
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }*/
+        try {
+            for(Exercise e : completedRoutines.get(selectedDate).getExercises()){
+                names.add(e.getName());
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return names;
+    }
+
+    /* TODO Control functionality when history is implemented */
+    public List<Boolean> getHistoryExercisePerformedValues(){
+        List<Boolean> performances = new ArrayList<>();
+
+        try {
+            for(Exercise e : completedRoutines.get(selectedDate).getExercises()) {
+                performances.add(e.isCompleted());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return performances;
+    }
+
+    public List<String> getRoutineNames(){
+        List<String> routineNames = new ArrayList<>();
+
+        for(Calendar c : getDates()){
+            routineNames.add(completedRoutines.get(c).getName());
+        }
+        return routineNames;
+    }
+
+    public List<Calendar> getRoutineDates(){
+        List<Calendar> dates = new ArrayList<>();
+
+        for(Calendar c : getDates()){
+            dates.add(c);
+        }
+
+        return dates;
+    }
+
+    public List<String> getRoutineDatesFormatted(){
+        List<String> dateNames = new ArrayList<>();
+
+        for(Calendar c : getDates()){
+            StringBuilder sb = new StringBuilder();
+
+            sb.append("Week " + c.get(Calendar.WEEK_OF_YEAR));
+            sb.append(" " + strDays[c.get(Calendar.DAY_OF_WEEK)]);
+            dateNames.add(sb.toString());
+        }
+        return dateNames;
+    }
+
+    private List<Calendar> getDates(){
+        List<Calendar> dates = new ArrayList<>();
+
+        for(Calendar c : completedRoutines.keySet()){
+            dates.add(c);
+        }
+        Collections.reverse(dates);
+
+        return dates;
+    }
+
     /**
      * Purpose: Gets all routines performed from a given date to the current date
      * @return treemap of all routines between a given date and current date
@@ -121,8 +211,6 @@ public class StatisticsViewModel extends ObservableViewModel {
         return routineNames;
     }
 
-
-
     public int getTotalAmountOfCompletedRoutines(){
         return getModel().getTotalAmountOfCompletedRoutines();
     }
@@ -143,21 +231,21 @@ public class StatisticsViewModel extends ObservableViewModel {
         return getModel().getBiggestCompletedRoutineName();
     }
 
-    public List<String> getRoutineNamesWeek(){
+    private List<String> getRoutineNamesWeek(){
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date());
         cal.add(Calendar.DATE, -7);
         return getRoutineNames(cal);
     }
 
-    public List<String> getRoutineNamesMonth(){
+    private List<String> getRoutineNamesMonth(){
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date());
         cal.add(Calendar.MONTH, -1);
         return getRoutineNames(cal);
     }
 
-    public List<String> getRoutineNamesYear(){
+    private List<String> getRoutineNamesYear(){
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date());
         cal.add(Calendar.YEAR, -1);

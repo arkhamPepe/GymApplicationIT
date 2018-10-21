@@ -38,12 +38,18 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public void createRoutine(){
         getModel().createRoutine();
+        setSelectedRoutineIndex(getModel().getUser().getRoutines().size()-1);
         notifyObservers();
     }
 
     public void addExercise(String exerciseName){
         getModel().addExerciseToRoutine(selectedRoutineIndex, exerciseName);
 
+    }
+
+    public void setSelectedRoutineName(String name){
+        getModel().setSelectedRoutineName(selectedRoutineIndex,name);
+        notifyObservers();
     }
 
     public List<Double> getRoutineExercisesDifficulty(){

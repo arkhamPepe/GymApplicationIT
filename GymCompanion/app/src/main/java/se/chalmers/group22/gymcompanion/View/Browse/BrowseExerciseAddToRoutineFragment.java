@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 public class BrowseExerciseAddToRoutineFragment extends Fragment {

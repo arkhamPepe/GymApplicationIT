@@ -51,6 +51,17 @@ public class GymCompanion {
     }
 
     public void startRoutine(){
+        startRoutine(user.getTodaysRoutine());
+        saveUser();
+    }
+
+    public void startRoutine(Routine routine){
+        /*TODO Start the routine for the current day*/
+        isRoutineActive = true;
+        activeRoutine = routine;
+        /*TODO redirect to "Workout in progress"-page*/
+        saveUser();
+
         if(exerciseList != null) {
             for (Exercise e : exerciseList) {
                 e.toggleCompletion(false);
@@ -176,6 +187,10 @@ public class GymCompanion {
         return user.getGraphData(weekOffset);
     }
 
+    public Map<Calendar, Routine> getUserCompletedRoutines(){
+        return user.getCompletedRoutines();
+    }
+
     //Routine creation and modification
 
     public void createRoutine(){
@@ -202,7 +217,7 @@ public class GymCompanion {
 
     public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){
         Exercise e = null;
-        for (Exercise ex: new ArrayList<>(exerciseList)) {
+        for (Exercise ex: new ArrayList<>(user.getRoutineExercises(selectedRoutineIndex))) {
             if(ex.getName().equals(exerciseName)){
                 e = ex;
                 break;
@@ -213,9 +228,13 @@ public class GymCompanion {
         saveUser();
     }
 
+    public void setSelectedRoutineName(int position, String name){
+        user.getRoutines().get(position).setName(name);
+    }
+
     public void removeRoutine(String routineName){
         Routine r = null;
-        for (Routine ro: new ArrayList<>(routineList)) {
+        for (Routine ro: new ArrayList<>(user.getRoutines())) {
             if(ro.getName().equals(routineName)){
                 r= ro;
                 break;
@@ -368,8 +387,10 @@ public class GymCompanion {
     // User save data
 
     private void saveUser(){
-        LocalDatabase db = LocalDatabase.getInstance();
-        db.saveUser(user);
+        if(GymCompanionContext.getContext() != null) {
+            LocalDatabase db = LocalDatabase.getInstance();
+            db.saveUser(user);
+        }
     }
 
 }

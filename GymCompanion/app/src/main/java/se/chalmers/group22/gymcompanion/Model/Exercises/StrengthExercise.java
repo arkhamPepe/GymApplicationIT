@@ -122,8 +122,7 @@ public class StrengthExercise extends Exercise implements Serializable {
             this.sets++;
         }
     }
-
-    public Exercise clone () {
+    public Exercise clone(){
         return new StrengthExercise(this);
     }
 }
