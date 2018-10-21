@@ -4,9 +4,12 @@ import org.junit.Before;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.User.User;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.CardioExercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
+
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -72,12 +75,7 @@ public class StatisticsCalculatorTest {
         user.addExerciseToRoutine(exercise,routines.get(0));
         user.getSchedule().addRoutine(routines.get(0),calendar);
     }
-
-    @Test
-    public void getSpecificExerciseTest(){
-        assertFalse(user.getStatCalc().getSpecificExercise(exercise).isEmpty());
-    }
-
+    
     @Test
     public void calculateStrengthScoreTest(){
         assertTrue(!user.getGraphData(0).isEmpty());
