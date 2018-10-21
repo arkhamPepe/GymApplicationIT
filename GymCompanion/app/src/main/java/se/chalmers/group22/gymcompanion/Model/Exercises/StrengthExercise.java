@@ -36,7 +36,7 @@ public class StrengthExercise extends Exercise implements Serializable {
     @Getter(AccessLevel.NONE)
     private List<Double> kilograms;
 
-    public StrengthExercise(){
+    public StrengthExercise() {
         super();
     }
 
@@ -44,6 +44,7 @@ public class StrengthExercise extends Exercise implements Serializable {
         super(name, difficulty, muscleGroups, description, videoguide);
         this.repetitions = repetitions;
     }
+
     public StrengthExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, List<Integer> repetitions, int sets, List<Double> kilograms, INTENSITY intensity) {
         super(name, difficulty, muscleGroups, description, videoguide, intensity);
         this.repetitions = repetitions;
@@ -58,10 +59,10 @@ public class StrengthExercise extends Exercise implements Serializable {
         this.kilograms = exercise.kilograms;
     }
 
-    public double calculateScore(){
+    public double calculateScore() {
         double sum = 0;
         int kgIndex = 0;
-        for (Integer repetition: repetitions){
+        for (Integer repetition : repetitions) {
             sum += repetition * kilograms.get(kgIndex);
             kgIndex++;
         }
@@ -69,7 +70,7 @@ public class StrengthExercise extends Exercise implements Serializable {
     }
 
     // FOR TESTING
-    public StrengthExercise(String name, int sets, List<Integer> reps, List<Double> kilograms){
+    public StrengthExercise(String name, int sets, List<Integer> reps, List<Double> kilograms) {
         super(name);
         this.sets = sets;
         this.repetitions = reps;
@@ -82,7 +83,7 @@ public class StrengthExercise extends Exercise implements Serializable {
     }
 
     // FOR TESTING
-    public StrengthExercise(List<MUSCLE_GROUP> muscleGroups, double difficulty){
+    public StrengthExercise(List<MUSCLE_GROUP> muscleGroups, double difficulty) {
         super(muscleGroups, difficulty);
     }
 
@@ -98,17 +99,16 @@ public class StrengthExercise extends Exercise implements Serializable {
         return new ArrayList<>(kilograms);
     }
 
-<<<<<<< HEAD
-    public void setKilogram(int index, double value){
+    public void setKilogram(int index, double value) {
         kilograms.set(index, value);
     }
 
-    public void setRepetitions(int index, int value){
+    public void setRepetitions(int index, int value) {
         repetitions.set(index, value);
     }
 
-    public void updateSets(int sets){
-        if(sets < 0 || sets > 5){
+    public void updateSets(int sets) {
+        if (sets < 0 || sets > 5) {
             return;
         }
         while (sets < this.sets) {
@@ -116,14 +116,14 @@ public class StrengthExercise extends Exercise implements Serializable {
             repetitions.remove(repetitions.size() - 1);
             this.sets--;
         }
-        while(sets > this.sets){
+        while (sets > this.sets) {
             kilograms.add(20.0);
             repetitions.add(10);
             this.sets++;
         }
-=======
-    public Exercise clone(){
+    }
+
+    public Exercise clone () {
         return new StrengthExercise(this);
->>>>>>> master
     }
 }

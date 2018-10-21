@@ -51,25 +51,11 @@ public class GymCompanion {
     }
 
     public void startRoutine(){
-<<<<<<< HEAD
-        startRoutine(user.getTodaysRoutine());
-        saveUser();
-    }
-
-    public void startRoutine(Routine routine){
-        /*TODO Start the routine for the current day*/
-        isRoutineActive = true;
-        activeRoutine = routine;
-        /*TODO redirect to "Workout in progress"-page*/
-        saveUser();
-=======
-
         if(exerciseList != null) {
             for (Exercise e : exerciseList) {
                 e.toggleCompletion(false);
             }
         }
-
         setActiveRoutine(user.getTodaysRoutine());
     }
 
@@ -78,7 +64,6 @@ public class GymCompanion {
             isRoutineActive = true;
             activeRoutine = new Routine(routine);
         }
->>>>>>> master
     }
 
     //Active Routine Methods
