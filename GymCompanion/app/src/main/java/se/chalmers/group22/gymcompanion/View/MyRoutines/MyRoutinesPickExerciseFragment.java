@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.BrowseResultListAdapter;
+import se.chalmers.group22.gymcompanion.View.Browse.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 public class MyRoutinesPickExerciseFragment extends Fragment implements Observer {

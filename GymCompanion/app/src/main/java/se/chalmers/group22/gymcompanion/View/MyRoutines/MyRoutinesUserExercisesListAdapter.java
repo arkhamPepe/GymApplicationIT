@@ -18,10 +18,12 @@ public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {
 
     //to store exercises
     private List<String> exerciseNames;
+    private List<Integer> sets;
 
-    public MyRoutinesUserExercisesListAdapter(Activity context, List<String> exerciseNames){
+    public MyRoutinesUserExercisesListAdapter(Activity context, List<String> exerciseNames, List<Integer> sets){
         super(context, R.layout.listitem_my_routines_exercise, exerciseNames);
         this.exerciseNames = exerciseNames;
+        this.sets = sets;
         this.context = context;
     }
 
@@ -31,13 +33,17 @@ public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {
 
         //this code gets references to objects in the listview_row.xml file
         TextView exerciseName = rowView.findViewById(R.id.textViewExerciseName);
-        //TextView amountOfSets = (TextView) rowView.findViewById(R.id.amountOfSetsList);
+        TextView amountOfSets = (TextView) rowView.findViewById(R.id.textViewListItemExercisesSets);
+
 
         ImageButton btnremoveExercise = rowView.findViewById(R.id.btnRemoveExercise);
         btnremoveExercise.setTag(exerciseNames.get(position));
 
         //this code sets the values of the objects to values from the arrays
         exerciseName.setText(exerciseNames.get(position));
+        String setsAmountText = (sets.get(position) == 0) ? "" : sets.get(position).toString();
+        amountOfSets.setText(setsAmountText);
+
         return rowView;
 
     }

@@ -35,23 +35,23 @@ public class BrowseActivity extends BaseActivity {
      * */
     private static final int index = 1;
     private final Fragment fragmentStart = new BrowseStartFragment();
-    private final Fragment fragmentSelection = new BrowseSelectionFragment();
+    private final Fragment fragmentSelection = new BrowseMuscleGroupsFragment();
     private final Fragment fragmentResult = new BrowseResultFragment();
     private final Fragment fragmentRecommended = new BrowseRecommendedFragment();
-    private final Fragment fragmentExerciseInfo = new BrowseExerciseAddToRoutineFragment();
+    private final Fragment fragmentAddExercise = new BrowseAddExerciseFragment();
     private final Fragment navigationFragment = new NavigationFragment();
     private List<Fragment> fragments = new ArrayList<>();
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;
 
-    private BrowseViewModel browseViewModel;
+    private BrowseViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
 
-        browseViewModel = new BrowseViewModel();
+        viewModel = new BrowseViewModel();
 
         //Sends the activity index to NavigationFragment via Bundle
         Bundle navBundle = new Bundle();
@@ -75,7 +75,7 @@ public class BrowseActivity extends BaseActivity {
         fragments.add(fragmentRecommended);
         fragments.add(fragmentResult);
         fragments.add(fragmentSelection);
-        fragments.add(fragmentExerciseInfo);
+        fragments.add(fragmentAddExercise);
     }
 
     public void goToStart(View view) {
@@ -92,7 +92,7 @@ public class BrowseActivity extends BaseActivity {
 
     public void resultBack(View view){
 
-        switch(browseViewModel.getIndex()){
+        switch(viewModel.getIndex()){
             case 0:
                 fo.changeToFragment(fragmentStart);
                 break;
@@ -115,55 +115,52 @@ public class BrowseActivity extends BaseActivity {
 
         String x;
         x = s.replace(" ", "_");
-        browseViewModel.setMuscleGroup(x);
-        browseViewModel.setIndex(1);
-        browseViewModel.filter(x);
-        fragmentResult.onResume();
+        viewModel.setMuscleGroup(x);
+        viewModel.setIndex(1);
+        viewModel.filter(x);
+        //fragmentResult.onResume();
     }
 
     public void goToResultFromSearch(String s){
 
         fo.changeToFragment(fragmentResult);
 
-        browseViewModel.setIndex(0);
-        browseViewModel.search(s);
-        fragmentResult.onResume();
+        viewModel.setIndex(0);
+        viewModel.search(s);
+        //fragmentResult.onResume();
     }
 
     public void goToResultFromRecommended(View view) {
-        fo.changeToFragment(fragmentResult);
-
         int i = Integer.valueOf((String)view.getTag());
-        browseViewModel.setIndex(i);
-
-        fragmentResult.onResume();
+        viewModel.setIndex(i);
+        viewModel.filter();
+        fo.changeToFragment(fragmentResult);
     }
 
-    public void goToExerciseInfo(){
-        fo.changeToFragment(fragmentExerciseInfo);
+    private void goToAddExercise(){
+        fo.changeToFragment(fragmentAddExercise);
     }
 
     public void onAddClick(View view){
         String s = view.getTag().toString();
 
-        int index = browseViewModel.compareRoutineExercises(s);
+        int index = viewModel.compareRoutineExercises(s);
 
         //ROUTINE
         if(index == 0) {
-            browseViewModel.addRoutineToUser(s);
+            viewModel.addRoutineToUser(s);
             Toast.makeText(this, "Routine added to My Routines!", Toast.LENGTH_SHORT).show();
         } //EXERCISE
         else if (index == 1) {
-            browseViewModel.setExerciseToAdd(s);
-            goToExerciseInfo();
+            viewModel.setExerciseToAdd(s);
+            goToAddExercise();
         }
     }
 
     public void onAddExerciseToRoutineClick(View view) {
         String s = view.getTag().toString();
-        browseViewModel.addExerciseToUserRoutine(s);
+        viewModel.addExerciseToUserRoutine(s);
         Toast.makeText(this, "Exercise added to the routine!", Toast.LENGTH_SHORT).show();
-        fragmentExerciseInfo.onResume();
     }
 
     public void infoBack(View view){
@@ -171,7 +168,7 @@ public class BrowseActivity extends BaseActivity {
     }
 
     public BrowseViewModel getViewModel(){
-        return browseViewModel;
+        return viewModel;
     }
 
 }

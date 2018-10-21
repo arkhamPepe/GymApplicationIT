@@ -18,13 +18,15 @@ import android.content.Context;
  */
 
 public class GymCompanionContext extends Application {
-    private static Context context;
+    private static GymCompanionContext context;
 
+    @Override
     public void onCreate(){
         super.onCreate();
-        context = getApplicationContext();
+        context = this;
     }
-    public static Context getContext(){
+
+    public static GymCompanionContext getContext(){
         return context;
     }
 }
