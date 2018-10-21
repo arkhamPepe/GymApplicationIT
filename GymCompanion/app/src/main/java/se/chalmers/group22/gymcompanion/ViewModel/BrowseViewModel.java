@@ -28,9 +28,7 @@ import java.util.List;
  */
 public class BrowseViewModel extends ObservableViewModel {
 
-    /** index
-     * @value 0 = search selection, 1 = musclegroup, 2 = beginner, 3 = mix
-     * */
+    //
     @Setter
     @Getter
     private int index;

@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   activity_schedule.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   September 21 2018
+//
+// Purpose  :   Acts as a container for both the fragments it displays and the navigation bar at the bottom
+// Used by  :   ScheduleActivity.java
+// Uses     :   fragment_navigation.xml
+//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
