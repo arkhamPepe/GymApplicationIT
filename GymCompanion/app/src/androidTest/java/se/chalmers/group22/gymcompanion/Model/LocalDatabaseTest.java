@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 import org.junit.Before;
 import org.junit.Test;
+import se.chalmers.group22.gymcompanion.Model.DataStorage.LocalDatabase;
 
 import static org.junit.Assert.*;
 

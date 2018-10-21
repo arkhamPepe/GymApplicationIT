@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.Model.Exercises;
+package se.chalmers.group22.gymcompanion.Model.Workout.Exercises;
 
 import org.junit.Before;
 import org.junit.Test;

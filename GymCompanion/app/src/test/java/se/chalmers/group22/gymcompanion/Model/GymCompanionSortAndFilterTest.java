@@ -4,14 +4,15 @@ package se.chalmers.group22.gymcompanion.Model;
 import org.junit.Before;
 import org.junit.Test;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.MixedFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.AscendingAlphabetic;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.AscendingDifficulty;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.DescendingAlphabetic;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.DescendingDifficulty;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,7 +1,8 @@
-package se.chalmers.group22.gymcompanion.Model;
+package se.chalmers.group22.gymcompanion.Model.Schedule;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -22,7 +23,7 @@ import java.util.*;
  */
 
 @Getter
-public class Schedule implements Serializable, ISchedule {
+public class Schedule implements Serializable {
 
     private Reminder reminder;
     private Calendar calendar = new GregorianCalendar();

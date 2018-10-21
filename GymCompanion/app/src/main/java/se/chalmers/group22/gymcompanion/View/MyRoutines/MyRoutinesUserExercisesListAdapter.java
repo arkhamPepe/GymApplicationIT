@@ -7,10 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {

@@ -1,18 +1,14 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
 import lombok.Getter;
-import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
-import se.chalmers.group22.gymcompanion.Model.Observer;
-import se.chalmers.group22.gymcompanion.Model.Routine;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.CardioExercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
-import java.nio.channels.Channel;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 public class MyRoutinesViewModel extends ObservableViewModel {
 
