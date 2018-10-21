@@ -18,7 +18,7 @@ public class StatisticsHistoryRoutineInfoListAdapter extends ArrayAdapter {
 
     public StatisticsHistoryRoutineInfoListAdapter(Activity context, List<String> exerciseNames, List<Boolean> exercisePerformedValues){
 
-        super(context, R.layout.listitem_history , exerciseNames);
+        super(context, R.layout.listitem_statistics_history_details , exerciseNames);
 
         this.context = context;
         this.exerciseNames = exerciseNames;
@@ -30,7 +30,7 @@ public class StatisticsHistoryRoutineInfoListAdapter extends ArrayAdapter {
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.listitem_history, null,true);
+        View rowView = inflater.inflate(R.layout.listitem_statistics_history_details, null,true);
 
         TextView txtExerciseNames = rowView.findViewById(R.id.txtStatisticsHistoryDetailsExerciseName);
         CheckBox checkBoxExercisePerformed = rowView.findViewById(R.id.checkboxStatisticsHistoryDetails);

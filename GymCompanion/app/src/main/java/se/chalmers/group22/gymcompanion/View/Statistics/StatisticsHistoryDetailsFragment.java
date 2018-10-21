@@ -8,12 +8,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.List;
 
-public class StatisticsHistoryDetailsFragment extends Fragment {
+public class StatisticsHistoryDetailsFragment extends Fragment implements Observer {
 
     private StatisticsViewModel viewModel;
 
@@ -36,11 +37,18 @@ public class StatisticsHistoryDetailsFragment extends Fragment {
     public void onStart(){
         super.onStart();
         viewModel = ((StatisticsActivity)getActivity()).getViewModel();
+        viewModel.addObserver(this);
 
         update();
     }
 
-    private void update(){
+    @Override
+    public void onPause(){
+        super.onPause();
+        viewModel.removeObserver(this);
+    }
+
+    public void update(){
         List<String> names = viewModel.getHistoryExerciseNames();
         List<Boolean> performances = viewModel.getHistoryExercisePerformedValues();
 
@@ -50,12 +58,12 @@ public class StatisticsHistoryDetailsFragment extends Fragment {
         ListView exerciseList = getActivity().findViewById(R.id.listviewHistoryDetails);
         exerciseList.setAdapter(adapter);
 
-        exerciseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*exerciseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 //((StatisticsActivity)getActivity()).goToHistoryDetails();
             }
-        });
+        });*/
     }
 }

@@ -6,11 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.HistoryListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
+
+import java.util.Calendar;
+import java.util.List;
 //import se.chalmers.group22.gymcompanion.View.HomeActivity;
 
 
@@ -43,7 +45,7 @@ public class StatisticsHistoryFragment extends Fragment {
         super.onStart();
         viewModel = ((StatisticsActivity)getActivity()).getViewModel();
 
-        HistoryListAdapter adapter = new HistoryListAdapter(getActivity(), viewModel.getRoutineNames(), viewModel.getRoutineDates());
+        HistoryListAdapter adapter = new HistoryListAdapter(getActivity(), viewModel.getRoutineNames(), viewModel.getRoutineDatesFormatted());
         ListView listView = getListView();
         listView.setAdapter(adapter);
 
@@ -51,7 +53,7 @@ public class StatisticsHistoryFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                ((StatisticsActivity)getActivity()).goToHistoryDetails();
+                ((StatisticsActivity)getActivity()).onRoutineClick(viewModel.getRoutineDates().get(position));
             }
         });
 

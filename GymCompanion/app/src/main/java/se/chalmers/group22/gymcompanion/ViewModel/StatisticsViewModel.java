@@ -11,7 +11,7 @@ public class StatisticsViewModel extends ObservableViewModel {
     private Map<Calendar, Routine> completedRoutines;
     private int currentWeekOffset = 0;
     private Map<Calendar, Double> currentGraphPoints;
-    private String selectedRoutine;
+    private Calendar selectedDate;
     String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday", "Friday", "Saturday" };
 
     public StatisticsViewModel(){
@@ -25,8 +25,9 @@ public class StatisticsViewModel extends ObservableViewModel {
         notifyObservers();
     }
 
-    public void setSelectedRoutine(String routineName){
-        selectedRoutine = routineName;
+    public void setSelectedDate(Calendar time){
+        selectedDate = time;
+        notifyObservers();
     }
 
     public void setGraphedDateNextWeek(){
@@ -107,8 +108,15 @@ public class StatisticsViewModel extends ObservableViewModel {
     public List<String> getHistoryExerciseNames(){
         List<String> names = new ArrayList<>();
 
-        try {
+        /*try {
             for(Exercise e : getModel().getRoutineFromName(selectedRoutine).getExercises()){
+                names.add(e.getName());
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }*/
+        try {
+            for(Exercise e : completedRoutines.get(selectedDate).getExercises()){
                 names.add(e.getName());
             }
         } catch (Exception e){
@@ -123,7 +131,7 @@ public class StatisticsViewModel extends ObservableViewModel {
         List<Boolean> performances = new ArrayList<>();
 
         try {
-            for (Exercise e : getModel().getRoutineFromName(selectedRoutine).getExercises()) {
+            for(Exercise e : completedRoutines.get(selectedDate).getExercises()) {
                 performances.add(e.isCompleted());
             }
         } catch (Exception e) {
@@ -142,7 +150,17 @@ public class StatisticsViewModel extends ObservableViewModel {
         return routineNames;
     }
 
-    public List<String> getRoutineDates(){
+    public List<Calendar> getRoutineDates(){
+        List<Calendar> dates = new ArrayList<>();
+
+        for(Calendar c : getDates()){
+            dates.add(c);
+        }
+
+        return dates;
+    }
+
+    public List<String> getRoutineDatesFormatted(){
         List<String> dateNames = new ArrayList<>();
 
         for(Calendar c : getDates()){
