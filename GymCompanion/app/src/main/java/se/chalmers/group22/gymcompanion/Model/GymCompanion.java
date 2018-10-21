@@ -225,6 +225,10 @@ public class GymCompanion {
         saveUser();
     }
 
+    public void setSelectedRoutineName(int position, String name){
+        user.getRoutines().get(position).setName(name);
+    }
+
     public void removeRoutine(String routineName){
         Routine r = null;
         for (Routine ro: new ArrayList<>(user.getRoutines())) {

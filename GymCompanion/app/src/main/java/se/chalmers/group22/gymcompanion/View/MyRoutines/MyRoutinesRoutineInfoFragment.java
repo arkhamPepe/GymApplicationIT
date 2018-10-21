@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.View.MyRoutines;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,11 +58,20 @@ public class MyRoutinesRoutineInfoFragment extends Fragment implements Observer 
     }
 
     public void update(){
-        EditText textViewRoutineName = getView().findViewById(R.id.txtEditMyRoutinesInfoRoutineName);
+        EditText edittextRoutineName = getView().findViewById(R.id.txtEditMyRoutinesInfoRoutineName);
 
         TextView textViewAmountOfExercises = getView().findViewById(R.id.textViewRoutineInfoAmountOfExercises);
-        
-        textViewRoutineName.setText(viewModel.getSelectedRoutineName());
+
+        edittextRoutineName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                viewModel.setSelectedRoutineName(edittextRoutineName.getText().toString());
+                return false;
+
+            }
+        });
+
+        edittextRoutineName.setText(viewModel.getSelectedRoutineName());
         textViewAmountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
 
         MyRoutinesUserExercisesListAdapter adapter = new MyRoutinesUserExercisesListAdapter(getActivity(), viewModel.getSelectedRoutineExercisesNames());
