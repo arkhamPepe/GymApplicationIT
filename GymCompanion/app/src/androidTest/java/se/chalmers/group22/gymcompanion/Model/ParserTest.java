@@ -3,7 +3,9 @@ package se.chalmers.group22.gymcompanion.Model;
 import android.util.Log;
 import org.junit.Before;
 import org.junit.Test;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.DataStorage.Parser;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.List;
 

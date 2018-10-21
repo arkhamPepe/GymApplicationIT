@@ -1,7 +1,9 @@
-package se.chalmers.group22.gymcompanion.Model;
+package se.chalmers.group22.gymcompanion.Model.Statistics;
 
 
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Schedule.Schedule;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -28,19 +30,6 @@ public class StatisticsCalculator implements Serializable {
 
     public StatisticsCalculator(Schedule schedule){
        this.schedule = schedule;
-    }
-
-    public Map<Calendar, Exercise> getSpecificExercise(Exercise specificExercise){
-        Map<Calendar, Exercise> specificExerciseMap = new HashMap<>();
-        for(Calendar day : schedule.getScheduleKeySet()){
-            Routine r = schedule.getRoutineFromDay(day);
-            for(Exercise exercise : r.getExercises()){
-                if(exercise.getName().equals(specificExercise.getName())){
-                    specificExerciseMap.put(day, exercise);
-                }
-            }
-        }
-        return specificExerciseMap;
     }
 
     public Map<Calendar, Double> getGraphDataPoints(int weekOffset){

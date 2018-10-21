@@ -2,8 +2,8 @@ package se.chalmers.group22.gymcompanion;
 
 import org.junit.Before;
 import org.junit.Test;
-import se.chalmers.group22.gymcompanion.Model.Routine;
-import se.chalmers.group22.gymcompanion.Model.Schedule;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
+import se.chalmers.group22.gymcompanion.Model.Schedule.Schedule;
 
 
 import java.util.ArrayList;

@@ -1,11 +1,8 @@
 package se.chalmers.group22.gymcompanion.Model;
-import org.junit.Before;
 import org.junit.Test;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;

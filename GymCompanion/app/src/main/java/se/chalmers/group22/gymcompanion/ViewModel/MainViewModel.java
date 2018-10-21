@@ -1,9 +1,9 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.LocalDatabase;
-import se.chalmers.group22.gymcompanion.Model.Routine;
-import se.chalmers.group22.gymcompanion.Model.User;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.DataStorage.LocalDatabase;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
+import se.chalmers.group22.gymcompanion.Model.User.User;
 
 import java.util.List;
 

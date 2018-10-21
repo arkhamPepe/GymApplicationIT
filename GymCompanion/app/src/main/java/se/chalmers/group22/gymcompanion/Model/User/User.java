@@ -1,12 +1,14 @@
-package se.chalmers.group22.gymcompanion.Model;
+package se.chalmers.group22.gymcompanion.Model.User;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Schedule.Schedule;
+import se.chalmers.group22.gymcompanion.Model.Statistics.StatisticsCalculator;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.io.Serializable;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /***
@@ -164,7 +166,7 @@ public class User implements Serializable {
         schedule.addRoutine(routine, date);
     }
 
-    public ISchedule getSchedule(){
+    public Schedule getSchedule(){
         return schedule;
     }
 

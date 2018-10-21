@@ -1,7 +1,6 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
-import se.chalmers.group22.gymcompanion.Model.Routine;
-import se.chalmers.group22.gymcompanion.Model.User;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.HashMap;
 import java.util.Map;
