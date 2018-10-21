@@ -14,6 +14,8 @@ Prerequsites:
 4. Accepting licences is done by going into C:\Users\[USER]\AppData\Local\Android\Sdk\tools\bin
 and running "sdkmanager --licenses" in cmd and accepting everything
 
+Running the application:
+
   1.  Run Android Studio (or IntelliJ with Android Studio plugin)
   2.  Open the project
   3.  Run app (Or MainActivity)
