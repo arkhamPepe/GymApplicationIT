@@ -1,6 +1,6 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
-import se.chalmers.group22.gymcompanion.Model.Routine;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 import java.util.*;
 
 public class ScheduleViewModel extends BaseViewModel {

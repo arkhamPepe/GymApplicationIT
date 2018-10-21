@@ -1,6 +1,5 @@
 package se.chalmers.group22.gymcompanion.View.MyRoutines;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,14 +7,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
-import se.chalmers.group22.gymcompanion.View.Browse.BrowseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
-import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

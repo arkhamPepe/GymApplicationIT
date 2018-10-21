@@ -4,13 +4,15 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.DataStorage.LocalDatabase;
+import se.chalmers.group22.gymcompanion.Model.Schedule.Schedule;
+import se.chalmers.group22.gymcompanion.Model.User.User;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.CardioExercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
 import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.SortingStrategy;
-
-
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 
 import java.util.*;
@@ -143,7 +145,7 @@ public class GymCompanion {
         return user.getRoutineSchedule();
     }
 
-    public ISchedule getUserSchedule(){
+    public Schedule getUserSchedule(){
         return user.getSchedule();
     }
 
