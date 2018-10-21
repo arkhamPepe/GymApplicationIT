@@ -20,6 +20,10 @@ import java.util.List;
  * Created: October 19, 2018
  *
  * Purpose: (subclass to Exercise) Contains more precise attributes and methods concerning cardio exercises
+ * Used by: GymCompanionTest.java, CardioExerciseTest.java, RoutineTest.java,
+ *      UserTest.java, CardioExercise.java, Parser.java, MyRoutinesViewModel.java,
+ *      GymCompanion.java
+ * Uses: Exercise.java, INTENSITY.java
  */
 
 

@@ -57,6 +57,7 @@ public class Schedule implements Serializable {
                     calendar.get(Calendar.YEAR) == date.get(Calendar.YEAR)
             ){
                 routineSchedule.remove(calendar);
+                break;
             }
         }
     }

@@ -13,6 +13,8 @@ package se.chalmers.group22.gymcompanion.Model;
  * Created: October 19, 2018
  *
  * Purpose: an interface that lets an object become observable, letting it notify those subscribed to it.
+ * Used by: ObservableViewModel.java
+ * Uses: Observer.java
  */
 
 public interface Observable {
