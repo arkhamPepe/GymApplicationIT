@@ -8,6 +8,7 @@ import se.chalmers.group22.gymcompanion.Model.Routine;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.BeginnerFilter;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.FilterStrategy;
 import se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy.MixedFilter;
+import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +26,7 @@ import java.util.List;
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
  */
-
-public class BrowseViewModel extends BaseViewModel {
+public class BrowseViewModel extends ObservableViewModel {
 
     /** index
      * @value 0 = search selection, 1 = musclegroup, 2 = beginner, 3 = mix
@@ -43,10 +43,19 @@ public class BrowseViewModel extends BaseViewModel {
 
     //Array of the different sort filters
     @Getter
-    private String[] sortFilters;
+    private List<String> sortFilters;
 
     //Current page
     private String currentPage;
+
+    //Exercise to add to a user routine
+    @Setter
+    @Getter
+    private String exerciseToAdd;
+
+    @Setter
+    @Getter
+    private int currentSortIndex;
 
     //Used to separate the routines from exercises
     private List<Routine> routines;
@@ -62,20 +71,23 @@ public class BrowseViewModel extends BaseViewModel {
         this.exercises = new ArrayList<>();
         this.filteredRoutines = new ArrayList<>();
         this.filteredExercises = new ArrayList<>();
+        this.sortFilters = new ArrayList<>();
         init();
     }
 
     /** init()
-     * Purpose: inits List<MUSCLE_GROUP> muscleGroups, sets the sortfilter array
+     * Purpose: inits List<MUSCLE_GROUP> muscleGroups, sets the sortfilter list
      * */
     private void init(){
         for(MUSCLE_GROUP mg : MUSCLE_GROUP.values()) {
             muscleGroups.add(mg);
         }
 
-        sortFilters = new String[]{"Asc. alphabetic.", "Desc. alphabetic", "Asc. difficulty", "Desc. difficulty"};
+        sortFilters.add("Asc. alphabetic.");
+        sortFilters.add("Desc. alphabetic");
+        sortFilters.add("Asc. difficulty");
+        sortFilters.add("Desc. difficulty");
     }
-
     /** search()
      * Purpose: clears all lists and calls searchRoutine() and searchExercise from GymCompanion, and fills
      * the routine and exercise lists with the search results
@@ -89,8 +101,10 @@ public class BrowseViewModel extends BaseViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
-
+        sortRoutinesAndExercises(0);
         this.query = query;
+
+        notifyObservers();
     }
 
     /** filter(FilterStrategy)
@@ -105,6 +119,10 @@ public class BrowseViewModel extends BaseViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
+
+        sortRoutinesAndExercises(0);
+
+        notifyObservers();
     }
 
     /** filter(String)
@@ -125,6 +143,10 @@ public class BrowseViewModel extends BaseViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
+
+        sortRoutinesAndExercises(0);
+
+        notifyObservers();
     }
 
     /** filterRoutinesExercises(boolean, int)
@@ -146,8 +168,39 @@ public class BrowseViewModel extends BaseViewModel {
             } else {
                 filteredExercises.addAll(exercises);
             }
-
         }
+        notifyObservers();
+    }
+
+    /** sortRoutinesAndExercises(int)
+     * Purpose: to sort the list by user preference
+     * @param position position in spinner to decide what strategy to use
+     * */
+    public void sortRoutinesAndExercises(int position){
+        SortingStrategy strategy;
+
+        switch (position) {
+            case 0:
+                strategy = new AscendingAlphabetic();
+                break;
+            case 1:
+                strategy = new DescendingAlphabetic();
+                break;
+            case 2:
+                strategy = new AscendingDifficulty();
+                break;
+            case 3:
+                strategy = new DescendingDifficulty();
+                break;
+            default:
+                strategy = new AscendingAlphabetic();
+                break;
+        }
+
+        getModel().sort(filteredExercises, strategy);
+        getModel().sort(filteredRoutines, strategy);
+
+        notifyObservers();
     }
 
     /** getCurrentPage()
@@ -196,6 +249,7 @@ public class BrowseViewModel extends BaseViewModel {
                 muscleGroups.add(mg);
             }
         }
+        notifyObservers();
     }
     /** getRoutineAndExerciseNames()
      * Purpose: used by arrayadapters to build their listviews
@@ -218,7 +272,6 @@ public class BrowseViewModel extends BaseViewModel {
                 names.add(e.getName());
             }
         }
-
         return names;
     }
 
@@ -256,6 +309,48 @@ public class BrowseViewModel extends BaseViewModel {
         return amount;
     }
 
+    /** getUserRoutineNames()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of the user's custom routines names (String)
+     * */
+    public List<String> getUserRoutineNames(){
+        List<String> names = new ArrayList<>();
+
+        for(Routine r : getModel().getUserRoutines()) {
+            names.add(r.getName());
+        }
+
+        return names;
+    }
+
+    /** getUserRoutineDifficulties()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of user routine difficulties (Double)
+     * */
+    public List<Double> getUserRoutineDifficulties(){
+        List<Double> difficulties = new ArrayList<>();
+
+        for(Routine r : getModel().getUserRoutines()) {
+            difficulties.add(r.getDifficulty());
+        }
+
+        return difficulties;
+    }
+
+    /** getUserRoutineAmountExercises()
+     * Purpose: used by arrayadapters to build their listviews
+     * @return list of user routine amount of exercises (Integer)
+     * */
+    public List<Integer> getUserRoutineAmountExercises(){
+        List<Integer> amount = new ArrayList<>();
+
+        for(Routine r : getModel().getUserRoutines()) {
+            amount.add(r.getExercises().size());
+        }
+
+        return amount;
+    }
+
     /** getMuscleGroups()
      * Purpose: used in the arrayadapter that builds the muscle group list, to get the muscle group name
      * @return list of muscle group names (String)
@@ -268,16 +363,39 @@ public class BrowseViewModel extends BaseViewModel {
         return muscles;
     }
 
+    /** addRoutineToUser(String)
+     *  Purpose: adds a selected routine to the user
+     * @param routineName name of the clicked routine in listview
+     * */
     public void addRoutineToUser(String routineName){
-        List<Routine> routinesToBeAdded = getModel().getRoutineList();
-        for(Routine r :routinesToBeAdded) {
+        for(Routine r :getModel().getRoutineList()) {
             if(r.getName().equals(routineName)) {
                 getModel().getUser().addRoutine(r);
                 break;
             }
         }
+        notifyObservers();
     }
 
+    /** addExerciseToUserRoutine(String)
+     * Purpose: Adds the the exercise clicked in result list to the routine clicked in routineinfo fragment
+     * @param routineName the name of the routine pressed
+     * */
+    public void addExerciseToUserRoutine(String routineName){
+        for(Routine r :getModel().getUserRoutines()) {
+            if(r.getName().equals(routineName)) {
+                getModel().getUser().addExerciseToRoutine(getExerciseByName(), r);
+                notifyObservers();
+                break;
+            }
+        }
+    }
+
+    /** compareRoutineExercises(String)
+     * Purpose: checks whether the name is a routine or exercise name
+     * @param name name of routine or exercise
+     * @return an index depending on if the name corresponds to a routine or an exercise
+     * */
     public int compareRoutineExercises(String name){
         for(Routine r : getModel().getRoutineList()) {
             if(r.getName().equals(name)) {
@@ -290,6 +408,15 @@ public class BrowseViewModel extends BaseViewModel {
             }
         }
         return 2;
+    }
+
+    private Exercise getExerciseByName() {
+        for(Exercise e : getModel().getExerciseList()){
+            if(e.getName().equals(exerciseToAdd)) {
+                return e;
+            }
+        }
+        return null;
     }
 
     private void clearLists(){
