@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
+import se.chalmers.group22.gymcompanion.Model.DataStorage.LocalDatabase;
 import se.chalmers.group22.gymcompanion.Model.Schedule.Schedule;
 import se.chalmers.group22.gymcompanion.Model.User.User;
 import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.CardioExercise;
