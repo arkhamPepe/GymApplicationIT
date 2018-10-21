@@ -8,9 +8,22 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 import java.util.List;
+
+/***
+ * Title: BrowseResultListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Adds the list elements to the Browse Result List GUI
+ */
 
 public class BrowseResultListAdapter extends ArrayAdapter {
 
@@ -21,11 +34,10 @@ public class BrowseResultListAdapter extends ArrayAdapter {
     private final List<String> names;
     private final List<Double> difficulties;
     private final List<Integer> amount;
-
-    private BrowseViewModel viewModel;
+    private int index;
 
     public BrowseResultListAdapter(Activity context, List<String> nameArrayParam, List<Double> difficultyArrayParam,
-                                   List<Integer> amountArrayParam){
+                                   List<Integer> amountArrayParam, int index){
 
         super(context, R.layout.listitem_browse , nameArrayParam);
 
@@ -33,11 +45,17 @@ public class BrowseResultListAdapter extends ArrayAdapter {
         this.names = nameArrayParam;
         this.difficulties = difficultyArrayParam;
         this.amount = amountArrayParam;
+        this.index = index;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.listitem_browse, null,true);
+        View rowView;
+        if(index == 0) {
+            rowView = inflater.inflate(R.layout.listitem_browse, null,true);
+        } else {
+            rowView = inflater.inflate(R.layout.listitem_browse_exercise_add_to_routine, null,true);
+        }
 
         //this code gets references to objects in the listview_row.xml file
         TextView browseName = (TextView) rowView.findViewById(R.id.txtName);

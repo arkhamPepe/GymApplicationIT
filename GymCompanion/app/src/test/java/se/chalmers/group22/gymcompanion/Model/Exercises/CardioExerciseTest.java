@@ -42,7 +42,7 @@ public class CardioExerciseTest {
     @Test
     public void isCompleted() {
         assertFalse(cardioExercise.isCompleted());
-        cardioExercise.complete();
+        cardioExercise.toggleCompletion(true);
         assertTrue(cardioExercise.isCompleted());
     }
 

@@ -15,6 +15,20 @@ import se.chalmers.group22.gymcompanion.Model.Strategies.SortingStrategy.Sorting
 
 import java.util.*;
 
+/***
+ * Title: GymCompanion
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Class for handling external access to model classes.
+ */
+
 @Getter
 public class GymCompanion {
     @Setter
@@ -37,6 +51,7 @@ public class GymCompanion {
     }
 
     public void startRoutine(){
+<<<<<<< HEAD
         startRoutine(user.getTodaysRoutine());
         saveUser();
     }
@@ -47,6 +62,23 @@ public class GymCompanion {
         activeRoutine = routine;
         /*TODO redirect to "Workout in progress"-page*/
         saveUser();
+=======
+
+        if(exerciseList != null) {
+            for (Exercise e : exerciseList) {
+                e.toggleCompletion(false);
+            }
+        }
+
+        setActiveRoutine(user.getTodaysRoutine());
+    }
+
+    public void setActiveRoutine(Routine routine){
+        if(routine != null) {
+            isRoutineActive = true;
+            activeRoutine = new Routine(routine);
+        }
+>>>>>>> master
     }
 
     //Active Routine Methods
@@ -64,6 +96,13 @@ public class GymCompanion {
         return activeRoutine.getExercises().size();
     }
 
+    public void toggleCompletionExerciseInARWithIndex(int index, boolean completed){
+        activeRoutine.setCompletionOfExerciseWithIndex(index,completed);
+    }
+
+    public void completeActiveRoutine() {
+        user.finishRoutine(activeRoutine);
+    }
     public boolean startRoutineIsSet(){
         return activeRoutine != null;
     }
@@ -148,6 +187,9 @@ public class GymCompanion {
         saveUser();
     }
 
+    public Map<Calendar, Double> getGraphData(int weekOffset){
+        return user.getGraphData(weekOffset);
+    }
 
     //Routine creation and modification
 
@@ -213,12 +255,17 @@ public class GymCompanion {
     }
 
 
+
     public List<Routine> getUserRoutines() {
         return user.getRoutines();
     }
 
     public Routine getRoutineFromDay(Calendar day){
         return user.getRoutineFromDay(day);
+    }
+
+    public Routine getRoutineFromName(String name){
+        return user.getRoutineFromName(name);
     }
 
     public String getRoutineNameOnDate(int year, int month, int day) {

@@ -52,7 +52,7 @@ public class StrengthExerciseTest {
     @Test
     public void isCompletedTest() {
         assertFalse(strengthExercise.isCompleted());
-        strengthExercise.complete();
+        strengthExercise.toggleCompletion(true);
         assertTrue(strengthExercise.isCompleted());
     }
 

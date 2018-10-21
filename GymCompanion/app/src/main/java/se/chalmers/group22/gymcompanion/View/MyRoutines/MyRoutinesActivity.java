@@ -15,6 +15,7 @@ import se.chalmers.group22.gymcompanion.View.Browse.BrowseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
+import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,7 +118,7 @@ public class MyRoutinesActivity extends BaseActivity {
         goToPickMG(view);
     }
 
-    public MyRoutinesViewModel getViewModel(){
+    public MyRoutinesViewModel getBrowseViewModel(){
         return viewModel;
     }
 
@@ -160,8 +161,12 @@ public class MyRoutinesActivity extends BaseActivity {
         viewModel.addExercise((String)view.getTag());
     }
 
+    public MyRoutinesViewModel getViewModel() {
+        return viewModel;
+    }
     public void onDeleteClick(View view){
         viewModel.removeExercise((String)view.getTag());
+
     }
     public void onDeleteClickRoutine(View view){
         viewModel.removeSelectedRoutine((String)view.getTag());

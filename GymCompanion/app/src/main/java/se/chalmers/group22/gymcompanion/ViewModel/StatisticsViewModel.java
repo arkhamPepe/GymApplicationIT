@@ -1,20 +1,97 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
+import com.jjoe64.graphview.series.DataPoint;
 import se.chalmers.group22.gymcompanion.Model.Routine;
 
 import java.util.*;
 
 public class StatisticsViewModel extends ObservableViewModel {
-
-    private List<Routine> routines;
-    private List<Exercise> exercises;
     private Map<Calendar, Routine> schedule;
+    private int currentWeekOffset = 0;
+    private Map<Calendar, Double> currentGraphPoints;
 
     public StatisticsViewModel(){
-        this.routines = new ArrayList<>();
-        this.exercises = new ArrayList<>();
-        this.schedule = new HashMap<>();
+        schedule = new HashMap<>();
+        update();
+    }
+
+    public void update(){
+        currentGraphPoints = getModel().getGraphData(currentWeekOffset);
+        notifyObservers();
+    }
+
+    public void setGraphedDateNextWeek(){
+        currentWeekOffset++;
+        update();
+    }
+
+    public void setGraphedDatePreviousWeek(){
+        currentWeekOffset--;
+        update();
+    }
+
+    public DataPoint[] getDataPoints(){
+        int size = 0;
+        size = currentGraphPoints.size();
+
+        DataPoint[] dataPoints = new DataPoint[size];
+        int index = 0;
+        long xValue;
+        double yValue;
+
+        List<Point> points = new ArrayList<>();
+
+        for (Calendar c : currentGraphPoints.keySet()){
+            xValue = c.getTime().getTime();
+            yValue = currentGraphPoints.get(c);
+            points.add(new Point(xValue, yValue));
+        }
+
+        sortPoints(points);
+
+        for (Calendar c : currentGraphPoints.keySet()){
+            Point point = points.get(index);
+            dataPoints[index] = new DataPoint(point.getX(), point.getY());
+            index++;
+        }
+
+        return dataPoints;
+    }
+
+    private void sortPoints(List<Point> points){
+        Point temp;
+        int min_idx;
+
+        for (int i = 0; i < points.size()-1; i++)
+        {
+            // Find the minimum element in unsorted array
+            min_idx = i;
+            for (int j = i+1; j < points.size(); j++)
+                if (points.get(j).getX() < points.get(min_idx).getX())
+                    min_idx = j;
+
+            // Swap the found minimum element with the first element
+            temp = points.get(min_idx);
+            points.set(min_idx, points.get(i));
+            points.set(i, temp);
+        }
+    }
+
+    private class Point {
+        private double x;
+        private double y;
+
+        Point(double x, double y){
+            this.x = x;
+            this.y = y;
+        }
+
+        double getX(){
+            return x;
+        }
+        double getY(){
+            return y;
+        }
     }
 
     /**
@@ -43,6 +120,8 @@ public class StatisticsViewModel extends ObservableViewModel {
         }
         return routineNames;
     }
+
+
 
     public int getTotalAmountOfCompletedRoutines(){
         return getModel().getTotalAmountOfCompletedRoutines();

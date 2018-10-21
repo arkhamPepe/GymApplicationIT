@@ -36,7 +36,7 @@ public class HomeViewModel extends BaseViewModel {
         Map<String, String> routineStatsMap = new HashMap<>();
 
        if(finishedRoutine != null) {
-            routineStatsMap.put("timeSpent", String.valueOf(0));
+            routineStatsMap.put("exerciseName", String.valueOf(finishedRoutine.getName()));
             routineStatsMap.put("totalExercises", String.valueOf(finishedRoutine.getExercises().size()));
             routineStatsMap.put("completedExercises", String.valueOf(finishedRoutine.getCompletedExercises()));
         }
