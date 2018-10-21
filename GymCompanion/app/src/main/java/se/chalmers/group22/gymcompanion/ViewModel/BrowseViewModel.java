@@ -28,10 +28,11 @@ import java.util.List;
  */
 public class BrowseViewModel extends ObservableViewModel {
 
-    //
-    @Setter
+    // page index
     @Getter
+    @Setter
     private int index;
+
     @Setter
     private List<MUSCLE_GROUP> muscleGroups;
 
@@ -47,9 +48,14 @@ public class BrowseViewModel extends ObservableViewModel {
     private String currentPage;
 
     //Exercise to add to a user routine
-    @Setter
     @Getter
+    @Setter
     private String exerciseToAdd;
+
+    //Index from the dropdown spinner
+    @Getter
+    @Setter
+    private int currentSortIndex;
 
     //Used to separate the routines from exercises
     private List<Routine> routines;
@@ -95,22 +101,35 @@ public class BrowseViewModel extends ObservableViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
-
+        sortRoutinesAndExercises(0);
         this.query = query;
+
+        notifyObservers();
     }
 
     /** filter(FilterStrategy)
      * Purpose: clears all lists and applies a filter depending on strategy
      * (see se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy)
-     * @param strategy is the chosen filterstrategy
      * */
-    public void filter(FilterStrategy strategy){
+    public void filter(){
         clearLists();
+        FilterStrategy strategy;
+        if(index == 2){
+            strategy = new BeginnerFilter();
+        } else if (index == 3) {
+            strategy = new MixedFilter();
+        } else {
+            strategy = new BeginnerFilter();
+        }
         routines.addAll(getModel().filter(getModel().getRoutineList(), strategy));
         exercises.addAll(getModel().filter(getModel().getExerciseList(), strategy));
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
+
+        sortRoutinesAndExercises(0);
+
+        notifyObservers();
     }
 
     /** filter(String)
@@ -131,6 +150,10 @@ public class BrowseViewModel extends ObservableViewModel {
 
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
+
+        sortRoutinesAndExercises(0);
+
+        notifyObservers();
     }
 
     /** filterRoutinesExercises(boolean, int)
@@ -152,8 +175,8 @@ public class BrowseViewModel extends ObservableViewModel {
             } else {
                 filteredExercises.addAll(exercises);
             }
-
         }
+        notifyObservers();
     }
 
     /** sortRoutinesAndExercises(int)
@@ -181,8 +204,10 @@ public class BrowseViewModel extends ObservableViewModel {
                 break;
         }
 
-        getModel().sort(routines, strategy);
-        getModel().sort(exercises, strategy);
+        getModel().sort(filteredExercises, strategy);
+        getModel().sort(filteredRoutines, strategy);
+
+        notifyObservers();
     }
 
     /** getCurrentPage()
@@ -197,11 +222,9 @@ public class BrowseViewModel extends ObservableViewModel {
                 currentPage = getMuscleGroupString();
                 break;
             case 2:
-                filter(new BeginnerFilter());
                 currentPage = "Beginner";
                 break;
             case 3:
-                filter(new MixedFilter());
                 currentPage = "Mix";
                 break;
             default:
@@ -231,6 +254,7 @@ public class BrowseViewModel extends ObservableViewModel {
                 muscleGroups.add(mg);
             }
         }
+        notifyObservers();
     }
     /** getRoutineAndExerciseNames()
      * Purpose: used by arrayadapters to build their listviews
@@ -253,7 +277,6 @@ public class BrowseViewModel extends ObservableViewModel {
                 names.add(e.getName());
             }
         }
-
         return names;
     }
 
@@ -333,7 +356,6 @@ public class BrowseViewModel extends ObservableViewModel {
         return amount;
     }
 
-
     /** getMuscleGroups()
      * Purpose: used in the arrayadapter that builds the muscle group list, to get the muscle group name
      * @return list of muscle group names (String)
@@ -357,6 +379,7 @@ public class BrowseViewModel extends ObservableViewModel {
                 break;
             }
         }
+        notifyObservers();
     }
 
     /** addExerciseToUserRoutine(String)
@@ -367,6 +390,7 @@ public class BrowseViewModel extends ObservableViewModel {
         for(Routine r :getModel().getUserRoutines()) {
             if(r.getName().equals(routineName)) {
                 getModel().getUser().addExerciseToRoutine(getExerciseByName(), r);
+                notifyObservers();
                 break;
             }
         }

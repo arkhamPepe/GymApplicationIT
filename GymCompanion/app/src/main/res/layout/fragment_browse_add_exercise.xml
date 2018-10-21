@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-// Title    :   fragment_browse_exercise_info.xml
-// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
-// Created  :   October 14 2018
-//
-// Purpose  :   Expandable ListItem with children
-// Used by  :   ProgressExpandListAdapter.java
-// Uses     :   expand_list_child_progress.xml
-//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -33,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:layout_alignParentStart="true"
                 android:layout_marginTop="1dp"
-                android:id="@+id/listViewExerciseInfo"
+                android:id="@+id/listViewBrowseAddExercise"
                 android:background="@color/white"
         />
     </RelativeLayout>

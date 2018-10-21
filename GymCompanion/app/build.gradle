@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
-
+/*def secretPropertiesFile = rootProject.file("secrets.properties")
+def secretProperties = new Properties()
+if(secretPropertiesFile.exists()){
+    secretProperties.load(new FileInputStream(secretPropertiesFile))
+}
+else{
+    secretProperties.setProperty('spotifyClientId', "TEST")
+    secretProperties.setProperty('spotifyClientSecret', "TEST")
+}*/
 
 
 
@@ -20,6 +28,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        //buildConfigField("String", "spotifyClientId", secretProperties['spotifyClientId'])
+        //buildConfigField("String", "spotifyClientSecret", secretProperties['spotifyClientSecret'])
     }
     buildTypes {
         release {

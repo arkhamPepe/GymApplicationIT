@@ -46,6 +46,23 @@ public class MyRoutinesStrengthExerciseSetsAdapter extends ArrayAdapter {
         setWeight.setValue(kilograms.get(position).intValue());
         setReps.setValue(reps.get(position));
 
+        setWeight.setTag(position);
+        setReps.setTag(position);
+
+        setWeight.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                ((MyRoutinesActivity) context).updateSelectedExerciseKilogramInSet(position, newVal);
+            }
+        });
+
+        setReps.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                ((MyRoutinesActivity) context).updateSelectedExerciseRepsInSet(position, newVal);
+            }
+        });
+
         return rowView;
     }
 

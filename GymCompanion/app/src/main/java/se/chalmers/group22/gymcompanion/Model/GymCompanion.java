@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.Model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
@@ -34,7 +35,6 @@ public class GymCompanion {
     private User user;
 
 
-    @Setter
     private Routine activeRoutine;
     private Exercise activeExercise;
     private boolean isRoutineActive;
@@ -50,13 +50,22 @@ public class GymCompanion {
     }
 
     public void startRoutine(){
+        startRoutine(user.getTodaysRoutine());
+        saveUser();
+    }
+
+    public void startRoutine(Routine routine){
+        /*TODO Start the routine for the current day*/
+        isRoutineActive = true;
+        activeRoutine = routine;
+        /*TODO redirect to "Workout in progress"-page*/
+        saveUser();
 
         if(exerciseList != null) {
             for (Exercise e : exerciseList) {
                 e.toggleCompletion(false);
             }
         }
-
         setActiveRoutine(user.getTodaysRoutine());
     }
 
@@ -71,6 +80,7 @@ public class GymCompanion {
 
     public void setActiveExerciseInActiveRoutine(int index){
         activeExercise = activeRoutine.getExercises().get(index);
+        saveUser();
     }
 
     public int getAmountOfExercisesInActiveRoutine(){
@@ -169,6 +179,7 @@ public class GymCompanion {
         Routine routine = getRoutine(routineName);
 
         user.scheduleAddRoutine(routine, day);
+        saveUser();
     }
 
     public Map<Calendar, Double> getGraphData(int weekOffset){
@@ -187,6 +198,7 @@ public class GymCompanion {
 
     public void addExercise(Exercise exercise, Routine routine){
         user.addExerciseToRoutine(exercise, routine);
+        saveUser();
     }
 
     public void addExerciseToRoutine(int selectedRoutineIndex, String exerciseName){
@@ -199,11 +211,12 @@ public class GymCompanion {
         }
 
         user.addExerciseToRoutine(selectedRoutineIndex,e );
+        saveUser();
     }
 
     public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){
         Exercise e = null;
-        for (Exercise ex: new ArrayList<>(exerciseList)) {
+        for (Exercise ex: new ArrayList<>(user.getRoutineExercises(selectedRoutineIndex))) {
             if(ex.getName().equals(exerciseName)){
                 e = ex;
                 break;
@@ -211,6 +224,23 @@ public class GymCompanion {
         }
 
         user.removeExerciseFromRoutine(selectedRoutineIndex,e);
+        saveUser();
+    }
+
+    public void setSelectedRoutineName(int position, String name){
+        user.getRoutines().get(position).setName(name);
+    }
+
+    public void removeRoutine(String routineName){
+        Routine r = null;
+        for (Routine ro: new ArrayList<>(user.getRoutines())) {
+            if(ro.getName().equals(routineName)){
+                r= ro;
+                break;
+            }
+        }
+        user.removeRoutine(r);
+        saveUser();
     }
 
 
@@ -351,6 +381,15 @@ public class GymCompanion {
         }
         else if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
             newList.add(re);
+        }
+    }
+
+    // User save data
+
+    public void saveUser(){
+        if(GymCompanionContext.getContext() != null) {
+            LocalDatabase db = LocalDatabase.getInstance();
+            db.saveUser(user);
         }
     }
 
