@@ -1,6 +1,5 @@
 package se.chalmers.group22.gymcompanion.Model.Strategies.FilterStrategy;
 
-import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
 

@@ -1,10 +1,10 @@
-package se.chalmers.group22.gymcompanion.Model;
+package se.chalmers.group22.gymcompanion.Model.DataStorage;
 
 import android.content.Context;
-import android.util.Log;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
-import se.chalmers.group22.gymcompanion.R;
+import se.chalmers.group22.gymcompanion.Model.GymCompanionContext;
+import se.chalmers.group22.gymcompanion.Model.User.User;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.io.*;
 import java.util.List;

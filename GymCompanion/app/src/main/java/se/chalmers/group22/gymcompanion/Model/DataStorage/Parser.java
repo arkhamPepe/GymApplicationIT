@@ -1,10 +1,12 @@
-package se.chalmers.group22.gymcompanion.Model;
+package se.chalmers.group22.gymcompanion.Model.DataStorage;
 
 import com.google.gson.*;
 import lombok.Getter;
-import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.GymCompanionContext;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.CardioExercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.StrengthExercise;
+import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.io.BufferedReader;

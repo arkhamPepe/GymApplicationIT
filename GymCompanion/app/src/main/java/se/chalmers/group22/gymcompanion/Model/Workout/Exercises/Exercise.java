@@ -1,8 +1,7 @@
-package se.chalmers.group22.gymcompanion.Model.Exercises;
+package se.chalmers.group22.gymcompanion.Model.Workout.Exercises;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.ISortable;
