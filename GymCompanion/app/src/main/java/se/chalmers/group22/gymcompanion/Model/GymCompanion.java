@@ -84,6 +84,10 @@ public class GymCompanion {
         }
     }
 
+    public Routine getRoutineFromIndex(int routineIndex){
+        return user.getRoutine(routineIndex);
+    }
+
     //Active Routine Methods
 
     public void setActiveExerciseInActiveRoutine(int index){
@@ -181,6 +185,10 @@ public class GymCompanion {
 
     public boolean isScheduled(Calendar day){
         return user.scheduleDayHasRoutine(day);
+    }
+
+    public void scheduleRoutine(Calendar day, int routineIndex){
+        user.scheduleAddRoutine(user.getRoutine(routineIndex), day);
     }
 
     public void scheduleRoutine(Calendar day, String routineName){
