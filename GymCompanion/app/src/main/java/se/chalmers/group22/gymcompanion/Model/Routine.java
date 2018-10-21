@@ -10,6 +10,20 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Title: Routine
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: September 21, 2018
+ *
+ * Purpose: Class for handling routine data.
+ */
+
 @Getter
 @Setter
 public class Routine implements ISortable, Serializable {
@@ -60,6 +74,16 @@ public class Routine implements ISortable, Serializable {
         initDifficulty();
     }
 
+    public Routine(Routine routine){
+        this.exercises = routine.getExercisesCopy();
+        this.name = routine.getName();
+        this.description = routine.getDescription();
+        this.comment = routine.getComment();
+        this.muscleGroups = new ArrayList<>();
+        initMuscleGroupList();
+        initDifficulty();
+    }
+
     private void initMuscleGroupList(){
         for(Exercise e : this.exercises){
             for(MUSCLE_GROUP mg : e.getMuscleGroups()){
@@ -95,6 +119,20 @@ public class Routine implements ISortable, Serializable {
     // Defensive copy
     public List<Exercise> getExercises() {
         return new ArrayList<>(exercises);
+    }
+
+    public List<Exercise> getExercisesCopy() {
+        List<Exercise> eList = new ArrayList<>();
+
+        for (Exercise e : exercises) {
+            eList.add(e.clone());
+        }
+
+        return eList;
+    }
+
+    public void setCompletionOfExerciseWithIndex(int index, boolean completed){
+        exercises.get(index).toggleCompletion(completed);
     }
 
     public boolean containsMuscleGroup(MUSCLE_GROUP mg){

@@ -33,7 +33,7 @@ public class MyRoutinesRoutineInfoFragment extends Fragment implements Observer 
     @Override
     public void onStart(){
         super.onStart();
-        viewModel = ((MyRoutinesActivity)getActivity()).getViewModel(); // Get the ViewModel
+        viewModel = ((MyRoutinesActivity)getActivity()).getBrowseViewModel(); // Get the ViewModel
 
         viewModel.addObserver(this);
 
@@ -57,9 +57,10 @@ public class MyRoutinesRoutineInfoFragment extends Fragment implements Observer 
     }
 
     public void update(){
-        TextView textViewRoutineName = getView().findViewById(R.id.txtEditMyRoutinesInfoRoutineName);
-        TextView textViewAmountOfExercises = getView().findViewById(R.id.textViewRoutineInfoAmountOfExercises);
+        EditText textViewRoutineName = getView().findViewById(R.id.txtEditMyRoutinesInfoRoutineName);
 
+        TextView textViewAmountOfExercises = getView().findViewById(R.id.textViewRoutineInfoAmountOfExercises);
+        
         textViewRoutineName.setText(viewModel.getSelectedRoutineName());
         textViewAmountOfExercises.setText(viewModel.getSelectedRoutineExerciseAmount());
 

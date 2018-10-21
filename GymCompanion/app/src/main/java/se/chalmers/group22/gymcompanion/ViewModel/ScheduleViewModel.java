@@ -29,6 +29,14 @@ public class ScheduleViewModel extends BaseViewModel {
      */
     public void scheduleSelectedRoutine(String routineName){
         getModel().scheduleRoutine(getSelectedDate(), routineName);
+
+        int x = new GregorianCalendar().get(Calendar.DAY_OF_MONTH);
+        int y = new GregorianCalendar().get(Calendar.YEAR);
+
+        if (selectedDay == x &&
+                selectedYear == y){
+            getModel().setActiveRoutine(getModel().getRoutineFromName(routineName));
+        }
     }
 
     /** isSelectedDateBooked

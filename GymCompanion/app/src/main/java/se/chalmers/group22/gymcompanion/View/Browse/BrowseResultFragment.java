@@ -110,7 +110,8 @@ public class BrowseResultFragment extends Fragment implements Observer {
         adapter = new BrowseResultListAdapter(getActivity(),
                 viewModel.getRoutineAndExerciseNames(),
                 viewModel.getRoutineAndExerciseDifficulties(),
-                viewModel.getRoutineAmountExercises());
+                viewModel.getRoutineAmountExercises(),
+                0);
         listView.setAdapter(adapter);
 
         //************************************DROPDOWN
@@ -168,19 +169,9 @@ public class BrowseResultFragment extends Fragment implements Observer {
         adapter = new BrowseResultListAdapter(getActivity(),
                 viewModel.getRoutineAndExerciseNames(),
                 viewModel.getRoutineAndExerciseDifficulties(),
-                viewModel.getRoutineAmountExercises());
+                viewModel.getRoutineAmountExercises(),
+                0);
         listView.setAdapter(adapter);
-
-        //************************************DROPDOWN
-        //DropDown menu from xml
-        Spinner dropdown = getView().findViewById(R.id.dropdownSpinner);
-
-        //List of items to be shown in the menu
-        List<String> items = viewModel.getSortFilters();
-
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(spinnerAdapter);
 
         //************************************SEARCHBAR
         //Sets the searchbar to what was searched on startfragment (may be empty if coming from muscle group selection)

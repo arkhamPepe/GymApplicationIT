@@ -2,12 +2,28 @@ package se.chalmers.group22.gymcompanion.Model.Exercises;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
+
+/***
+        * Title: StrengthExercise
+        *
+        * @author Alexander Bergsten
+        * @author Marcus Svensson
+        * @author Erik Bock
+        * @author Augustas Eidikis
+        * @author Daniel Olsson
+        *
+        * Created: October 19, 2018
+        *
+        * Purpose: (Subclass to Exercise) contains more precise attributes and methods concerning etrenght exercises
+        */
 
 @Getter
 public class StrengthExercise extends Exercise implements Serializable {
@@ -20,6 +36,10 @@ public class StrengthExercise extends Exercise implements Serializable {
     @Getter(AccessLevel.NONE)
     private List<Double> kilograms;
 
+    public StrengthExercise(){
+        super();
+    }
+
     public StrengthExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, List<Integer> repetitions, int sets) {
         super(name, difficulty, muscleGroups, description, videoguide);
         this.repetitions = repetitions;
@@ -29,6 +49,23 @@ public class StrengthExercise extends Exercise implements Serializable {
         this.repetitions = repetitions;
         this.sets = sets;
         this.kilograms = kilograms;
+    }
+
+    public StrengthExercise(StrengthExercise exercise) {
+        super(exercise);
+        this.repetitions = exercise.getRepetitions();
+        this.sets = exercise.getSets();
+        this.kilograms = exercise.kilograms;
+    }
+
+    public double calculateScore(){
+        double sum = 0;
+        int kgIndex = 0;
+        for (Integer repetition: repetitions){
+            sum += repetition * kilograms.get(kgIndex);
+            kgIndex++;
+        }
+        return sum;
     }
 
     // FOR TESTING
@@ -51,6 +88,7 @@ public class StrengthExercise extends Exercise implements Serializable {
 
 
     // Defensive copy
+
     public List<Integer> getRepetitions() {
         return new ArrayList<>(repetitions);
     }
@@ -60,6 +98,7 @@ public class StrengthExercise extends Exercise implements Serializable {
         return new ArrayList<>(kilograms);
     }
 
+<<<<<<< HEAD
     public void setKilogram(int index, double value){
         kilograms.set(index, value);
     }
@@ -82,5 +121,9 @@ public class StrengthExercise extends Exercise implements Serializable {
             repetitions.add(10);
             this.sets++;
         }
+=======
+    public Exercise clone(){
+        return new StrengthExercise(this);
+>>>>>>> master
     }
 }

@@ -163,7 +163,6 @@ public class BrowseActivity extends BaseActivity {
         String s = view.getTag().toString();
         viewModel.addExerciseToUserRoutine(s);
         Toast.makeText(this, "Exercise added to the routine!", Toast.LENGTH_SHORT).show();
-        //fragmentAddExercise.onResume();
     }
 
     public void infoBack(View view){

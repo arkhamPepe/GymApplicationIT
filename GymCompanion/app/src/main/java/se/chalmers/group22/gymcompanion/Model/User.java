@@ -9,6 +9,20 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/***
+ * Title: User
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: 21 September, 2018
+ *
+ * Purpose: Class for handling overall User related actions and data.
+ */
+
 @Getter
 public class User implements Serializable {
 
@@ -75,7 +89,7 @@ public class User implements Serializable {
     }
 
     public void finishRoutine(Routine routine){
-        completedRoutines.put(getTodaysDate(), routine);
+        completedRoutines.put(getTodaysDate(), new Routine(routine));
     }
 
     public void addFriend(User friend){
@@ -194,6 +208,7 @@ public class User implements Serializable {
         return completedRoutines.size();
     }
 
+
     public int getTotalAmountOfCompletedExercises(){
         int amount = 0;
 
@@ -224,6 +239,17 @@ public class User implements Serializable {
         }
 
         return findMostCommonName(strList);
+    }
+
+    public Routine getRoutineFromName(String name){
+        Routine ret = null;
+        for(Routine r: new ArrayList<>(routines)){
+            if(r.getName().equals(name)){
+                ret = r;
+                return ret;
+            }
+        }
+        return ret;
     }
 
     private String findMostCommonName(List<String> strList){
@@ -272,6 +298,10 @@ public class User implements Serializable {
             return routines.get(routineIndex).getExercises();
         }
         return new ArrayList<>();
+    }
+
+    public Map<Calendar, Double> getGraphData(int weekOffset){
+        return statCalc.getGraphDataPoints(weekOffset);
     }
 
 }

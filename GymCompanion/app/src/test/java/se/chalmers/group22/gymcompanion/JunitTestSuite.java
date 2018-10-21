@@ -5,7 +5,6 @@ import org.junit.runners.Suite;
 import se.chalmers.group22.gymcompanion.Model.*;
 import se.chalmers.group22.gymcompanion.Model.Exercises.CardioExerciseTest;
 import se.chalmers.group22.gymcompanion.Model.Exercises.StrengthExerciseTest;
-import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModelTest;
 
 @RunWith(Suite.class)
 
@@ -19,7 +18,6 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModelTest;
         StatisticsCalculatorTest.class,
         UserTest.class,
         ScheduleTest.class,
-        StatisticsViewModelTest.class,
 })
 
 public class JunitTestSuite {
