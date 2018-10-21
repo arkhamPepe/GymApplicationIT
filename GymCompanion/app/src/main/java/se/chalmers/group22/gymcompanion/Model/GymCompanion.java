@@ -51,7 +51,6 @@ public class GymCompanion {
     }
 
     public void startRoutine(){
-<<<<<<< HEAD
         startRoutine(user.getTodaysRoutine());
         saveUser();
     }
@@ -62,7 +61,6 @@ public class GymCompanion {
         activeRoutine = routine;
         /*TODO redirect to "Workout in progress"-page*/
         saveUser();
-=======
 
         if(exerciseList != null) {
             for (Exercise e : exerciseList) {
@@ -78,7 +76,6 @@ public class GymCompanion {
             isRoutineActive = true;
             activeRoutine = new Routine(routine);
         }
->>>>>>> master
     }
 
     //Active Routine Methods
@@ -217,7 +214,7 @@ public class GymCompanion {
 
     public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){
         Exercise e = null;
-        for (Exercise ex: new ArrayList<>(exerciseList)) {
+        for (Exercise ex: new ArrayList<>(user.getRoutineExercises(selectedRoutineIndex))) {
             if(ex.getName().equals(exerciseName)){
                 e = ex;
                 break;
@@ -230,7 +227,7 @@ public class GymCompanion {
 
     public void removeRoutine(String routineName){
         Routine r = null;
-        for (Routine ro: new ArrayList<>(routineList)) {
+        for (Routine ro: new ArrayList<>(user.getRoutines())) {
             if(ro.getName().equals(routineName)){
                 r= ro;
                 break;
