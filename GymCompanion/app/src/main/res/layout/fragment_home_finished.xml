@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   fragment_home_finished.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   October 12 2018
+//
+// Purpose  :   Fragment that shows when the user has finished the daily routine
+// Used by  :   HomeFinishedFragment.java
+// Uses     :   HomeActivity.java
+//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent" android:background="@color/colorAccent">
 
 

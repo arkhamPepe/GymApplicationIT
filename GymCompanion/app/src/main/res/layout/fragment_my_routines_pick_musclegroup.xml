@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   fragment_my_routines_pick_musclegroup.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   October 18 2018
+//
+// Purpose  :   Fragment that lets the user interact and chose an muscle group to then chose an exercise from
+// Used by  :   MyRoutinesPickMGFragment.java
+// Uses     :   MyRoutinesActivity.java
+//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

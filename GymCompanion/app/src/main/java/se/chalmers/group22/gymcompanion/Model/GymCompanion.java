@@ -58,23 +58,13 @@ public class GymCompanion {
     }
 
     public void startRoutine(){
-        startRoutine(user.getTodaysRoutine());
-        saveUser();
-    }
-
-    public void startRoutine(Routine routine){
-        /*TODO Start the routine for the current day*/
-        isRoutineActive = true;
-        activeRoutine = routine;
-        /*TODO redirect to "Workout in progress"-page*/
-        saveUser();
-
         if(exerciseList != null) {
             for (Exercise e : exerciseList) {
                 e.toggleCompletion(false);
             }
         }
         setActiveRoutine(user.getTodaysRoutine());
+        saveUser();
     }
 
     public void setActiveRoutine(Routine routine){
@@ -228,6 +218,14 @@ public class GymCompanion {
 
         user.addExerciseToRoutine(selectedRoutineIndex,e );
         saveUser();
+    }
+
+    public void addExerciseToRoutine(Exercise exercise, Routine routine) {
+        user.addExerciseToRoutine(exercise, routine);
+    }
+
+    public void addRoutine(Routine routine){
+        user.addRoutine(routine);
     }
 
     public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){

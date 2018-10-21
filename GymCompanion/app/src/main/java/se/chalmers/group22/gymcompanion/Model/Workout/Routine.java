@@ -124,6 +124,7 @@ public class Routine implements ISortable, Serializable {
 
     // Defensive copy
     public List<Exercise> getExercises() {
+
         return new ArrayList<>(exercises);
     }
 

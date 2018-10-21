@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+// Title    :   listitem_my_routines_pick_exercise.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   October 2 2018
+//
+// Purpose  :   This xml is used to create listitems to then use in a listview
+// Used by  :   MyRoutinesUserExercisesListAdapter.java
+// Uses     :
+//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 

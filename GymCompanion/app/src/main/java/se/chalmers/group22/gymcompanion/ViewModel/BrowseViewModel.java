@@ -375,7 +375,7 @@ public class BrowseViewModel extends ObservableViewModel {
     public void addRoutineToUser(String routineName){
         for(Routine r :getModel().getRoutineList()) {
             if(r.getName().equals(routineName)) {
-                getModel().getUser().addRoutine(r);
+                getModel().addRoutine(r);
                 break;
             }
         }
@@ -389,7 +389,7 @@ public class BrowseViewModel extends ObservableViewModel {
     public void addExerciseToUserRoutine(String routineName){
         for(Routine r :getModel().getUserRoutines()) {
             if(r.getName().equals(routineName)) {
-                getModel().getUser().addExerciseToRoutine(getExerciseByName(), r);
+                getModel().addExerciseToRoutine(getExerciseByName(), r);
                 notifyObservers();
                 break;
             }

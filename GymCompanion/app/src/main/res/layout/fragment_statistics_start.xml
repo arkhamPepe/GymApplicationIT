@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   fragment_statistics_start.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   October 2 2018
+//
+// Purpose  :   Fragment that shows the lifetime statistics
+// Used by  :   StatisticsStartFragment.java
+// Uses     :   StatisticsActivity.java
+//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"

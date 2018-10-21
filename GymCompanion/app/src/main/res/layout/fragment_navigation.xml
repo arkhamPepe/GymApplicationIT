@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   fragment_navigation.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   October 4 2018
+//
+// Purpose  :   Fragment that all activites uses to display the bottom navigation bar
+// Used by  :   NavigationFragment.java, activity_browse.xml, activity_main.xml, activity_my_routines.xml,
+//              activity_schedule.xml, activity_statistics.xml
+// Uses     :   menu/navigation.xml
+//-->
     <android.support.design.widget.BottomNavigationView
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
