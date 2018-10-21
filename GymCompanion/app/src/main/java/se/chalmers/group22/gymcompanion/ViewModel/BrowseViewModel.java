@@ -53,6 +53,10 @@ public class BrowseViewModel extends ObservableViewModel {
     @Getter
     private String exerciseToAdd;
 
+    @Setter
+    @Getter
+    private int currentSortIndex;
+
     //Used to separate the routines from exercises
     private List<Routine> routines;
     private List<Exercise> exercises;

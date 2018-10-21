@@ -124,6 +124,24 @@ public class BrowseResultFragment extends Fragment implements Observer {
                 android.R.layout.simple_spinner_dropdown_item, items);
         dropDown.setAdapter(spinnerAdapter);
 
+        //TODO FIX SPINNER
+        //Sorting spinner
+
+        //dropDown.setSelection(viewModel.getCurrentSortIndex());
+
+        dropDown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                //viewModel.setCurrentSortIndex(position);
+                //viewModel.sortRoutinesAndExercises(position);
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
+
         //************************************SEARCHBAR
         //Sets the searchbar to what was searched on startfragment (may be empty if coming from muscle group selection)
         searchView.setQuery(viewModel.getQuery(), false);
@@ -137,20 +155,6 @@ public class BrowseResultFragment extends Fragment implements Observer {
 
     @Override
     public void update() {
-
-        //TODO FIX SPINNER
-        //Sorting spinner
-        dropDown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-            {
-                //viewModel.sortRoutinesAndExercises(position);
-            } // to close the onItemSelected
-            public void onNothingSelected(AdapterView<?> parent)
-            {
-
-            }
-        });
         //************************************ACTIONBAR
         ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Browse Results");
 
