@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   fragment_browse_start.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   October 18 2018
+//
+// Purpose  :   This fragment is the first that shows when its activity is launched. Contains a search bar and two buttons
+// Used by  :   BrowseStartFragment.java
+// Uses     :   BrowseActivity.java
+//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:background="@color/colorAccent">

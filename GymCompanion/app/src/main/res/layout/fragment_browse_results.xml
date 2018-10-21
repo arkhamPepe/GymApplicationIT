@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   fragment_browse_results.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   October 15 2018
+//
+// Purpose  :   Fragment that contains the results of either an user search, filter by muscle group or beginner/mix
+// Used by  :   BrowseResultFragment.java
+// Uses     :   BrowseActivity.java
+//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   fragment_browse_recommended.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   October 2 2018
+//
+// Purpose  :   Fragment that contains a list of all muscle groups which the user can choose to view
+// Used by  :   BrowseMuscleGroupsFragment.java
+// Uses     :   BrowseActivity.java
+//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

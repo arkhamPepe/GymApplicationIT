@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   fragment_browse_recommended.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   October 18 2018
+//
+// Purpose  :   Fragment that contains two buttons, which takes the user to the results page
+// Used by  :   BrowseRecommendedFilter.java
+// Uses     :   BrowseActivity.java
+//-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
     <TextView
