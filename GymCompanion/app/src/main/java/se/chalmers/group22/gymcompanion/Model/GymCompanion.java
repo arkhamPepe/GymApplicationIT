@@ -35,7 +35,6 @@ public class GymCompanion {
     private User user;
 
 
-    @Setter
     private Routine activeRoutine;
     private Exercise activeExercise;
     private boolean isRoutineActive;
@@ -241,6 +240,7 @@ public class GymCompanion {
             }
         }
         user.removeRoutine(r);
+        saveUser();
     }
 
 
@@ -386,7 +386,7 @@ public class GymCompanion {
 
     // User save data
 
-    private void saveUser(){
+    public void saveUser(){
         if(GymCompanionContext.getContext() != null) {
             LocalDatabase db = LocalDatabase.getInstance();
             db.saveUser(user);

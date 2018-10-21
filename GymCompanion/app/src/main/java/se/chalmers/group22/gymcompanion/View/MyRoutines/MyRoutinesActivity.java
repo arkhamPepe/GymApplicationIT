@@ -150,6 +150,7 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void goBackFromExercise(View view){
+        viewModel.notifyObservers();
         fo.changeToFragment(fragmentRoutineInfo);
     }
 
