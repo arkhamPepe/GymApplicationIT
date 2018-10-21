@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
@@ -25,7 +27,7 @@ import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
  */
 
 
-public class BrowseRecommendedFragment extends Fragment{
+public class BrowseRecommendedFragment extends Fragment implements Observer {
     private BrowseViewModel viewModel;
     public static BrowseRecommendedFragment getInstance(){ return new BrowseRecommendedFragment(); }
 
@@ -44,5 +46,17 @@ public class BrowseRecommendedFragment extends Fragment{
     public void onStart(){
         super.onStart();
         viewModel = ((BrowseActivity) getActivity()).getViewModel();
+        viewModel.addObserver(this);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        viewModel.removeObserver(this);
+    }
+
+    @Override
+    public void update() {
+
     }
 }

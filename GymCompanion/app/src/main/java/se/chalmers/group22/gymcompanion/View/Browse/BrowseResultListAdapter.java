@@ -1,4 +1,4 @@
-package se.chalmers.group22.gymcompanion.View;
+package se.chalmers.group22.gymcompanion.View.Browse;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
