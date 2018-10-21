@@ -50,12 +50,7 @@ public class BrowseResultListAdapter extends ArrayAdapter {
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView;
-        if(index == 0) {
-            rowView = inflater.inflate(R.layout.listitem_browse, null,true);
-        } else {
-            rowView = inflater.inflate(R.layout.listitem_browse_exercise_add_to_routine, null,true);
-        }
+        View rowView = inflater.inflate(R.layout.listitem_browse, null,true);
 
         //this code gets references to objects in the listview_row.xml file
         TextView browseName = (TextView) rowView.findViewById(R.id.txtName);
