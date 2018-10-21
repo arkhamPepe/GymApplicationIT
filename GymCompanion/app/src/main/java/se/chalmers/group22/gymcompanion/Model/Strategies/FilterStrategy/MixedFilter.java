@@ -16,6 +16,8 @@ import java.util.*;
  * Created: October 19, 2018
  *
  * Purpose: Adds 10 random exercises/rountines and shuffles them.
+ * Used by: BrowseViewModel.java, GymCompanionSortAndFilterTest.java
+ * Uses: ISortable.java,
  */
 public class MixedFilter implements FilterStrategy {
 

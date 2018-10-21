@@ -22,6 +22,8 @@ import java.util.List;
  *
  * Purpose: Class for deserializing stored User-object. Also handles access to loading
  *          the deserialized object and parsed objects from JSON-files.
+ * Used by: GymCompanion.java, LocalDatabaseTest.java, MainViewModel.java
+ * Uses: Parser.java, Exercise.java, Routine.java
  */
 
 public class LocalDatabase {

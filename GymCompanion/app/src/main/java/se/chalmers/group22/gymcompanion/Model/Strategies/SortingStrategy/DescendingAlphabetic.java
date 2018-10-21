@@ -6,6 +6,22 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/***
+ * Title: DescendingAlphabetic
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 19, 2018
+ *
+ * Purpose: Sorts in descending alphabetic order.
+ * Used by: BrowseViewModel.java, GymCompanionSortAndFilterTest.java
+ * Uses: ISortable.java
+ */
+
 public class DescendingAlphabetic implements SortingStrategy {
 
     @Override
