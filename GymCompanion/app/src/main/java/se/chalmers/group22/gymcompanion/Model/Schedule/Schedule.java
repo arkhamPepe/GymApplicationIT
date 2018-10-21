@@ -20,6 +20,8 @@ import java.util.*;
  * Created: September 21, 2018
  *
  * Purpose: Class for scheduling user routines.
+ * Used by: GymCompanion.java, ScheduleTest.java, StatisticsCalculator.java, User.java
+ * Uses: Routine.java
  */
 
 @Getter

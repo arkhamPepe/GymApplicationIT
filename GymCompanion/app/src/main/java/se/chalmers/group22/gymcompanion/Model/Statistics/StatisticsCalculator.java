@@ -23,6 +23,8 @@ import java.util.Map;
  * Created: September 27, 2018
  *
  * Purpose: Class for calculating statistics and graphs of workout data.
+ * Used by: User.java
+ * Uses: Schedule.java, Exercise.java, Routine.java
  */
 
 public class StatisticsCalculator implements Serializable {
