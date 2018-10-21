@@ -294,7 +294,7 @@ public class User implements Serializable {
         }
         return "No Routines Completed";
     }
-    
+
     public Routine getRoutine(int index){
         return routines.get(index);
     }
