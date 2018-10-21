@@ -25,7 +25,6 @@ import java.util.*;
 @Getter
 public class Schedule implements Serializable {
 
-    private Reminder reminder;
     private Calendar calendar = new GregorianCalendar();
     private final String NO_ROUTINE_SCHEDULED_ON_DATE = "No Scheduled Routine";
 
@@ -33,7 +32,6 @@ public class Schedule implements Serializable {
     private Map<Calendar, Routine> routineSchedule;
 
     public Schedule(){
-        reminder = new Reminder();
         routineSchedule = new HashMap<>();
     }
 
