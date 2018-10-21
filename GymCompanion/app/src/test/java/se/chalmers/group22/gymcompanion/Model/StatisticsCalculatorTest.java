@@ -60,7 +60,7 @@ public class StatisticsCalculatorTest {
         timespent = 100;
         muscleGroup = new ArrayList<>();
 
-        exercise = new StrengthExercise("Lift",3.5,muscleGroup,"","",repetitions,sets);
+        exercise = new StrengthExercise("Lift",3.5,muscleGroup,"","",repetitions,sets, weightList, intensity);
         strengthExercise = new StrengthExercise("Lift",3.5,muscleGroup,"","",repetitions,sets,weightList,intensity);
         cardioExercise = new CardioExercise("Run",4.4,muscleGroup,"","",intensity,timespent);
         routine = new Routine();
@@ -78,14 +78,11 @@ public class StatisticsCalculatorTest {
         assertFalse(user.getStatCalc().getSpecificExercise(exercise).isEmpty());
     }
 
-    /*@Test
+    @Test
     public void calculateStrengthScoreTest(){
-        assertEquals(user.getStatCalc().calculateScore(strengthExercise),40,0.5);
+        assertTrue(!user.getGraphData(0).isEmpty());
     }
 
-    @Test
-    public void calculateTimedScoreTest(){
-        assertEquals(user.getStatCalc().calculateScore(cardioExercise),25.0,0.1);
-    }*/
+
 
 }
