@@ -89,7 +89,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public List<String> getSelectedRoutineExercisesNames(){
         List<String> exerciseNames = new ArrayList<>();
-
+        
         for (Exercise exercise: getModel().getSelectedRoutineExercises(selectedRoutineIndex)){
             exerciseNames.add(exercise.getName());
         }
@@ -281,7 +281,13 @@ public class MyRoutinesViewModel extends ObservableViewModel {
     }
 
     private boolean checkIfEmptyRoutineList(){
-        return getModel().getUserRoutines().isEmpty();
+        try{
+            getModel().getUserRoutines().get(selectedRoutineIndex);
+            return false;
+
+        }catch(Exception e){
+            return true;
+        }
     }
 
     private boolean checkIfEmptyExerciseList(){
