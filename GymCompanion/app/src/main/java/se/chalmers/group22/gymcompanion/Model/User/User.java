@@ -111,7 +111,14 @@ public class User implements Serializable {
     }
 
     public void createRoutine(){
-        routines.add(new Routine());
+        int n = 1;
+        for(Routine routine: routines){
+            if (routine.getName().equals("New Routine " + String.valueOf(n))){
+                n++;
+            }
+        }
+        Routine routine = new Routine("New Routine "+ String.valueOf(n));
+        routines.add(routine);
     }
 
     public void addExerciseToRoutine(Exercise exercise, Routine routine){
