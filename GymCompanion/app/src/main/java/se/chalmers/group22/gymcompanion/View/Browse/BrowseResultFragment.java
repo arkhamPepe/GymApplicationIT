@@ -71,7 +71,6 @@ public class BrowseResultFragment extends Fragment implements Observer {
                        cbxRoutines.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
                    }
-                   //update();
                }
            }
         );
@@ -88,7 +87,6 @@ public class BrowseResultFragment extends Fragment implements Observer {
                        cbxExercises.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
                    }
-                   //update();
                }
            }
         );
@@ -109,11 +107,6 @@ public class BrowseResultFragment extends Fragment implements Observer {
 
         //************************************ACTIONBAR
         ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Browse Results");
-
-        this.currentMuscleGroup = getView().findViewById(R.id.currentMuscleGroup);
-        String t = "Browsing: " + viewModel.getCurrentPage();
-        this.currentMuscleGroup.setText(t);
-
 
         //************************************DROPDOWN
         //DropDown menu from xml

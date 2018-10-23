@@ -102,7 +102,7 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
         sortRoutinesAndExercises(0);
-        this.query = query.isEmpty() ? "All" : query;
+        this.query = query;
 
         notifyObservers();
     }
@@ -216,7 +216,7 @@ public class BrowseViewModel extends ObservableViewModel {
     public String getCurrentPage(){
         switch(index){
             case 0:
-                currentPage = query;
+                currentPage = query != null && !query.isEmpty() ? query : "Everything";
                 break;
             case 1:
                 currentPage = getMuscleGroupString();
