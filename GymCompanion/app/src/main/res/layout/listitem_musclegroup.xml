@@ -14,7 +14,7 @@
     <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="70dp" android:background="@color/white">
+            android:layout_height="70dp" android:background="@color/colorAccent">
 
 
         <TextView
@@ -23,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/txtMuscleGroup"
                 android:textSize="24sp" android:textAlignment="center" android:lineSpacingExtra="8sp"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp" android:textColor="@color/colorPrimaryDark"/>
 
     </RelativeLayout>
 </RelativeLayout>
