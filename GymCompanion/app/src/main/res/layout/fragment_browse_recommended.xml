@@ -10,13 +10,14 @@
 //-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" android:background="@color/colorAccent">
 
     <TextView
             android:text="Choose a filter"
             android:layout_width="match_parent"
             android:layout_height="52dp" android:id="@+id/txtChooseFilter"
-            android:layout_alignParentStart="true" android:textAlignment="center" android:textSize="30sp"/>
+            android:layout_alignParentStart="true" android:textAlignment="center" android:textSize="30sp"
+            android:textColor="@color/colorPrimaryDark"/>
 
     <Button
             android:text="Back"
@@ -37,15 +38,16 @@
             android:layout_alignParentStart="true"
             android:onClick="goToResultFromRecommended"
             android:tag="2"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50dp" android:background="@color/DefaultColour" android:textColor="@color/white"/>
     <Button
             android:text="Mix"
             android:layout_width="match_parent"
             android:layout_height="240dp"
+            android:layout_marginTop="5dp"
             android:id="@+id/btnMix"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/btnBeginner"
             android:tag="3"
             android:onClick="goToResultFromRecommended"
-    />
+            android:background="@color/DefaultColour" android:textColor="@color/white"/>
 </RelativeLayout>

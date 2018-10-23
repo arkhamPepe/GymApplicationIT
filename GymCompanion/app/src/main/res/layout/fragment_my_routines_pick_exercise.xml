@@ -10,7 +10,7 @@
 //-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" android:background="@color/colorAccent">
 
     <TextView
             android:text="Pick exercise"
@@ -18,15 +18,16 @@
             android:layout_height="wrap_content" android:id="@+id/txtMyRoutinesPickExerciseTitle"
             android:textSize="18sp"
             android:textAlignment="viewStart" android:layout_alignBaseline="@+id/btnMyRoutinesPickExerciseBack"
-            android:layout_alignParentEnd="true" android:textAllCaps="false"/>
+            android:layout_alignParentEnd="true" android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"/>
 
     <Button
-            android:text="go back"
+            android:text="Back"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnMyRoutinesPickExerciseBack"
             android:onClick="goToPickMG"
-            android:tag="3"/>
+            android:tag="3" android:background="@color/DefaultColour" android:textColor="@color/white"/>
 
     <ListView
             android:layout_width="match_parent"

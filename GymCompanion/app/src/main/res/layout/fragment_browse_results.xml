@@ -10,7 +10,7 @@
 //-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" android:background="@color/colorAccent">
 
     <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:id="@+id/searchBarHolder" android:background="@color/DefaultColour">
@@ -28,23 +28,24 @@
             android:layout_height="wrap_content" android:id="@+id/currentMuscleGroup" android:textSize="18sp"
             android:textAlignment="viewStart" android:layout_alignBaseline="@+id/btnBrowseResultsBack"
             android:layout_below="@+id/searchBarHolder"
-            android:layout_alignParentEnd="true" android:textAllCaps="false"/>
+            android:layout_alignParentEnd="true" android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"/>
 
     <Button
-            android:text="go back"
+            android:text="Back"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnBrowseResultsBack"
             android:onClick="resultBack"
             android:layout_below="@+id/searchBarHolder"
-            android:tag="3"/>
+            android:tag="3" android:textColor="@color/white" android:background="@color/DefaultColour"/>
 
     <Spinner
             android:id="@+id/dropdownSpinner"
             android:layout_width="120dp"
             android:layout_height="35dp"
             android:textSize="2sp"
-            android:background="@android:drawable/btn_dropdown"
+            android:background="@android:drawable/btn_default"
             android:layout_toEndOf="@id/cbxExercises"
             android:layout_below="@+id/btnBrowseResultsBack"
             android:spinnerMode="dropdown" android:dropDownWidth="120dp"/>
@@ -55,21 +56,24 @@
             android:layout_height="wrap_content" android:id="@+id/cbxExercises"
             android:tag="1"
             android:layout_below="@id/btnBrowseResultsBack" android:layout_toEndOf="@id/cbxRoutines"
-            android:checked="true"/>
+            android:checked="true" android:textColor="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"/>
     <CheckBox
             android:text="Routines"
             android:layout_width="90dp"
             android:layout_height="wrap_content" android:id="@+id/cbxRoutines"
             android:tag="0"
             android:layout_below="@id/btnBrowseResultsBack" android:layout_toEndOf="@id/txtFilterBy"
-            android:checked="true"/>
+            android:checked="true" android:textColor="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"/>
 
     <TextView
             android:text="Filter: "
             android:layout_width="wrap_content"
             android:id="@+id/txtFilterBy"
             android:layout_alignParentStart="true"
-            android:textSize="20sp" android:layout_below="@+id/btnBrowseResultsBack" android:layout_height="32dp"/>
+            android:textSize="20sp" android:layout_below="@+id/btnBrowseResultsBack" android:layout_height="32dp"
+            android:textColor="@color/colorPrimaryDark"/>
 
     <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:layout_below="@+id/txtFilterBy" android:background="@color/DefaultColour">
@@ -78,7 +82,7 @@
                 android:layout_height="match_parent" android:layout_alignParentStart="true"
                 android:layout_marginTop="1dp"
                 android:id="@+id/listViewBrowseResult"
-                android:background="@color/white"
+                android:background="@color/colorAccent"
         />
     </RelativeLayout>
 
