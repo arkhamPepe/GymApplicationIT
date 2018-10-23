@@ -3,6 +3,7 @@ package se.chalmers.group22.gymcompanion.Model;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.DataStorage.LocalDatabase;
 import se.chalmers.group22.gymcompanion.Model.Schedule.Schedule;
@@ -273,10 +274,12 @@ public class GymCompanion {
         return newList;
     }
 
+    public String getSelectedExerciseName(int selectedRoutineIndex, int selectedExerciseIndex){
+        return user.getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getName();
+    }
 
-
-    public List<Routine> getUserRoutines() {
-        return user.getRoutines();
+    public INTENSITY getCardioExerciseIntensity(int selectedRoutineIndex, int selectedExerciseIndex) {
+        return user.getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getIntensity();
     }
 
     public Routine getRoutineFromDay(Calendar day){
