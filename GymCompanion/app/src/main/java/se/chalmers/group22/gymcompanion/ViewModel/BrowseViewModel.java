@@ -102,7 +102,7 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredRoutines.addAll(routines);
         filteredExercises.addAll(exercises);
         sortRoutinesAndExercises(0);
-        this.query = query;
+        this.query = query.isEmpty() ? "All" : query;
 
         notifyObservers();
     }

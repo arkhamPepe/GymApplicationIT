@@ -16,7 +16,7 @@ public class BrowseResultFragment extends Fragment implements Observer {
 
     private BrowseViewModel viewModel;
     private TextView currentMuscleGroup;
-    private SearchView searchView;
+    private SearchViewBrowse searchView;
     private CheckBox cbxRoutines;
     private CheckBox cbxExercises;
     private Spinner dropDown;
@@ -95,7 +95,7 @@ public class BrowseResultFragment extends Fragment implements Observer {
 
         searchView = getView().findViewById(R.id.searchBar);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchView.setOnQueryTextListener(new SearchViewBrowse.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;

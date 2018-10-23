@@ -30,13 +30,13 @@ public class BrowseStartFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        SearchView searchView = getView().findViewById(R.id.searchBar);
+        SearchViewBrowse searchView = getView().findViewById(R.id.searchBar);
         viewModel = ((BrowseActivity) getActivity()).getViewModel();
 
         //Sets the ActionBar title for this particular fragment
         ((BrowseActivity) getActivity()).getSupportActionBar().setTitle("Search and Browse");
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchView.setOnQueryTextListener(new SearchViewBrowse.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
@@ -44,7 +44,7 @@ public class BrowseStartFragment extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 ((BrowseActivity)getActivity()).goToResultFromSearch(query);
-                return false;
+                return true;
             }
         });
     }
