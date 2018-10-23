@@ -38,7 +38,6 @@ public class ProgressActivity extends BaseActivity {
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;
     private final Fragment fragmentStart = new ProgressStartFragment();
-    private final Fragment fragmentEditRoutine = new ProgressEditRoutineFragment();
     private List<Fragment> fragments = new ArrayList<>();
 
     private ProgressViewModel progressViewModel = new ProgressViewModel();
@@ -58,15 +57,10 @@ public class ProgressActivity extends BaseActivity {
 
     private void fillFragmentsList(){
         fragments.add(fragmentStart);
-        fragments.add(fragmentEditRoutine);
     }
 
     public void goToStart(View view){
         fo.changeToFragment(fragmentStart);
-    }
-
-    public void goToEditRoutine(View view){
-        fo.changeToFragment(fragmentEditRoutine);
     }
 
     //Goes back to HomeActivity with an extra boolean so that the Finished Fragment is in focus
