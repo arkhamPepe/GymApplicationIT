@@ -185,17 +185,15 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
 
     public int getSelectedCardioExerciseTime(){
-        if (!checkIfEmptyExerciseList() && checkTypeExercise() !=1){return ((CardioExercise)
-                (getModel().getUserRoutines().get(selectedRoutineIndex).
-                        getExercises().get(selectedExerciseIndex))).getTimespent();
+        if (!checkIfEmptyExerciseList() && checkTypeExercise() !=1){
+                return getModel().getSelectedCardioExerciseTime(selectedRoutineIndex,selectedExerciseIndex);
         }
         return 0;
     }
 
     private Exercise getSelectedExecise(){
         if(!checkIfEmptyExerciseList()){
-        return getModel().getUserRoutines().
-                get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex);
+        return getModel().getSelectedExercise(selectedRoutineIndex,selectedExerciseIndex);
         }
         return null;
     }

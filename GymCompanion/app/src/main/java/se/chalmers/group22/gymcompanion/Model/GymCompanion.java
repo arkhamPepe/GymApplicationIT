@@ -274,20 +274,28 @@ public class GymCompanion {
         return newList;
     }
 
+    public List<Routine> getUserRoutines(){
+        return getUser().getRoutines();
+    }
+
     public String getSelectedExerciseName(int selectedRoutineIndex, int selectedExerciseIndex){
         return user.getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getName();
+    }
+
+    public int getSelectedCardioExerciseTime(int selectedRoutineIndex, int selectedExerciseIndex){
+        return ((CardioExercise)user.getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getTimespent();
     }
 
     public INTENSITY getCardioExerciseIntensity(int selectedRoutineIndex, int selectedExerciseIndex) {
         return user.getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getIntensity();
     }
 
-    public Routine getRoutineFromDay(Calendar day){
-        return user.getRoutineFromDay(day);
+    public Exercise getSelectedExercise(int selectedRoutineIndex, int selectedExerciseIndex){
+        return getUser().getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex);
     }
 
-    public Routine getRoutineFromName(String name){
-        return user.getRoutineFromName(name);
+    public Routine getRoutineFromDay(Calendar day){
+        return user.getRoutineFromDay(day);
     }
 
     public String getRoutineNameOnDate(int year, int month, int day) {

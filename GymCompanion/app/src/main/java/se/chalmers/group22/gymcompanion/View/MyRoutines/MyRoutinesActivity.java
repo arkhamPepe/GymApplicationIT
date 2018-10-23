@@ -76,8 +76,8 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void onClickCreateRoutine(View view){
-        viewModel.createRoutine();
         fo.changeToFragment(fragmentRoutineInfo);
+        viewModel.createRoutine();
     }
 
     public void onClickPickMG(View view){
