@@ -103,7 +103,7 @@ public class User implements Serializable {
     }
 
     public void addRoutine(Routine routine){
-        routines.add(routine);
+        routines.add(new Routine(routine));
     }
 
     public void removeRoutine(Routine routine){

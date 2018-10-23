@@ -158,8 +158,8 @@ public class BrowseActivity extends BaseActivity {
     }
 
     public void onAddExerciseToRoutineClick(View view) {
-        String s = view.getTag().toString();
-        viewModel.addExerciseToUserRoutine(s);
+        int i = (int)view.getTag();
+        viewModel.addExerciseToUserRoutine(i);
         Toast.makeText(this, "Exercise added to the routine!", Toast.LENGTH_SHORT).show();
     }
 

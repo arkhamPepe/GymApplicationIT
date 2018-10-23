@@ -396,6 +396,21 @@ public class BrowseViewModel extends ObservableViewModel {
         }
     }
 
+    public void addExerciseToUserRoutine(int position){
+        //getModel().addExerciseToRoutine(position, getExerciseByName());
+        getModel().addExerciseToRoutine(position, exerciseToAdd);
+        notifyObservers();
+        /*
+        for(Routine r :getModel().getUserRoutines()) {
+            if(r.getName().equals(routineName)) {
+                getModel().addExerciseToRoutine(getExerciseByName(), r);
+                notifyObservers();
+                break;
+            }
+        }
+        */
+    }
+
     /** compareRoutineExercises(String)
      * Purpose: checks whether the name is a routine or exercise name
      * @param name name of routine or exercise

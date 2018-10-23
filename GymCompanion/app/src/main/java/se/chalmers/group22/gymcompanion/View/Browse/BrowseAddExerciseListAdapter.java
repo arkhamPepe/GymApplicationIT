@@ -49,7 +49,9 @@ public class BrowseAddExerciseListAdapter extends ArrayAdapter {
         browsePickAmountPrefix.setText(" , Exercises: " + amount.get(position).toString());
         browseType.setText("Routine");
         browseDifficulty.setText("Difficulty: " + difficulties.get(position).toString());
-        browseAdd.setTag(names.get(position));
+        //browseAdd.setTag(names.get(position));
+        browseAdd.setTag(position);
+
         return rowView;
 
     }
