@@ -230,6 +230,7 @@ public class GymCompanion {
 
     public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){
         Exercise e = null;
+
         for (Exercise ex: new ArrayList<>(user.getRoutineExercises(selectedRoutineIndex))) {
             if(ex.getName().equals(exerciseName)){
                 e = ex;
