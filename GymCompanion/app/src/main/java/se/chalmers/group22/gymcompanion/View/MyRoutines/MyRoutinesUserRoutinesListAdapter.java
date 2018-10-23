@@ -44,7 +44,7 @@ public class MyRoutinesUserRoutinesListAdapter extends ArrayAdapter {
         routineExerciseAmount.setText(String.valueOf(exerciseCount.get(position)));
 
         ImageButton btnremoveRoutine = rowView.findViewById(R.id.btnRemoveRoutine);
-        btnremoveRoutine.setTag(routineNames.get(position));
+        btnremoveRoutine.setTag(position);
 
         return rowView;
 

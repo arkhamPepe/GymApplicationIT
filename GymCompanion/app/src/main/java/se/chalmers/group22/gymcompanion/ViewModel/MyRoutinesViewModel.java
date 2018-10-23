@@ -28,10 +28,10 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         notifyObservers();
         saveUser();
     }
-    public void removeSelectedRoutine(String routineName){
-        getModel().removeRoutine(routineName);
-        notifyObservers();
+    public void removeSelectedRoutine(int position){
+        getModel().removeRoutine(position);
         saveUser();
+        notifyObservers();
     }
 
     public void createRoutine(){

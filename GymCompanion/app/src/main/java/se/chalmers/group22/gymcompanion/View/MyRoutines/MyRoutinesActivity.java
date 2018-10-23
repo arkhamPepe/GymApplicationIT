@@ -166,6 +166,6 @@ public class MyRoutinesActivity extends BaseActivity {
 
     }
     public void onDeleteClickRoutine(View view){
-        viewModel.removeSelectedRoutine((String)view.getTag());
+        viewModel.removeSelectedRoutine((int)view.getTag());
     }
 }
