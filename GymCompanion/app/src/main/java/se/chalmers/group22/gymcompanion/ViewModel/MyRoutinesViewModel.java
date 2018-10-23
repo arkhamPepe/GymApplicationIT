@@ -167,13 +167,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         }
         return new ArrayList<>();
     }
-
-    public void setActiveRoutine(){
-        if (!checkIfEmptyRoutineList()){
-            getModel().setActiveRoutine(getModel().getUserRoutines().get(selectedRoutineIndex));
-
-        }
-    }
+    
     //TODO fix all Law of demeter deal-breakers
     public String getExerciseName(){
         if (!checkIfEmptyExerciseList()) {
@@ -215,20 +209,6 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         else {
             return 0;
         }
-    }
-
-    public String getExerciseGuide(){
-        return getModel().getUserRoutines().get(selectedRoutineIndex).
-                getExercises().get(selectedExerciseIndex).getVideoguide();
-    }
-
-    public String getExerciseDescription(){
-        if(!checkIfEmptyExerciseList()){
-            return getModel().getUserRoutines().get(selectedRoutineIndex).
-                    getExercises().get(selectedExerciseIndex).getDescription();
-
-        }
-        return "";
     }
 
     public List<Double> getStrengthExerciseKilograms(){
