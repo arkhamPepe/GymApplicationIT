@@ -110,8 +110,8 @@ public class User implements Serializable {
         routines.remove(routine);
     }
 
-    public void removeRoutine(int position){
-        routines.remove(position);
+    public void removeRoutine(int index){
+        routines.remove(index);
     }
 
     public void createRoutine(){

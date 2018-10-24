@@ -57,7 +57,6 @@ public class BrowseResultListAdapter extends ArrayAdapter {
         TextView browsePickAmountPrefix = (TextView) rowView.findViewById(R.id.txtBrowsePickAmountPrefix);
         TextView browseDifficulty = (TextView) rowView.findViewById(R.id.txtBrowseDifficulty);
         TextView browseType = (TextView) rowView.findViewById(R.id.txtType);
-        TextView browseDots = (TextView) rowView.findViewById(R.id.txtDots);
         ImageButton browseAdd = (ImageButton) rowView.findViewById(R.id.btnAddExerciseRoutine);
 
         //this code sets the values of the objects to values from the arrays
@@ -69,11 +68,6 @@ public class BrowseResultListAdapter extends ArrayAdapter {
             browseType.setText("Exercise");
         }
         browseDifficulty.setText("Difficulty: " + difficulties.get(position).toString());
-
-        if(names.get(position).length() > 26) {
-            browseDots.setVisibility(View.VISIBLE);
-        }
-
         browseAdd.setTag(names.get(position));
 
         return rowView;
