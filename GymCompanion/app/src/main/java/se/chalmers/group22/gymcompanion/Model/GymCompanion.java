@@ -226,6 +226,7 @@ public class GymCompanion {
 
     public void addRoutine(Routine routine){
         user.addRoutine(routine);
+        saveUser();
     }
 
     public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){
