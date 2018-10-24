@@ -168,42 +168,32 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         return new ArrayList<>();
     }
 
-    public void setActiveRoutine(){
-        if (!checkIfEmptyRoutineList()){
-            getModel().setActiveRoutine(getModel().getUserRoutines().get(selectedRoutineIndex));
-
-        }
-    }
     //TODO fix all Law of demeter deal-breakers
     public String getExerciseName(){
         if (!checkIfEmptyExerciseList()) {
-            return getModel().getUserRoutines().get(selectedRoutineIndex).
-                    getExercises().get(selectedExerciseIndex).getName();
+            return getModel().getSelectedExerciseName(selectedRoutineIndex,selectedExerciseIndex);
         }
         return "";
     }
 
     public String getSelectedCardioExerciseIntensity(){
         if(!checkIfEmptyExerciseList()) {
-            return getModel().getUserRoutines().get(selectedRoutineIndex).
-                    getExercises().get(selectedExerciseIndex).getIntensity().toString();
+            return getModel().getCardioExerciseIntensity(selectedRoutineIndex,selectedExerciseIndex).toString();
         }
         return "";
     }
 
 
     public int getSelectedCardioExerciseTime(){
-        if (!checkIfEmptyExerciseList() && checkTypeExercise() !=1){return ((CardioExercise)
-                (getModel().getUserRoutines().get(selectedRoutineIndex).
-                        getExercises().get(selectedExerciseIndex))).getTimespent();
+        if (!checkIfEmptyExerciseList() && checkTypeExercise() !=1){
+                return getModel().getSelectedCardioExerciseTime(selectedRoutineIndex,selectedExerciseIndex);
         }
         return 0;
     }
 
     private Exercise getSelectedExecise(){
         if(!checkIfEmptyExerciseList()){
-        return getModel().getUserRoutines().
-                get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex);
+        return getModel().getSelectedExercise(selectedRoutineIndex,selectedExerciseIndex);
         }
         return null;
     }
@@ -215,20 +205,6 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         else {
             return 0;
         }
-    }
-
-    public String getExerciseGuide(){
-        return getModel().getUserRoutines().get(selectedRoutineIndex).
-                getExercises().get(selectedExerciseIndex).getVideoguide();
-    }
-
-    public String getExerciseDescription(){
-        if(!checkIfEmptyExerciseList()){
-            return getModel().getUserRoutines().get(selectedRoutineIndex).
-                    getExercises().get(selectedExerciseIndex).getDescription();
-
-        }
-        return "";
     }
 
     public List<Double> getStrengthExerciseKilograms(){

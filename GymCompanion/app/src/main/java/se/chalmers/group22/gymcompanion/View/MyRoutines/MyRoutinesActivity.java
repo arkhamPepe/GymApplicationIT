@@ -3,7 +3,6 @@ package se.chalmers.group22.gymcompanion.View.MyRoutines;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -77,8 +76,8 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void onClickCreateRoutine(View view){
-        viewModel.createRoutine();
         fo.changeToFragment(fragmentRoutineInfo);
+        viewModel.createRoutine();
     }
 
     public void onClickPickMG(View view){
@@ -86,26 +85,16 @@ public class MyRoutinesActivity extends BaseActivity {
     }
 
     public void goToRoutineInfo(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentRoutineInfo);
-        transaction.hide(fragmentPickMG);
-        transaction.commit();
+        fo.changeToFragment(fragmentRoutineInfo);
     }
 
     public void goToPickExercise(View view){
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentPickExercise);
-        transaction.hide(fragmentPickMG);
-        transaction.commit();
+        fo.changeToFragment(fragmentPickExercise);
     }
 
     public void goToPickMG(View view){
         viewModel.notifyObservers();
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.show(fragmentPickMG);
-        transaction.hide(fragmentRoutineInfo);
-        transaction.hide(fragmentPickExercise);
-        transaction.commit();
+        fo.changeToFragment(fragmentPickMG);
 
     }
 

@@ -66,7 +66,7 @@ public class Routine implements ISortable, Serializable {
     public Routine(){
         this.exercises = new ArrayList<>();
         this.description = "";
-        this.name = "New Routine";
+        this.name = "New Routine 1";
         this.comment = "";
     }
 

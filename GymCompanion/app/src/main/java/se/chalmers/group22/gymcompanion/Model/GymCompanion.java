@@ -3,6 +3,7 @@ package se.chalmers.group22.gymcompanion.Model;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
 import se.chalmers.group22.gymcompanion.Model.DataStorage.LocalDatabase;
 import se.chalmers.group22.gymcompanion.Model.Schedule.Schedule;
@@ -230,6 +231,7 @@ public class GymCompanion {
 
     public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){
         Exercise e = null;
+
         for (Exercise ex: new ArrayList<>(user.getRoutineExercises(selectedRoutineIndex))) {
             if(ex.getName().equals(exerciseName)){
                 e = ex;
@@ -266,18 +268,28 @@ public class GymCompanion {
         return newList;
     }
 
+    public List<Routine> getUserRoutines(){
+        return getUser().getRoutines();
+    }
 
+    public String getSelectedExerciseName(int selectedRoutineIndex, int selectedExerciseIndex){
+        return user.getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getName();
+    }
 
-    public List<Routine> getUserRoutines() {
-        return user.getRoutines();
+    public int getSelectedCardioExerciseTime(int selectedRoutineIndex, int selectedExerciseIndex){
+        return ((CardioExercise)user.getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getTimespent();
+    }
+
+    public INTENSITY getCardioExerciseIntensity(int selectedRoutineIndex, int selectedExerciseIndex) {
+        return user.getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex).getIntensity();
+    }
+
+    public Exercise getSelectedExercise(int selectedRoutineIndex, int selectedExerciseIndex){
+        return getUser().getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex);
     }
 
     public Routine getRoutineFromDay(Calendar day){
         return user.getRoutineFromDay(day);
-    }
-
-    public Routine getRoutineFromName(String name){
-        return user.getRoutineFromName(name);
     }
 
     public String getRoutineNameOnDate(int year, int month, int day) {
