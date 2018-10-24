@@ -91,7 +91,7 @@ public class BrowseActivity extends BaseActivity {
     }
 
     public void resultBack(View view){
-
+        viewModel.setCurrentSortIndex(0);
         switch(viewModel.getIndex()){
             case 0:
                 fo.changeToFragment(fragmentStart);
@@ -118,7 +118,6 @@ public class BrowseActivity extends BaseActivity {
         viewModel.setMuscleGroup(x);
         viewModel.setIndex(1);
         viewModel.filter(x);
-        //fragmentResult.onResume();
     }
 
     public void goToResultFromSearch(String s){

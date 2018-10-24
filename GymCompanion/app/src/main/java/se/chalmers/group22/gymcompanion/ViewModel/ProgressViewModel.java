@@ -3,7 +3,11 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 public class ProgressViewModel extends BaseViewModel {
 
     public String getScheduledRoutineName(){
-        return null;
+        String routineName = getModel().getScheduledRoutineName();
+        if(routineName.length() > 25){
+            routineName = routineName.substring(0, 25) + "...";
+        }
+        return routineName;
     }
 
     public void setActiveExercise(int i){

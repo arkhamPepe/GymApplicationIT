@@ -58,7 +58,7 @@ public class StrengthExercise extends Exercise implements Serializable {
         super(exercise);
         this.repetitions = exercise.getRepetitions();
         this.sets = exercise.getSets();
-        this.kilograms = exercise.kilograms;
+        this.kilograms = exercise.getKilograms();
     }
 
     public double calculateScore() {
