@@ -34,8 +34,7 @@ public class MyRoutinesStartFragment extends Fragment implements Observer {
         super.onStart();
         viewModel = ((MyRoutinesActivity)getActivity()).getBrowseViewModel(); // Get the ViewModel
 
-        MyRoutinesUserRoutinesListAdapter adapter = new MyRoutinesUserRoutinesListAdapter
-                (getActivity(),viewModel.getRoutineNames(),viewModel.getRoutinesExerciseCount());
+        MyRoutinesUserRoutinesListAdapter adapter = new MyRoutinesUserRoutinesListAdapter(getActivity(), viewModel.getRoutines());
         ListView listView = getView().findViewById(R.id.listviewMyRoutines);
         listView.setAdapter(adapter);
 
@@ -59,8 +58,7 @@ public class MyRoutinesStartFragment extends Fragment implements Observer {
 
 
     public void update(){
-        MyRoutinesUserRoutinesListAdapter adapter = new MyRoutinesUserRoutinesListAdapter
-                (getActivity(), viewModel.getRoutineNames(),viewModel.getRoutinesExerciseCount());
+        MyRoutinesUserRoutinesListAdapter adapter = new MyRoutinesUserRoutinesListAdapter(getActivity(), viewModel.getRoutines());
         ListView listView = getView().findViewById(R.id.listviewMyRoutines);
         listView.setAdapter(adapter);
     }

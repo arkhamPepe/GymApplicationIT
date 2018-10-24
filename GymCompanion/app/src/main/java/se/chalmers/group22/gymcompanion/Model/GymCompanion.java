@@ -401,20 +401,4 @@ public class GymCompanion {
         }
     }
 
-    public List<String> getRoutineNames(){
-        List<String> routineNames = new ArrayList<>();
-        for (Routine routine: user.getRoutines()){
-            routineNames.add(routine.getName());
-        }
-        return routineNames;
-    }
-
-    public List<Integer> getRoutinesExerciseCount(){
-        List<Integer> routinesExerciseCount = new ArrayList<>();
-        for (Routine routine: user.getRoutines()){
-            routinesExerciseCount.add(routine.getExercises().size());
-        }
-        return routinesExerciseCount;
-    }
-
 }
