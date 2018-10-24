@@ -264,18 +264,11 @@ public class BrowseViewModel extends ObservableViewModel {
         List<String> names = new ArrayList<>();
 
         for(Routine r : filteredRoutines) {
-            if(r.getName().length() > 25) {
-                names.add(r.getName().substring(0,25) + "...");
-            } else {
-                names.add(r.getName());
-            }
+            names.add(r.getName());
         }
+
         for(Exercise e : filteredExercises) {
-            if(e.getName().length() > 25) {
-                names.add(e.getName().substring(0,25) + "...");
-            } else {
-                names.add(e.getName());
-            }
+            names.add(e.getName());
         }
         return names;
     }

@@ -118,7 +118,6 @@ public class BrowseActivity extends BaseActivity {
         viewModel.setMuscleGroup(x);
         viewModel.setIndex(1);
         viewModel.filter(x);
-        //fragmentResult.onResume();
     }
 
     public void goToResultFromSearch(String s){
