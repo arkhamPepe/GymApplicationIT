@@ -300,4 +300,12 @@ public class MyRoutinesViewModel extends ObservableViewModel {
     private void saveUser(){
         getModel().saveUser();
     }
+
+    public List<String> getRoutineNames(){
+        return getModel().getRoutineNames();
+    }
+
+    public List<Integer> getRoutinesExerciseCount(){
+        return getModel().getRoutinesExerciseCount();
+    }
 }
