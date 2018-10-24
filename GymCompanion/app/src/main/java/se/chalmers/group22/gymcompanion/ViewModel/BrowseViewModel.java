@@ -384,31 +384,11 @@ public class BrowseViewModel extends ObservableViewModel {
 
     /** addExerciseToUserRoutine(String)
      * Purpose: Adds the the exercise clicked in result list to the routine clicked in routineinfo fragment
-     * @param routineName the name of the routine pressed
+     * @param position the index of the routine removed
      * */
-    public void addExerciseToUserRoutine(String routineName){
-        for(Routine r :getModel().getUserRoutines()) {
-            if(r.getName().equals(routineName)) {
-                getModel().addExerciseToRoutine(getExerciseByName(), r);
-                notifyObservers();
-                break;
-            }
-        }
-    }
-
     public void addExerciseToUserRoutine(int position){
-        //getModel().addExerciseToRoutine(position, getExerciseByName());
         getModel().addExerciseToRoutine(position, exerciseToAdd);
         notifyObservers();
-        /*
-        for(Routine r :getModel().getUserRoutines()) {
-            if(r.getName().equals(routineName)) {
-                getModel().addExerciseToRoutine(getExerciseByName(), r);
-                notifyObservers();
-                break;
-            }
-        }
-        */
     }
 
     /** compareRoutineExercises(String)

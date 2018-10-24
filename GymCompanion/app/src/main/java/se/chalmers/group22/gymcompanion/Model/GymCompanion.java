@@ -257,10 +257,11 @@ public class GymCompanion {
         saveUser();
     }
 
-
+    public void removeRoutine(int position){
+        user.removeRoutine(position);
+    }
 
     //Routine and Exercise Getters
-
     public List<ISortable> getRoutinesAndExercises(){
         List<ISortable> newList = new ArrayList<>();
 
