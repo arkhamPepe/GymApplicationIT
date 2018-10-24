@@ -49,19 +49,4 @@ public class MyRoutinesUserRoutinesListAdapter extends ArrayAdapter {
 
     }
 
-    /*private void fillRoutineNames(List<Routine> routines){
-        if (!routines.isEmpty()) {
-            for (Routine routine : routines) {
-                routineNames.add(routine.getName());
-            }
-        }
-    }
-
-    private void fillExerciseCount(List<Routine> routines){
-        if (!routines.isEmpty()) {
-            for (Routine routine : routines) {
-                exerciseCount.add(routine.getExercises().size());
-            }
-        }
-    }*/
 }
