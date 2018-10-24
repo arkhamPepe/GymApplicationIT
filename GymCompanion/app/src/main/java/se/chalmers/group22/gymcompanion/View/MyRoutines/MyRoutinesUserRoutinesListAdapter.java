@@ -22,13 +22,12 @@ public class MyRoutinesUserRoutinesListAdapter extends ArrayAdapter {
     private List<String> routineNames;
     private List<Integer> exerciseCount;
 
-    public MyRoutinesUserRoutinesListAdapter(Activity context, List<Routine> routines){
-        super(context, R.layout.listitem_my_routines,routines);
-        routineNames = new ArrayList<>();
-        exerciseCount = new ArrayList<>();
+    public MyRoutinesUserRoutinesListAdapter(Activity context, List<String> routineNames, List<Integer> exerciseCount){
+        super(context, R.layout.listitem_my_routines,routineNames);
         this.context = context;
-        fillRoutineNames(routines);
-        fillExerciseCount(routines);
+        this.routineNames = routineNames;
+        this.exerciseCount = exerciseCount;
+
     }
 
     public View getView(int position, View view, ViewGroup parent) {
@@ -50,7 +49,7 @@ public class MyRoutinesUserRoutinesListAdapter extends ArrayAdapter {
 
     }
 
-    private void fillRoutineNames(List<Routine> routines){
+    /*private void fillRoutineNames(List<Routine> routines){
         if (!routines.isEmpty()) {
             for (Routine routine : routines) {
                 routineNames.add(routine.getName());
@@ -64,5 +63,5 @@ public class MyRoutinesUserRoutinesListAdapter extends ArrayAdapter {
                 exerciseCount.add(routine.getExercises().size());
             }
         }
-    }
+    }*/
 }
