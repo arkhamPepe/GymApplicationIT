@@ -151,7 +151,7 @@ public class UserTest {
     public void removeRoutineTest(){
         int n = user.getRoutines().size();
         user.addRoutine(r1);
-        user.removeRoutine(0);
+        user.removeRoutine(r1);
         assertEquals(n, user.getRoutines().size());
     }
 

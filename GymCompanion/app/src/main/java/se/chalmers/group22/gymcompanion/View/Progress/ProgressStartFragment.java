@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList.ProgressExpandListAdapter;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList.ProgressExpandListChild;
@@ -36,7 +35,6 @@ public class ProgressStartFragment extends Fragment {
     private ProgressExpandListAdapter progAdapter;
     private ArrayList<ProgressExpandListGroup> listItems;
     private ExpandableListView exListView;
-    private TextView textViewRoutineName;
 
     public static ProgressStartFragment newInstance() {
         ProgressStartFragment fragment = new ProgressStartFragment();
@@ -60,13 +58,10 @@ public class ProgressStartFragment extends Fragment {
 
         viewModel = ((ProgressActivity)getActivity()).getViewModel();
 
-        textViewRoutineName = getView().findViewById(R.id.textViewProgressRoutineName);
         exListView = getView().findViewById(R.id.ProgressExpList);
         listItems = SetStandardGroups();
         progAdapter = new ProgressExpandListAdapter(getActivity(), listItems);
         exListView.setAdapter(progAdapter);
-
-        textViewRoutineName.setText(viewModel.getScheduledRoutineName());
     }
 
     //TODO Optimize this method (The names of the method calls are too long, find a solution)

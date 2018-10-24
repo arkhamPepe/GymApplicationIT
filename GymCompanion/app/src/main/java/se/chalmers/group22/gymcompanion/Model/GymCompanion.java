@@ -226,7 +226,6 @@ public class GymCompanion {
 
     public void addRoutine(Routine routine){
         user.addRoutine(routine);
-        saveUser();
     }
 
     public void removeExerciseFromRoutine(int selectedRoutineIndex, String exerciseName){
@@ -252,11 +251,10 @@ public class GymCompanion {
         saveUser();
     }
 
-    public void removeRoutine(int position){
-        user.removeRoutine(position);
-    }
+
 
     //Routine and Exercise Getters
+
     public List<ISortable> getRoutinesAndExercises(){
         List<ISortable> newList = new ArrayList<>();
 
