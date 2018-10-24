@@ -91,7 +91,7 @@ public class BrowseActivity extends BaseActivity {
     }
 
     public void resultBack(View view){
-
+        viewModel.setCurrentSortIndex(0);
         switch(viewModel.getIndex()){
             case 0:
                 fo.changeToFragment(fragmentStart);
