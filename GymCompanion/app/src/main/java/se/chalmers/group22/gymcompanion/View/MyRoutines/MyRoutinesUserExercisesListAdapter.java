@@ -42,6 +42,11 @@ public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {
         //this code sets the values of the objects to values from the arrays
         exerciseName.setText(exerciseNames.get(position));
         String setsAmountText = (sets.get(position) == 0) ? "" : sets.get(position).toString();
+        if (sets.get(position) == 0){
+            TextView txtViewSets = rowView.findViewById(R.id.textViewSetsText);
+            txtViewSets.setText("");
+
+        }
         amountOfSets.setText(setsAmountText);
 
         return rowView;

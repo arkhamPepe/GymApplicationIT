@@ -34,7 +34,7 @@
             android:layout_width="51dp"
             android:textColor="@color/blackColour"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewAmountOfSets"
+            android:id="@+id/textViewSetsText"
             android:textSize="20sp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/textViewAmountOfSets"
+            android:layout_toEndOf="@+id/textViewSetsText"
             android:layout_marginStart="-80dp"
             android:layout_marginBottom="20dp"
             android:id="@+id/textViewListItemExercisesSets"/>
