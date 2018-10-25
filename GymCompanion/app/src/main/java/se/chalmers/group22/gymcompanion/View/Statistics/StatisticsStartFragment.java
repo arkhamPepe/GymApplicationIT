@@ -16,12 +16,19 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.Calendar;
 import java.util.Date;
-
-/** StatisticsActivityFragment
- *  Purpose: Initial fragment of StatisticActivity
- *  Authors: Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
- * */
-
+/***
+ * Title: StatisticsStartFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Statistics Start Page in the app
+ */
 public class StatisticsStartFragment extends Fragment implements Observer {
 
     private StatisticsViewModel viewModel;

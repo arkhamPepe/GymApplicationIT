@@ -21,7 +21,7 @@ import java.util.List;
  *
  * Created: October 18, 2018
  *
- * Purpose: Adds the list elements to the Browse Muscle Groups List GUI
+ * Purpose: Builds the listview for BrowseMuscleGroupsFragment
  */
 
 public class BrowseMuscleGroupsListAdapter extends ArrayAdapter {

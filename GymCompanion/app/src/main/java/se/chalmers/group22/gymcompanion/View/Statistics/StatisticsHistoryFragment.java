@@ -13,9 +13,19 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.Calendar;
 import java.util.List;
-//import se.chalmers.group22.gymcompanion.View.HomeActivity;
-
-
+/***
+ * Title: StatisticsHistoryFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Statistics History Page in the app
+ */
 public class StatisticsHistoryFragment extends Fragment {
     /** TEMPORARY DATA */
     /*private String[] routineNames = {"Chest demolisher", "Leg killer", "Back attack", "Arms mauler", "Murder your shoulders", "Chest demolisher",

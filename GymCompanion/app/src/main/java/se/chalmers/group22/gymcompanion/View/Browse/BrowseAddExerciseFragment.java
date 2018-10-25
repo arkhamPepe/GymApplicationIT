@@ -11,7 +11,19 @@ import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
-
+/***
+ * Title: BrowseAddExerciseFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Add Exercise fragment in the app
+ */
 public class BrowseAddExerciseFragment extends Fragment implements Observer {
 
     private BrowseViewModel viewModel;

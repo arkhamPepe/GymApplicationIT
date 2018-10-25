@@ -2,7 +2,20 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 
 import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 import java.util.*;
-
+/***
+ * Title: ScheduleViewModel
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 12, 2018
+ *
+ * Purpose: To handle the communication between the model and the view without without showing the model's underlying
+ * representation to the view.
+ */
 public class ScheduleViewModel extends BaseViewModel {
     private int selectedYear; // Year of selected date
     private int selectedMonth; // Month of selected date
