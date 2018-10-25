@@ -2,7 +2,6 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
@@ -10,7 +9,7 @@ import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyRoutinesViewModel extends ObservableViewModel {
+public class MyRoutinesViewModel extends ObservableViewModelViewModel {
 
     @Getter
     private int selectedRoutineIndex;
@@ -285,8 +284,4 @@ public class MyRoutinesViewModel extends ObservableViewModel {
         return getModel().getRoutinesExerciseCount();
     }
 
-    @Override
-    public void updateViewModel() {
-
-    }
 }

@@ -5,14 +5,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
-public class BrowseAddExerciseFragment extends Fragment implements Observer {
+public class BrowseAddExerciseFragment extends Fragment implements ViewModelObserver {
 
     private BrowseViewModel viewModel;
     public static BrowseAddExerciseFragment getInstance() { return new BrowseAddExerciseFragment(); }

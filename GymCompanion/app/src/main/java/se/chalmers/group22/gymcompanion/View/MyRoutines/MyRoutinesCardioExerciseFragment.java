@@ -6,11 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
-public class MyRoutinesCardioExerciseFragment extends Fragment implements Observer {
+public class MyRoutinesCardioExerciseFragment extends Fragment implements ViewModelObserver {
     private MyRoutinesViewModel viewModel;
     public static MyRoutinesCardioExerciseFragment newInstance() {
         MyRoutinesCardioExerciseFragment fragment = new MyRoutinesCardioExerciseFragment();

@@ -6,11 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
-public class MyRoutinesRoutineInfoFragment extends Fragment implements Observer {
+public class MyRoutinesRoutineInfoFragment extends Fragment implements ViewModelObserver {
 
     //variables for fragment_routine_routine_info.xml
     private MyRoutinesViewModel viewModel;

@@ -6,13 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 import java.util.List;
 
-public class BrowseResultFragment extends Fragment implements Observer {
+public class BrowseResultFragment extends Fragment implements ViewModelObserver {
 
     private BrowseViewModel viewModel;
     private TextView currentMuscleGroup;

@@ -3,7 +3,7 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 import java.util.*;
 
-public class ScheduleViewModel extends ObservableViewModel {
+public class ScheduleViewModel extends ObservableViewModelViewModel {
     private int selectedYear; // Year of selected date
     private int selectedMonth; // Month of selected date
     private int selectedDay; // Day of selected date
@@ -159,8 +159,4 @@ public class ScheduleViewModel extends ObservableViewModel {
         return amounts;
     }
 
-    @Override
-    public void updateViewModel() {
-
-    }
 }

@@ -5,24 +5,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
-import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.*;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
-
-import java.util.Calendar;
-import java.util.Date;
 
 /** StatisticsActivityFragment
  *  Purpose: Initial fragment of StatisticActivity
  *  Authors: Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
  * */
 
-public class StatisticsStartFragment extends Fragment implements Observer {
+public class StatisticsStartFragment extends Fragment implements ViewModelObserver {
 
     private StatisticsViewModel viewModel;
 

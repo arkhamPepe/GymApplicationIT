@@ -1,6 +1,5 @@
 package se.chalmers.group22.gymcompanion.Model;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
@@ -39,7 +38,7 @@ import java.util.*;
  */
 
 @Getter
-public class GymCompanion implements ModelObservable{
+public class GymCompanion implements ObservableModel {
 
     private List<ModelObserver> observers = new ArrayList<>();
 
@@ -435,7 +434,7 @@ public class GymCompanion implements ModelObservable{
     @Override
     public void notifyModelObservers() {
         for(ModelObserver observer : observers){
-            observer.updateViewModel();
+            observer.updateView();
         }
     }
 

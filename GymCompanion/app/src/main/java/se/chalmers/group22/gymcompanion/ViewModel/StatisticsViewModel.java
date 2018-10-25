@@ -6,7 +6,7 @@ import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.*;
 
-public class StatisticsViewModel extends ObservableViewModel {
+public class StatisticsViewModel extends ObservableViewModelViewModel {
     private Map<Calendar, Routine> schedule;
     private Map<Calendar, Routine> completedRoutines;
     private int currentWeekOffset = 0;
@@ -88,7 +88,7 @@ public class StatisticsViewModel extends ObservableViewModel {
     }
 
     @Override
-    public void updateViewModel() {
+    public void updateView() {
 
     }
 

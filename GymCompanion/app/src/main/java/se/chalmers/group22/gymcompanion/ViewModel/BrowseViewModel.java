@@ -26,7 +26,7 @@ import java.util.List;
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
  */
-public class BrowseViewModel extends ObservableViewModel {
+public class BrowseViewModel extends ObservableViewModelViewModel {
 
     // page index
     @Getter
@@ -390,7 +390,6 @@ public class BrowseViewModel extends ObservableViewModel {
         for(Routine r :getModel().getUserRoutines()) {
             if(r.getName().equals(routineName)) {
                 getModel().addExerciseToRoutine(getExerciseByName(), r);
-                notifyObservers();
                 break;
             }
         }
@@ -399,7 +398,6 @@ public class BrowseViewModel extends ObservableViewModel {
     public void addExerciseToUserRoutine(int position){
         //getModel().addExerciseToRoutine(position, getExerciseByName());
         getModel().addExerciseToRoutine(position, exerciseToAdd);
-        notifyObservers();
         /*
         for(Routine r :getModel().getUserRoutines()) {
             if(r.getName().equals(routineName)) {
@@ -444,10 +442,5 @@ public class BrowseViewModel extends ObservableViewModel {
         exercises.clear();
         filteredExercises.clear();
         filteredRoutines.clear();
-    }
-
-    @Override
-    public void updateViewModel() {
-
     }
 }
