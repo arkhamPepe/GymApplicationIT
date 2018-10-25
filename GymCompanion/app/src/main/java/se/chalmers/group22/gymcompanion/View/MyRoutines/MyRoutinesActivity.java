@@ -14,7 +14,19 @@ import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/***
+ * Title: MyRoutinesActivity
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Manages user interaction and handles which Fragments are in view of the user when this activity is active
+ */
 public class MyRoutinesActivity extends BaseActivity {
 
     public static final int index = 3;

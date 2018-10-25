@@ -9,7 +9,20 @@ import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/***
+ * Title: MyRoutinesViewModel
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 12, 2018
+ *
+ * Purpose: To handle the communication between the model and the view without without showing the model's underlying
+ * representation to the view.
+ */
 public class MyRoutinesViewModel extends ObservableViewModel {
 
     @Getter

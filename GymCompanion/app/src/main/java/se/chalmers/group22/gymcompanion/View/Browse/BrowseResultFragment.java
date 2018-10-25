@@ -11,7 +11,19 @@ import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 import java.util.List;
-
+/***
+ * Title: BrowseResultFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Results from a search or filter
+ */
 public class BrowseResultFragment extends Fragment implements Observer {
 
     private BrowseViewModel viewModel;

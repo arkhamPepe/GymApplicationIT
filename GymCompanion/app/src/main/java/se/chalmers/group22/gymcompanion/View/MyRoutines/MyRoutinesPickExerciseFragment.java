@@ -11,7 +11,19 @@ import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
-
+/***
+ * Title: MyRoutinesCardioExerciseFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 2, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Pick Exercise fragment in the app
+ */
 public class MyRoutinesPickExerciseFragment extends Fragment implements Observer {
 
     private MyRoutinesViewModel viewModel;

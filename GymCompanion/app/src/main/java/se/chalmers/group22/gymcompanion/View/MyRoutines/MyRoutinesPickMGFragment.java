@@ -10,7 +10,19 @@ import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseMuscleGroupsListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
-
+/***
+ * Title: MyRoutinesPickMGFragmentFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 2, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Pick Muscle Group fragment in the app
+ */
 public class MyRoutinesPickMGFragment extends Fragment {
     private MyRoutinesViewModel viewModel;
 

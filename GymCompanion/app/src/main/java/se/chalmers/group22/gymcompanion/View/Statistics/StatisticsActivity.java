@@ -13,11 +13,19 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-/** StatisticsActivity
- *  Purpose: Manage user interaction in the activity Statistics
- *  Authors: Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
- * */
+/***
+ * Title: StatisticsActivity
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Manages user interaction and handles which Fragments are in view of the user when this Activity is active
+ */
 public class StatisticsActivity extends BaseActivity {
 
     public static final int index = 4; // Defines which item that represents this activity in the bottom navigation

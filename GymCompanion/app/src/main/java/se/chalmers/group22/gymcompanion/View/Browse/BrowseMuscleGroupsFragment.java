@@ -9,7 +9,19 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
-
+/***
+ * Title: BrowseMuscleGroupsFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Muscle Groups fragment in the app
+ */
 public class BrowseMuscleGroupsFragment extends Fragment {
 
     private BrowseViewModel viewModel;
