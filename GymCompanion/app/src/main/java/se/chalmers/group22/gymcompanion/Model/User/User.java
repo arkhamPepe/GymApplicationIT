@@ -166,6 +166,11 @@ public class User implements Serializable {
         return "Something went wrong";
     }
 
+    /**
+     *      GETTERS
+     *
+     */
+
     // Defensive copy
     public List<User> getFriends() {
         return new ArrayList<>(friends);
