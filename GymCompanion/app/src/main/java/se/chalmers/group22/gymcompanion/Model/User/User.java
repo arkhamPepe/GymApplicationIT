@@ -75,21 +75,6 @@ public class User implements Serializable {
         this.completedRoutines = new HashMap<>();
     }
 
-    // Defensive copy
-    public List<User> getFriends() {
-        return new ArrayList<>(friends);
-    }
-
-    // Defensive copy
-    public List<Routine> getRoutines() {
-        return new ArrayList<>(routines);
-    }
-
-    // Defensive Copy
-    public Map<Calendar, Routine> getCompletedRoutines(){
-        return new HashMap<>(completedRoutines);
-    }
-
     public void finishRoutine(Routine routine){
         completedRoutines.put(getTodaysDate(), new Routine(routine));
     }
@@ -150,6 +135,52 @@ public class User implements Serializable {
         routine.setDescription(description);
     }
 
+    public boolean scheduleDayHasRoutine(Calendar date){
+        return schedule.dateHasRoutine(date);
+    }
+
+    public void scheduleAddRoutine(Routine routine, Calendar date){
+        schedule.addRoutine(routine, date);
+    }
+
+    private String findMostCommonName(List<String> strList){
+        Map<String,Long> ocurrences = strList.stream().collect(Collectors.groupingBy(w->w, Collectors.counting()));
+        long biggest = 0;
+
+        if(ocurrences.isEmpty()){
+            return "No Favourite";
+        }
+
+        for (long i:ocurrences.values()) {
+            if(i>biggest){
+                biggest = i;
+            }
+        }
+
+        for (String str:ocurrences.keySet()) {
+            if(ocurrences.get(str)==biggest){
+                return str;
+            }
+        }
+
+        return "Something went wrong";
+    }
+
+    // Defensive copy
+    public List<User> getFriends() {
+        return new ArrayList<>(friends);
+    }
+
+    // Defensive copy
+    public List<Routine> getRoutines() {
+        return new ArrayList<>(routines);
+    }
+
+    // Defensive Copy
+    public Map<Calendar, Routine> getCompletedRoutines(){
+        return new HashMap<>(completedRoutines);
+    }
+
     private Calendar getTodaysDate(){
         return new GregorianCalendar();
     }
@@ -160,10 +191,6 @@ public class User implements Serializable {
 
     public Routine getTodaysRoutine(){
         return schedule.getRoutineFromDay(getTodaysDate());
-    }
-
-    public boolean scheduleDayHasRoutine(Calendar date){
-        return schedule.dateHasRoutine(date);
     }
 
     public Routine getScheduleRoutineFromDay(Calendar date){
@@ -180,10 +207,6 @@ public class User implements Serializable {
             }
         }
         return latestFinishedRoutine;
-    }
-
-    public void scheduleAddRoutine(Routine routine, Calendar date){
-        schedule.addRoutine(routine, date);
     }
 
     public Schedule getSchedule(){
@@ -261,40 +284,6 @@ public class User implements Serializable {
         }
 
         return findMostCommonName(strList);
-    }
-
-    public Routine getRoutineFromName(String name){
-        Routine ret = null;
-        for(Routine r: new ArrayList<>(routines)){
-            if(r.getName().equals(name)){
-                ret = r;
-                return ret;
-            }
-        }
-        return ret;
-    }
-
-    private String findMostCommonName(List<String> strList){
-        Map<String,Long> ocurrences = strList.stream().collect(Collectors.groupingBy(w->w, Collectors.counting()));
-        long biggest = 0;
-
-        if(ocurrences.isEmpty()){
-            return "No Favourite";
-        }
-
-        for (long i:ocurrences.values()) {
-            if(i>biggest){
-                biggest = i;
-            }
-        }
-
-        for (String str:ocurrences.keySet()) {
-            if(ocurrences.get(str)==biggest){
-                return str;
-            }
-        }
-
-        return "Something went wrong";
     }
 
     public String getBiggestCompletedRoutineName(){
