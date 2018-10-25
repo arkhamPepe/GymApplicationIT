@@ -167,9 +167,8 @@ public class User implements Serializable {
     }
 
     /**
-     *      GETTERS
-     *
-     */
+     *               GETTERS
+     **/
 
     // Defensive copy
     public List<User> getFriends() {
