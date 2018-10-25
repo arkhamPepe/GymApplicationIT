@@ -167,7 +167,7 @@ public class User implements Serializable {
     }
 
     /**
-     *               GETTERS
+     *               GETTERS for Law of Demeter
      **/
 
     // Defensive copy
