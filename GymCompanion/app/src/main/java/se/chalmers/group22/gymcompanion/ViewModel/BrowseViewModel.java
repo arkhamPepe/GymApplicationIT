@@ -445,4 +445,9 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredExercises.clear();
         filteredRoutines.clear();
     }
+
+    @Override
+    public void updateViewModel() {
+
+    }
 }

@@ -1,5 +1,6 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
+import se.chalmers.group22.gymcompanion.Model.ModelObserver;
 import se.chalmers.group22.gymcompanion.Model.Observable;
 import se.chalmers.group22.gymcompanion.Model.Observer;
 
@@ -22,7 +23,7 @@ import java.util.List;
  * which means that code could be abstracted out of them into a common super class
  */
 
-abstract public class ObservableViewModel extends BaseViewModel implements Observable {
+abstract public class ObservableViewModel extends BaseViewModel implements Observable, ModelObserver {
 
     private List<Observer> observers = new ArrayList<>();
 
@@ -42,4 +43,5 @@ abstract public class ObservableViewModel extends BaseViewModel implements Obser
     public void removeObserver(Observer observer) {
         this.observers.remove(observer);
     }
+
 }

@@ -17,7 +17,7 @@ package se.chalmers.group22.gymcompanion.Model;
  */
 
 public interface ModelObservable {
-    void notifyObservers();
-    void addObserver(ModelObserver observer);
-    void removeObserver(ModelObserver observer);
+    void notifyModelObservers();
+    void addModelObserver(ModelObserver observer);
+    void removeModelObserver(ModelObserver observer);
 }

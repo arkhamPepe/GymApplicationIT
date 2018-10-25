@@ -17,5 +17,5 @@ package se.chalmers.group22.gymcompanion.Model;
  */
 
 public interface ModelObserver {
-    void update();
+    void updateViewModel();
 }

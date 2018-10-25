@@ -87,6 +87,11 @@ public class StatisticsViewModel extends ObservableViewModel {
         }
     }
 
+    @Override
+    public void updateViewModel() {
+        
+    }
+
     private class Point {
         private double x;
         private double y;

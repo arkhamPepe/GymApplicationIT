@@ -433,19 +433,19 @@ public class GymCompanion implements ModelObservable{
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyModelObservers() {
         for(ModelObserver observer : observers){
-            observer.update();
+            observer.updateViewModel();
         }
     }
 
     @Override
-    public void addObserver(ModelObserver observer) {
+    public void addModelObserver(ModelObserver observer) {
         observers.add(observer);
     }
 
     @Override
-    public void removeObserver(ModelObserver observer) {
+    public void removeModelObserver(ModelObserver observer) {
         observers.remove(observer);
     }
 }

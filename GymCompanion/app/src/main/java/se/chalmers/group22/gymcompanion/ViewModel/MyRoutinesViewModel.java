@@ -284,4 +284,9 @@ public class MyRoutinesViewModel extends ObservableViewModel {
     public List<Integer> getRoutinesExerciseCount(){
         return getModel().getRoutinesExerciseCount();
     }
+
+    @Override
+    public void updateViewModel() {
+
+    }
 }
