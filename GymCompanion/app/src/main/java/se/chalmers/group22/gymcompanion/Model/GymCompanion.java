@@ -39,7 +39,10 @@ import java.util.*;
  */
 
 @Getter
-public class GymCompanion {
+public class GymCompanion implements ModelObservable{
+
+    private List<ModelObserver> observers = new ArrayList<>();
+
     @Setter
     private User user;
 
@@ -429,4 +432,20 @@ public class GymCompanion {
         return routinesExerciseCount;
     }
 
+    @Override
+    public void notifyObservers() {
+        for(ModelObserver observer : observers){
+            observer.update();
+        }
+    }
+
+    @Override
+    public void addObserver(ModelObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(ModelObserver observer) {
+        observers.remove(observer);
+    }
 }
