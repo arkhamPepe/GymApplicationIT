@@ -46,7 +46,7 @@ public class CardioExercise extends Exercise implements Serializable {
         this.timespent = exercise.getTimespent();
     }
 
-    public Exercise clone() {
+    public CardioExercise clone() {
         return new CardioExercise(this);
     }
 
