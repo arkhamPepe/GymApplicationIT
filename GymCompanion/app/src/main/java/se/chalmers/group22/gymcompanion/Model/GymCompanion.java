@@ -75,23 +75,11 @@ public class GymCompanion {
         }
     }
 
-    public Routine getRoutineFromIndex(int routineIndex){
-        return user.getRoutine(routineIndex);
-    }
-
     //Active Routine Methods
 
     public void setActiveExerciseInActiveRoutine(int index){
         activeExercise = activeRoutine.getExercises().get(index);
         saveUser();
-    }
-
-    public int getAmountOfExercisesInActiveRoutine(){
-        if(activeRoutine == null)
-        {
-            return 0;
-        }
-        return activeRoutine.getExercises().size();
     }
 
     public void toggleCompletionExerciseInARWithIndex(int index, boolean completed){
@@ -101,78 +89,18 @@ public class GymCompanion {
     public void completeActiveRoutine() {
         user.finishRoutine(activeRoutine);
     }
+
     public boolean startRoutineIsSet(){
         return activeRoutine != null;
     }
 
     //Active Exercise Methods
 
-    public String getActiveExerciseName(){
-        return activeExercise.getName();
-    }
-
     public boolean isActiveExerciseStrengthExercise(){
         return activeExercise instanceof StrengthExercise;
     }
 
-    public int getAmountOfSetsInActiveExercise(){
-        return ((StrengthExercise)activeExercise).getSets();
-    }
-
-    public int getTimeInActiveExercise(){
-        return ((CardioExercise)activeExercise).getTimespent();
-    }
-
-    public int getAmountOfRepsFromActiveExerciseSetWithIndex(int index){
-        return ((StrengthExercise)activeExercise).getRepetitions().get(index);
-    }
-
-    public double getAmountWeightFromActiveExerciseSetWithIndex(int index){
-        return ((StrengthExercise)activeExercise).getKilograms().get(index);
-    }
-
-
     //Schedule Methods
-
-    public String getScheduledRoutineName(){
-        return user.getScheduledRoutineName();
-    }
-
-    public Routine getFinishedRoutine() {
-        return user.getFinishedRoutine();
-    }
-
-    public Map<Calendar, Routine> getUserRoutineSchedule(){
-        return user.getRoutineSchedule();
-    }
-
-    public Schedule getUserSchedule(){
-        return user.getSchedule();
-    }
-
-    public String getDateText(int year, int month, int day){
-        return user.getScheduleDateText(year, month, day);
-    }
-
-    public String getTodayText(){
-        return user.getTodayText();
-    }
-
-    public int getYearToday() {
-        return user.getYearToday();
-    }
-
-    public int getMonthToday() {
-        return user.getMonthToday();
-    }
-
-    public int getDayToday() {
-        return user.getDayToday();
-    }
-
-    public Set<Calendar> getScheduleKeyset(){
-        return user.getScheduleKeySet();
-    }
 
     public boolean isScheduled(Calendar day){
         return user.scheduleDayHasRoutine(day);
@@ -187,14 +115,6 @@ public class GymCompanion {
 
         user.scheduleAddRoutine(routine, day);
         saveUser();
-    }
-
-    public Map<Calendar, Double> getGraphData(int weekOffset){
-        return user.getGraphData(weekOffset);
-    }
-
-    public Map<Calendar, Routine> getUserCompletedRoutines(){
-        return user.getCompletedRoutines();
     }
 
     //Routine creation and modification
@@ -253,20 +173,78 @@ public class GymCompanion {
         saveUser();
     }
 
+    //Sorting, Filtering and Searching
 
+    public void sort(List<? extends ISortable> list, SortingStrategy strat){
+        strat.sort(list);
+    }
 
-    //Routine and Exercise Getters
+    public <T extends ISortable> List<T> filter(List<T> toBeFiltered, FilterStrategy filter){
+        List<T> newList = new ArrayList<>(toBeFiltered);
+        return filter.filter(newList);
+    }
 
-    public List<ISortable> getRoutinesAndExercises(){
-        List<ISortable> newList = new ArrayList<>();
+    public <T extends ISortable> List<T> filter(List<T> toBeFiltered, List<MUSCLE_GROUP> muscleGroups) {
+        List<T> newList = new ArrayList<>();
 
-        if(!(routineList == null || exerciseList == null)) {
-            newList.addAll(routineList);
-            newList.addAll(exerciseList);
+        for (MUSCLE_GROUP mg : muscleGroups){
+            for (T re : toBeFiltered) {
+                if (re.containsMuscleGroup(mg) && !newList.contains(re)) {
+                    newList.add(re);
+                }
+            }
         }
-
         return newList;
     }
+
+    public List<Routine> searchRoutine(String search){
+        if (search.equals("")) {
+            return new ArrayList<>(routineList);
+        }
+        List<Routine> newList = new ArrayList<>();
+
+        for (Routine r: new ArrayList<>(routineList)) {
+            matchSearchWithName(search,r,newList);
+        }
+        return newList;
+    }
+
+    public List<Exercise> searchExercise(String search){
+        if (search.equals("")) {
+            return new ArrayList<>(exerciseList);
+        }
+        List<Exercise> newList = new ArrayList<>();
+
+        for (Exercise e: new ArrayList<>(exerciseList)) {
+            matchSearchWithName(search,e,newList);
+        }
+        return newList;
+    }
+
+    private <T extends ISortable> void matchSearchWithName(String search, T re, List<T> newList){
+        if(search.toLowerCase().equals(re.getName().toLowerCase())){
+            newList.add(re);
+        }
+        else if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
+            newList.add(re);
+        }
+        else if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
+            newList.add(re);
+        }
+    }
+
+    // User save data
+
+    public void saveUser(){
+        if(GymCompanionContext.getContext() != null) {
+            LocalDatabase db = LocalDatabase.getInstance();
+            db.saveUser(user);
+        }
+    }
+
+    /**
+     *              GETTERS for Law of Demeter
+     **/
 
     public List<Routine> getUserRoutines(){
         return getUser().getRoutines();
@@ -332,85 +310,76 @@ public class GymCompanion {
         return user.getRoutineExercises(index);
     }
 
-    //Sorting, Filtering and Searching
-
-    public void sort(List<? extends ISortable> list, SortingStrategy strat){
-        strat.sort(list);
+    public Routine getRoutineFromIndex(int routineIndex){
+        return user.getRoutine(routineIndex);
     }
 
-    public <T extends ISortable> List<T> filter(List<T> toBeFiltered, FilterStrategy filter){
-        List<T> newList = new ArrayList<>(toBeFiltered);
-        return filter.filter(newList);
+    public int getAmountOfExercisesInActiveRoutine(){
+        if(activeRoutine == null)
+        {
+            return 0;
+        }
+        return activeRoutine.getExercises().size();
     }
 
-    public <T extends ISortable> List<T> filter(List<T> toBeFiltered, List<MUSCLE_GROUP> muscleGroups) {
-        List<T> newList = new ArrayList<>();
-
-        for (MUSCLE_GROUP mg : muscleGroups){
-            for (T re : toBeFiltered) {
-                if (re.containsMuscleGroup(mg) && !newList.contains(re)) {
-                    newList.add(re);
-                }
-            }
-        }
-        return newList;
+    public String getActiveExerciseName(){
+        return activeExercise.getName();
     }
 
-    public <T extends ISortable> List<T> filterRoutines(List<T> toBeFiltered){
-        List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(new ArrayList<>(routineList));
-        return newList;
+    public int getAmountOfSetsInActiveExercise(){
+        return ((StrengthExercise)activeExercise).getSets();
     }
 
-    public <T extends ISortable> List<T> filterExercises(List<T> toBeFiltered){
-        List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(new ArrayList<>(exerciseList));
-        return newList;
+    public int getTimeInActiveExercise(){
+        return ((CardioExercise)activeExercise).getTimespent();
     }
 
-    public List<Routine> searchRoutine(String search){
-        if (search.equals("")) {
-            return new ArrayList<>(routineList);
-        }
-        List<Routine> newList = new ArrayList<>();
-
-        for (Routine r: new ArrayList<>(routineList)) {
-            matchSearchWithName(search,r,newList);
-        }
-        return newList;
+    public int getAmountOfRepsFromActiveExerciseSetWithIndex(int index){
+        return ((StrengthExercise)activeExercise).getRepetitions().get(index);
     }
 
-    public List<Exercise> searchExercise(String search){
-        if (search.equals("")) {
-            return new ArrayList<>(exerciseList);
-        }
-        List<Exercise> newList = new ArrayList<>();
-
-        for (Exercise e: new ArrayList<>(exerciseList)) {
-            matchSearchWithName(search,e,newList);
-        }
-        return newList;
-    }
-    
-    private <T extends ISortable> void matchSearchWithName(String search, T re, List<T> newList){
-        if(search.toLowerCase().equals(re.getName().toLowerCase())){
-            newList.add(re);
-        }
-        else if(!newList.contains(re) && re.getName().toLowerCase().startsWith(search.toLowerCase())){
-            newList.add(re);
-        }
-        else if(!newList.contains(re) && re.getName().toLowerCase().contains(search.toLowerCase())){
-            newList.add(re);
-        }
+    public double getAmountWeightFromActiveExerciseSetWithIndex(int index){
+        return ((StrengthExercise)activeExercise).getKilograms().get(index);
     }
 
-    // User save data
+    public String getScheduledRoutineName(){
+        return user.getScheduledRoutineName();
+    }
 
-    public void saveUser(){
-        if(GymCompanionContext.getContext() != null) {
-            LocalDatabase db = LocalDatabase.getInstance();
-            db.saveUser(user);
-        }
+    public Routine getFinishedRoutine() {
+        return user.getFinishedRoutine();
+    }
+
+    public String getDateText(int year, int month, int day){
+        return user.getScheduleDateText(year, month, day);
+    }
+
+    public String getTodayText(){
+        return user.getTodayText();
+    }
+
+    public int getYearToday() {
+        return user.getYearToday();
+    }
+
+    public int getMonthToday() {
+        return user.getMonthToday();
+    }
+
+    public int getDayToday() {
+        return user.getDayToday();
+    }
+
+    public Set<Calendar> getScheduleKeyset(){
+        return user.getScheduleKeySet();
+    }
+
+    public Map<Calendar, Double> getGraphData(int weekOffset){
+        return user.getGraphData(weekOffset);
+    }
+
+    public Map<Calendar, Routine> getUserCompletedRoutines(){
+        return user.getCompletedRoutines();
     }
 
     public List<String> getRoutineNames(){
