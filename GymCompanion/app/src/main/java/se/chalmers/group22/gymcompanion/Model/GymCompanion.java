@@ -246,6 +246,15 @@ public class GymCompanion {
      *              GETTERS for Law of Demeter
      **/
 
+    public List<Double> getStrenghtExerciseKilograms(int selectedRoutineIndex, int selectedExerciseIndex){
+               return ((StrengthExercise)user.getRoutine(selectedRoutineIndex)
+                       .getExercises().get(selectedExerciseIndex)).getKilograms();
+    }
+
+    public List<Integer> getStrenghtExerciseReps(int selectedRoutineIndex, int selectedExerciseIndex){
+        return ((StrengthExercise)user.getRoutine(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getRepetitions();
+    }
+
     public List<Routine> getUserRoutines(){
         return getUser().getRoutines();
     }
