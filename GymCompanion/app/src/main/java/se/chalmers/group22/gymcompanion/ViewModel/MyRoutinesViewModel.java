@@ -9,7 +9,7 @@ import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyRoutinesViewModel extends ObservableViewModelViewModel {
+public class MyRoutinesViewModel extends ObservableViewModel {
 
     @Getter
     private int selectedRoutineIndex;

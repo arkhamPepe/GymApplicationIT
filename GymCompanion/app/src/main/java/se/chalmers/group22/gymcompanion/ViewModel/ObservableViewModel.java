@@ -8,7 +8,7 @@ import java.util.List;
 
 
 /***
- * Title: ObservableViewModelViewModel
+ * Title: ObservableViewModel
  *
  * @author Alexander Bergsten
  * @author Marcus Svensson
@@ -22,9 +22,13 @@ import java.util.List;
  * which means that code could be abstracted out of them into a common super class
  */
 
-abstract public class ObservableViewModelViewModel extends BaseViewModel implements se.chalmers.group22.gymcompanion.Model.ObservableViewModel, ModelObserver {
+abstract public class ObservableViewModel extends BaseViewModel implements se.chalmers.group22.gymcompanion.Model.ObservableViewModel, ModelObserver {
 
     private List<ViewModelObserver> viewModelObservers = new ArrayList<>();
+
+    public ObservableViewModel(){
+        getModel().addModelObserver(this);
+    }
 
     @Override
     public void notifyObservers() {

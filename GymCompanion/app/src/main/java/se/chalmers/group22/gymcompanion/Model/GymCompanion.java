@@ -67,6 +67,7 @@ public class GymCompanion implements ObservableModel {
             }
         }
         setActiveRoutine(user.getTodaysRoutine());
+        notifyModelObservers();
         saveUser();
     }
 
@@ -74,6 +75,8 @@ public class GymCompanion implements ObservableModel {
         if(routine != null) {
             isRoutineActive = true;
             activeRoutine = new Routine(routine);
+            saveUser();
+            notifyModelObservers();
         }
     }
 
@@ -86,6 +89,7 @@ public class GymCompanion implements ObservableModel {
     public void setActiveExerciseInActiveRoutine(int index){
         activeExercise = activeRoutine.getExercises().get(index);
         saveUser();
+        notifyModelObservers();
     }
 
     public int getAmountOfExercisesInActiveRoutine(){
@@ -98,6 +102,8 @@ public class GymCompanion implements ObservableModel {
 
     public void toggleCompletionExerciseInARWithIndex(int index, boolean completed){
         activeRoutine.setCompletionOfExerciseWithIndex(index,completed);
+        saveUser();
+        notifyModelObservers();
     }
 
     public void completeActiveRoutine() {
@@ -182,12 +188,15 @@ public class GymCompanion implements ObservableModel {
 
     public void scheduleRoutine(Calendar day, int routineIndex){
         user.scheduleAddRoutine(user.getRoutine(routineIndex), day);
+        notifyModelObservers();
+        saveUser();
     }
 
     public void scheduleRoutine(Calendar day, String routineName){
         Routine routine = getRoutine(routineName);
 
         user.scheduleAddRoutine(routine, day);
+        notifyModelObservers();
         saveUser();
     }
 
@@ -207,6 +216,7 @@ public class GymCompanion implements ObservableModel {
 
     public void addExercise(Exercise exercise, Routine routine){
         user.addExerciseToRoutine(exercise, routine);
+        notifyModelObservers();
         saveUser();
     }
 
@@ -220,6 +230,7 @@ public class GymCompanion implements ObservableModel {
         }
 
         user.addExerciseToRoutine(selectedRoutineIndex,e );
+        notifyModelObservers();
         saveUser();
     }
 
@@ -242,6 +253,7 @@ public class GymCompanion implements ObservableModel {
         }
 
         user.removeExerciseFromRoutine(selectedRoutineIndex,e);
+        notifyModelObservers();
         saveUser();
     }
 
@@ -252,6 +264,7 @@ public class GymCompanion implements ObservableModel {
     public void removeRoutine(int position){
         Routine r = getUser().getRoutines().get(position);
         user.removeRoutine(r);
+        notifyModelObservers();
         saveUser();
     }
 
