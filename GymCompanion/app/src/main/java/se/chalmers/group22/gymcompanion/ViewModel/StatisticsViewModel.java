@@ -12,7 +12,7 @@ public class StatisticsViewModel extends ObservableViewModel {
     private int currentWeekOffset = 0;
     private Map<Calendar, Double> currentGraphPoints;
     private Calendar selectedDate;
-    String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday", "Friday", "Saturday" };
+    String[] strDays = new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
     public StatisticsViewModel(){
         schedule = new HashMap<>();
@@ -89,7 +89,7 @@ public class StatisticsViewModel extends ObservableViewModel {
 
     @Override
     public void updateViewModel() {
-        
+
     }
 
     private class Point {
