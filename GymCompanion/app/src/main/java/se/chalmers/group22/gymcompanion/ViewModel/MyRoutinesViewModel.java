@@ -144,7 +144,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public String getSelectedRoutineExerciseAmount(){
         if (!checkIfEmptyRoutineList()){
-            return Integer.toString(getModel().getUserRoutines().get(selectedRoutineIndex).getExercises().size());
+            return Integer.toString(getModel().getSelectedRoutineExerciseAmount(selectedRoutineIndex));
         }
         return "";
     }
@@ -168,7 +168,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public String getSelectedRoutineName(){
         if (!checkIfEmptyRoutineList()){
-             return  getModel().getUserRoutines().get(selectedRoutineIndex).getName();
+             return  getModel().getSelectedRoutineName(selectedRoutineIndex);
         }
         return "";
     }
@@ -176,7 +176,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public List<Exercise> getExercises(){
         if (!checkIfEmptyExerciseList()){
-            return getModel().getUserRoutines().get(selectedRoutineIndex).getExercises();
+            return getModel().getSelectedRoutine(selectedRoutineIndex).getExercises();
         }
         return new ArrayList<>();
     }
@@ -236,23 +236,20 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     public int getStrengthExerciseSets(){
         if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1){
-            return ((StrengthExercise) getModel().getUserRoutines().
-                    get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).getSets();
+            return (getModel().getStrenghtExerciseSets(selectedRoutineIndex,selectedExerciseIndex));
         }
         return 0;
     }
 
     public void updateStrengthExerciseSets(int sets){
         if(!checkIfEmptyExerciseList() && checkTypeExercise() == 1){
-            ((StrengthExercise) getModel().getUserRoutines().
-                    get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex)).updateSets(sets);
+            getModel().updateStrenghtExerciseSets(sets,selectedRoutineIndex,selectedExerciseIndex);
             saveUser();
         }
     }
 
     public void updateSelectedExerciseKilogramInSet(int index, int value){
-        StrengthExercise se = (StrengthExercise) ( getModel().getUserRoutines().
-                get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex));
+        StrengthExercise se = (StrengthExercise) ( getModel().getSelectedExercise(selectedRoutineIndex,selectedExerciseIndex));
 
         se.setKilogram(index, value);
         notifyObservers();
@@ -260,8 +257,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
     }
 
     public void updateSelectedExerciseRepsInSet(int index, int value){
-        StrengthExercise se = (StrengthExercise) ( getModel().getUserRoutines().
-                get(selectedRoutineIndex).getExercises().get(selectedExerciseIndex));
+        StrengthExercise se = (StrengthExercise) ( getModel().getSelectedExercise(selectedRoutineIndex,selectedExerciseIndex));
         se.setRepetitions(index, value);
         notifyObservers();
         saveUser();
@@ -269,7 +265,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     private boolean checkIfEmptyRoutineList(){
         try{
-            getModel().getUserRoutines().get(selectedRoutineIndex);
+            getModel().getSelectedRoutine(selectedRoutineIndex);
             return false;
 
         }catch(Exception e){
@@ -279,7 +275,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     private boolean checkIfEmptyExerciseList(){
         if (!checkIfEmptyRoutineList()) {
-            return getModel().getUserRoutines().get(selectedRoutineIndex).getExercises().isEmpty();
+            return getModel().getSelectedRoutine(selectedRoutineIndex).getExercises().isEmpty();
         }
         return true;
     }
