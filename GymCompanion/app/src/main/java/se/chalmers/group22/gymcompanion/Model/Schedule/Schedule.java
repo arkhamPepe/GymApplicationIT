@@ -27,7 +27,7 @@ import java.util.*;
 @Getter
 public class Schedule implements Serializable {
 
-    private Calendar calendar = new GregorianCalendar();
+
     private final String NO_ROUTINE_SCHEDULED_ON_DATE = "No Scheduled Routine";
 
     @Getter(AccessLevel.NONE)
@@ -109,7 +109,7 @@ public class Schedule implements Serializable {
      * @return String representation of the date of today.
      */
     public String getTodayText(){
-        return getDateText(calendar); // calendar has today's date
+        return getDateText(getToday()); // calendar has today's date
     }
 
     public String getDateText(int year, int month, int day){
@@ -191,23 +191,27 @@ public class Schedule implements Serializable {
     }
 
     public int getYearToday() {
-        return calendar.get(Calendar.YEAR);
+        return getToday().get(Calendar.YEAR);
     }
 
     public int getMonthToday() {
-        return calendar.get(Calendar.MONTH);
+        return getToday().get(Calendar.MONTH);
     }
 
     public int getDayOfYearToday(){
-        return calendar.get(Calendar.DAY_OF_YEAR);
+        return getToday().get(Calendar.DAY_OF_YEAR);
     }
 
     public int getDayOfMonthToday() {
-        return calendar.get(Calendar.DAY_OF_MONTH);
+        return getToday().get(Calendar.DAY_OF_MONTH);
     }
 
     public String getTextNoRoutineScheduled(){
         return NO_ROUTINE_SCHEDULED_ON_DATE;
+    }
+
+    private Calendar getToday(){
+        return new GregorianCalendar();
     }
 }
 
