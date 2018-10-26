@@ -35,12 +35,10 @@ public class StatisticsViewModel extends ObservableViewModel {
     public void update(){
         currentGraphPoints = getModel().getGraphData(currentWeekOffset);
         completedRoutines = getModel().getUserCompletedRoutines();
-        notifyObservers();
     }
 
     public void setSelectedDate(Calendar time){
         selectedDate = time;
-        notifyObservers();
     }
 
     public void setGraphedDateNextWeek(){

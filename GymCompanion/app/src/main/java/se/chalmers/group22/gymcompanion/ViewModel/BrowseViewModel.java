@@ -103,8 +103,6 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredExercises.addAll(exercises);
         sortRoutinesAndExercises(0);
         this.query = query;
-
-        notifyObservers();
     }
 
     /** filter(FilterStrategy)
@@ -128,8 +126,6 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredExercises.addAll(exercises);
 
         sortRoutinesAndExercises(0);
-
-        notifyObservers();
     }
 
     /** filter(String)
@@ -152,8 +148,6 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredExercises.addAll(exercises);
 
         sortRoutinesAndExercises(0);
-
-        notifyObservers();
     }
 
     /** filterRoutinesExercises(boolean, int)
@@ -176,7 +170,6 @@ public class BrowseViewModel extends ObservableViewModel {
                 filteredExercises.addAll(exercises);
             }
         }
-        notifyObservers();
     }
 
     /** sortRoutinesAndExercises(int)
@@ -206,8 +199,6 @@ public class BrowseViewModel extends ObservableViewModel {
 
         getModel().sort(filteredExercises, strategy);
         getModel().sort(filteredRoutines, strategy);
-
-        notifyObservers();
     }
 
     /** getCurrentPage()
@@ -254,7 +245,6 @@ public class BrowseViewModel extends ObservableViewModel {
                 muscleGroups.add(mg);
             }
         }
-        notifyObservers();
     }
     /** getRoutineAndExerciseNames()
      * Purpose: used by arrayadapters to build their listviews
@@ -379,7 +369,6 @@ public class BrowseViewModel extends ObservableViewModel {
                 break;
             }
         }
-        notifyObservers();
     }
 
     /** addExerciseToUserRoutine(String)

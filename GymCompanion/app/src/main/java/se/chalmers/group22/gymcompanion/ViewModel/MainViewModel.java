@@ -20,7 +20,7 @@ import java.util.List;
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
  */
-public class MainViewModel extends BaseViewModel{
+public class MainViewModel extends ObservableViewModel{
     public MainViewModel(){
         init();
     }
