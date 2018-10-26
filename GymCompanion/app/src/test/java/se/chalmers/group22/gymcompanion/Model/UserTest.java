@@ -179,6 +179,9 @@ public class UserTest {
     @Test
     public void getFavouriteExerciseNameTest(){
         assertEquals("No Favourite", user.getFavouriteExerciseName());
+        for (Exercise e : r1.getExercises()){
+            e.toggleCompletion(true);
+        }
         user.finishRoutine(r1);
         assertEquals("MasterPull", user.getFavouriteExerciseName());
     }
@@ -200,6 +203,9 @@ public class UserTest {
     @Test
     public void getTotalAmountOfCompletedExercisesTest(){
         assertEquals(0, user.getTotalAmountOfCompletedExercises());
+        for (Exercise e : r1.getExercises()){
+            e.toggleCompletion(true);
+        }
         user.finishRoutine(r1);
         assertEquals(1, user.getTotalAmountOfCompletedExercises());
     }

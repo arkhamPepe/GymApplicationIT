@@ -77,6 +77,9 @@ public class GymCompanionTest {
     @Test
     public void getTotalAmountOfCompletedExercises(){
         assertEquals(0, gymCompanion.getTotalAmountOfCompletedExercises());
+        for (Exercise e : r1.getExercises()){
+            e.toggleCompletion(true);
+        }
         user.finishRoutine(r1);
         assertEquals(1, gymCompanion.getTotalAmountOfCompletedExercises());
     }
