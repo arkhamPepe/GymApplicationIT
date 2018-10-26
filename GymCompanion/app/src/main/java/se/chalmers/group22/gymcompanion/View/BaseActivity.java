@@ -2,10 +2,6 @@ package se.chalmers.group22.gymcompanion.View;
 
 import android.support.v7.app.AppCompatActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.BaseViewModel;
-import se.chalmers.group22.gymcompanion.ViewModel.ObservableViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /***
  * Title: BaseActivity
@@ -23,11 +19,6 @@ import java.util.List;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
-    abstract public ObservableViewModel getViewModel();
+    abstract public BaseViewModel getViewModel();
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        ObservableViewModel.getModel().removeModelObserver(getViewModel());
-    }
 }

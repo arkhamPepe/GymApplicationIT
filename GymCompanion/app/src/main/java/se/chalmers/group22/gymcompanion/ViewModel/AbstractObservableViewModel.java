@@ -1,6 +1,7 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
 
 import se.chalmers.group22.gymcompanion.Model.ModelObserver;
+import se.chalmers.group22.gymcompanion.Model.ObservableViewModel;
 import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 
 /***
- * Title: ObservableViewModel
+ * Title: AbstractObservableViewModel
  *
  * @author Alexander Bergsten
  * @author Marcus Svensson
@@ -22,11 +23,11 @@ import java.util.List;
  * which means that code could be abstracted out of them into a common super class
  */
 
-abstract public class ObservableViewModel extends BaseViewModel implements se.chalmers.group22.gymcompanion.Model.ObservableViewModel, ModelObserver {
+abstract public class AbstractObservableViewModel extends BaseViewModel implements ObservableViewModel, ModelObserver {
 
     private List<ViewModelObserver> viewModelObservers = new ArrayList<>();
 
-    public ObservableViewModel(){
+    public AbstractObservableViewModel(){
         getModel().addModelObserver(this);
     }
 

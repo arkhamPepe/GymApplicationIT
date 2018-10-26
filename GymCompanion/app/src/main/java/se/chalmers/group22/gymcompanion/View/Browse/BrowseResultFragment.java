@@ -80,6 +80,7 @@ public class BrowseResultFragment extends Fragment implements ViewModelObserver 
                        } else {
                            viewModel.filterRoutinesExercises(true, 1);
                        }
+                       update();
                    } else {
                        cbxRoutines.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
@@ -96,6 +97,7 @@ public class BrowseResultFragment extends Fragment implements ViewModelObserver 
                        } else {
                            viewModel.filterRoutinesExercises(true, 0);
                        }
+                       update();
                    } else {
                        cbxExercises.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
@@ -114,6 +116,7 @@ public class BrowseResultFragment extends Fragment implements ViewModelObserver 
             @Override
             public boolean onQueryTextSubmit(String query) {
                 ((BrowseActivity)getActivity()).goToResultFromSearch(query);
+                update();
                 return false;
             }
         });

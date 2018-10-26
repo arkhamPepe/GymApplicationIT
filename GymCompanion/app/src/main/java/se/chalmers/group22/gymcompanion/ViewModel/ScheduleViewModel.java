@@ -17,7 +17,7 @@ import java.util.*;
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
  */
-public class ScheduleViewModel extends ObservableViewModel {
+public class ScheduleViewModel extends AbstractObservableViewModel {
 
     private int selectedYear; // Year of selected date
     private int selectedMonth; // Month of selected date

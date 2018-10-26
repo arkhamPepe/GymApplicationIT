@@ -10,6 +10,7 @@ import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
+import se.chalmers.group22.gymcompanion.View.ObserverActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ import java.util.List;
  *
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this Activity is active
  */
-public class ScheduleActivity extends BaseActivity {
+public class ScheduleActivity extends ObserverActivity {
 
     public static final int index = 2;
     private final Fragment startFragment = new ScheduleStartFragment();

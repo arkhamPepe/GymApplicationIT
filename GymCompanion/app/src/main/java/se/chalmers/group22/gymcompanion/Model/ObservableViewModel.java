@@ -2,7 +2,7 @@ package se.chalmers.group22.gymcompanion.Model;
 
 
 /***
- * Title: ObservableViewModel
+ * Title: AbstractObservableViewModel
  *
  * @author Alexander Bergsten
  * @author Marcus Svensson
@@ -13,7 +13,7 @@ package se.chalmers.group22.gymcompanion.Model;
  * Created: October 19, 2018
  *
  * Purpose: an interface that lets an object become observable, letting it notify those subscribed to it.
- * Used by: ObservableViewModel.java
+ * Used by: AbstractObservableViewModel.java
  * Uses: ViewModelObserver.java
  */
 

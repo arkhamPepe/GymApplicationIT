@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import se.chalmers.group22.gymcompanion.View.Home.HomeActivity;
+import se.chalmers.group22.gymcompanion.ViewModel.BaseViewModel;
 import se.chalmers.group22.gymcompanion.ViewModel.MainViewModel;
 
 /***
@@ -24,7 +25,7 @@ import se.chalmers.group22.gymcompanion.ViewModel.MainViewModel;
  * Uses: HomeActivity.java, MainViewModel.java
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private MainViewModel viewModel;
 
@@ -34,5 +35,10 @@ public class MainActivity extends AppCompatActivity {
         this.viewModel = new MainViewModel();
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public MainViewModel getViewModel() {
+        return viewModel;
     }
 }

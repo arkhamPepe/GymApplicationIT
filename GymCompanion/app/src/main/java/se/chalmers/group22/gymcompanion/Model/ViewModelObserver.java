@@ -12,7 +12,7 @@ package se.chalmers.group22.gymcompanion.Model;
  * Created: October 19, 2018
  *
  * Purpose: an interface that allows an object to become an observer to an observable. It updates as changes are notified.
- * Used by: ObservableViewModel.java, ObservableViewModel.java, BrowseAddExerciseFragment.java,
+ * Used by: AbstractObservableViewModel.java, AbstractObservableViewModel.java, BrowseAddExerciseFragment.java,
  *      BrowseRecommendedFragment.java, MyRoutinesCardioExerciseFragment.java, MyRoutinesPickExerciseFragment.java,
  *      MyRoutinesRoutineInfoFragment.java, MyRoutinesStartFragment.java, MyRoutinesStrengthExerciseFragment.java,
  *      StatisticsHistoryDetailsFragment.java, StatisticsStartFragment.java, BrowseResultFragment.java,

@@ -19,7 +19,7 @@ import java.util.*;
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
  */
-public class StatisticsViewModel extends ObservableViewModel {
+public class StatisticsViewModel extends AbstractObservableViewModel {
     private Map<Calendar, Routine> schedule;
     private Map<Calendar, Routine> completedRoutines;
     private int currentWeekOffset = 0;
