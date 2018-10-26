@@ -263,17 +263,6 @@ public class User implements Serializable {
         return findMostCommonName(strList);
     }
 
-    public Routine getRoutineFromName(String name){
-        Routine ret = null;
-        for(Routine r: new ArrayList<>(routines)){
-            if(r.getName().equals(name)){
-                ret = r;
-                return ret;
-            }
-        }
-        return ret;
-    }
-
     private String findMostCommonName(List<String> strList){
         Map<String,Long> ocurrences = strList.stream().collect(Collectors.groupingBy(w->w, Collectors.counting()));
         long biggest = 0;

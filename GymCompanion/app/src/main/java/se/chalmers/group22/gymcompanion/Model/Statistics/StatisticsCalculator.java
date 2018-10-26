@@ -3,7 +3,6 @@ package se.chalmers.group22.gymcompanion.Model.Statistics;
 
 import se.chalmers.group22.gymcompanion.Model.Schedule.Schedule;
 import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
-import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.io.Serializable;
 import java.util.Calendar;

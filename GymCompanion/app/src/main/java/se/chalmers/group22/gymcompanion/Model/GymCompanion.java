@@ -142,14 +142,6 @@ public class GymCompanion {
         return user.getFinishedRoutine();
     }
 
-    public Map<Calendar, Routine> getUserRoutineSchedule(){
-        return user.getRoutineSchedule();
-    }
-
-    public Schedule getUserSchedule(){
-        return user.getSchedule();
-    }
-
     public String getDateText(int year, int month, int day){
         return user.getScheduleDateText(year, month, day);
     }
@@ -257,17 +249,6 @@ public class GymCompanion {
 
     //Routine and Exercise Getters
 
-    public List<ISortable> getRoutinesAndExercises(){
-        List<ISortable> newList = new ArrayList<>();
-
-        if(!(routineList == null || exerciseList == null)) {
-            newList.addAll(routineList);
-            newList.addAll(exerciseList);
-        }
-
-        return newList;
-    }
-
     public List<Routine> getUserRoutines(){
         return getUser().getRoutines();
     }
@@ -353,18 +334,6 @@ public class GymCompanion {
                 }
             }
         }
-        return newList;
-    }
-
-    public <T extends ISortable> List<T> filterRoutines(List<T> toBeFiltered){
-        List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(new ArrayList<>(routineList));
-        return newList;
-    }
-
-    public <T extends ISortable> List<T> filterExercises(List<T> toBeFiltered){
-        List<T> newList = new ArrayList<>(toBeFiltered);
-        newList.removeAll(new ArrayList<>(exerciseList));
         return newList;
     }
 
