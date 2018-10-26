@@ -5,7 +5,20 @@ import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.*;
-
+/***
+ * Title: StatisticsViewModel
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 12, 2018
+ *
+ * Purpose: To handle the communication between the model and the view without without showing the model's underlying
+ * representation to the view.
+ */
 public class StatisticsViewModel extends ObservableViewModel {
     private Map<Calendar, Routine> schedule;
     private Map<Calendar, Routine> completedRoutines;

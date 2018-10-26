@@ -13,6 +13,19 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.List;
 
+/***
+ * Title: StatisticsHistoryDetailsFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the History Details Page in the app
+ */
 public class StatisticsHistoryDetailsFragment extends Fragment implements ViewModelObserver {
 
     private StatisticsViewModel viewModel;
@@ -53,7 +66,7 @@ public class StatisticsHistoryDetailsFragment extends Fragment implements ViewMo
 
         TextView routineName = getActivity().findViewById(R.id.txtHistoryDetailsTitle);
 
-        StatisticsHistoryRoutineInfoListAdapter adapter = new StatisticsHistoryRoutineInfoListAdapter(getActivity(), names, performances);
+        StatisticsHistoryInfoListAdapter adapter = new StatisticsHistoryInfoListAdapter(getActivity(), names, performances);
         ListView exerciseList = getActivity().findViewById(R.id.listviewHistoryDetails);
         exerciseList.setAdapter(adapter);
 

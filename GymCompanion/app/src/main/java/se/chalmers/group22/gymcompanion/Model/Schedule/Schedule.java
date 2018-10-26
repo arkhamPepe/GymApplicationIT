@@ -133,21 +133,6 @@ public class Schedule implements Serializable {
         return routineSchedule.keySet();
     }
 
-    /** getLatestFinishedRoutine
-     * @return the latest finished routine.
-     */
-    public Routine getLatestFinishedRoutine() {
-        Calendar latestDate = null;
-        Routine finishedRoutine = null;
-        for (Calendar date : getScheduleKeySet()) {
-            if (latestDate == null || date.getTime().after(latestDate.getTime())) {
-                latestDate = date;
-                finishedRoutine = routineSchedule.get(latestDate);
-            }
-        }
-        return finishedRoutine;
-    }
-
     /** getRoutineNameFromDate
      * @param date
      * @return name of the routine that is scheduled on input date.
@@ -160,19 +145,6 @@ public class Schedule implements Serializable {
         }
 
         return r.getName();
-    }
-
-    /** getRoutineNameFromDate
-     * @param year
-     * @param dayOfYear
-     * @return name of the routine that is scheduled on input date.
-     */
-    public String getRoutineNameFromDate(int year, int dayOfYear){
-        Calendar c = new GregorianCalendar();
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.DAY_OF_YEAR, dayOfYear);
-
-        return getRoutineFromDay(c).getName();
     }
 
     /** getRoutineNameFromDate

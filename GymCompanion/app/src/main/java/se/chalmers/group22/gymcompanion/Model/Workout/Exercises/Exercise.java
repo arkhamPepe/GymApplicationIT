@@ -67,27 +67,6 @@ public abstract class Exercise implements ISortable, Serializable {
         this.videoguide = exercise.getVideoguide();
     }
 
-    public Exercise(){
-    }
-
-    //For testing
-    public Exercise(String name, double difficulty){
-        this.name = name;
-        this.difficulty = difficulty;
-    }
-
-    //For testing
-    public Exercise(String name){
-        this.name = name;
-    }
-
-    //FOR TESTING
-    public Exercise(List<MUSCLE_GROUP> muscleGroups, double difficulty){
-        this.muscleGroups = muscleGroups;
-        this.difficulty = difficulty;
-    }
-
-
     public boolean containsMuscleGroup(MUSCLE_GROUP mg) {
         return muscleGroups.contains(mg);
 
@@ -109,9 +88,6 @@ public abstract class Exercise implements ISortable, Serializable {
      */
     abstract public double calculateScore();
 
-    public void complete() {
-        this.completed = true;
-    }
     public void toggleCompletion(boolean completed){
         this.completed = completed;
     }
@@ -121,5 +97,23 @@ public abstract class Exercise implements ISortable, Serializable {
     }
 
     abstract public Exercise clone();
+
+
+    //FOR TESTING
+
+    public Exercise(String name, double difficulty){
+        this.name = name;
+        this.difficulty = difficulty;
+    }
+
+    public Exercise(String name){
+        this.name = name;
+    }
+
+
+    public Exercise(List<MUSCLE_GROUP> muscleGroups, double difficulty){
+        this.muscleGroups = muscleGroups;
+        this.difficulty = difficulty;
+    }
 
 }

@@ -7,7 +7,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
-
+/***
+ * Title: MyRoutinesExerciseInfoFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 2, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Exercise Info fragment in the app
+ */
 public class MyRoutinesExerciseInfoFragment extends Fragment {
 
     //variables for fragment_routine_exercise_info.xml

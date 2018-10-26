@@ -11,12 +11,24 @@ import se.chalmers.group22.gymcompanion.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class StatisticsHistoryRoutineInfoListAdapter extends ArrayAdapter {
+/***
+ * Title: StatisticsHistoryInfoListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Adds the list elements to the Statistics History Info List GUI
+ */
+public class StatisticsHistoryInfoListAdapter extends ArrayAdapter {
     private List<String> exerciseNames;
     private List<Boolean> exercisePerformedValues;
 
-    public StatisticsHistoryRoutineInfoListAdapter(Activity context, List<String> exerciseNames, List<Boolean> exercisePerformedValues){
+    public StatisticsHistoryInfoListAdapter(Activity context, List<String> exerciseNames, List<Boolean> exercisePerformedValues){
 
         super(context, R.layout.listitem_statistics_history_details , exerciseNames);
 

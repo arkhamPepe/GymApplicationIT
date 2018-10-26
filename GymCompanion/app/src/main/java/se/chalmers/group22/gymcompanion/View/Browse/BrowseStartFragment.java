@@ -8,7 +8,19 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
-
+/***
+ * Title: BrowseResultFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Start page in the application
+ */
 public class BrowseStartFragment extends Fragment {
 
     private BrowseViewModel viewModel;

@@ -10,7 +10,19 @@ import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.util.List;
-
+/***
+ * Title: MyRoutinesUserExercisesListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 2, 2018
+ *
+ * Purpose: Adds the list elements to the User Exercises List GUI
+ */
 public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {
 
     //to reference the activity

@@ -14,7 +14,19 @@ import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/***
+ * Title: ScheduleActivity
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Manages user interaction and handles which Fragments are in view of the user when this Activity is active
+ */
 public class ScheduleActivity extends BaseActivity {
 
     public static final int index = 2;

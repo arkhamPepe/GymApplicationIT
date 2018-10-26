@@ -11,7 +11,19 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
-
+/***
+ * Title: ScheduleStartFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Schedule Start Page in the app
+ */
 public class ScheduleStartFragment extends Fragment {
 
     private ScheduleViewModel viewModel;

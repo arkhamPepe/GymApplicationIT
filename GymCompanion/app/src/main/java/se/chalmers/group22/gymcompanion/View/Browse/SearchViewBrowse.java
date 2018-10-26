@@ -14,8 +14,9 @@ import android.util.AttributeSet;
  *
  * Created: October 23, 2018
  *
- * Purpose: Since the standard android SearchView doesnt support committing an empty query, we made
- * a custom SearchView that overrides the setOnQueryTextListener and allows ean empty string as search query
+ * Purpose: Since the standard android SearchView doesn't support committing an empty query, a custom
+ * SearchView had to be made. This class overrides the setOnQueryTextListener and allows
+ * an empty string as search query
  */
 public class SearchViewBrowse extends SearchView {
     SearchView.SearchAutoComplete mSearchSrcTextView;

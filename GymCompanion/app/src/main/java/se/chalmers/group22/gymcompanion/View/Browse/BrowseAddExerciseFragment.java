@@ -10,7 +10,21 @@ import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
+/***
+ * Title: BrowseAddExerciseFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Add Exercise fragment in the app
+ */
 public class BrowseAddExerciseFragment extends Fragment implements ViewModelObserver {
+
 
     private BrowseViewModel viewModel;
     public static BrowseAddExerciseFragment getInstance() { return new BrowseAddExerciseFragment(); }
