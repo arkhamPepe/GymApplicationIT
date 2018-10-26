@@ -143,6 +143,40 @@ public class User implements Serializable {
         schedule.addRoutine(routine, date);
     }
 
+    public int getTotalAmountOfCompletedExercises(){
+        int amount = 0;
+
+        for (Routine r: completedRoutines.values()){
+            amount += r.getCompletedExercises();
+        }
+
+        return amount;
+    }
+
+    public String getFavouriteRoutineName(){
+        List<String> strList = new ArrayList<>();
+
+        for (Routine r:completedRoutines.values()) {
+            strList.add(r.getName());
+        }
+
+        return findMostCommonName(strList);
+    }
+
+    public String getFavouriteExerciseName(){
+        List<String> strList = new ArrayList<>();
+
+        for (Routine r:completedRoutines.values()) {
+            for (Exercise e:r.getExercises()) {
+                if(e.isCompleted()) {
+                    strList.add(e.getName());
+                }
+            }
+        }
+
+        return findMostCommonName(strList);
+    }
+
     private String findMostCommonName(List<String> strList){
         Map<String,Long> ocurrences = strList.stream().collect(Collectors.groupingBy(w->w, Collectors.counting()));
         long biggest = 0;
@@ -269,39 +303,6 @@ public class User implements Serializable {
 
     public int getTotalAmountOfCompletedRoutines(){
         return completedRoutines.size();
-    }
-
-
-    public int getTotalAmountOfCompletedExercises(){
-        int amount = 0;
-
-        for (Routine r: completedRoutines.values()){
-            amount += r.getExercises().size();
-        }
-
-        return amount;
-    }
-
-    public String getFavouriteRoutineName(){
-        List<String> strList = new ArrayList<>();
-
-        for (Routine r:completedRoutines.values()) {
-            strList.add(r.getName());
-        }
-
-        return findMostCommonName(strList);
-    }
-
-    public String getFavouriteExerciseName(){
-        List<String> strList = new ArrayList<>();
-
-        for (Routine r:completedRoutines.values()) {
-            for (Exercise e:r.getExercises()) {
-                strList.add(e.getName());
-            }
-        }
-
-        return findMostCommonName(strList);
     }
 
     public Routine getRoutine(int index){
