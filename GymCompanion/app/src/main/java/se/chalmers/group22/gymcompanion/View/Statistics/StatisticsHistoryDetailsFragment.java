@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.Model.Observer;
@@ -13,7 +12,19 @@ import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.List;
-
+/***
+ * Title: StatisticsHistoryDetailsFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the History Details Page in the app
+ */
 public class StatisticsHistoryDetailsFragment extends Fragment implements Observer {
 
     private StatisticsViewModel viewModel;
@@ -54,7 +65,7 @@ public class StatisticsHistoryDetailsFragment extends Fragment implements Observ
 
         TextView routineName = getActivity().findViewById(R.id.txtHistoryDetailsTitle);
 
-        StatisticsHistoryRoutineInfoListAdapter adapter = new StatisticsHistoryRoutineInfoListAdapter(getActivity(), names, performances);
+        StatisticsHistoryInfoListAdapter adapter = new StatisticsHistoryInfoListAdapter(getActivity(), names, performances);
         ListView exerciseList = getActivity().findViewById(R.id.listviewHistoryDetails);
         exerciseList.setAdapter(adapter);
 

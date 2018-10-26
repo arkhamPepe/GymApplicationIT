@@ -13,7 +13,19 @@ import se.chalmers.group22.gymcompanion.View.ScheduleListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
 
 import java.util.List;
-
+/***
+ * Title: SchedulePickRoutineFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Schedule Pick Routine Page in the app
+ */
 public class SchedulePickRoutineFragment extends Fragment {
 
     private ScheduleViewModel viewModel;

@@ -15,7 +15,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
-
+/***
+ * Title: StatisticsLifetimeStatsFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 5, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Statistics Lifetime Stats Page in the app
+ */
 public class StatisticsLifetimeStatsFragment extends Fragment {
 
     TextView totalRoutinesCompleted;
