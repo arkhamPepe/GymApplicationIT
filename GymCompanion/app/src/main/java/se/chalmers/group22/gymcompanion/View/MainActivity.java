@@ -18,6 +18,10 @@ import se.chalmers.group22.gymcompanion.ViewModel.MainViewModel;
  * Created: September 20, 2018
  *
  * Purpose: Used for initial setup of the application. Is not used again after setup
+ *
+ * Used by: N/A
+ *
+ * Uses: HomeActivity.java, MainViewModel.java
  */
 
 public class MainActivity extends AppCompatActivity {
