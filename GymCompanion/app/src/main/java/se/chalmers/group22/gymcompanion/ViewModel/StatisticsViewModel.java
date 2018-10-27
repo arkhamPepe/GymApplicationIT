@@ -183,7 +183,7 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
             StringBuilder sb = new StringBuilder();
 
             sb.append("Week " + c.get(Calendar.WEEK_OF_YEAR));
-            sb.append(" " + strDays[c.get(Calendar.DAY_OF_WEEK)]);
+            sb.append(" " + strDays[c.get(Calendar.DAY_OF_WEEK)-1]);
             dateNames.add(sb.toString());
         }
         return dateNames;
