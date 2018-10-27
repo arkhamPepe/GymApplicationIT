@@ -306,7 +306,12 @@ public class User implements Serializable {
     }
 
     public Routine getRoutine(int index){
-        return routines.get(index);
+        if(routines.size()-1 >= index ) {
+            return routines.get(index);
+        }
+        else{
+            return null;
+        }
     }
 
     public List<Exercise> getRoutineExercises(int routineIndex){

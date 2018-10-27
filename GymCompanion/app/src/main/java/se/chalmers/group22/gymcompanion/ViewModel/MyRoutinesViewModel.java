@@ -271,14 +271,14 @@ public class MyRoutinesViewModel extends AbstractObservableViewModel {
     }
 
     private boolean checkIfEmptyRoutineList(){
-        if (!getModel().getUserRoutines().isEmpty() && getModel().getSelectedRoutine(selectedRoutineIndex) != null){
+        if (!getModel().getUserRoutines().isEmpty()){
             return false;
         }
             return true;
     }
 
     private boolean checkIfEmptyExerciseList(){
-        if (!checkIfEmptyRoutineList()) {
+        if (getModel().getSelectedRoutine(selectedRoutineIndex) != null) {
             return getModel().getSelectedRoutine(selectedRoutineIndex).getExercises().isEmpty();
         }
         return true;
