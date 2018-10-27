@@ -13,7 +13,7 @@ import se.chalmers.group22.gymcompanion.ViewModel.AbstractObservableViewModel;
  *
  * Created: October 25, 2018
  *
- * Purpose:
+ * Purpose: Makes sure all subclasses to this class tells their viewModel to remove itself from Models observer list
  *
  * Used by: BrowseActivity.java, MyRoutinesActivity.java, ProgressActivity.java, ScheduleActivity.java
  * StatisticsActivity.java
