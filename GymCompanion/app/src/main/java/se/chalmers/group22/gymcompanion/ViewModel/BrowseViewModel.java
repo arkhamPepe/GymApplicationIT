@@ -25,8 +25,15 @@ import java.util.List;
  *
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
+ *
+ * Used by: BrowseActivity.java, BrowseAddExerciseFragment.java, BrowseMuscleGroupsFragment,
+ * BrowseRecommendedFragment.java, BrowseResultFragment.java, BrowseStartFragment.java,
+ *
+ *
+ * Uses: AbstractObservableViewModel.java, Routine.java, MUSCLE_GROUP.java, Exercise.java
+ *
  */
-public class BrowseViewModel extends ObservableViewModel {
+public class BrowseViewModel extends AbstractObservableViewModel {
 
     // page index
     @Getter
@@ -103,8 +110,6 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredExercises.addAll(exercises);
         sortRoutinesAndExercises(0);
         this.query = query;
-
-        notifyObservers();
     }
 
     /** filter(FilterStrategy)
@@ -128,8 +133,6 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredExercises.addAll(exercises);
 
         sortRoutinesAndExercises(0);
-
-        notifyObservers();
     }
 
     /** filter(String)
@@ -152,8 +155,6 @@ public class BrowseViewModel extends ObservableViewModel {
         filteredExercises.addAll(exercises);
 
         sortRoutinesAndExercises(0);
-
-        notifyObservers();
     }
 
     /** filterRoutinesExercises(boolean, int)
@@ -176,7 +177,6 @@ public class BrowseViewModel extends ObservableViewModel {
                 filteredExercises.addAll(exercises);
             }
         }
-        notifyObservers();
     }
 
     /** sortRoutinesAndExercises(int)
@@ -206,8 +206,6 @@ public class BrowseViewModel extends ObservableViewModel {
 
         getModel().sort(filteredExercises, strategy);
         getModel().sort(filteredRoutines, strategy);
-
-        notifyObservers();
     }
 
     /** getCurrentPage()
@@ -254,7 +252,6 @@ public class BrowseViewModel extends ObservableViewModel {
                 muscleGroups.add(mg);
             }
         }
-        notifyObservers();
     }
     /** getRoutineAndExerciseNames()
      * Purpose: used by arrayadapters to build their listviews
@@ -379,7 +376,6 @@ public class BrowseViewModel extends ObservableViewModel {
                 break;
             }
         }
-        notifyObservers();
     }
 
     /** addExerciseToUserRoutine(String)
@@ -390,7 +386,6 @@ public class BrowseViewModel extends ObservableViewModel {
         for(Routine r :getModel().getUserRoutines()) {
             if(r.getName().equals(routineName)) {
                 getModel().addExerciseToRoutine(getExerciseByName(), r);
-                notifyObservers();
                 break;
             }
         }
@@ -399,7 +394,6 @@ public class BrowseViewModel extends ObservableViewModel {
     public void addExerciseToUserRoutine(int position){
         //getModel().addExerciseToRoutine(position, getExerciseByName());
         getModel().addExerciseToRoutine(position, exerciseToAdd);
-        notifyObservers();
         /*
         for(Routine r :getModel().getUserRoutines()) {
             if(r.getName().equals(routineName)) {

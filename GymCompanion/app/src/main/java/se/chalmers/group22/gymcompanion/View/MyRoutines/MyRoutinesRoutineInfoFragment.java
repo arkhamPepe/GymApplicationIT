@@ -6,11 +6,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
-public class MyRoutinesRoutineInfoFragment extends Fragment implements Observer {
+/***
+ * Title: MyRoutinesRoutineInfoFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Routine Info fragment in the app
+ */
+public class MyRoutinesRoutineInfoFragment extends Fragment implements ViewModelObserver {
+
 
     //variables for fragment_routine_routine_info.xml
     private MyRoutinesViewModel viewModel;

@@ -6,13 +6,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 import java.util.List;
 
-public class BrowseResultFragment extends Fragment implements Observer {
+/***
+ * Title: BrowseResultFragment
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Fragment connected to a xml displaying the Results from a search or filter
+ */
+public class BrowseResultFragment extends Fragment implements ViewModelObserver {
 
     private BrowseViewModel viewModel;
     private TextView currentMuscleGroup;
@@ -67,6 +80,7 @@ public class BrowseResultFragment extends Fragment implements Observer {
                        } else {
                            viewModel.filterRoutinesExercises(true, 1);
                        }
+                       update();
                    } else {
                        cbxRoutines.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
@@ -83,6 +97,7 @@ public class BrowseResultFragment extends Fragment implements Observer {
                        } else {
                            viewModel.filterRoutinesExercises(true, 0);
                        }
+                       update();
                    } else {
                        cbxExercises.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
@@ -101,6 +116,7 @@ public class BrowseResultFragment extends Fragment implements Observer {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 ((BrowseActivity)getActivity()).goToResultFromSearch(query);
+                update();
                 return false;
             }
         });

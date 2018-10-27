@@ -20,4 +20,5 @@ import se.chalmers.group22.gymcompanion.ViewModel.BaseViewModel;
 
 public abstract class BaseActivity extends AppCompatActivity {
     abstract public BaseViewModel getViewModel();
+
 }

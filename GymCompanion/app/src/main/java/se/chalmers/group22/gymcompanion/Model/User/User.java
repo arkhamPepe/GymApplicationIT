@@ -75,21 +75,6 @@ public class User implements Serializable {
         this.completedRoutines = new HashMap<>();
     }
 
-    // Defensive copy
-    public List<User> getFriends() {
-        return new ArrayList<>(friends);
-    }
-
-    // Defensive copy
-    public List<Routine> getRoutines() {
-        return new ArrayList<>(routines);
-    }
-
-    // Defensive Copy
-    public Map<Calendar, Routine> getCompletedRoutines(){
-        return new HashMap<>(completedRoutines);
-    }
-
     public void finishRoutine(Routine routine){
         completedRoutines.put(getTodaysDate(), new Routine(routine));
     }
@@ -150,92 +135,19 @@ public class User implements Serializable {
         routine.setDescription(description);
     }
 
-    private Calendar getTodaysDate(){
-        return new GregorianCalendar();
-    }
-
-    public String getScheduledRoutineName(){
-        return schedule.getRoutineNameFromDate(getTodaysDate());
-    }
-
-    public Routine getTodaysRoutine(){
-        return schedule.getRoutineFromDay(getTodaysDate());
-    }
-
     public boolean scheduleDayHasRoutine(Calendar date){
         return schedule.dateHasRoutine(date);
-    }
-
-    public Routine getScheduleRoutineFromDay(Calendar date){
-        return schedule.getRoutineFromDay(date);
-    }
-
-    public Routine getFinishedRoutine() {
-        Routine latestFinishedRoutine = null;
-        Calendar latestDate = null;
-        for(Calendar day : completedRoutines.keySet()){
-            if(latestDate == null || day.after(latestDate)){
-                latestDate = day;
-                latestFinishedRoutine = completedRoutines.get(day);
-            }
-        }
-        return latestFinishedRoutine;
     }
 
     public void scheduleAddRoutine(Routine routine, Calendar date){
         schedule.addRoutine(routine, date);
     }
 
-    public Schedule getSchedule(){
-        return schedule;
-    }
-
-    public String getScheduleDateText(int year, int month, int day){
-        return schedule.getDateText(year, month, day);
-    }
-
-    public String getTodayText(){
-        return schedule.getTodayText();
-    }
-
-    public Map<Calendar, Routine> getRoutineSchedule(){
-        return schedule.getSchedule();
-    }
-
-    public String getRoutineNameOnDate(int year, int month, int day){
-        return schedule.getRoutineNameFromDate(year, month, day);
-    }
-
-    public int getYearToday() {
-        return schedule.getYearToday();
-    }
-
-    public int getMonthToday() {
-        return schedule.getMonthToday();
-    }
-
-    public int getDayToday() {
-        return schedule.getDayOfMonthToday();
-    }
-
-    public Set<Calendar> getScheduleKeySet(){
-        return schedule.getScheduleKeySet();
-    }
-
-    public Routine getRoutineFromDay(Calendar day){
-        return schedule.getRoutineFromDay(day);
-    }
-
-    public int getTotalAmountOfCompletedRoutines(){
-        return completedRoutines.size();
-    }
-
-
     public int getTotalAmountOfCompletedExercises(){
         int amount = 0;
 
         for (Routine r: completedRoutines.values()){
-            amount += r.getExercises().size();
+            amount += r.getCompletedExercises();
         }
 
         return amount;
@@ -256,22 +168,13 @@ public class User implements Serializable {
 
         for (Routine r:completedRoutines.values()) {
             for (Exercise e:r.getExercises()) {
-                strList.add(e.getName());
+                if(e.isCompleted()) {
+                    strList.add(e.getName());
+                }
             }
         }
 
         return findMostCommonName(strList);
-    }
-
-    public Routine getRoutineFromName(String name){
-        Routine ret = null;
-        for(Routine r: new ArrayList<>(routines)){
-            if(r.getName().equals(name)){
-                ret = r;
-                return ret;
-            }
-        }
-        return ret;
     }
 
     private String findMostCommonName(List<String> strList){
@@ -313,6 +216,93 @@ public class User implements Serializable {
             return big.getName();
         }
         return "No Routines Completed";
+    }
+
+    /**
+     *               GETTERS for Law of Demeter
+     **/
+
+    // Defensive copy
+    public List<User> getFriends() {
+        return new ArrayList<>(friends);
+    }
+
+    // Defensive copy
+    public List<Routine> getRoutines() {
+        return new ArrayList<>(routines);
+    }
+
+    // Defensive Copy
+    public Map<Calendar, Routine> getCompletedRoutines(){
+        return new HashMap<>(completedRoutines);
+    }
+
+    private Calendar getTodaysDate(){
+        return new GregorianCalendar();
+    }
+
+    public String getScheduledRoutineName(){
+        return schedule.getRoutineNameFromDate(getTodaysDate());
+    }
+
+    public Routine getTodaysRoutine(){
+        return schedule.getRoutineFromDay(getTodaysDate());
+    }
+
+    public Routine getScheduleRoutineFromDay(Calendar date){
+        return schedule.getRoutineFromDay(date);
+    }
+
+    public Routine getFinishedRoutine() {
+        Routine latestFinishedRoutine = null;
+        Calendar latestDate = null;
+        for(Calendar day : completedRoutines.keySet()){
+            if(latestDate == null || day.after(latestDate)){
+                latestDate = day;
+                latestFinishedRoutine = completedRoutines.get(day);
+            }
+        }
+        return latestFinishedRoutine;
+    }
+
+    public Schedule getSchedule(){
+        return schedule;
+    }
+
+    public String getScheduleDateText(int year, int month, int day){
+        return schedule.getDateText(year, month, day);
+    }
+
+    public String getTodayText(){
+        return schedule.getTodayText();
+    }
+
+    public String getRoutineNameOnDate(int year, int month, int day){
+        return schedule.getRoutineNameFromDate(year, month, day);
+    }
+
+    public int getYearToday() {
+        return schedule.getYearToday();
+    }
+
+    public int getMonthToday() {
+        return schedule.getMonthToday();
+    }
+
+    public int getDayToday() {
+        return schedule.getDayOfMonthToday();
+    }
+
+    public Set<Calendar> getScheduleKeySet(){
+        return schedule.getScheduleKeySet();
+    }
+
+    public Routine getRoutineFromDay(Calendar day){
+        return schedule.getRoutineFromDay(day);
+    }
+
+    public int getTotalAmountOfCompletedRoutines(){
+        return completedRoutines.size();
     }
 
     public Routine getRoutine(int index){

@@ -4,7 +4,25 @@ import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/***
+ * Title: HomeViewModel
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 12, 2018
+ *
+ * Purpose: To handle the communication between the model and the view without without showing the model's underlying
+ * representation to the view.
+ *
+ * Used by: HomeActivity.java, HomeFinishedFragment.java, HomeStartFragment.java
+ *
+ * Uses: BaseViewModel.java, Routine.java
+ *
+ */
 public class HomeViewModel extends BaseViewModel {
 
     public HomeViewModel(){

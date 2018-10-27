@@ -1,10 +1,23 @@
 package se.chalmers.group22.gymcompanion.ViewModel;
-
-public class ProgressViewModel extends BaseViewModel {
-
-    public String getScheduledRoutineName(){
-        return null;
-    }
+/***
+ * Title: ProgressViewModel
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 12, 2018
+ *
+ * Purpose: To handle the communication between the model and the view without without showing the model's underlying
+ * representation to the view.
+ *
+ * Used by: ProgressActivity.java, ProgressStartFragment.java
+ *
+ * Uses: AbstractObservableViewModel.java
+ */
+public class ProgressViewModel extends AbstractObservableViewModel {
 
     public void setActiveExercise(int i){
         getModel().setActiveExerciseInActiveRoutine(i);

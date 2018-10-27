@@ -5,14 +5,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import se.chalmers.group22.gymcompanion.Model.Observer;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.util.List;
-
+/***
+ * Title: MyRoutinesStrengthExerciseSetsAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 2, 2018
+ *
+ * Purpose: Adds the list elements to the Strength Exercise Sets List GUI
+ */
 public class MyRoutinesStrengthExerciseSetsAdapter extends ArrayAdapter {
     private Activity context;
 

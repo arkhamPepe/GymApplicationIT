@@ -10,7 +10,19 @@ import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
 
 import java.util.List;
-
+/***
+ * Title: BrowseAddExerciseListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 18, 2018
+ *
+ * Purpose: Builds the listview for BrowseAddExerciseFragment
+ */
 public class BrowseAddExerciseListAdapter extends ArrayAdapter {
 
     //to reference the Activity

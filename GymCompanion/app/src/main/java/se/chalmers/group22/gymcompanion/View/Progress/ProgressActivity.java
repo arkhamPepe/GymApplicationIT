@@ -14,6 +14,7 @@ import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.Home.HomeActivity;
+import se.chalmers.group22.gymcompanion.View.ObserverActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.ProgressViewModel;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ import java.util.List;
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this Activity is active
  */
 
-public class ProgressActivity extends BaseActivity {
+public class ProgressActivity extends ObserverActivity {
 
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;

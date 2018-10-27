@@ -5,7 +5,7 @@
 // Created  :   October 2 2018
 //
 // Purpose  :   This xml is used to create listitems to then use in a listview
-// Used by  :   StatisticsHistoryRoutineInfoListAdapter.java
+// Used by  :   StatisticsHistoryInfoListAdapter.java
 // Uses     :
 //-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"

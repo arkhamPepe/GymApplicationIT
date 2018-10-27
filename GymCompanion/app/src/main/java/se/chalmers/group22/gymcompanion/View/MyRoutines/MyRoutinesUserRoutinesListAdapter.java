@@ -12,7 +12,19 @@ import se.chalmers.group22.gymcompanion.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/***
+ * Title: MyRoutinesUserRoutinesListAdapter
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 2, 2018
+ *
+ * Purpose: Adds the list elements to the User Routines List GUI
+ */
 public class MyRoutinesUserRoutinesListAdapter extends ArrayAdapter {
 
     //to reference the Activity

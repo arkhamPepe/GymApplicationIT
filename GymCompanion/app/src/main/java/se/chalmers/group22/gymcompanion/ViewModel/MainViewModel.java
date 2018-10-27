@@ -6,7 +6,24 @@ import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 import se.chalmers.group22.gymcompanion.Model.User.User;
 
 import java.util.List;
-
+/***
+ * Title: BrowseViewModel
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 12, 2018
+ *
+ * Purpose: To set up the Model so that the other ViewModels can get access to the data.
+ *
+ * Used by: MainActivity.java
+ *
+ * Uses: BaseViewModel.java, Routine.java, Exercise.java, User.java, LocalDatabase.java
+ *
+ */
 public class MainViewModel extends BaseViewModel{
     public MainViewModel(){
         init();

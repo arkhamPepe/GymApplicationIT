@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+// Title    :   navigation.xml
+// Authors  :   Alexander Bergsten, Marcus Svensson, Erik Bock, Augustas Eidikis, Daniel Olsson
+// Created  :   September 28 2018
+//
+// Purpose  :   Navigationbar
+// Used by  :   activity_browse.xml, activity_main.xml, activity_my_routines.xml, activity_schedule.xml,
+//              activity_statistics.xml
+// Uses     :
+//-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
       android:layout_height="40dp"
       android:layout_width="match_parent"
@@ -24,38 +34,3 @@
             android:icon="@drawable/icons8_combo_chart_48"
             android:title="Statistics"/>
 </menu>
-
-
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-    <ImageButton
-            android:layout_width="72dp"
-            android:layout_height="50dp"
-            android:id="@+id/btnBrowse"
-            android:onClick="startActivityBrowse"/>
-    <ImageButton
-            android:layout_width="72dp"
-            android:layout_height="50dp"
-            android:id="@+id/btnMain"
-            android:onClick="startActivityMain"/>
-    <ImageButton
-            android:layout_width="72dp"
-            android:layout_height="50dp"
-            android:id="@+id/btnSchedule"
-            android:onClick="startActivitySchedule"/>
-    <ImageButton
-            android:layout_width="72dp"
-            android:layout_height="50dp"
-            android:id="@+id/btnStatistics"
-            android:onClick="startActivityStatistics"/>
-
-    <ImageButton
-            android:layout_width="72dp"
-            android:layout_height="50dp"
-            android:id="@+id/btnMyRoutines"
-            android:onClick="startActivityMyRoutines"/>
-
-
-</LinearLayout>-->

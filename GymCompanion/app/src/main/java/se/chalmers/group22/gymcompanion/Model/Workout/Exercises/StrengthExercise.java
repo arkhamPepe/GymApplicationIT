@@ -38,10 +38,6 @@ public class StrengthExercise extends Exercise implements Serializable {
     @Getter(AccessLevel.NONE)
     private List<Double> kilograms;
 
-    public StrengthExercise() {
-        super();
-    }
-
     public StrengthExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, List<Integer> repetitions, int sets) {
         super(name, difficulty, muscleGroups, description, videoguide);
         this.repetitions = repetitions;
@@ -69,24 +65,6 @@ public class StrengthExercise extends Exercise implements Serializable {
             kgIndex++;
         }
         return sum;
-    }
-
-    // FOR TESTING
-    public StrengthExercise(String name, int sets, List<Integer> reps, List<Double> kilograms) {
-        super(name);
-        this.sets = sets;
-        this.repetitions = reps;
-        this.kilograms = kilograms;
-    }
-
-    // FOR TESTING
-    public StrengthExercise(String name, double difficulty) {
-        super(name, difficulty);
-    }
-
-    // FOR TESTING
-    public StrengthExercise(List<MUSCLE_GROUP> muscleGroups, double difficulty) {
-        super(muscleGroups, difficulty);
     }
 
 
@@ -124,7 +102,19 @@ public class StrengthExercise extends Exercise implements Serializable {
             this.sets++;
         }
     }
-    public Exercise clone(){
+    public StrengthExercise clone(){
         return new StrengthExercise(this);
     }
+
+
+
+    // FOR TESTING
+    public StrengthExercise(String name, double difficulty) {
+        super(name, difficulty);
+    }
+
+    public StrengthExercise(List<MUSCLE_GROUP> muscleGroups, double difficulty) {
+        super(muscleGroups, difficulty);
+    }
+
 }

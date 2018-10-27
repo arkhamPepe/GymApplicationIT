@@ -32,9 +32,7 @@ public class CardioExercise extends Exercise implements Serializable {
     @Getter
     private int timespent;
 
-    /*public CardioExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, int timespent) {
-        super(name, difficulty, muscleGroups, description, videoguide, timespent);
-    }*/
+
     public CardioExercise(String name, double difficulty, List<MUSCLE_GROUP> muscleGroups, String description, String videoguide, INTENSITY intensity, int timespent) {
         super(name, difficulty, muscleGroups, description, videoguide, intensity);
         this.timespent = timespent;
@@ -46,7 +44,7 @@ public class CardioExercise extends Exercise implements Serializable {
         this.timespent = exercise.getTimespent();
     }
 
-    public Exercise clone() {
+    public CardioExercise clone() {
         return new CardioExercise(this);
     }
 

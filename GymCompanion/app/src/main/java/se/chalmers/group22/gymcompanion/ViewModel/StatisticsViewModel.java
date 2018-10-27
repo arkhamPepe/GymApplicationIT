@@ -5,14 +5,33 @@ import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 
 import java.util.*;
-
-public class StatisticsViewModel extends ObservableViewModel {
+/***
+ * Title: StatisticsViewModel
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 12, 2018
+ *
+ * Purpose: To handle the communication between the model and the view without without showing the model's underlying
+ * representation to the view.
+ *
+ * Used by: StatisticsActivity.java, StatisticsHistoryDetailsFragment.java, StatisticsHistoryFragment.java
+ * StatisticsLifetimeStatsFragment.java, StatisticsStartFragment.java,
+ *
+ * Uses: AbstractObservableViewModel.java, Point.java (nested class), Routine.java, Exercise.java
+ *
+ */
+public class StatisticsViewModel extends AbstractObservableViewModel {
     private Map<Calendar, Routine> schedule;
     private Map<Calendar, Routine> completedRoutines;
     private int currentWeekOffset = 0;
     private Map<Calendar, Double> currentGraphPoints;
     private Calendar selectedDate;
-    String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday", "Friday", "Saturday" };
+    String[] strDays = new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
     public StatisticsViewModel(){
         schedule = new HashMap<>();
@@ -22,12 +41,10 @@ public class StatisticsViewModel extends ObservableViewModel {
     public void update(){
         currentGraphPoints = getModel().getGraphData(currentWeekOffset);
         completedRoutines = getModel().getUserCompletedRoutines();
-        notifyObservers();
     }
 
     public void setSelectedDate(Calendar time){
         selectedDate = time;
-        notifyObservers();
     }
 
     public void setGraphedDateNextWeek(){
@@ -85,6 +102,11 @@ public class StatisticsViewModel extends ObservableViewModel {
             points.set(min_idx, points.get(i));
             points.set(i, temp);
         }
+    }
+
+    @Override
+    public void updateView() {
+
     }
 
     private class Point {
