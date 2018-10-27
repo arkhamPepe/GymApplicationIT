@@ -23,6 +23,8 @@ import java.util.List;
  * Created: October 5, 2018
  *
  * Purpose: Adds the list elements to the Statistics History Info List GUI
+ * Uses: listitem_statistics_history_details.xml
+ * Used by: StatisticsHistoryDetailsFragment.java
  */
 public class StatisticsHistoryInfoListAdapter extends ArrayAdapter {
     private List<String> exerciseNames;

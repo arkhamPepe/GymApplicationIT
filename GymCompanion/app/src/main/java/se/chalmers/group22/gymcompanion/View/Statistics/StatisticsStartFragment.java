@@ -25,6 +25,8 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
  * Created: October 5, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Statistics Start Page in the app
+ * Uses: StatisticsViewModel.java, fragment_statistics_start.xml
+ * Used by: FragmentFactory.java
  */
 public class StatisticsStartFragment extends Fragment implements ViewModelObserver {
 

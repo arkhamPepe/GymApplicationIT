@@ -27,6 +27,8 @@ import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
  * Created: October 5, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Statistics Lifetime Stats Page in the app
+ * Uses: StatisticsViewModel.java, fragment_statistics_lifetime.xml
+ * Used by: FragmentFactory.java
  */
 public class StatisticsLifetimeStatsFragment extends Fragment {
 

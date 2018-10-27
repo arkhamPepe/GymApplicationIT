@@ -24,6 +24,8 @@ import java.util.List;
  * Created: October 5, 2018
  *
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this Activity is active
+ * Uses: FragmentFactory.java, FragmentOrganizer.java, ScheduleViewModel.java
+ * Used by: SchedulePickRoutineFragment.java, ScheduleStartFragment.java, NavigationFragment.java
  */
 public class ScheduleActivity extends ObserverActivity {
 

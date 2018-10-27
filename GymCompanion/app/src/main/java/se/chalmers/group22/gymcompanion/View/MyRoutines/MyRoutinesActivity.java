@@ -27,9 +27,7 @@ import java.util.List;
  * Used by: NavigationFragment.java, MyRoutinesCardioExerciseFragment.java, MyRoutinesExerciseInfoFragment.java,
  *          MyRoutinesPickExerciseFragment.java, MyRoutinesPickMGFragment.java, MyRoutinesRoutineInfoFragment.java,
  *          MyRoutinesStartFragment.java, MyRoutinesStrengthExerciseFragment.java, MyRoutinesStrengthExerciseSetsAdapter.java
- * Uses: MyRoutinesViewModel.java, NavigationFragment.java, MyRoutinesStartFragment.java, MyRoutinesPickMGFragment.java,
- *       MyRoutinesRoutineInfoFragment.java, MyRoutinesExerciseInfoFragment.java, MyRoutinesPickExerciseFragment.java,
- *       MyRoutinesStrengthExerciseFragment.java, MyRoutinesCardioExercise.java
+ * Uses: MyRoutinesViewModel.java, NavigationFragment.java, FragmentFactory.java
  */
 public class MyRoutinesActivity extends ObserverActivity {
 

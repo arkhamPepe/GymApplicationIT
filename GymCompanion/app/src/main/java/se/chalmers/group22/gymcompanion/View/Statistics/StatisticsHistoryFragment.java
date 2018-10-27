@@ -25,13 +25,10 @@ import java.util.List;
  * Created: October 5, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Statistics History Page in the app
+ * Uses: StatisticsViewModel.java, HistoryListAdapter.java, fragment_statistics_history.xml
+ * Used by: FragmentFactory.java
  */
 public class StatisticsHistoryFragment extends Fragment {
-    /** TEMPORARY DATA */
-    /*private String[] routineNames = {"Chest demolisher", "Leg killer", "Back attack", "Arms mauler", "Murder your shoulders", "Chest demolisher",
-            "Leg killer", "Back attack", "Chest demolisher", "Arms mauler", "Marathon Sprint", "Crossfit session"};
-    private String[] dates = {"Monday w.42", "Tuesday w.42", "Thursday w.42", "Caturday w.42", "Monday w.43", "Tuesday w.43", "Thursday w.43", "Saturday w.43",
-            "Monday w.44", "Tuesday w.44", "Thursday w.44", "Saturday w.44"};*/
 
     private StatisticsViewModel viewModel;
 

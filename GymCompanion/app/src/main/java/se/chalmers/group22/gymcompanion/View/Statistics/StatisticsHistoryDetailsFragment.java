@@ -25,6 +25,8 @@ import java.util.List;
  * Created: October 5, 2018
  *
  * Purpose: Fragment connected to a xml displaying the History Details Page in the app
+ * Uses: StatisticsViewModel.java, StatisticsHistoryInfoListAdapter.java, fragment_statistics_history_details.xml
+ * Used by: FragmentFactory.java
  */
 public class StatisticsHistoryDetailsFragment extends Fragment implements ViewModelObserver {
 

@@ -22,7 +22,7 @@ import java.util.List;
  * Created: October 2, 2018
  *
  * Purpose: Adds the list elements to the User Exercises List GUI
- * Uses: listeitem_my_routines_exercise.xml
+ * Uses: listitem_my_routines_exercise.xml
  * Used by: MyRoutinesRoutineInfoFragment.java
  */
 public class MyRoutinesUserExercisesListAdapter extends ArrayAdapter {

@@ -23,6 +23,8 @@ import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
  * Created: October 5, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Schedule Start Page in the app
+ * Uses: ScheduleViewModel.java, ScheduleActivity.java, fragment_schedule_start.xml
+ * Used by: FragmentFactory.java
  */
 public class ScheduleStartFragment extends Fragment {
 

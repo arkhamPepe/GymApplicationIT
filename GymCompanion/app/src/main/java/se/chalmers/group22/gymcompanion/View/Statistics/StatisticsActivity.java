@@ -23,6 +23,9 @@ import java.util.List;
  * Created: October 5, 2018
  *
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this Activity is active
+ * Uses: StatisticsViewModel.java, FragmentFactory.java, FragmentOrganizer.java
+ * Used by: NavigationFragment.java, StatisticsHistoryDetailsFragment.java, StatisticsHistoryFragment.java,
+ *          StatisticsLifetimeStatsFragment.java, StatisticsStartFragment.java
  */
 public class StatisticsActivity extends ObserverActivity {
 

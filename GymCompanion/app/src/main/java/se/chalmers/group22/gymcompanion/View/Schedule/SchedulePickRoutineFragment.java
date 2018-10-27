@@ -25,6 +25,8 @@ import java.util.List;
  * Created: October 5, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Schedule Pick Routine Page in the app
+ * Uses: ScheduleViewModel.java, ScheduleActivity.java, ScheduleListAdapter.java, fragment_schedule_pick_routine.xml
+ * Used by: FragmentFactory.java
  */
 public class SchedulePickRoutineFragment extends Fragment {
 
