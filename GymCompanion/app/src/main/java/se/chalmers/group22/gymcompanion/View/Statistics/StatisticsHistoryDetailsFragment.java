@@ -51,7 +51,7 @@ public class StatisticsHistoryDetailsFragment extends Fragment implements ViewMo
         viewModel = ((StatisticsActivity)getActivity()).getViewModel();
         viewModel.addObserver(this);
 
-        update();
+        //update();
     }
 
     @Override

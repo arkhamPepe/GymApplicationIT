@@ -107,7 +107,7 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
 
     @Override
     public void updateView() {
-
+        update();
     }
 
     private class Point {
@@ -127,38 +127,23 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
         }
     }
 
-    /* TODO Control functionality when history is implemented */
     public List<String> getHistoryExerciseNames(){
         List<String> names = new ArrayList<>();
+        List<Exercise> exercises = completedRoutines.get(selectedDate).getExercises();
 
-        /*try {
-            for(Exercise e : getModel().getRoutineFromName(selectedRoutine).getExercises()){
-                names.add(e.getName());
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }*/
-        try {
-            for(Exercise e : completedRoutines.get(selectedDate).getExercises()){
-                names.add(e.getName());
-            }
-        } catch (Exception e){
-            e.printStackTrace();
+        for(Exercise e : exercises){
+            names.add(e.getName());
         }
 
         return names;
     }
 
-    /* TODO Control functionality when history is implemented */
     public List<Boolean> getHistoryExercisePerformedValues(){
         List<Boolean> performances = new ArrayList<>();
+        List<Exercise> exercises = completedRoutines.get(selectedDate).getExercises();
 
-        try {
-            for(Exercise e : completedRoutines.get(selectedDate).getExercises()) {
-                performances.add(e.isCompleted());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        for(Exercise e : exercises) {
+            performances.add(e.isCompleted());
         }
 
         return performances;
