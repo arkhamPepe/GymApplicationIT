@@ -26,6 +26,12 @@ import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsActivity;
  *
  * Purpose: Fragment used by several activities. Handles travel between activities.
  * Fragment connected to a xml displaying the Bottom Navigation Bar in the app
+ *
+ * Used by: FragmentFactory.java
+ *
+ * Uses: HomeActivity.java, BrowseActivity.java, ScheduleActivity.java, MyRoutinesActivity.java
+ * StatisticsActivity.java
+ *
  */
 
 public class NavigationFragment extends Fragment {
@@ -58,11 +64,11 @@ public class NavigationFragment extends Fragment {
      * */
     public void onStart(){
         super.onStart();
-        Intent intent1 = new Intent(getActivity(), HomeActivity.class);
-        Intent intent2 = new Intent(getActivity(), BrowseActivity.class);
-        Intent intent3 = new Intent(getActivity(), ScheduleActivity.class);
-        Intent intent4 = new Intent(getActivity(), MyRoutinesActivity.class);
-        Intent intent5 = new Intent(getActivity(), StatisticsActivity.class);
+        Intent intentHome = new Intent(getActivity(), HomeActivity.class);
+        Intent intentBrowse = new Intent(getActivity(), BrowseActivity.class);
+        Intent intentSchedule = new Intent(getActivity(), ScheduleActivity.class);
+        Intent intentMyRoutines = new Intent(getActivity(), MyRoutinesActivity.class);
+        Intent intentStatistics = new Intent(getActivity(), StatisticsActivity.class);
 
         BottomNavigationView bottomNavigationView = getView().findViewById(R.id.navigation);
 
@@ -77,22 +83,22 @@ public class NavigationFragment extends Fragment {
                         Intent intent;
                         switch (item.getItemId()) {
                             case R.id.action_item1:
-                                intent = intent1;
+                                intent = intentHome;
                                 break;
                             case R.id.action_item2:
-                                intent = intent2;
+                                intent = intentBrowse;
                                 break;
                             case R.id.action_item3:
-                                intent = intent3;
+                                intent = intentSchedule;
                                 break;
                             case R.id.action_item4:
-                                intent = intent4;
+                                intent = intentMyRoutines;
                                 break;
                             case R.id.action_item5:
-                                intent = intent5;
+                                intent = intentStatistics;
                                 break;
                             default:
-                                intent = intent1;
+                                intent = intentHome;
                                 break;
                         }
 

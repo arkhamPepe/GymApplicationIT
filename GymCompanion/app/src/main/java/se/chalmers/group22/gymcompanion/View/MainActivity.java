@@ -22,7 +22,7 @@ import se.chalmers.group22.gymcompanion.ViewModel.MainViewModel;
  *
  * Used by: N/A
  *
- * Uses: HomeActivity.java, MainViewModel.java
+ * Uses: HomeActivity.java, BaseActivity.java, MainViewModel.java
  */
 
 public class MainActivity extends BaseActivity {

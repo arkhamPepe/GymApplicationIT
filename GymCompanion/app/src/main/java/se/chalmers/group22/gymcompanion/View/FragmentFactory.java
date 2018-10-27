@@ -13,6 +13,33 @@ import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsHistoryFragmen
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsLifetimeStatsFragment;
 import se.chalmers.group22.gymcompanion.View.Statistics.StatisticsStartFragment;
 
+/***
+ * Title: FragmentFactory
+ *
+ * @author Alexander Bergsten
+ * @author Marcus Svensson
+ * @author Erik Bock
+ * @author Augustas Eidikis
+ * @author Daniel Olsson
+ *
+ * Created: October 27, 2018
+ *
+ * Purpose: Factory-class for creating all the fragments needed for the activities. Mostly useful for fragments
+ * used by several activities, like navigationfragment
+ *
+ * Used by: HomeActivity.java, ProgressActivity.java, StatisticsActivity.java, MyRoutinesActivity.java
+ * ScheduleActivity.java, BrowseActivity.java
+ *
+ * Uses: NavigationFragment.java, HomeStartFragment.java, HomeFinishedFragment.java, ProgressStartFragment.java
+ * StatisticsHistoryDetailsFragment.java, StatisticsStartFragment.java, StatisticsHistoryFragment.java,
+ * StatisticsLifetimeStatsFragment.java, ScheduleStartFragment.java, SchedulePickRoutineFragment.java,
+ * MyRoutinesCardioExerciseFragment.java, MyRoutinesExerciseInfoFragment.java, MyRoutinesPickMGFragment.java,
+ * MyRoutinesPickExerciseFragment.java, MyRoutinesRoutineInfoFragment.java, MyRoutinesStartFragment.java,
+ * MyRoutinesStrengthExerciseFragment.java, BrowseAddExerciseFragment.java, BrowseMuscleGroupsFragment.java,
+ * BrowseRecommendedFragment.java, BrowseResultFragment.java, BrowseStartFragment.java
+ *
+ */
+
 public class FragmentFactory {
 
     //Navigation

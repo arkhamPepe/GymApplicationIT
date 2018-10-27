@@ -23,6 +23,11 @@ import java.util.List;
  * Created: October 8, 2018
  *
  * Purpose: Adds the list elements to the Statistics History List GUI
+ *
+ * Used by: StatisticsHistoryFragment.java
+ *
+ * Uses: N/A
+ *
  */
 
 public class HistoryListAdapter extends ArrayAdapter {

@@ -16,6 +16,11 @@ import se.chalmers.group22.gymcompanion.ViewModel.BaseViewModel;
  *
  * Purpose: Super-class for all methods and variables that are necessary for our non-setup Activities
  * but are not part of the standard AppCompatActivity
+ *
+ * Used by: MainActivity.java, ObserverActivity.java, HomeActivty.java, ProgressActivity.java
+ *
+ * Uses: BaseViewModel.java
+ *
  */
 
 public abstract class BaseActivity extends AppCompatActivity {

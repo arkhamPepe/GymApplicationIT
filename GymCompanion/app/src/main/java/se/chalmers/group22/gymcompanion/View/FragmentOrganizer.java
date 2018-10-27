@@ -22,6 +22,12 @@ import java.util.List;
  * Created: October 12, 2018
  *
  * Purpose: Help-class for Activities that aids the in setting up and changing between their fragments
+ *
+ * Used by: HomeActivity.java, ProgressActivity.java, BrowseActivity.java, MyRoutinesActivity.java
+ * ScheduleActivity.java, StatisticsActivity.java
+ *
+ * Uses: navigation.xml
+ *
  */
 
 public class FragmentOrganizer {
