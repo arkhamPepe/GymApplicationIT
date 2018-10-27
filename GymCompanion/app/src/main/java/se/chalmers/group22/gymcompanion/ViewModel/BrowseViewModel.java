@@ -64,6 +64,12 @@ public class BrowseViewModel extends AbstractObservableViewModel {
     @Setter
     private int currentSortIndex;
 
+    //Decides if checkboxes are checked or not
+    @Getter
+    private boolean cbxRoutine;
+    @Getter
+    private boolean cbxExercise;
+
     //Used to separate the routines from exercises
     private List<Routine> routines;
     private List<Exercise> exercises;
@@ -94,6 +100,9 @@ public class BrowseViewModel extends AbstractObservableViewModel {
         sortFilters.add("Desc. alphabetic");
         sortFilters.add("Asc. difficulty");
         sortFilters.add("Desc. difficulty");
+
+        cbxExercise = true;
+        cbxRoutine = true;
     }
     /** search()
      * Purpose: clears all lists and calls searchRoutine() and searchExercise from GymCompanion, and fills
@@ -437,6 +446,16 @@ public class BrowseViewModel extends AbstractObservableViewModel {
             }
         }
         return null;
+    }
+
+    public void setCbxRoutine(boolean cbxRoutine) {
+        this.cbxRoutine = cbxRoutine;
+        notifyObservers();
+    }
+
+    public void setCbxExercise(boolean cbxExercise) {
+        this.cbxExercise = cbxExercise;
+        notifyObservers();
     }
 
     private void clearLists(){
