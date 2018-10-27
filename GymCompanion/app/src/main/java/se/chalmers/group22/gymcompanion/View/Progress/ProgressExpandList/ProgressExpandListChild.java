@@ -12,6 +12,12 @@ package se.chalmers.group22.gymcompanion.View.Progress.ProgressExpandList;
  * Created: October 14, 2018
  *
  * Purpose: Class that contains the information necessary for the child elements in ProgressExpandListAdapter
+ *
+ * Used by: ProgressStartFragment.java, ProgressExpandListAdpater.java, ProgressExpandListGroup.java
+ * expand_list_child_progress.xml
+ *
+ * Uses: N/A
+ *
  */
 
 public class ProgressExpandListChild {

@@ -33,7 +33,7 @@ import java.util.List;
  * Used by: MainActivity.java, NavigationFragment.java, ProgressActivity.java, HomeStartFragment.java
  * HomeFinishedFragment.java, activity_main.xml
  *
- * Uses: HomeStartFragment.java, HomeFinishedFragment.java, NavigationFragment.java, ProgressActivity.java,
+ * Uses: FragmentFactory.java, ProgressActivity.java,
  * FragmentOrganizer.java, HomeViewModel.java, BaseActivity.java
  *
  */

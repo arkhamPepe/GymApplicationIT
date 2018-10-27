@@ -24,6 +24,11 @@ import java.util.ArrayList;
  * Created: October 14, 2018
  *
  * Purpose: Adds the list elements to the Edit Routine List GUI
+ *
+ * Used by: ProgressStartFragment.java
+ *
+ * Uses: ProgressExpandListGroup.java, ProgressExpandListChild.java
+ *
  */
 
 public class ProgressExpandListAdapter extends BaseExpandableListAdapter {

@@ -36,7 +36,8 @@ import java.util.List;
  *
  * Used by: HomeActivity.java, ProgressStartFragment.java, activity_progress.xml
  *
- * Uses: ObserverActivity.java, FragmentOrganizer.java, ProgressViewModel.java, ProgressStartFragment.java
+ * Uses: ObserverActivity.java, FragmentOrganizer.java, ProgressViewModel.java, FragmentFactory.java
+ * activity_progress.xml
  *
  */
 

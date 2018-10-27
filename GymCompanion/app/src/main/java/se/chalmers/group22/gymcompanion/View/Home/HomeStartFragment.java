@@ -24,7 +24,7 @@ import se.chalmers.group22.gymcompanion.ViewModel.HomeViewModel;
  *
  * Purpose: Fragment connected to a xml displaying the Home Start Page in the app
  *
- * Used by: HomeActivity.java, fragment_home_start.xml
+ * Used by: HomeActivity.java, fragment_home_start.xml, FragmentFactory.java
  *
  * Uses: HomeViewModel.java, fragment_home_start.xml
  *

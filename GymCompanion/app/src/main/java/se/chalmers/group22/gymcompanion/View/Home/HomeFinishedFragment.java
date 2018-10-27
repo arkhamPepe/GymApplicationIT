@@ -25,7 +25,7 @@ import java.util.Map;
  *
  * Purpose: Fragment connected to a xml displaying the Finished Page in the app
  *
- * Used by: HomeActivity.java, fragment_home_finished.xml
+ * Used by: HomeActivity.java, fragment_home_finished.xml, FragmentFactory.java
  *
  * Uses: HomeViewModel.java, fragment_home_finished.xml
  *

@@ -27,9 +27,10 @@ import java.util.ArrayList;
  *
  * Purpose: Fragment connected to a xml displaying the Progress Start Page in the app
  *
- * Used by:
+ * Used by: FragmentFactory.java, fragment_progress_start.xml
  *
- * Uses:
+ * Uses: fragment_progress_start.xml, ProgressViewModel.java, ProgressExpandListAdapter.java
+ * ProgressExpandListGroup.java, ProgressExpandListChild.java, ProgressActivity.java
  *
  */
 

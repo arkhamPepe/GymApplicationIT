@@ -16,6 +16,12 @@ import java.util.List;
  *
  * Purpose: Class that contains the information necessary for the parent elements in ProgressExpandListAdapter.
  * Also contains the child elements connected to the parent.
+ *
+ * Used by: ProgressStartFragment.java, ProgressExpandListAdpater.java,
+ * expand_list_group_progress.xml
+ *
+ * Uses: ProgressExpandListChild.java
+ *
  */
 
 public class ProgressExpandListGroup {
