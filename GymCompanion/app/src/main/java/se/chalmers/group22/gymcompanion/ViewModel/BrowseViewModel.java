@@ -30,7 +30,9 @@ import java.util.List;
  * BrowseRecommendedFragment.java, BrowseResultFragment.java, BrowseStartFragment.java,
  *
  *
- * Uses: AbstractObservableViewModel.java, Routine.java, MUSCLE_GROUP.java, Exercise.java
+ * Uses: AbstractObservableViewModel.java, Routine.java, MUSCLE_GROUP.java, Exercise.java, SortingStrategy.java
+ * FilterStrategy.java, AscendingDifficulty.java, DescendingDifficulty.java, AscendingAlphabetic.java
+ * DescendingAlphabetic.java, MixedFilter.java, BeginnerFilter.java
  *
  */
 public class BrowseViewModel extends AbstractObservableViewModel {
