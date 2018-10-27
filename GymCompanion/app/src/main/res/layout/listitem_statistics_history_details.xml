@@ -10,17 +10,23 @@
 //-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="70dp">
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary">
 
     <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true" android:id="@+id/checkboxStatisticsHistoryDetails"
-            android:layout_alignParentTop="true" android:buttonTint="@color/colorPrimary"
-            android:textSize="8dp" android:layout_marginEnd="12dp" android:layout_marginTop="18dp"
+            android:id="@+id/checkboxStatisticsHistoryDetails"
+            android:buttonTint="@color/colorPrimaryDark"
+            android:textSize="8dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentEnd="true"
             android:scaleX="2.0"
             android:scaleY="2.0"
-            android:allowUndo="true" android:checked="false" android:enabled="false"/>
+            android:checked="false"
+            android:enabled="false"/>
     <TextView
             android:text="Exercise"
             android:layout_width="wrap_content"
