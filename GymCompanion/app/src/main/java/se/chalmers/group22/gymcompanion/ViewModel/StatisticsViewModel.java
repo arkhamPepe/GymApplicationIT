@@ -167,7 +167,13 @@ public class StatisticsViewModel extends ObservableViewModel {
             StringBuilder sb = new StringBuilder();
 
             sb.append("Week " + c.get(Calendar.WEEK_OF_YEAR));
-            sb.append(" " + strDays[c.get(Calendar.DAY_OF_WEEK)]);
+            sb.append(" " + strDays[c.get(Calendar.DAY_OF_WEEK)-1]);
+            sb.append(" " + ((2 + c.get(Calendar.HOUR_OF_DAY)) % 24) + ":");
+
+            int min = c.get(Calendar.MINUTE);
+            if (min < 10)
+                sb.append("0");
+            sb.append(min);
             dateNames.add(sb.toString());
         }
         return dateNames;
