@@ -16,6 +16,11 @@ import java.util.*;
  *
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
+ *
+ * Used by: ScheduleActivity.java, SchedulePickRoutineFragment.java, ScheduleStartFragment.java
+ *
+ * Uses: AbstractObservableViewModel.java, Routine.java
+ *
  */
 public class ScheduleViewModel extends AbstractObservableViewModel {
 

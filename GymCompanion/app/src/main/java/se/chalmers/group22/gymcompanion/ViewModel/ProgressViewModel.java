@@ -12,12 +12,12 @@ package se.chalmers.group22.gymcompanion.ViewModel;
  *
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
+ *
+ * Used by: ProgressActivity.java, ProgressStartFragment.java
+ *
+ * Uses: AbstractObservableViewModel.java
  */
 public class ProgressViewModel extends AbstractObservableViewModel {
-
-    public String getScheduledRoutineName(){
-        return null;
-    }
 
     public void setActiveExercise(int i){
         getModel().setActiveExerciseInActiveRoutine(i);

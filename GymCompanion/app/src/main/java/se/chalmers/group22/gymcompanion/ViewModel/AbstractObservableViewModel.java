@@ -21,6 +21,12 @@ import java.util.List;
  *
  * Purpose: All Viewmodels that are observable handle viewModelObservers in the same way,
  * which means that code could be abstracted out of them into a common super class
+ *
+ * Used by: BrowseViewModel.java, MyRoutinesViewModel.java, ProgressViewModel.java,
+ * ScheduleViewModel.java, StatisticsViewModel.java, ObserverActivity.java
+ *
+ * Uses: BaseViewModel.java, ObservableViewModel.java, ViewModelObserver.java, ModelObserver.java
+ *
  */
 
 abstract public class AbstractObservableViewModel extends BaseViewModel implements ObservableViewModel, ModelObserver {

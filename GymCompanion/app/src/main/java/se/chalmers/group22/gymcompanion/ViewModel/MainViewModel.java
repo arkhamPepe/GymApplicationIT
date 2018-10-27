@@ -17,8 +17,12 @@ import java.util.List;
  *
  * Created: October 12, 2018
  *
- * Purpose: To handle the communication between the model and the view without without showing the model's underlying
- * representation to the view.
+ * Purpose: To set up the Model so that the other ViewModels can get access to the data.
+ *
+ * Used by: MainActivity.java
+ *
+ * Uses: BaseViewModel.java, Routine.java, Exercise.java, User.java, LocalDatabase.java
+ *
  */
 public class MainViewModel extends BaseViewModel{
     public MainViewModel(){

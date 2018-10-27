@@ -25,6 +25,13 @@ import java.util.List;
  *
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
+ *
+ * Used by: BrowseActivity.java, BrowseAddExerciseFragment.java, BrowseMuscleGroupsFragment,
+ * BrowseRecommendedFragment.java, BrowseResultFragment.java, BrowseStartFragment.java,
+ *
+ *
+ * Uses: AbstractObservableViewModel.java, Routine.java, MUSCLE_GROUP.java, Exercise.java
+ *
  */
 public class BrowseViewModel extends AbstractObservableViewModel {
 

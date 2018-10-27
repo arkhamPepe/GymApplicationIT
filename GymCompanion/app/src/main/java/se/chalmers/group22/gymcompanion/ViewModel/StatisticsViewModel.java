@@ -18,6 +18,12 @@ import java.util.*;
  *
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
+ *
+ * Used by: StatisticsActivity.java, StatisticsHistoryDetailsFragment.java, StatisticsHistoryFragment.java
+ * StatisticsLifetimeStatsFragment.java, StatisticsStartFragment.java,
+ *
+ * Uses: AbstractObservableViewModel.java, Point.java (nested class), Routine.java, Exercise.java
+ *
  */
 public class StatisticsViewModel extends AbstractObservableViewModel {
     private Map<Calendar, Routine> schedule;

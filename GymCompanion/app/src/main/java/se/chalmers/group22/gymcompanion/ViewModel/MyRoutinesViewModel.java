@@ -21,6 +21,14 @@ import java.util.List;
  *
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
+ *
+ * Used by: MyRoutinesActivity.java, MyRoutinesCardioExerciseFragment.java, MyRoutinesPickExerciseFragment.java
+ * MyRoutinesPickMGFragment.java, MyRoutinesRoutineInfoFragment.java, MyRoutinesExerciseFragment.java,
+ * MyRoutinesStartFragment, MyRoutinesStrengthExerciseFragment.java
+ *
+ * Uses: MUSCLE_GROUP.java, Exercise.java, Routine.java, AbstractObservableViewModel.java,
+ * StrengthExercise.java
+ *
  */
 public class MyRoutinesViewModel extends AbstractObservableViewModel {
 
