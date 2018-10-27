@@ -44,7 +44,7 @@ public class HomeActivity extends BaseActivity {
 
     private final Fragment fragmentHome = FragmentFactory.createHomeStartFragment();
     private final Fragment fragmentFinished = FragmentFactory.createHomeFinishedFragment();
-    private final Fragment navigationFragment = new NavigationFragment();
+    private final Fragment navigationFragment = FragmentFactory.createNavigationFragment();
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;
     private List<Fragment> fragments = new ArrayList<>();

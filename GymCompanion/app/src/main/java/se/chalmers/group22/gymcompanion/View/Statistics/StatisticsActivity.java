@@ -5,10 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.BaseActivity;
-import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
-import se.chalmers.group22.gymcompanion.View.NavigationFragment;
-import se.chalmers.group22.gymcompanion.View.ObserverActivity;
+import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.ArrayList;
@@ -35,12 +32,12 @@ public class StatisticsActivity extends ObserverActivity {
     private StatisticsViewModel viewModel = new StatisticsViewModel();
 
     // Local fragments for the statistics activity
-    private final Fragment fragmentStart = new StatisticsStartFragment();
-    private final Fragment fragmentHistory = new StatisticsHistoryFragment();
-    private final Fragment fragmentLifetimeStats = new StatisticsLifetimeStatsFragment();
-    private final Fragment fragmentHistoryDetails = new StatisticsHistoryDetailsFragment();
+    private final Fragment fragmentStart = FragmentFactory.createStatisticsStartFragment();
+    private final Fragment fragmentHistory = FragmentFactory.createStatisticsHistoryFragment();
+    private final Fragment fragmentLifetimeStats = FragmentFactory.createStatisticsLifetimeStatsFragment();
+    private final Fragment fragmentHistoryDetails = FragmentFactory.createStatisticsHistoryDetailsFragment();
 
-    private final Fragment navigationFragment = new NavigationFragment();
+    private final Fragment navigationFragment = FragmentFactory.createNavigationFragment();
 
     Fragment active = fragmentStart; // The fragment shown when this activity is created
     private List<Fragment> fragments = new ArrayList<>(); // Collection of all local fragments

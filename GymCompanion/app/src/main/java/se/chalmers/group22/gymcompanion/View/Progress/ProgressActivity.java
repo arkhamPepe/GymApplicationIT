@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.FragmentFactory;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.Home.HomeActivity;
 import se.chalmers.group22.gymcompanion.View.ObserverActivity;
@@ -43,7 +44,7 @@ public class ProgressActivity extends ObserverActivity {
 
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;
-    private final Fragment fragmentStart = new ProgressStartFragment();
+    private final Fragment fragmentStart = FragmentFactory.createProgressStartFragment();
     private List<Fragment> fragments = new ArrayList<>();
 
     private ProgressViewModel progressViewModel = new ProgressViewModel();

@@ -7,10 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.ListView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.BaseActivity;
-import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
-import se.chalmers.group22.gymcompanion.View.NavigationFragment;
-import se.chalmers.group22.gymcompanion.View.ObserverActivity;
+import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.ViewModel.ScheduleViewModel;
 
 import java.util.ArrayList;
@@ -31,9 +28,9 @@ import java.util.List;
 public class ScheduleActivity extends ObserverActivity {
 
     public static final int index = 2;
-    private final Fragment startFragment = new ScheduleStartFragment();
-    private final Fragment pickRoutineFragment = new SchedulePickRoutineFragment();
-    private final Fragment navigationFragment = new NavigationFragment();
+    private final Fragment startFragment = FragmentFactory.createScheduleStartFragment();
+    private final Fragment pickRoutineFragment = FragmentFactory.createSchedulePickRoutineFragment();
+    private final Fragment navigationFragment = FragmentFactory.createNavigationFragment();
     private List<Fragment> fragments = new ArrayList<>(); // Collection of all local fragments
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;

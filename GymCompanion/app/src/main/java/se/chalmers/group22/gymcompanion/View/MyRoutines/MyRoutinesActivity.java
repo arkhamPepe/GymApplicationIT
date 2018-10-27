@@ -7,10 +7,7 @@ import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.BaseActivity;
-import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
-import se.chalmers.group22.gymcompanion.View.NavigationFragment;
-import se.chalmers.group22.gymcompanion.View.ObserverActivity;
+import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
 
 import java.util.ArrayList;
@@ -39,17 +36,17 @@ public class MyRoutinesActivity extends ObserverActivity {
     public static final int index = 3;
 
     private MyRoutinesViewModel viewModel;
-    private final Fragment navigationFragment = new NavigationFragment();
+    private final Fragment navigationFragment = FragmentFactory.createNavigationFragment();
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;
 
-    private final Fragment fragmentStart = new MyRoutinesStartFragment();
-    private final Fragment fragmentRoutineInfo = new MyRoutinesRoutineInfoFragment();
-    private final Fragment fragmentExerciseInfo = new MyRoutinesExerciseInfoFragment();
-    private final Fragment fragmentPickExercise = new MyRoutinesPickExerciseFragment();
-    private final Fragment fragmentPickMG = new MyRoutinesPickMGFragment();
-    private final Fragment fragmentStrengthExercise = new MyRoutinesStrengthExerciseFragment();
-    private final Fragment fragmentCardioExercise = new MyRoutinesCardioExerciseFragment();
+    private final Fragment fragmentStart = FragmentFactory.createMyRoutinesStartFragment();
+    private final Fragment fragmentRoutineInfo = FragmentFactory.createMyRoutinesRoutineInfoFragment();
+    private final Fragment fragmentExerciseInfo = FragmentFactory.createMyRoutinesExerciseInfoFragment();
+    private final Fragment fragmentPickExercise = FragmentFactory.createMyRoutinesPickExerciseFragment();
+    private final Fragment fragmentPickMG = FragmentFactory.createMyRoutinesPickMGFragment();
+    private final Fragment fragmentStrengthExercise = FragmentFactory.createMyRoutinesStrengthExerciseFragment();
+    private final Fragment fragmentCardioExercise = FragmentFactory.createMyRoutinesCardioExerciseFragment();
     private List<Fragment> fragments = new ArrayList<>();
 
 

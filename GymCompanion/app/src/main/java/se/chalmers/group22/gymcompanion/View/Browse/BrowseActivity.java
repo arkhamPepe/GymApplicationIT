@@ -6,10 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
-import se.chalmers.group22.gymcompanion.View.BaseActivity;
-import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
-import se.chalmers.group22.gymcompanion.View.NavigationFragment;
-import se.chalmers.group22.gymcompanion.View.ObserverActivity;
+import se.chalmers.group22.gymcompanion.View.*;
 import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
 
 import java.util.ArrayList;
@@ -35,12 +32,12 @@ public class BrowseActivity extends ObserverActivity {
      * @value 1
      * */
     private static final int index = 1;
-    private final Fragment fragmentStart = new BrowseStartFragment();
-    private final Fragment fragmentSelection = new BrowseMuscleGroupsFragment();
-    private final Fragment fragmentResult = new BrowseResultFragment();
-    private final Fragment fragmentRecommended = new BrowseRecommendedFragment();
-    private final Fragment fragmentAddExercise = new BrowseAddExerciseFragment();
-    private final Fragment navigationFragment = new NavigationFragment();
+    private final Fragment fragmentStart = FragmentFactory.createBrowseStartFragment();
+    private final Fragment fragmentSelection = FragmentFactory.createBrowseMuscleGroupsFragment();
+    private final Fragment fragmentResult = FragmentFactory.createBrowseResultFragment();
+    private final Fragment fragmentRecommended = FragmentFactory.createBrowseRecommendedFragment();
+    private final Fragment fragmentAddExercise = FragmentFactory.createBrowseAddExerciseFragment();
+    private final Fragment navigationFragment = FragmentFactory.createNavigationFragment();
     private List<Fragment> fragments = new ArrayList<>();
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;
