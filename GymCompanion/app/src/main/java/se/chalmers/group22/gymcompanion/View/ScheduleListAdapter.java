@@ -22,6 +22,11 @@ import java.util.List;
  * Created: October 8, 2018
  *
  * Purpose: Adds the list elements to the Schedule Pick Routine List GUI
+ *
+ * Used by: SchedulePickRoutineFragment.java
+ *
+ * Uses: listitem_schedule.xml
+ *
  */
 
 public class ScheduleListAdapter extends ArrayAdapter {

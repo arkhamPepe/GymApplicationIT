@@ -13,7 +13,7 @@ import se.chalmers.group22.gymcompanion.ViewModel.AbstractObservableViewModel;
  *
  * Created: October 25, 2018
  *
- * Purpose: 
+ * Purpose:
  *
  * Used by: BrowseActivity.java, MyRoutinesActivity.java, ProgressActivity.java, ScheduleActivity.java
  * StatisticsActivity.java
