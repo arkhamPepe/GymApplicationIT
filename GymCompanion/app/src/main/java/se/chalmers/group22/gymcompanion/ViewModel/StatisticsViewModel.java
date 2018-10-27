@@ -26,7 +26,6 @@ import java.util.*;
  *
  */
 public class StatisticsViewModel extends AbstractObservableViewModel {
-    private Map<Calendar, Routine> schedule;
     private Map<Calendar, Routine> completedRoutines;
     private int currentWeekOffset = 0;
     private Map<Calendar, Double> currentGraphPoints;
@@ -34,13 +33,12 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
     String[] strDays = new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
     public StatisticsViewModel(){
-        schedule = new HashMap<>();
-        update();
+        completedRoutines = getModel().getUserCompletedRoutines();
+        updateGraph();
     }
 
-    public void update(){
+    public void updateGraph(){
         currentGraphPoints = getModel().getGraphData(currentWeekOffset);
-        completedRoutines = getModel().getUserCompletedRoutines();
     }
 
     public void setSelectedDate(Calendar time){
@@ -50,12 +48,14 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
 
     public void setGraphedDateNextWeek(){
         currentWeekOffset++;
-        update();
+        updateGraph();
+        notifyObservers();
     }
 
     public void setGraphedDatePreviousWeek(){
         currentWeekOffset--;
-        update();
+        updateGraph();
+        notifyObservers();
     }
 
     public DataPoint[] getDataPoints(){
@@ -63,7 +63,7 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
         size = currentGraphPoints.size();
 
         DataPoint[] dataPoints = new DataPoint[size];
-        int index = 0;
+
         long xValue;
         double yValue;
 
@@ -77,6 +77,7 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
 
         sortPoints(points);
 
+        int index = 0;
         for (Calendar c : currentGraphPoints.keySet()){
             Point point = points.get(index);
             dataPoints[index] = new DataPoint(point.getX(), point.getY());
@@ -107,7 +108,7 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
 
     @Override
     public void updateView() {
-        update();
+        updateGraph();
     }
 
     private class Point {
@@ -129,7 +130,11 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
 
     public List<String> getHistoryExerciseNames(){
         List<String> names = new ArrayList<>();
-        List<Exercise> exercises = completedRoutines.get(selectedDate).getExercises();
+        List<Exercise> exercises = new ArrayList<>();
+
+        if (selectedDate != null) {
+            exercises = completedRoutines.get(selectedDate).getExercises();
+        }
 
         for(Exercise e : exercises){
             names.add(e.getName());
@@ -140,7 +145,11 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
 
     public List<Boolean> getHistoryExercisePerformedValues(){
         List<Boolean> performances = new ArrayList<>();
-        List<Exercise> exercises = completedRoutines.get(selectedDate).getExercises();
+        List<Exercise> exercises = new ArrayList<>();
+
+        if (selectedDate != null) {
+            exercises = completedRoutines.get(selectedDate).getExercises();
+        }
 
         for(Exercise e : exercises) {
             performances.add(e.isCompleted());
@@ -202,7 +211,7 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
      * Purpose: Gets all routines performed from a given date to the current date
      * @return treemap of all routines between a given date and current date
      */
-    private TreeMap<Calendar, Routine> getRoutineHistory(Calendar c) {
+/*    private TreeMap<Calendar, Routine> getRoutineHistory(Calendar c) {
         Date toDate = Calendar.getInstance().getTime();
         Date fromDate = c.getTime();
         for(Calendar day : getModel().getScheduleKeyset()) {
@@ -211,19 +220,19 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
             }
         }
         return new TreeMap<>(schedule);
-    }
+    }*/
 
     /**
      * @return Routine names between current date and a given date
      */
-    private List<String> getRoutineNames(Calendar c){
+    /*private List<String> getRoutineNames(Calendar c){
         Map<Calendar, Routine> s = getRoutineHistory(c);
         List<String> routineNames = new ArrayList<>();
         for(Routine r : s.values()){
             routineNames.add(r.getName());
         }
         return routineNames;
-    }
+    }*/
 
     public int getTotalAmountOfCompletedRoutines(){
         return getModel().getTotalAmountOfCompletedRoutines();
@@ -243,39 +252,5 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
 
     public String getBiggestCompletedRoutineName(){
         return getModel().getBiggestCompletedRoutineName();
-    }
-
-    private List<String> getRoutineNamesWeek(){
-        GregorianCalendar cal = new GregorianCalendar();
-        cal.setTime(new Date());
-        cal.add(Calendar.DATE, -7);
-        return getRoutineNames(cal);
-    }
-
-    private List<String> getRoutineNamesMonth(){
-        GregorianCalendar cal = new GregorianCalendar();
-        cal.setTime(new Date());
-        cal.add(Calendar.MONTH, -1);
-        return getRoutineNames(cal);
-    }
-
-    private List<String> getRoutineNamesYear(){
-        GregorianCalendar cal = new GregorianCalendar();
-        cal.setTime(new Date());
-        cal.add(Calendar.YEAR, -1);
-        return getRoutineNames(cal);
-    }
-
-    public List<String> getSelectedRoutineExerciseNames(){
-
-        return null;
-    }
-
-    public List<List<Integer>> getSelectedRoutineExerciseReps(){
-        return null;
-    }
-
-    public List<List<Double>> getSelectedRoutineExerciseWeight(){
-        return null;
     }
 }
