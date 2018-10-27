@@ -22,6 +22,9 @@ import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
  * Created: October 2, 2018
  *
  * Purpose: Fragment connected to a xml displaying the My Routines Start fragment in the app
+ * Uses: MyRoutinesViewModel.java, fragment_routine_start.xml, MyRoutinesUserRoutinesListAdapter.java,
+ *       MyRoutinesActivity.java
+ * Used by: MyRoutinesActivity.java
  */
 public class MyRoutinesStartFragment extends Fragment implements ViewModelObserver {
 

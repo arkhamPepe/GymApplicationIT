@@ -22,6 +22,9 @@ import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
  * Created: October 2, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Pick Muscle Group fragment in the app
+ * Uses: MyRoutinesViewModel.java, fragment_my_routines_pick_musclegroup.xml, BrowseMuscleGroupsListAdapter.java,
+ *       MyRoutinesActivity.java
+ * Used by: MyRoutinesActivity.java
  */
 public class MyRoutinesPickMGFragment extends Fragment {
     private MyRoutinesViewModel viewModel;

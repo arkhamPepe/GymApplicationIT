@@ -22,6 +22,8 @@ import java.util.List;
  * Created: October 2, 2018
  *
  * Purpose: Adds the list elements to the Strength Exercise Sets List GUI
+ * Uses: listitem_my_routines_sets.xml, MyRoutinesActivity.java
+ * Used by: MyRoutinesStrengthExerciseFragment.java
  */
 public class MyRoutinesStrengthExerciseSetsAdapter extends ArrayAdapter {
     private Activity context;

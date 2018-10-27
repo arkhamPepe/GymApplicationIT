@@ -27,6 +27,12 @@ import java.util.List;
  * Created: October 18, 2018
  *
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this activity is active
+ * Used by: NavigationFragment.java, MyRoutinesCardioExerciseFragment.java, MyRoutinesExerciseInfoFragment.java,
+ *          MyRoutinesPickExerciseFragment.java, MyRoutinesPickMGFragment.java, MyRoutinesRoutineInfoFragment.java,
+ *          MyRoutinesStartFragment.java, MyRoutinesStrengthExerciseFragment.java, MyRoutinesStrengthExerciseSetsAdapter.java
+ * Uses: MyRoutinesViewModel.java, NavigationFragment.java, MyRoutinesStartFragment.java, MyRoutinesPickMGFragment.java,
+ *       MyRoutinesRoutineInfoFragment.java, MyRoutinesExerciseInfoFragment.java, MyRoutinesPickExerciseFragment.java,
+ *       MyRoutinesStrengthExerciseFragment.java, MyRoutinesCardioExercise.java
  */
 public class MyRoutinesActivity extends ObserverActivity {
 

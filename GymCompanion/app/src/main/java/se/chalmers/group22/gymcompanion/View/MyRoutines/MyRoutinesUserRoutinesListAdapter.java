@@ -24,6 +24,8 @@ import java.util.List;
  * Created: October 2, 2018
  *
  * Purpose: Adds the list elements to the User Routines List GUI
+ * Uses: listitem_my_routines.xml
+ * Used by: MyRoutinesStartFragment.java
  */
 public class MyRoutinesUserRoutinesListAdapter extends ArrayAdapter {
 

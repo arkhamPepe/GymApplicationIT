@@ -19,6 +19,8 @@ import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
  * Created: October 2, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Exercise Info fragment in the app
+ * Uses: MyRoutinesViewModel.java, fragment_routine_exercise_info.xml, MyRoutinesActivity.java
+ * Used by: MyRoutinesActivity.java
  */
 public class MyRoutinesExerciseInfoFragment extends Fragment {
 

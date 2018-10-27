@@ -24,6 +24,9 @@ import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
  * Created: October 2, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Pick Exercise fragment in the app
+ * Uses: MyRoutinesViewModel.java, fragment_my_routines_pick_exercise.xml, BrowseResultListAdapter.java,
+ *          MyRoutinesActivity.java
+ * Used by: MyRoutinesActivity.java
  */
 public class MyRoutinesPickExerciseFragment extends Fragment implements ViewModelObserver {
 
