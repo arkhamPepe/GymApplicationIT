@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
+import se.chalmers.group22.gymcompanion.View.FragmentFactory;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
 import se.chalmers.group22.gymcompanion.View.Progress.ProgressActivity;
@@ -41,8 +42,8 @@ public class HomeActivity extends BaseActivity {
 
     private static final int index = 0;
 
-    private final Fragment fragmentHome = HomeStartFragment.newInstance();
-    private final Fragment fragmentFinished = new HomeFinishedFragment();
+    private final Fragment fragmentHome = FragmentFactory.createHomeStartFragment();
+    private final Fragment fragmentFinished = FragmentFactory.createHomeFinishedFragment();
     private final Fragment navigationFragment = new NavigationFragment();
     private final FragmentManager fm = getSupportFragmentManager();
     private FragmentOrganizer fo;
