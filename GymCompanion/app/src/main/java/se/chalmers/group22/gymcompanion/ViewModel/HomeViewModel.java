@@ -17,6 +17,11 @@ import java.util.Map;
  *
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
+ *
+ * Used by: HomeActivity.java, HomeFinishedFragment.java, HomeStartFragment.java
+ *
+ * Uses: BaseViewModel.java, Routine.java
+ *
  */
 public class HomeViewModel extends BaseViewModel {
 

@@ -2,6 +2,7 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 
 import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
 import java.util.*;
+
 /***
  * Title: ScheduleViewModel
  *
@@ -15,8 +16,14 @@ import java.util.*;
  *
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
+ *
+ * Used by: ScheduleActivity.java, SchedulePickRoutineFragment.java, ScheduleStartFragment.java
+ *
+ * Uses: AbstractObservableViewModel.java, Routine.java
+ *
  */
-public class ScheduleViewModel extends BaseViewModel {
+public class ScheduleViewModel extends AbstractObservableViewModel {
+
     private int selectedYear; // Year of selected date
     private int selectedMonth; // Month of selected date
     private int selectedDay; // Day of selected date
@@ -171,4 +178,5 @@ public class ScheduleViewModel extends BaseViewModel {
 
         return amounts;
     }
+
 }

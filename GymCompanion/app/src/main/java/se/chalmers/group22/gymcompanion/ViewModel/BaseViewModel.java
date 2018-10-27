@@ -14,6 +14,13 @@ import se.chalmers.group22.gymcompanion.Model.GymCompanion;
  * Created: October 12, 2018
  *
  * Purpose: Gives access to the model for all viewmodels
+ *
+ * Used By: AbstractObservableViewModel.java, MainActivity.java
+ * BaseActivity.java, HomeViewModel.java, MainViewModel.java
+ *
+ * Uses: GymCompanion.java
+ *
+ *
  */
 public abstract class BaseViewModel extends ViewModel {
     private final static GymCompanion model = new GymCompanion();

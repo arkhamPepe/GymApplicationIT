@@ -8,6 +8,7 @@ import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.BaseActivity;
 import se.chalmers.group22.gymcompanion.View.FragmentOrganizer;
 import se.chalmers.group22.gymcompanion.View.NavigationFragment;
+import se.chalmers.group22.gymcompanion.View.ObserverActivity;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ import java.util.List;
  *
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this Activity is active
  */
-public class StatisticsActivity extends BaseActivity {
+public class StatisticsActivity extends ObserverActivity {
 
     public static final int index = 4; // Defines which item that represents this activity in the bottom navigation
 

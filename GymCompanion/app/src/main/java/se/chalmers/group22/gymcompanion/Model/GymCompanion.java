@@ -1,6 +1,5 @@
 package se.chalmers.group22.gymcompanion.Model;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import se.chalmers.group22.gymcompanion.Enums.INTENSITY;
@@ -39,7 +38,10 @@ import java.util.*;
  */
 
 @Getter
-public class GymCompanion {
+public class GymCompanion implements ObservableModel {
+
+    private List<ModelObserver> observers = new ArrayList<>();
+
     @Setter
     private User user;
 
@@ -65,6 +67,7 @@ public class GymCompanion {
             }
         }
         setActiveRoutine(user.getTodaysRoutine());
+        notifyModelObservers();
         saveUser();
     }
 
@@ -72,6 +75,8 @@ public class GymCompanion {
         if(routine != null) {
             isRoutineActive = true;
             activeRoutine = new Routine(routine);
+            saveUser();
+            notifyModelObservers();
         }
     }
 
@@ -80,10 +85,13 @@ public class GymCompanion {
     public void setActiveExerciseInActiveRoutine(int index){
         activeExercise = activeRoutine.getExercises().get(index);
         saveUser();
+        notifyModelObservers();
     }
 
     public void toggleCompletionExerciseInARWithIndex(int index, boolean completed){
         activeRoutine.setCompletionOfExerciseWithIndex(index,completed);
+        saveUser();
+        notifyModelObservers();
     }
 
     public void completeActiveRoutine() {
@@ -108,12 +116,15 @@ public class GymCompanion {
 
     public void scheduleRoutine(Calendar day, int routineIndex){
         user.scheduleAddRoutine(user.getRoutine(routineIndex), day);
+        notifyModelObservers();
+        saveUser();
     }
 
     public void scheduleRoutine(Calendar day, String routineName){
         Routine routine = getRoutine(routineName);
 
         user.scheduleAddRoutine(routine, day);
+        notifyModelObservers();
         saveUser();
     }
 
@@ -125,6 +136,7 @@ public class GymCompanion {
 
     public void addExercise(Exercise exercise, Routine routine){
         user.addExerciseToRoutine(exercise, routine);
+        notifyModelObservers();
         saveUser();
     }
 
@@ -138,6 +150,7 @@ public class GymCompanion {
         }
 
         user.addExerciseToRoutine(selectedRoutineIndex,e );
+        notifyModelObservers();
         saveUser();
     }
 
@@ -160,6 +173,7 @@ public class GymCompanion {
         }
 
         user.removeExerciseFromRoutine(selectedRoutineIndex,e);
+        notifyModelObservers();
         saveUser();
     }
 
@@ -170,6 +184,7 @@ public class GymCompanion {
     public void removeRoutine(int position){
         Routine r = getUser().getRoutines().get(position);
         user.removeRoutine(r);
+        notifyModelObservers();
         saveUser();
     }
 
@@ -437,4 +452,20 @@ public class GymCompanion {
         return routinesExerciseCount;
     }
 
+    @Override
+    public void notifyModelObservers() {
+        for(ModelObserver observer : observers){
+            observer.updateView();
+        }
+    }
+
+    @Override
+    public void addModelObserver(ModelObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeModelObserver(ModelObserver observer) {
+        observers.remove(observer);
+    }
 }

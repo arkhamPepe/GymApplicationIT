@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.View.Browse.BrowseResultListAdapter;
 import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
+
 /***
  * Title: MyRoutinesCardioExerciseFragment
  *
@@ -24,7 +25,8 @@ import se.chalmers.group22.gymcompanion.ViewModel.MyRoutinesViewModel;
  *
  * Purpose: Fragment connected to a xml displaying the Pick Exercise fragment in the app
  */
-public class MyRoutinesPickExerciseFragment extends Fragment implements Observer {
+public class MyRoutinesPickExerciseFragment extends Fragment implements ViewModelObserver {
+
 
     private MyRoutinesViewModel viewModel;
 

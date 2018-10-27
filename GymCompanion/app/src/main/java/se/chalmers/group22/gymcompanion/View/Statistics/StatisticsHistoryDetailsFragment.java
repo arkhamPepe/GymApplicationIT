@@ -7,11 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
 import java.util.List;
+
 /***
  * Title: StatisticsHistoryDetailsFragment
  *
@@ -25,7 +26,7 @@ import java.util.List;
  *
  * Purpose: Fragment connected to a xml displaying the History Details Page in the app
  */
-public class StatisticsHistoryDetailsFragment extends Fragment implements Observer {
+public class StatisticsHistoryDetailsFragment extends Fragment implements ViewModelObserver {
 
     private StatisticsViewModel viewModel;
 

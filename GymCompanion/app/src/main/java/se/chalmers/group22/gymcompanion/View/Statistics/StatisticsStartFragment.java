@@ -5,17 +5,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
-import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
-import com.jjoe64.graphview.series.*;
-import se.chalmers.group22.gymcompanion.Model.Observer;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+import se.chalmers.group22.gymcompanion.Model.ViewModelObserver;
 import se.chalmers.group22.gymcompanion.R;
 import se.chalmers.group22.gymcompanion.ViewModel.StatisticsViewModel;
 
-import java.util.Calendar;
-import java.util.Date;
 /***
  * Title: StatisticsStartFragment
  *
@@ -29,7 +26,7 @@ import java.util.Date;
  *
  * Purpose: Fragment connected to a xml displaying the Statistics Start Page in the app
  */
-public class StatisticsStartFragment extends Fragment implements Observer {
+public class StatisticsStartFragment extends Fragment implements ViewModelObserver {
 
     private StatisticsViewModel viewModel;
 

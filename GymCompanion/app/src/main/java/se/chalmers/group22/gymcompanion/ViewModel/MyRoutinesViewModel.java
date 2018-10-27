@@ -2,7 +2,6 @@ package se.chalmers.group22.gymcompanion.ViewModel;
 
 import lombok.Getter;
 import se.chalmers.group22.gymcompanion.Enums.MUSCLE_GROUP;
-import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.CardioExercise;
 import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.Exercise;
 import se.chalmers.group22.gymcompanion.Model.Workout.Exercises.StrengthExercise;
 import se.chalmers.group22.gymcompanion.Model.Workout.Routine;
@@ -22,8 +21,16 @@ import java.util.List;
  *
  * Purpose: To handle the communication between the model and the view without without showing the model's underlying
  * representation to the view.
+ *
+ * Used by: MyRoutinesActivity.java, MyRoutinesCardioExerciseFragment.java, MyRoutinesPickExerciseFragment.java
+ * MyRoutinesPickMGFragment.java, MyRoutinesRoutineInfoFragment.java, MyRoutinesExerciseFragment.java,
+ * MyRoutinesStartFragment, MyRoutinesStrengthExerciseFragment.java
+ *
+ * Uses: MUSCLE_GROUP.java, Exercise.java, Routine.java, AbstractObservableViewModel.java,
+ * StrengthExercise.java
+ *
  */
-public class MyRoutinesViewModel extends ObservableViewModel {
+public class MyRoutinesViewModel extends AbstractObservableViewModel {
 
     @Getter
     private int selectedRoutineIndex;
@@ -291,4 +298,5 @@ public class MyRoutinesViewModel extends ObservableViewModel {
     public List<Integer> getRoutinesExerciseCount(){
         return getModel().getRoutinesExerciseCount();
     }
+
 }
