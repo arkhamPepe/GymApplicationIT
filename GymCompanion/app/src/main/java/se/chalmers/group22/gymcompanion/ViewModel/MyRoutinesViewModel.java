@@ -265,7 +265,7 @@ public class MyRoutinesViewModel extends ObservableViewModel {
 
     private boolean checkIfEmptyRoutineList(){
         try{
-            getModel().getSelectedRoutine(selectedRoutineIndex);
+            getModel().getUserRoutines();
             return false;
 
         }catch(Exception e){
