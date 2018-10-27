@@ -26,6 +26,11 @@ import java.util.ArrayList;
  * Created: October 5, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Progress Start Page in the app
+ *
+ * Used by:
+ *
+ * Uses:
+ *
  */
 
 public class ProgressStartFragment extends Fragment {

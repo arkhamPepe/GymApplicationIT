@@ -28,13 +28,20 @@ import java.util.List;
  * Created: September 20, 2018
  *
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this activity is active
+ *
+ * Used by: MainActivity.java, NavigationFragment.java, ProgressActivity.java, HomeStartFragment.java
+ * HomeFinishedFragment.java, activity_main.xml
+ *
+ * Uses: HomeStartFragment.java, HomeFinishedFragment.java, NavigationFragment.java, ProgressActivity.java,
+ * FragmentOrganizer.java, HomeViewModel.java, BaseActivity.java
+ *
  */
 
 public class HomeActivity extends BaseActivity {
 
     private static final int index = 0;
 
-    private final Fragment fragmentHome = new HomeStartFragment();
+    private final Fragment fragmentHome = HomeStartFragment.newInstance();
     private final Fragment fragmentFinished = new HomeFinishedFragment();
     private final Fragment navigationFragment = new NavigationFragment();
     private final FragmentManager fm = getSupportFragmentManager();

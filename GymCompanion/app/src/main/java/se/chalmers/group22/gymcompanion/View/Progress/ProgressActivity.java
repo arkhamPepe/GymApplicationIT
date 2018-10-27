@@ -32,6 +32,11 @@ import java.util.List;
  * Created: October 5, 2018
  *
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this Activity is active
+ *
+ * Used by: HomeActivity.java, ProgressStartFragment.java, activity_progress.xml
+ *
+ * Uses: ObserverActivity.java, FragmentOrganizer.java, ProgressViewModel.java, ProgressStartFragment.java
+ *
  */
 
 public class ProgressActivity extends ObserverActivity {

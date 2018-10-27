@@ -24,6 +24,11 @@ import java.util.Map;
  * Created: October 2, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Finished Page in the app
+ *
+ * Used by: HomeActivity.java, fragment_home_finished.xml
+ *
+ * Uses: HomeViewModel.java, fragment_home_finished.xml
+ *
  */
 
 public class HomeFinishedFragment extends Fragment {
@@ -34,8 +39,8 @@ public class HomeFinishedFragment extends Fragment {
 
     private HomeViewModel viewModel;
 
-    public static HomeStartFragment newInstance() {
-        HomeStartFragment fragment = new HomeStartFragment();
+    public static HomeFinishedFragment newInstance() {
+        HomeFinishedFragment fragment = new HomeFinishedFragment();
         return fragment;
     }
 
