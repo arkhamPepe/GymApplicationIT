@@ -359,6 +359,10 @@ public class GymCompanion {
         return activeExercise.getName();
     }
 
+    public String getActiveRoutineName(){
+        return  activeRoutine.getName();
+    }
+
     public int getAmountOfSetsInActiveExercise(){
         return ((StrengthExercise)activeExercise).getSets();
     }

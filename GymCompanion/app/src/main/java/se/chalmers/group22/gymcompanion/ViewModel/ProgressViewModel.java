@@ -32,6 +32,10 @@ public class ProgressViewModel extends BaseViewModel {
         return getModel().getActiveExerciseName();
     }
 
+    public String getActiveRoutineName(){
+        return getModel().getActiveRoutineName();
+    }
+
     public boolean isExerciseInARStrengthExercise(){
         return getModel().isActiveExerciseStrengthExercise();
     }
