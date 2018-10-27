@@ -45,6 +45,7 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
 
     public void setSelectedDate(Calendar time){
         selectedDate = time;
+        notifyObservers();
     }
 
     public void setGraphedDateNextWeek(){
