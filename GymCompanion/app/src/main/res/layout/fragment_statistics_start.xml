@@ -28,7 +28,7 @@
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/start_graph"
             android:onClick="onClickButtonNextWeek"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:textColor="@color/white"
             android:background="@color/DefaultColour"/>
 
@@ -40,7 +40,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/start_graph"
             android:onClick="onClickButtonPreviousWeek"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:textColor="@color/white"
             android:background="@color/DefaultColour"/>
 
@@ -66,6 +66,14 @@
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
             android:background="@color/DefaultColour"/>
+    <TextView
+            android:text="Week 76"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtStatisticsWeekNumber"
+            android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
+            android:layout_alignBaseline="@+id/btnStatisticsPreviousGraph"/>
 
 
 </RelativeLayout>

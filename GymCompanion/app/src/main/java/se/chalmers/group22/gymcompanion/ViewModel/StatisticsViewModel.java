@@ -105,13 +105,6 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
         }
     }
 
-    public Calendar getDayOfWeek(int day){
-        Calendar cal = new GregorianCalendar();
-        cal.add(Calendar.WEEK_OF_YEAR, currentWeekOffset);
-        cal.set(Calendar.DAY_OF_WEEK, day);
-        return cal;
-    }
-
     @Override
     public void updateView() {
         updateGraph();
@@ -147,6 +140,17 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
         }
 
         return names;
+    }
+
+    public String getDisplayedWeek(){
+        Calendar cal = new GregorianCalendar();
+        cal.add(Calendar.WEEK_OF_YEAR, currentWeekOffset);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Week ");
+        sb.append(cal.get(Calendar.WEEK_OF_YEAR));
+
+        return sb.toString();
     }
 
     public List<Boolean> getHistoryExercisePerformedValues(){

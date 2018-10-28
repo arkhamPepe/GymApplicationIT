@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
@@ -64,6 +65,7 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
         viewModel.addObserver(this);
 
         drawGraph();
+        updateWeekLabel();
     }
 
     @Override
@@ -75,6 +77,7 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
     @Override
     public void update() {
         drawGraph();
+        updateWeekLabel();
     }
 
     /** drawGraph
@@ -84,26 +87,25 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
         GraphView graph = getView().findViewById(R.id.start_graph);
         graph.removeAllSeries();
 
-
         DataPoint[] dataPoints = viewModel.getDataPoints(); // Points in graph
 
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
 
         graph.addSeries(series);
 
-        // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
         graph.getGridLabelRenderer().setTextSize(40);
         //graph.getGridLabelRenderer().setNumHorizontalLabels(1); // only 3 because of the space
 
-        graph.getViewport().setMinX(viewModel.getDayOfWeek(1).getTimeInMillis());
-        graph.getViewport().setMaxX(viewModel.getDayOfWeek(7).getTimeInMillis());
-
-        // set manual x bounds to have nice steps
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(dataPoints[0].getX());
         graph.getViewport().setMaxX(dataPoints[6].getX());
 
         graph.getGridLabelRenderer().setHumanRounding(false);
+    }
+
+    private void updateWeekLabel(){
+        TextView week = getView().findViewById(R.id.txtStatisticsWeekNumber);
+        week.setText(viewModel.getDisplayedWeek());
     }
 }
