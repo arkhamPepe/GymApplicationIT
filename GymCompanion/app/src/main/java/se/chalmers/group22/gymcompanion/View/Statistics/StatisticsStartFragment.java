@@ -93,7 +93,8 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
 
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
-        graph.getGridLabelRenderer().setNumHorizontalLabels(1); // only 3 because of the space
+        graph.getGridLabelRenderer().setTextSize(40);
+        //graph.getGridLabelRenderer().setNumHorizontalLabels(1); // only 3 because of the space
 
         // set manual x bounds to have nice steps
         graph.getViewport().setXAxisBoundsManual(true);
