@@ -55,12 +55,12 @@ public class StatisticsCalculator implements Serializable {
 
             // Save score with date
             Calendar copyIterableDate = new GregorianCalendar();
-            copyIterableDate.set(Calendar.WEEK_OF_YEAR, iterableDate.get(Calendar.WEEK_OF_YEAR));
-            copyIterableDate.set(Calendar.DAY_OF_WEEK, iterableDate.get(Calendar.DAY_OF_WEEK));
+            copyIterableDate.set(Calendar.YEAR, iterableDate.get(Calendar.YEAR));
+            copyIterableDate.set(Calendar.DAY_OF_YEAR, iterableDate.get(Calendar.DAY_OF_YEAR));
             graphMap.put(copyIterableDate, score);
 
             // Next day in calendar
-            iterableDate.add(Calendar.DAY_OF_WEEK, 1);
+            iterableDate.add(Calendar.DAY_OF_YEAR, 1);
         }
 
         return graphMap;
