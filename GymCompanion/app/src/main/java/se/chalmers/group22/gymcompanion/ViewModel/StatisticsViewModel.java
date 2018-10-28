@@ -70,7 +70,7 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
         List<Point> points = new ArrayList<>();
 
         for (Calendar c : currentGraphPoints.keySet()){
-            xValue = c.getTime().getTime();
+            xValue = c.getTimeInMillis();
             yValue = currentGraphPoints.get(c);
             points.add(new Point(xValue, yValue));
         }
@@ -78,9 +78,8 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
         sortPoints(points);
 
         int index = 0;
-        for (Calendar c : currentGraphPoints.keySet()){
-            Point point = points.get(index);
-            dataPoints[index] = new DataPoint(point.getX(), point.getY());
+        for (Point p : points){
+            dataPoints[index] = new DataPoint(p.getX(), p.getY());
             index++;
         }
 
