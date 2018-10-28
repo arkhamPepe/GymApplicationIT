@@ -64,6 +64,12 @@ public class BrowseViewModel extends AbstractObservableViewModel {
     @Setter
     private int currentSortIndex;
 
+    //Decides if checkboxes are checked or not
+    @Getter
+    private boolean cbxRoutine;
+    @Getter
+    private boolean cbxExercise;
+
     //Used to separate the routines from exercises
     private List<Routine> routines;
     private List<Exercise> exercises;
@@ -94,6 +100,9 @@ public class BrowseViewModel extends AbstractObservableViewModel {
         sortFilters.add("Desc. alphabetic");
         sortFilters.add("Asc. difficulty");
         sortFilters.add("Desc. difficulty");
+
+        cbxExercise = true;
+        cbxRoutine = true;
     }
     /** search()
      * Purpose: clears all lists and calls searchRoutine() and searchExercise from GymCompanion, and fills
@@ -110,6 +119,8 @@ public class BrowseViewModel extends AbstractObservableViewModel {
         filteredExercises.addAll(exercises);
         sortRoutinesAndExercises(0);
         this.query = query;
+
+        notifyObservers();
     }
 
     /** filter(FilterStrategy)
@@ -133,6 +144,8 @@ public class BrowseViewModel extends AbstractObservableViewModel {
         filteredExercises.addAll(exercises);
 
         sortRoutinesAndExercises(0);
+
+        notifyObservers();
     }
 
     /** filter(String)
@@ -155,6 +168,8 @@ public class BrowseViewModel extends AbstractObservableViewModel {
         filteredExercises.addAll(exercises);
 
         sortRoutinesAndExercises(0);
+
+        notifyObservers();
     }
 
     /** filterRoutinesExercises(boolean, int)
@@ -177,6 +192,8 @@ public class BrowseViewModel extends AbstractObservableViewModel {
                 filteredExercises.addAll(exercises);
             }
         }
+
+        notifyObservers();
     }
 
     /** sortRoutinesAndExercises(int)
@@ -206,6 +223,8 @@ public class BrowseViewModel extends AbstractObservableViewModel {
 
         getModel().sort(filteredExercises, strategy);
         getModel().sort(filteredRoutines, strategy);
+
+        notifyObservers();
     }
 
     /** getCurrentPage()
@@ -376,6 +395,7 @@ public class BrowseViewModel extends AbstractObservableViewModel {
                 break;
             }
         }
+        notifyObservers();
     }
 
     /** addExerciseToUserRoutine(String)
@@ -391,18 +411,13 @@ public class BrowseViewModel extends AbstractObservableViewModel {
         }
     }
 
+    /** addExerciseToUserRoutine(int)
+     * Purpose: Adds the the exercise clicked in result list to the routine clicked in routineinfo fragment
+     * @param position the clicked routines position in the list
+     * */
     public void addExerciseToUserRoutine(int position){
-        //getModel().addExerciseToRoutine(position, getExerciseByName());
         getModel().addExerciseToRoutine(position, exerciseToAdd);
-        /*
-        for(Routine r :getModel().getUserRoutines()) {
-            if(r.getName().equals(routineName)) {
-                getModel().addExerciseToRoutine(getExerciseByName(), r);
-                notifyObservers();
-                break;
-            }
-        }
-        */
+        notifyObservers();
     }
 
     /** compareRoutineExercises(String)
@@ -431,6 +446,16 @@ public class BrowseViewModel extends AbstractObservableViewModel {
             }
         }
         return null;
+    }
+
+    public void setCbxRoutine(boolean cbxRoutine) {
+        this.cbxRoutine = cbxRoutine;
+        notifyObservers();
+    }
+
+    public void setCbxExercise(boolean cbxExercise) {
+        this.cbxExercise = cbxExercise;
+        notifyObservers();
     }
 
     private void clearLists(){

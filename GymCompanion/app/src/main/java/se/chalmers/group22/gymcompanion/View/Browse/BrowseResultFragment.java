@@ -80,10 +80,11 @@ public class BrowseResultFragment extends Fragment implements ViewModelObserver 
                    if(cbxExercises.isChecked()) {
                        if(isChecked){
                            viewModel.filterRoutinesExercises(false, 1);
+                           viewModel.setCbxRoutine(true);
                        } else {
                            viewModel.filterRoutinesExercises(true, 1);
+                           viewModel.setCbxRoutine(false);
                        }
-                       update();
                    } else {
                        cbxRoutines.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
@@ -97,10 +98,11 @@ public class BrowseResultFragment extends Fragment implements ViewModelObserver 
                    if(cbxRoutines.isChecked()){
                        if(isChecked){
                            viewModel.filterRoutinesExercises(false, 0);
+                           viewModel.setCbxExercise(true);
                        } else {
                            viewModel.filterRoutinesExercises(true, 0);
+                           viewModel.setCbxExercise(false);
                        }
-                       update();
                    } else {
                        cbxExercises.setChecked(true);
                        Toast.makeText(getActivity(), "You cant filter on nothing!", Toast.LENGTH_SHORT).show();
@@ -190,5 +192,9 @@ public class BrowseResultFragment extends Fragment implements ViewModelObserver 
         //************************************SEARCHBAR
         //Sets the searchbar to what was searched on startfragment (may be empty if coming from muscle group selection)
         searchView.setQuery(viewModel.getQuery(), false);
+
+        //************************************CHECKBOXES
+        cbxExercises.setChecked(viewModel.isCbxExercise());
+        cbxRoutines.setChecked(viewModel.isCbxRoutine());
     }
 }

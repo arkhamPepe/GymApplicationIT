@@ -97,7 +97,7 @@ public class BrowseActivity extends ObserverActivity {
     }
 
     public void resultBack(View view){
-
+        //Decides where to go back to
         switch(viewModel.getIndex()){
             case 0:
                 fo.changeToFragment(fragmentStart);
@@ -114,6 +114,9 @@ public class BrowseActivity extends ObserverActivity {
             default:
                 break;
         }
+        //Resetting the checkboxes
+        viewModel.setCbxRoutine(true);
+        viewModel.setCbxExercise(true);
     }
 
     public void goToResult(String s) {
@@ -124,7 +127,6 @@ public class BrowseActivity extends ObserverActivity {
         viewModel.setMuscleGroup(x);
         viewModel.setIndex(1);
         viewModel.filter(x);
-        //fragmentResult.onResume();
     }
 
     public void goToResultFromSearch(String s){
