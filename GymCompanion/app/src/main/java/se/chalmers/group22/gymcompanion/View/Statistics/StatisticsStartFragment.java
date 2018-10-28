@@ -76,8 +76,8 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
     @Override
     public void update() {
         GraphView graph = getView().findViewById(R.id.start_graph);
-
-        graph.addSeries(new LineGraphSeries<>(viewModel.getDataPoints()));
+        graph.removeAllSeries();
+        drawGraph();
     }
 
     /** drawGraph
