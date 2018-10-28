@@ -28,6 +28,9 @@ import java.util.List;
  * Created: September 20, 2018
  *
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this activity is active
+ * Used by: HomeFinishedFragment.java, HomeStartFragment.java, Mainactivity.java, NavigationFragment.java, ProgressActivity.java,
+ *          activity_main.xml, android_manifest.xml
+ * Uses:
  */
 
 public class HomeActivity extends BaseActivity {
