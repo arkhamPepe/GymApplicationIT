@@ -69,14 +69,11 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
     @Override
     public void onPause(){
         viewModel.removeObserver(this);
-
         super.onPause();
     }
 
     @Override
     public void update() {
-        GraphView graph = getView().findViewById(R.id.start_graph);
-        graph.removeAllSeries();
         drawGraph();
     }
 
@@ -85,6 +82,7 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
      */
     private void drawGraph(){
         GraphView graph = getView().findViewById(R.id.start_graph);
+        graph.removeAllSeries();
 
         DataPoint[] dataPoints = viewModel.getDataPoints(); // Points in graph
 
@@ -94,10 +92,10 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
 
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
-        graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
+        graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 3 because of the space
 
         // set manual x bounds to have nice steps
-        graph.getViewport().setXAxisBoundsManual(true);
+        //graph.getViewport().setXAxisBoundsManual(true);
 
         // as we use dates as labels, the human rounding to nice readable numbers
         // is not necessary
