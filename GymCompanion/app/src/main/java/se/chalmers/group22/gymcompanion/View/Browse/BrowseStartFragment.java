@@ -20,6 +20,8 @@ import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
  * Created: October 18, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Start page in the application
+ * Used by: BrowseActivity.java, BrowseStartFragment.java
+ * Uses: BrowseViewModel.java, BrowseActivity.java, BrowseStartFragment.java, fragment_browse_start.xml
  */
 public class BrowseStartFragment extends Fragment {
 

@@ -27,6 +27,11 @@ import java.util.List;
  * Created: September 20, 2018
  *
  * Purpose: Manages user interaction and handles which Fragments are in view of the user when this activity is active
+ * Used by: BrowseResultFragment.java, BrowseRecommendedFragment.java, BrowseAddExerciseFragment.java,
+ *          BrowseMuscleGroupsFragment.java, BrowseStartFragment.java, NavigationFragment.java,
+ *          fragment_statistics_start.xml
+ * Uses:    BrowseViewModel.java, BrowseStartFragment.java, BrowseMuscleGroupsFragment.java, BrowseResultFragment.java,
+ *          BrowseRecommendedFragment.java, BrowseAddExerciseFragment.java, NavigationFragment.java
  */
 
 public class BrowseActivity extends ObserverActivity {

@@ -22,6 +22,8 @@ import java.util.List;
  * Created: October 18, 2018
  *
  * Purpose: Builds the listview for BrowseAddExerciseFragment
+ * Used by: BrowseAddExerciseFragment.java
+ * Uses:    listitem_browse_add_exercise.xml
  */
 public class BrowseAddExerciseListAdapter extends ArrayAdapter {
 
