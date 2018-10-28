@@ -96,11 +96,12 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
         graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
 
+        graph.getViewport().setMinX(viewModel.getDayOfWeek(1).getTimeInMillis());
+        graph.getViewport().setMaxX(viewModel.getDayOfWeek(7).getTimeInMillis());
+
         // set manual x bounds to have nice steps
         graph.getViewport().setXAxisBoundsManual(true);
 
-        // as we use dates as labels, the human rounding to nice readable numbers
-        // is not necessary
         graph.getGridLabelRenderer().setHumanRounding(false);
     }
 }

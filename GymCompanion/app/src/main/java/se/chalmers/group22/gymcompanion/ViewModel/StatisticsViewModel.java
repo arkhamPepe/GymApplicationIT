@@ -106,6 +106,13 @@ public class StatisticsViewModel extends AbstractObservableViewModel {
         }
     }
 
+    public Calendar getDayOfWeek(int day){
+        Calendar cal = new GregorianCalendar();
+        cal.add(Calendar.WEEK_OF_YEAR, currentWeekOffset);
+        cal.set(Calendar.DAY_OF_WEEK, day);
+        return cal;
+    }
+
     @Override
     public void updateView() {
         updateGraph();
