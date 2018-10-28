@@ -22,6 +22,8 @@ import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
  * Created: October 18, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Add Exercise fragment in the app
+ * Used by: BrowseActivity.java, BrowseAddExerciseFragment.java
+ * Uses: BrowseViewModel.java, BrowseActivity.java, BrowseAddExerciseFragment.java, fragment_browse_add_exercise.xml
  */
 public class BrowseAddExerciseFragment extends Fragment implements ViewModelObserver {
 

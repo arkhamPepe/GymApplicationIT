@@ -23,6 +23,9 @@ import java.util.stream.Collectors;
  * Created: 21 September, 2018
  *
  * Purpose: Class for handling overall User related actions and data.
+ * Used by: GymCompanion.java, GymCompanionTest.java, LocalDataBase.java, MainViewModel.java, User.java,
+ *          UserTest.java, StatisticsCalculator.java
+ * Uses: User.java, Routine.java, StatisticsCalculator.java, Schedule.java, Exercise.java
  */
 
 @Getter
