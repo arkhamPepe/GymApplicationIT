@@ -23,7 +23,7 @@ import java.util.Map;
  *
  * Purpose: Class for calculating statistics and graphs of workout data.
  * Used by: User.java
- * Uses: Schedule.java, Exercise.java, Routine.java
+ * Uses: Schedule.java, Exercise.java
  */
 
 public class StatisticsCalculator implements Serializable {
@@ -36,27 +36,34 @@ public class StatisticsCalculator implements Serializable {
     public Map<Calendar, Double> getGraphDataPoints(int weekOffset){
 
         Map<Calendar, Double> graphMap = new HashMap<>();
-        Calendar today = new GregorianCalendar();
+        Calendar iterableDate = new GregorianCalendar();
         double score;
 
-        for (int i = 6; i >= 0; i--){
+        // Setting up the Calendar object used in loop
+        iterableDate.add(Calendar.WEEK_OF_YEAR, weekOffset);
+        iterableDate.set(Calendar.DAY_OF_WEEK, 1);
+
+        for (int i = 0; i < 7; i++){
             score = 0;
 
-            Calendar cal = new GregorianCalendar();
-            cal.add(Calendar.DAY_OF_YEAR, (i-today.get(Calendar.DAY_OF_WEEK)) + (7 * weekOffset));
-            if(schedule.dateHasRoutine(cal)){
-
-                for (Exercise e : schedule.getRoutineFromDay(cal).getExercises()){
+            // Calculate score
+            if(schedule.dateHasRoutine(iterableDate)){
+                for (Exercise e : schedule.getRoutineFromDay(iterableDate).getExercises()){
                     score += e.calculateScore();
                 }
             }
 
-            graphMap.put(cal, score);
+            // Save score with date
+            Calendar copyIterableDate = new GregorianCalendar();
+            copyIterableDate.set(Calendar.YEAR, iterableDate.get(Calendar.YEAR));
+            copyIterableDate.set(Calendar.DAY_OF_YEAR, iterableDate.get(Calendar.DAY_OF_YEAR));
+            graphMap.put(copyIterableDate, score);
+
+            // Next day in calendar
+            iterableDate.add(Calendar.DAY_OF_YEAR, 1);
         }
 
         return graphMap;
     }
-
-
 
 }

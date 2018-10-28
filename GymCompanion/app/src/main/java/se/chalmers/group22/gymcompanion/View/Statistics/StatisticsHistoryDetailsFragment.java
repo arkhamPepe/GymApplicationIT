@@ -52,8 +52,6 @@ public class StatisticsHistoryDetailsFragment extends Fragment implements ViewMo
         super.onStart();
         viewModel = ((StatisticsActivity)getActivity()).getViewModel();
         viewModel.addObserver(this);
-
-        update();
     }
 
     @Override
@@ -66,18 +64,8 @@ public class StatisticsHistoryDetailsFragment extends Fragment implements ViewMo
         List<String> names = viewModel.getHistoryExerciseNames();
         List<Boolean> performances = viewModel.getHistoryExercisePerformedValues();
 
-        TextView routineName = getActivity().findViewById(R.id.txtHistoryDetailsTitle);
-
         StatisticsHistoryInfoListAdapter adapter = new StatisticsHistoryInfoListAdapter(getActivity(), names, performances);
         ListView exerciseList = getActivity().findViewById(R.id.listviewHistoryDetails);
         exerciseList.setAdapter(adapter);
-
-        /*exerciseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                //((StatisticsActivity)getActivity()).goToHistoryDetails();
-            }
-        });*/
     }
 }

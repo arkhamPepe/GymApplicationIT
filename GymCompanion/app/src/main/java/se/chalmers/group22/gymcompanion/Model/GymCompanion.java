@@ -374,6 +374,10 @@ public class GymCompanion implements ObservableModel {
         return activeExercise.getName();
     }
 
+    public String getActiveRoutineName(){
+        return  activeRoutine.getName();
+    }
+
     public int getAmountOfSetsInActiveExercise(){
         return ((StrengthExercise)activeExercise).getSets();
     }
