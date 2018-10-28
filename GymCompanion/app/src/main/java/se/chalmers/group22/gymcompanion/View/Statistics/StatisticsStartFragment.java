@@ -84,6 +84,7 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
         GraphView graph = getView().findViewById(R.id.start_graph);
         graph.removeAllSeries();
 
+
         DataPoint[] dataPoints = viewModel.getDataPoints(); // Points in graph
 
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
@@ -92,10 +93,12 @@ public class StatisticsStartFragment extends Fragment implements ViewModelObserv
 
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
-        graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 3 because of the space
+        graph.getGridLabelRenderer().setNumHorizontalLabels(1); // only 3 because of the space
 
         // set manual x bounds to have nice steps
-        //graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(dataPoints[0].getX());
+        graph.getViewport().setMaxX(dataPoints[6].getX());
 
         // as we use dates as labels, the human rounding to nice readable numbers
         // is not necessary
