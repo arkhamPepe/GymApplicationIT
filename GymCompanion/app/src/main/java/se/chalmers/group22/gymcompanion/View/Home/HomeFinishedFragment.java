@@ -27,7 +27,7 @@ import java.util.Map;
  *
  * Used by: HomeActivity.java, fragment_home_finished.xml, FragmentFactory.java
  *
- * Uses: HomeViewModel.java, fragment_home_finished.xml
+ * Uses: HomeViewModel.java, fragment_home_finished.xml, HomeActivity.java
  *
  */
 

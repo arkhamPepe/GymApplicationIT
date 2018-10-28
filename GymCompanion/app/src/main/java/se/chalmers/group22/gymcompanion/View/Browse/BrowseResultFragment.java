@@ -24,6 +24,9 @@ import java.util.List;
  * Created: October 18, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Results from a search or filter
+ * Used by: BrowseActivity.java
+ * Uses: BrowseViewModel.java, SearchViewBrowse.java, BrowseMuscleGroupsFragment.java, BrowseActivity.java,
+ * fragment_browse_results.xml
  */
 public class BrowseResultFragment extends Fragment implements ViewModelObserver {
 

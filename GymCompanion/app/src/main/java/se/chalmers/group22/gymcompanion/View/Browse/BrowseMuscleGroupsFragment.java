@@ -21,6 +21,8 @@ import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
  * Created: October 18, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Muscle Groups fragment in the app
+ * Used by: BrowseActivity.java, BrowseMuscleGroupsFragment.java, BrowseResultFragment.java
+ * Uses: BrowseViewModel.java, BrowseMuscleGroupsFragment.java, BrowseActivity.java, fragment_browse_selection.xml
  */
 public class BrowseMuscleGroupsFragment extends Fragment {
 

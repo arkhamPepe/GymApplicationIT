@@ -22,6 +22,8 @@ import java.util.List;
  * Created: October 18, 2018
  *
  * Purpose: Builds the listview for BrowseMuscleGroupsFragment
+ * Used by: BrowseMuscleGroupsFragment.java, MyRoutinesPickMGFragment.java
+ * Uses: listitem_musclegroup.xml
  */
 
 public class BrowseMuscleGroupsListAdapter extends ArrayAdapter {

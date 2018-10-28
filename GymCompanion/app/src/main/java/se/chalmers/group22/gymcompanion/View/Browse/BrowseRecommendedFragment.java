@@ -23,6 +23,8 @@ import se.chalmers.group22.gymcompanion.ViewModel.BrowseViewModel;
  * Created: October 18, 2018
  *
  * Purpose: Fragment connected to a xml displaying the Recommended page in the app
+ * Used by: BrowseActivity.java, BrowseRecommendedFragment.java
+ * Uses: BrowseViewModel.java, BrowseActivity.java, BrowseRecommendedFragment.java, fragment_browse_recommended.xml
  */
 
 

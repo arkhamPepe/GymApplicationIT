@@ -23,6 +23,8 @@ import java.util.List;
  * Created: October 18, 2018
  *
  * Purpose: Adds the list elements to the Browse Result List GUI
+ * Used by: BrowseResultFragment.java, MyRoutinesPickExerciseFragment.java
+ * Uses:    listitem_browse.xml
  */
 
 public class BrowseResultListAdapter extends ArrayAdapter {

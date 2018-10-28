@@ -169,6 +169,6 @@ public class MyRoutinesActivity extends ObserverActivity {
 
     }
     public void onDeleteClickRoutine(View view){
-        viewModel.removeSelectedRoutine((int)view.getTag());
+        //viewModel.removeSelectedRoutine((int)view.getTag());
     }
 }
