@@ -12,7 +12,7 @@ Prerequsites:
 (Most often located at C:\Users\[USER]\AppData\Local\Android\Sdk)
 3. SDK is downloaded with android studio automatically, but you will have to accept licenses
 4. Accepting licences is done by going into C:\Users\[USER]\AppData\Local\Android\Sdk\tools\bin
-and running "sdkmanager --licenses" in cmd and accepting everything  
+and running "sdkmanager --licenses" in cmd and accepting everything<br />
 5.The lombok plugin must be installed. In settings "annotation processing" should be enabled.
 
 Running the application:
